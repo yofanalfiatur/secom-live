@@ -5,10 +5,8 @@ import React from "react";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { useLocale, useTranslations } from "next-intl";
 
-const AmTrusted = ({ translationKey }) => {
-  const t = useTranslations();
+const AmTrusted = ({ dataSection }) => {
   const locale = useLocale();
-  const AlarmTrusted = t.raw(translationKey);
 
   const isDesktop = useIsDesktop();
 
@@ -20,10 +18,10 @@ const AmTrusted = ({ translationKey }) => {
       <div className="container mx-auto px-4 flex flex-col items-center">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-white text-[25px] lg:text-[40px] text-center">
-            {AlarmTrusted.title}
+            {dataSection.title}
           </h2>
           <p className="text-white text-sm lg:text-lg lg:max-w-[53%] text-center mt-2 mb-6 lg:mb-9">
-            {AlarmTrusted.desc}
+            {dataSection.desc}
           </p>
         </div>
 
@@ -36,14 +34,13 @@ const AmTrusted = ({ translationKey }) => {
                 {locale === "en" ? "FEATURE" : "FITUR"}
               </div>
               <div className="text-center py-3 lg:py-[22px] px-0 lg:px-6 flex flex-col lg:flex-row gap-1 lg:gap-3 items-center justify-center w-[30%]">
-                {AlarmTrusted.textSecom && (
+                {dataSection.type !== null ? ( // ✅ Perbaikan: !== bukan !===
                   <p className="text-white text-xs lg:text-xl font-semibold uppercase">
-                    {AlarmTrusted.textSecom}
+                    {dataSection.type}
                   </p>
-                )}
-                {AlarmTrusted.logoSecom && (
+                ) : (
                   <Image
-                    src={AlarmTrusted.logoSecom}
+                    src="/img/secom-logo.png"
                     alt="Secom Logo"
                     width={112}
                     height={28}
@@ -52,7 +49,7 @@ const AmTrusted = ({ translationKey }) => {
                 )}
               </div>
               <div className="text-center py-3 lg:py-[22px] px-1 lg:px-8 text-xs lg:text-xl font-semibold font-raleway w-[30%] uppercase flex flex-col justify-center">
-                {AlarmTrusted.textOther}
+                {dataSection.competitor}
               </div>
             </div>
 
@@ -64,7 +61,7 @@ const AmTrusted = ({ translationKey }) => {
                   : "max-h-[320px] w-full overflow-y-scroll custom-scrollbar"
               }`}
             >
-              {AlarmTrusted.table.map((row, index) => (
+              {dataSection.items.map((row, index) => (
                 <div
                   key={index}
                   className="bg-white border-b-[1px] border-[#0000001A] last:border-0 flex flex-row w-full"
@@ -91,11 +88,11 @@ const AmTrusted = ({ translationKey }) => {
                   <div
                     className={`p-2 lg:py-[18px] lg:px-4 text-center flex w-[30%] items-center justify-center lg:justify-center`}
                   >
-                    {row.other === "available" ? (
+                    {row.other === "Available" ? (
                       <div className="flex items-center justify-center mx-auto">
                         <CheckIcon />
                       </div>
-                    ) : row.other === "unavailable" ? (
+                    ) : row.other === "Unavailable" ? (
                       <div className="flex items-center justify-center mx-auto">
                         <CrossIcon />
                       </div>

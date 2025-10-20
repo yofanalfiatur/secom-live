@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const NewsLanding = () => {
+export default function NewsLanding(props) {
   const ITEMS_PER_PAGE = 5;
 
   const t = useTranslations();
@@ -42,9 +42,9 @@ const NewsLanding = () => {
 
   return (
     <>
-      <section className="flex flex-col relative pt-10 lg:pt-0 overflow-hidden news-lp">
+      <section className="flex flex-col relative pt-10 lg:pt-0 news-lp">
         <div className="container mx-auto flex flex-col lg:flex-row relative">
-          <div className="w-full h-max lg:w-3/12 flex flex-col relative lg:sticky lg:top-[120] lg:pr-10 lg:pt-10 pb-10 lg:pb-20">
+          <div className="w-full h-max lg:w-3/12 flex flex-col relative lg:sticky top-[80px] lg:pr-10 lg:pt-10 pb-10 lg:pb-20 self-start">
             <p className="text-darkblue text-[30px] lg:text-[40px] font-raleway font-normal leading-[1] pb-4 lg:pb-6">
               {locale === "en" ? "Articles" : "Artikel"}
             </p>
@@ -316,6 +316,4 @@ const NewsLanding = () => {
       </section>
     </>
   );
-};
-
-export default NewsLanding;
+}

@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import RadialCardHover from "@/components/Elements/RadialCardHover";
 import RadialGridCard from "@/components/Elements/RadialGridCard";
 
-const CardProduct = ({ item, TypeProduct, variant = "desktop" }) => {
+const CardProduct = ({ item, variant = "desktop" }) => {
   if (variant === "desktop") {
     return (
       <li className="w-[32.5%] relative flex flex-col min-h-[500px] group">

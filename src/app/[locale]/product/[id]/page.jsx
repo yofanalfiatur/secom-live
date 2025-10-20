@@ -68,6 +68,7 @@ export default async function ProductDetail({ params }) {
     desc: translationData.overview_title_section,
     items: translationData.overview_cards,
   };
+
   const protectData = {
     title: translationData.circle_title_section,
     image: translationData.circle_image_desktop,
@@ -75,11 +76,35 @@ export default async function ProductDetail({ params }) {
     items: translationData.circle_cards,
   };
 
+  const productSection = {
+    title: translationData.our_product_title_section,
+    desc: translationData.our_product_description_section,
+  };
+  const productDevices =
+    translationData.devices?.map((device) => {
+      return {
+        id: device.id,
+        title: device.name,
+        image: device.image
+          ? `${process.env.NEXT_PUBLIC_STORAGE_URL}${device.image}`
+          : null,
+        desc: device.pivot?.description?.[locale] || "",
+        position_x: device.pivot?.position_x,
+        position_y: device.pivot?.position_y,
+        link: "#",
+      };
+    }) || [];
+
+  const placementData = {
+    title: translationData.placement_title_section,
+    image: `${process.env.NEXT_PUBLIC_STORAGE_URL}${translationData.placement_image}`,
+  };
+
   const appsData = {
     title: translationData.apps_title_section,
     desc: translationData.apps_description_section,
-    image: null,
-    logo: null,
+    image: translationData.apps_image,
+    logo: translationData.apps_logo,
     hint: translationData.apps_hint_section,
     items: translationData.apps_list,
     playStoreImage: translationData.apps_playstore_image,
@@ -87,15 +112,20 @@ export default async function ProductDetail({ params }) {
     appStoreImage: translationData.apps_appstore_image,
     appStoreURL: translationData.apps_appstore_url,
   };
+
   const featuresData = {
     title: translationData.feature_title_section,
     desc: translationData.feature_description_section,
     items: translationData.feature_table,
+    type: null,
+    competitor: locale === "en" ? "Other Company" : "Perusahaan Lain",
   };
-  const packagesSection = {};
-  const terms = {
+  const packagesSection = {
+    title: translationData.package_title_section,
+    desc: translationData.package_description_section,
     terms: translationData.terms,
   };
+  const packagesData = translationData.packages;
 
   return (
     <>
@@ -120,26 +150,24 @@ export default async function ProductDetail({ params }) {
 
           <AmProtect dataSection={protectData} />
 
-          {/* <AmProducts
-            translationKey="AlarmProduct"
-            listProducts="ProductDetails"
-            typeProduct="business"
-          /> */}
-          {/* <AmPlacement
-            translationKey="AlarmCorners"
-            listProducts="ProductDetails"
-            pinPlacement="pinBusiness"
-          /> */}
+          <AmProducts
+            dataSection={productSection}
+            dataProducts={productDevices}
+          />
+          <AmPlacement
+            dataSection={placementData}
+            dataProducts={productDevices}
+          />
 
           <AmApps dataSection={appsData} />
-          <AmTrusted translationKey="AlarmTrusted" />
-          {/* <AmPackage
+          <AmTrusted translationKey="AlarmTrusted" dataSection={featuresData} />
+          <AmPackage
             translationKey="AlarmPackage"
             differences="AlarmDifferences"
             listPackages="BusinessPackages"
             packagesBuy="BusinessPackagesBuy"
             packagesRent="BusinessPackagesRent"
-          /> */}
+          />
           <AmFAQ dataSection={faqData} />
           <FloatButton />
         </>
