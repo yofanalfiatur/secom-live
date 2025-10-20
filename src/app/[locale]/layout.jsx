@@ -49,9 +49,9 @@ export default async function LocaleLayout({ children, params }) {
 
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ProgressBar />
-          <Header />
+          <Header params={params} />
           <main>{children}</main>
-          <Footer />
+          <Footer params={params} />
         </NextIntlClientProvider>
       </body>
     </html>

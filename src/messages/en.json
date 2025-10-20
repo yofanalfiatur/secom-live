@@ -23,27 +23,17 @@
     {
       "icon": "/img/menu-type-1.svg",
       "text": "Business",
-      "href": "",
-      "subMenu": [
-        {
-          "subMenuText": "SECOM Smart Security",
-          "subMenuHref": "/alarm"
-        }
-      ]
+      "href": "business",
+      "subMenu": ""
     },
     {
       "icon": "/img/menu-type-2.svg",
       "text": "Residential",
-      "href": "",
-
+      "href": "/residential",
       "subMenu": [
         {
-          "subMenuText": "Overview",
-          "subMenuHref": "/"
-        },
-        {
-          "subMenuText": "Solution",
-          "subMenuHref": "/solutions"
+          "subMenuText": "Residential Solution",
+          "subMenuHref": "/product/residential-solutions"
         }
       ]
     }
@@ -55,61 +45,62 @@
     },
     {
       "text": "About",
-      "href": "/about",
+      "href": "#",
       "subMenu": [
         {
-          "subMenuText": "Alarm",
-          "subMenuHref": "/alarm"
+          "subMenuText": "Secom Indonesia",
+          "subMenuHref": "/about"
         },
         {
-          "subMenuText": "Our Team",
-          "subMenuHref": "/about/our-team"
-        },
-        {
-          "subMenuText": "Our Partners",
-          "subMenuHref": "/about/our-partners"
-        },
-        {
-          "subMenuText": "Thank You",
-          "subMenuHref": "/thankyou"
-        },
-        {
-          "subMenuText": "Error Page 404",
-          "subMenuHref": "/error"
+          "subMenuText": "Secom Worldwide",
+          "subMenuHref": "/about-world"
         }
       ]
     },
     {
       "text": "Articles",
-      "href": "/articles"
+      "href": "/news"
     }
   ],
   "MenuHeaderMd": [
     {
+      "text": "Home",
+      "href": "/",
+      "icon": "",
+      "subMenu": ""
+    },
+    {
       "text": "Business",
       "href": "/#",
       "icon": "/img/menu-type-1.svg",
+      "subMenu": ""
+    },
+    {
+      "text": "Residential",
+      "href": "/#",
+      "icon": "/img/menu-type-2.svg",
+      "subMenu": ""
+    },
+    {
+      "text": "About",
+      "href": "#",
+      "icon": "",
       "subMenu": [
         {
-          "subMenuText": "SECOM Smart Security",
-          "subMenuHref": "/alarm"
+          "subMenuText": "Secom Indonesia",
+          "subMenuHref": "/about"
+        },
+        {
+          "subMenuText": "Secom Worldwide",
+          "subMenuHref": "/about-world"
         }
       ]
     },
     {
-      "text": "Residential",
-      "href": "/",
-      "icon": "/img/menu-type-2.svg",
-      "subMenu": [
-        {
-          "subMenuText": "Residential Overview",
-          "subMenuHref": "/"
-        },
-        {
-          "subMenuText": "Solution",
-          "subMenuHref": "/solutions"
-        }
-      ]
+      "text": "Articles",
+      "href": "/articles",
+      "icon": "",
+      "subMenu": ""
     }
   ],
   "HeaderButton": {
@@ -147,12 +138,29 @@
   },
   "FooterMenu": [
     {
-      "FtMenuText": "Residential",
-      "FtMenuLink": "/solutions"
+      "FtMenuText": "SECOM For Home",
+      "FtMenuLink": "/residential"
     },
     {
-      "FtMenuText": "Business",
-      "FtMenuLink": "/alarm"
+      "FtMenuText": "SECOM for Business",
+      "FtMenuLink": "/solution"
+    },
+    {
+      "FtMenuText": "About",
+      "FtMenuLink": "/about"
+    },
+    {
+      "FtMenuText": "Blog",
+      "FtMenuLink": "/blog"
+    },
+    {
+      "FtMenuText": "Career",
+      "FtMenuLink": "/career"
+    },
+
+    {
+      "FtMenuText": "FAQ",
+      "FtMenuLink": "/faq"
     }
   ],
   "FooterSocMed": {

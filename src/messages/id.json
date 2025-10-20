@@ -28,7 +28,12 @@
       "icon": "/img/menu-type-2.svg",
       "text": "Residensial",
       "href": "/residential",
-      "subMenu": ""
+      "subMenu": [
+        {
+          "subMenuText": "Residential Solution",
+          "subMenuHref": "/product/residential-solutions"
+        }
+      ]
     }
   ],
   "MenuHeader": [
@@ -51,7 +56,7 @@
       ]
     },
     {
-      "text": "Articles",
+      "text": "Artikel",
       "href": "/news"
     }
   ],
@@ -90,7 +95,7 @@
       ]
     },
     {
-      "text": "Articles",
+      "text": "Artikel",
       "href": "/articles",
       "icon": "",
       "subMenu": ""
@@ -131,12 +136,29 @@
   },
   "FooterMenu": [
     {
-      "FtMenuText": "Residensial",
-      "FtMenuLink": "/solutions"
+      "FtMenuText": "SECOM For Home",
+      "FtMenuLink": "/residential"
     },
     {
-      "FtMenuText": "Bisnis",
-      "FtMenuLink": "/alarm"
+      "FtMenuText": "SECOM for Business",
+      "FtMenuLink": "/solution"
+    },
+    {
+      "FtMenuText": "Tentang Kami",
+      "FtMenuLink": "/about"
+    },
+    {
+      "FtMenuText": "Blog",
+      "FtMenuLink": "/blog"
+    },
+    {
+      "FtMenuText": "Karir",
+      "FtMenuLink": "/career"
+    },
+
+    {
+      "FtMenuText": "FAQ",
+      "FtMenuLink": "/faq"
     }
   ],
   "FooterSocMed": {

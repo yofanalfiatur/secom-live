@@ -32,10 +32,19 @@ export default async function SectorDetailPage({ params }) {
     title: translationData.challenges_title_section,
     items: translationData.challenges,
   };
+
+  const products =
+    translationData.products?.map((item) => ({
+      title: item.title,
+      description: item.description,
+      image: item.image,
+      url: `/solution/?${id}`, // pakai slug sector yang aktif
+    })) || [];
+
   const cardSection = {
     title: translationData.build_title_section,
     desc: translationData.build_description_section,
-    items: null,
+    items: products,
     ctaTitle: translationData.cta_text,
     ctaImage: translationData.cta_image,
     ctaLabel: translationData.cta_button_label,
