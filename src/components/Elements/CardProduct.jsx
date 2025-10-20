@@ -11,11 +11,8 @@ const CardProduct = ({ item, TypeProduct, variant = "desktop" }) => {
       <li className="w-[32.5%] relative flex flex-col min-h-[500px] group">
         <Link
           href={item.link}
-          //temp
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-          className="flex flex-col h-full bg-[#012146] pt-12 pb-6 px-8 m-1 relative z-[1] group !cursor-default card-product-desktop"
+          target="_self"
+          className="flex flex-col h-full bg-[#012146] pt-12 pb-6 px-8 m-1 relative z-[1] group card-product-desktop"
         >
           <RadialCardHover
             dotSize="1px"
@@ -23,16 +20,12 @@ const CardProduct = ({ item, TypeProduct, variant = "desktop" }) => {
             opacity={0.2}
             hoverRadius={300}
           />
-          <div className="flex flex-col items-center pointer-events-none relative z-10">
+          <div className="flex flex-col items-center  pointer-events-none relative !cursor-pointer z-10">
             <p className="text-white text-[25px] font-raleway text-center">
               {item.title}
             </p>
             <p className="text-white text-center mt-2 mb-10 w-[80%] min-h-[80px]">
-              {TypeProduct === "home" ? (
-                <>{item.subtitleHome}</>
-              ) : (
-                <>{item.subtitleBusiness}</>
-              )}
+              {item.desc}
             </p>
             <Image
               src={item.image}
@@ -55,22 +48,15 @@ const CardProduct = ({ item, TypeProduct, variant = "desktop" }) => {
       <RadialGridCard />
       <Link
         href={item.link}
-        //temp
-        onClick={(e) => {
-          e.preventDefault();
-        }}
-        className="flex flex-col h-full relative z-[1] !cursor-default group "
+        target="_self"
+        className="flex flex-col h-full relative z-[1] group "
       >
         <div className="flex flex-col items-center relative z-10">
           <p className="text-white font-raleway text-center font-medium">
             {item.title}
           </p>
           <p className="text-white text-center mt-1 mb-8 w-[80%] text-sm">
-            {TypeProduct === "home" ? (
-              <>{item.subtitleHome}</>
-            ) : (
-              <>{item.subtitleBusiness}</>
-            )}
+            {item.desc}
           </p>
           <Image
             src={item.image}

@@ -8,9 +8,9 @@ import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import CardProduct from "@/components/Elements/CardProduct";
 
 const SolProduct = (props) => {
-  const { dataSection, listProducts } = props;
-  const t = useTranslations();
-  const ProductDetails = t.raw(listProducts);
+  const { dataSection, listProducts, listFilterSector } = props;
+  // const t = useTranslations();
+  // const listProducts = t.raw(listProducts);
   const isDesktop = useIsDesktop();
   const locale = useLocale();
 
@@ -32,13 +32,18 @@ const SolProduct = (props) => {
             </p>
             <div className="flex flex-col relative mb-5 lg:mb-0">
               <select
-                name=""
-                id=""
-                className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none"
+                name="dropdown-filter-sector"
+                id="dropdown-filter-sector"
+                className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer"
               >
                 <option value="">
                   {locale === "en" ? "All Industries" : "Semua Industri"}
                 </option>
+                {listFilterSector.map((item, index) => (
+                  <option key={index} value={item.link}>
+                    {item.title}
+                  </option>
+                ))}
               </select>
               <svg
                 width="23"
@@ -61,7 +66,7 @@ const SolProduct = (props) => {
         {isDesktop ? (
           <div className="w-full flex flex-col am-products__grid">
             <ul className="flex flex-row flex-wrap justify-center gap-4">
-              {ProductDetails.map((item, index) => (
+              {listProducts.map((item, index) => (
                 <CardProduct key={index} item={item} variant="desktop" />
               ))}
             </ul>
@@ -83,7 +88,7 @@ const SolProduct = (props) => {
               className="[&_.splide__track]:!overflow-visible w-full"
             >
               <SplideTrack>
-                {ProductDetails.map((item, index) => (
+                {listProducts.map((item, index) => (
                   <SplideSlide key={index}>
                     <CardProduct item={item} variant="mobile" />
                   </SplideSlide>

@@ -38,7 +38,7 @@ export default async function SectorDetailPage({ params }) {
       title: item.title,
       description: item.description,
       image: item.image,
-      url: `/solution/?${id}`, // pakai slug sector yang aktif
+      url: `/solution?${id}`, // pakai slug sector yang aktif
     })) || [];
 
   const cardSection = {
