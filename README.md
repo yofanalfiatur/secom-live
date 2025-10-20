@@ -1,4 +1,4 @@
-# SECOM PHASE 2
+# secom-fe
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/stucel/secom-phase-2.git
+git remote add origin https://gitlab.com/stucel/secom-fe.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/stucel/secom-phase-2/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.com/stucel/secom-fe/-/settings/integrations)
 
 ## Collaborate with your team
 

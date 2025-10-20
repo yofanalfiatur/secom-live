@@ -1,0 +1,3099 @@
+{
+  "HomePage": {
+    "title": "Hallo Halo",
+    "description": "test deskripsi indoo ceunah"
+  },
+  "promoFloat": {
+    "text": "25% Off for your first step in Smart Security Solutions",
+    "btn": {
+      "text": "View Details",
+      "href": "/#res-prom",
+      "target": "_self"
+    }
+  },
+  "floatChat": {
+    "email": "csc@secom.co.id",
+    "whatsapp": "https://api.whatsapp.com/send?phone=+62817117326&text=Hai,%20ada%20yang%20ingin%20saya%20tanyakan"
+  },
+
+  "langIdentifier": "Indonesian",
+  "MenuType": [
+    {
+      "icon": "/img/menu-type-1.svg",
+      "text": "Bisnis",
+      "href": "business",
+      "subMenu": ""
+    },
+    {
+      "icon": "/img/menu-type-2.svg",
+      "text": "Residensial",
+      "href": "/residential",
+      "subMenu": ""
+    }
+  ],
+  "MenuHeader": [
+    {
+      "text": "Beranda",
+      "href": "/"
+    },
+    {
+      "text": "Tentang",
+      "href": "#",
+      "subMenu": [
+        {
+          "subMenuText": "Secom Indonesia",
+          "subMenuHref": "/about"
+        },
+        {
+          "subMenuText": "Secom Worldwide",
+          "subMenuHref": "/about-world"
+        }
+      ]
+    },
+    {
+      "text": "Articles",
+      "href": "/news"
+    }
+  ],
+  "MenuHeaderMd": [
+    {
+      "text": "Beranda",
+      "href": "/",
+      "icon": "",
+      "subMenu": ""
+    },
+    {
+      "text": "Bisnis",
+      "href": "/#",
+      "icon": "/img/menu-type-1.svg",
+      "subMenu": ""
+    },
+    {
+      "text": "Residensial",
+      "href": "/#",
+      "icon": "/img/menu-type-2.svg",
+      "subMenu": ""
+    },
+    {
+      "text": "Tentang",
+      "href": "#",
+      "icon": "",
+      "subMenu": [
+        {
+          "subMenuText": "Secom Indonesia",
+          "subMenuHref": "/about"
+        },
+        {
+          "subMenuText": "Secom Worldwide",
+          "subMenuHref": "/about-world"
+        }
+      ]
+    },
+    {
+      "text": "Articles",
+      "href": "/articles",
+      "icon": "",
+      "subMenu": ""
+    }
+  ],
+  "HeaderButton": {
+    "HeaderBtnText": "Konsultasi Gratis",
+    "HeaderBtnHref": "/contact",
+    "HeaderBtnTarget": "_self"
+  },
+  "HTop": {
+    "language": [
+      {
+        "text": "EN",
+        "href": "/",
+        "icon": "/img/flag-en.svg"
+      },
+      {
+        "text": "ID",
+        "href": "/id",
+        "icon": "/img/flag-id.svg"
+      }
+    ],
+    "login": {
+      "text": "SMART SECURITY LOGIN",
+      "href": "/login",
+      "target": "_self"
+    }
+  },
+  "FooterContent": {
+    "FtTitle": "Mulai Lindungi yang Berharga",
+    "FtDescription": "Bersama SECOM, Anda mendapatkan lebih dari sekadar keamanan, tetapi juga ketenangan. Lindungi yang paling berharga mulai hari ini.",
+    "FtButtonText": "Konsultasi Gratis",
+    "FtButtonHref": "/contact",
+    "FtButtonTarget": "_self",
+    "FtAddressText": "Mangkuluhur City Tower 1, 8th Floor,<br>Jl. Jend. Gatot Subroto Kav. 1-3, Jakarta Selatan 12930",
+    "FtAddressLink": "https://maps.app.goo.gl/Y1LmPSzjERcqKfDw9"
+  },
+  "FooterMenu": [
+    {
+      "FtMenuText": "Residensial",
+      "FtMenuLink": "/solutions"
+    },
+    {
+      "FtMenuText": "Bisnis",
+      "FtMenuLink": "/alarm"
+    }
+  ],
+  "FooterSocMed": {
+    "FtFacebook": "https://www.facebook.com/secomindonesia",
+    "FtLinkedin": "https://www.linkedin.com/company/secomindonesia/",
+    "FtInstagram": "https://www.instagram.com/secomindonesia/",
+    "FtYoutube": "https://www.youtube.com/@secom.indonesia",
+    "FtTiktok": "https://www.tiktok.com/@secomindonesia"
+  },
+  "FooterDropdown": [
+    {
+      "text": "Japan",
+      "href": "https://www.secom.co.jp/english/"
+    },
+    {
+      "text": "Korea",
+      "href": "https://www.s1.co.kr/en"
+    },
+    {
+      "text": "China",
+      "href": "https://www.secom.cn/"
+    },
+    {
+      "text": "Taiwan",
+      "href": "https://www.secom.com.tw/"
+    },
+    {
+      "text": "Thailand",
+      "href": "https://www.secom.co.th/en/"
+    },
+    {
+      "text": "Vietnam",
+      "href": "https://www.secom.vn/en/"
+    },
+    {
+      "text": "Malaysia",
+      "href": "https://www.secom.com.my/"
+    },
+    {
+      "text": "Singapore",
+      "href": "https://www.secom.com.sg/"
+    },
+    {
+      "text": "Indonesia",
+      "href": "https://secom.co.id/"
+    },
+    {
+      "text": "Australia",
+      "href": "https://secom.com.au/"
+    },
+    {
+      "text": "New Zealand",
+      "href": "https://secom.co.nz/"
+    },
+    {
+      "text": "United Kingdom",
+      "href": "https://www.secom.plc.uk/"
+    },
+    {
+      "text": "Turkey",
+      "href": "https://secomtr.com/"
+    }
+  ],
+  "ReBanner": {
+    "title": "Semua Anggota Keluarga Anda,<br>Layak Merasa Aman",
+    "photo": "/img/temp/residential/front-upscale-min.png",
+    "background": "/img/temp/h-banner-bg.jpg",
+    "bgImage": "/img/temp/residential/Residence LP Hero ID.jpg",
+    "bgImageMd": "/img/temp/residential/Residence LP Hero ID Mobile.jpg",
+    "items": [
+      {
+        "text": "Jika saya meninggalkan makanan terlalu lama di pemanas, detektor asap akan memberi peringatan.",
+        "top": "45%",
+        "bottom": "",
+        "left": "",
+        "right": "67%",
+        "zIndex": "1",
+        "maxWidth": "340px",
+        "icon": "/img/temp/h-banner-ibu.png"
+      },
+      {
+        "text": "Jika ada seseorang yang mengetuk pintu, saya tidak perlu takut lagi.",
+        "top": "",
+        "bottom": "53%",
+        "left": "40.3%",
+        "right": "",
+        "zIndex": "1",
+        "maxWidth": "190px",
+        "icon": "/img/temp/h-banner-anak.png"
+      },
+      {
+        "text": "Jika saya di rumah sendirian, saya tahu bahwa bantuan cukup satu tombol saja.",
+        "top": "33%",
+        "bottom": "",
+        "left": "57%",
+        "right": "",
+        "zIndex": "1",
+        "maxWidth": "314px",
+        "icon": "/img/temp/h-banner-nenek.png"
+      },
+      {
+        "text": "Jika ada seseorang yang coba masuk, saya tahu keluarga dan rumah saya tetap terlindungi.",
+        "top": "48%",
+        "bottom": "",
+        "left": "70.5%",
+        "right": "",
+        "zIndex": "1",
+        "maxWidth": "314px",
+        "icon": "/img/temp/h-banner-bapak.png"
+      }
+    ]
+  },
+  "ReSurvey": {
+    "title": "Apakah Rumah Saya Aman?",
+    "desc": "Jawab 3 pertanyaan singkat ini untuk temukan solusi dari kami",
+    "descResult": "Berikut Hasil Survei Keamanan Anda",
+
+    "survey": [
+      {
+        "question": "Seberapa sering rumah Anda ditinggal kosong?",
+        "options": [
+          {
+            "text": "Hampir setiap hari",
+            "value": "a"
+          },
+          {
+            "text": "Beberapa jam saja setiap harinya",
+            "value": "b"
+          }
+        ]
+      },
+      {
+        "question": "Apakah Anda tinggal bersama anak-anak, orang lanjut usia, atau anggota keluarga dengan kebutuhan khusus?",
+        "options": [
+          {
+            "text": "Ya",
+            "value": "a"
+          },
+          {
+            "text": "Tidak",
+            "value": "b"
+          }
+        ]
+      },
+      {
+        "question": "Sistem keamanan apa yang saat ini sudah terpasang di rumah Anda?",
+        "options": [
+          {
+            "text": "Belum ada",
+            "value": "a"
+          },
+          {
+            "text": "CCTV yang dipasang sendiri",
+            "value": "b"
+          }
+        ]
+      }
+    ],
+    "result": [
+      {
+        "icon": "/img/survey-h-risk.png",
+        "title": "Risiko Tinggi",
+        "subtitle": "Rumah Anda dalam Risiko Tinggi!",
+        "desc": "Perlindungan saat ini belum cukup. Temukan sistem keamanan yang memberi rasa aman bagi keluarga Anda.",
+        "btn": {
+          "text": "Temukan Solusinya",
+          "href": "/solutions/",
+          "target": "_self"
+        }
+      },
+      {
+        "icon": "/img/survey-m-risk.png",
+        "title": "RISIKO SEDANG",
+        "subtitle": "Rumah Anda Mungkin dalam Risiko!",
+        "desc": "Keamanan rumah Anda belum maksimal. Cari tahu apa yang kurang dan bagaimana SECOM bisa membantu.",
+        "btn": {
+          "text": "Temukan Solusinya",
+          "href": "/solutions/",
+          "target": "_self"
+        }
+      }
+    ],
+    "resultCombinations": {
+      "high": ["a-a-a", "a-b-a", "b-a-a"],
+      "moderate": ["a-a-b", "a-b-b", "b-a-b", "b-b-a", "b-b-b"]
+    }
+  },
+  "ReAbout": {
+    "title": "Bagaimana SECOM Melindungi Anda?",
+    "desc": "Kami hadir dengan teknologi dan respons untuk melindungi yang paling berarti bagi Anda.",
+    "photo": "/img/temp/residential/Residence-How-SECOM-Protects-You.jpg",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "title": "Deteksi intrusi, kebakaran, atau aktivitas mencurigakan."
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Control Center.svg",
+        "title": "Kami hanya memantau saat darurat, menjaga privasi Anda."
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "Tim respons fisik segera turun ke lokasi."
+      }
+    ],
+    "btnAbout": {
+      "text": "Learn More",
+      "href": "/about",
+      "target": "_self"
+    }
+  },
+  "ReSolution": {
+    "hint": "Solusi Kami",
+    "title": "Lindungi Setiap Sudut Rumah Anda",
+    "desc": "Setiap ruangan memiliki risiko yang berbeda. SECOM membantu Anda memberikan perlindungan yang tepat di tempat yang tepat.",
+    "itemSlider": [
+      {
+        "photo": "/img/temp/residential/Residence Solution Landing Page 1.jpg",
+        "title": "Smart Video Camera - Luar Ruangan",
+        "desc": "Pantau gerbang, garasi, dan halaman Anda dengan deteksi pintar dan audio dua arah."
+      },
+      {
+        "photo": "/img/temp/residential/Residence Solution Landing Page 2.jpg",
+        "title": "PIR Camera Indoor - Ruang Tamu",
+        "desc": "Awasi area utama rumah Anda dengan perlindungan sensor gerak yang andal."
+      },
+      {
+        "photo": "/img/temp/residential/Residence Solution Landing Page 3.jpg",
+        "title": "Door Contact - Jendela",
+        "desc": "Lindungi jendela dari upaya masuk tanpa suara dengan sensor magnetik pintar."
+      },
+      {
+        "photo": "/img/temp/residential/Residence Solution Landing Page 4.jpg",
+        "title": "Smoke Detector - Dapur Bersih",
+        "desc": "Bahkan di dapur, kecelakaan bisa saja terjadi. Tetap waspada dengan detektor asap."
+      }
+    ],
+    "btnSolution": {
+      "text": "Selengkapnya",
+      "href": "/solutions",
+      "target": "_self"
+    }
+  },
+  "ReQuote": [
+    {
+      "thumb": "/img/temp/quote-thumb.jpg",
+      "linkVideo": "https://youtu.be/euM9kW0ZRWg",
+      "text": "Bukan soal sistem keamanan yang memadai saja, yang saya cari juga rasa tenang. SECOM kasih keduanya."
+    }
+  ],
+  "ReTestimonial": {
+    "title": "Mereka Memilih SECOM. Ini Alasannya",
+    "desc": "",
+    "items": [
+      {
+        "testimony": "Saat saya dan istri di kantor, anak-anak di rumah bersama pengasuh. Dengan SECOM, saya bisa memantau kapan saja, jadi tetap tenang dan merasa dekat dengan keluarga.",
+        "name": "Andi Widjaja",
+        "location": "Jakarta"
+      },
+      {
+        "testimony": "Orang tua saya sering sendirian di rumah, dan usia mereka sudah lanjut. Adanya panic button bikin saya lebih tenang ,mereka bisa langsung dapat bantuan kalau ada apa-apa.",
+        "name": "Tania Gunawan",
+        "location": "Tangerang"
+      },
+      {
+        "testimony": "Sering ada paket datang saat rumah kosong. Dengan SECOM, saya bisa memantau siapa pun yang datang dan memastikan semuanya aman dan terekam.",
+        "name": "Teguh Santoso",
+        "location": "Bandung"
+      },
+      {
+        "testimony": "Kami baru pindah ke rumah pertama, dan saya ingin memastikan semuanya aman untuk keluarga. SECOM bantu kami pilih sistem keamanan yang pas, cepat, simpel, dan sekarang kami jauh lebih tenang.",
+        "name": "Rudi Adinata",
+        "location": "Karawang"
+      },
+      {
+        "testimony": "Dulu kami selalu khawatir saat ninggalin rumah, bahkan cuma sebentar. Sejak pasang sistem SECOM, rasa cemas itu hilang. Bukan karena takut, tapi karena tahu rumah kami dijaga.",
+        "name": "Dimas Hadi",
+        "location": "Surabaya"
+      }
+    ]
+  },
+  "RePromotion": {
+    "hint": "Promotion",
+    "title": "Lindungi Yang Paling Berarti, Mulai dari Rumah Anda",
+    "desc": "Bersama SECOM, Anda mendapatkan lebih dari sekadar keamanan, yaitu termasuk ketenangan. Lindungi yang paling berharga, mulai hari ini.",
+    "image": "/img/temp/h-promotion.jpg",
+    "btnPromotion": {
+      "text": "Konsultasi Gratis",
+      "href": "/contact",
+      "target": "_self"
+    }
+  },
+  "ContactPage": {
+    "title": "Konsultasi Gratis Sekarang.",
+    "desc": "Kami akan menganalisis kebutuhan spesifik Anda dan merekomendasikan solusi yang paling tepat secara akurat dan efisien.",
+    "photo": "/img/temp/Free Consultation.jpg",
+    "photoMd": "/img/temp/Free Consultation Mobile.jpg"
+  },
+  "FormValue": {
+    "LabelInput": {
+      "name": "NAMA LENGKAP",
+      "email": "ALAMAT EMAIL",
+      "phone": "NO TELEPON",
+      "location": "TIPE LOKASI",
+      "company": "NAMA PERUSAHAAN",
+      "howDidYouKnow": "DARI MANA ANDA MENGETAHUI SECOM?",
+      "message": "PESAN"
+    },
+    "locationType": [
+      {
+        "value": "",
+        "label": ""
+      },
+      {
+        "value": "residential",
+        "label": "Residensial (Home)"
+      },
+      {
+        "value": "business",
+        "label": "Bisnis"
+      }
+    ],
+    "howDidYouKnow": [
+      {
+        "value": "",
+        "label": ""
+      },
+      {
+        "value": "Google",
+        "label": "Google"
+      },
+      {
+        "value": "Media Sosial",
+        "label": "Media Sosial (IG, FB, Tiktok, Youtube, LinkedIn)"
+      },
+      {
+        "value": "Artikel Berita",
+        "label": "Artikel Berita"
+      },
+      {
+        "value": "Brosur",
+        "label": "Brosur"
+      },
+      {
+        "value": "Rekomendasi",
+        "label": "Rekomendasi Teman/Keluarga/Kerabat"
+      },
+      {
+        "value": "Lainnya",
+        "label": "Lainnya"
+      }
+    ],
+    "textBtnSend": "Kirim Pesan",
+    "textBtnSuccess": "Terkirim"
+  },
+  "ThankYouPage": {
+    "title": "Terima kasih",
+    "title2": "atas permintaan Anda!",
+    "desc": "Konsultan profesional SECOM akan segera menghubungi Anda untuk memahami kebutuhan Anda dan memberikan rekomendasi terbaik.",
+    "logo": "/img/logo-thankyou.svg",
+    "buttonCTA": {
+      "text": "Kembali ke Beranda",
+      "href": "/",
+      "target": "_self"
+    }
+  },
+  "ErrorPage": {
+    "title": "Halaman tidak ditemukan.",
+    "description": "Maaf, halaman yang Anda cari tidak tersedia atau sudah dipindahkan.",
+    "buttonCTA": {
+      "text": "Kembali ke Beranda",
+      "href": "/",
+      "target": "_self"
+    }
+  },
+  "LoginDummy": {
+    "title": "Masuk ke Akun Anda"
+  },
+
+  "SolBanner": {
+    "title": "Keamanan yang Dapat Diandalkan, <b>Untuk Semua Keluarga</b>",
+    "background": "/img/temp/solutions/sol-bg-high.jpg",
+    "backgroundMd": "/img/temp/solutions/sol-bg-high.jpg"
+  },
+
+  "SolOverview": {
+    "desc": "<b>Rumah Anda adalah awal dari segalanya</b>. Tempat anak tumbuh, kenangan tercipta, dan rasa aman yang seharusnya tak pernah diragukan. <b>SECOM hadir dengan solusi keamanan</b> yang kami sesuaikan untuk setiap keluarga, agar Anda merasa tenang dan yakin, <b>rumah selalu terlindungi.</b>",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "title": "Sistem Keamanan Terintegrasi"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Control Center.svg",
+        "title": "Pemantauan 24/7"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "Tim Respon Fisik Terlatih"
+      }
+    ]
+  },
+  "SolReason": {
+    "title": "Bagaimana SECOM Bekerja?",
+    "items": [
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-1.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-1.jpg",
+        "title": "Mulai dari Mendengarkan",
+        "desc": "Tim SECOM akan menilai kondisi rumah Anda dan merekomendasikan solusi yang sesuai dengan kebutuhan serta gaya hidup Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-2.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-2.jpg",
+        "title": "Desain Cerdas & Menyeluruh",
+        "desc": "Kami merencanakan dengan cermat penempatan setiap sensor dan kamera, untuk memastikan setiap sudut rumah Anda terlindungi."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-3.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-3.jpg",
+        "title": "Pemasangan Anti Ribet",
+        "desc": "Tim teknisi kami memasang sistem dengan cepat, rapi, dan tanpa mengganggu kenyamanan rumah Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-4.jpeg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-4.jpg",
+        "title": "Selalu Siaga",
+        "desc": "Sistem Anda terhubung langsung ke Control Center SECOM, siap merespons keadaan darurat kapan pun dibutuhkan."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-5.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-5.jpg",
+        "title": "Perlindungan Tahan Lama",
+        "desc": "Kami menyediakan pengecekan dan perawatan rutin agar sistem Anda tetap andal, tahun demi tahun."
+      }
+    ]
+  },
+  "SolProtect": {
+    "title": "Perlindungan Menyeluruh untuk Keamanan Anda",
+    "desc": "",
+    "image": "/img/temp/residential/Circle of Service RES ID.png",
+    "imageMobile": "/img/temp/residential/Circle of Service RES ID Mobile.png",
+    "items": [
+      {
+        "title": "Deteksi Darurat",
+        "desc": "Sensor kami mendeteksi aktivitas yang tidak biasa dan langsung mengirim sinyal ke sistem <i>cloud</i>."
+      },
+      {
+        "title": "Tim Pemantauan SECOM",
+        "desc": "Sistem <i>cloud</i> mengirimkan peringatan ke Anda dan Pusat Kontrol SECOM 24/7. Tim kami menghubungi Anda dan segera menugaskan tim respons ke lokasi Anda.<br><b>*Jika diperlukan, SECOM menghubungi pihak kepolisian atau pemadam kebakaran.</b>"
+      },
+      {
+        "title": "Tim Respon Fisik SECOM",
+        "desc": "Jika ancaman terkonfirmasi, SECOM mengirim tim respons untuk memeriksa properti dan memberi laporan langsung."
+      }
+    ],
+    "btnCTA": {
+      "text": "Konsultasi Sekarang",
+      "href": "/contact/?location=residential",
+      "target": "_self"
+    }
+  },
+  "SolProduct": {
+    "title": "Ketenangan Anda Dimulai dari Sistem Keamanan yang Tepat",
+    "desc": "Jelajahi berbagai produk keamanan pintar dari SECOM yang dirancang untuk menjaga rumah dan keluarga Anda. Kapan saja, di mana saja."
+  },
+  "SolCorners": {
+    "title": "Setiap Ruangan. Setiap Akses. Terlindungi Sepenuhnya.",
+    "desc": "",
+    "image": "/img/temp/residential/Product-Placement-Home.jpg"
+  },
+  "SolApps": {
+    "title": "Selalu Terhubung.<br>Selalu Terlindungi",
+    "desc": "Kendalikan keamanan bisnis Anda kapan saja, di mana saja lewat aplikasi SECOM Smart Security. Data tetap aman*",
+    "descBottom": "*Rekaman hanya diakses saat darurat terverifikasi untuk memastikan keselamatan Anda.",
+    "image": "/img/temp/mockup-app-new.png",
+    "logo": "/img/temp/logo-secom-red.png",
+    "items": [
+      {
+        "title": "Video Real-Time",
+        "desc": "Lihat rekaman langsung dari rumah Anda kapan saja, di mana saja.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Video Real Time.svg"
+      },
+      {
+        "title": "Aktif & Non-Aktif",
+        "desc": "Aktifkan atau nonaktifkan sistem alarm dengan sekali sentuhan.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Active Non Active.svg"
+      },
+      {
+        "title": "Notifikasi Langsung",
+        "desc": "Dapatkan peringatan langsung saat ada kejadian di rumah.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Instan Notif.svg"
+      },
+      {
+        "title": "Riwayat Aktivitas",
+        "desc": "Lihat apa yang terjadi dan kapan. Semua tercatat demi ketenangan Anda.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Log.svg"
+      },
+      {
+        "title": "Kelola Banyak Rumah",
+        "desc": "Pantau dan kendalikan lebih dari satu lokasi melalui satu aplikasi.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Banyak Rumah.svg"
+      },
+      {
+        "title": "Laporan Aktivitas",
+        "desc": "Lihat ringkasan aktivitas harian dengan laporan yang mudah dipahami.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Report.svg"
+      }
+    ],
+    "download": [
+      {
+        "link": "https://play.google.com/store/apps/details?id=jp.co.secom.secomalarm",
+        "image": "/img/temp/googleplay.svg"
+      },
+      {
+        "link": "https://apps.apple.com/id/app/secom-smart-security/id1522939072",
+        "image": "/img/temp/appstore.svg"
+      }
+    ]
+  },
+  "SolTrusted": {
+    "title": "Mengapa SECOM Lebih dari CCTV",
+    "desc": "",
+    "logoSecom": "",
+    "textSecom": "SECOM Smart Security",
+    "textOther": "Hanya CCTV",
+    "table": [
+      {
+        "feature": "Pemantauan 24/7",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Tim Respon Fisik",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Aplikasi Ponsel",
+        "secom": true,
+        "other": "Aplikasi Dasar"
+      },
+      {
+        "feature": "Instalasi & Pemeliharaan",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Penyimpanan Cloud",
+        "secom": true,
+        "other": "Berlangganan Tambahan"
+      },
+      {
+        "feature": "Nirkabel",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Manajemen Banyak Lokasi",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Integrasi Pintar",
+        "secom": true,
+        "other": "Hanya Kamera"
+      },
+      {
+        "feature": "Keamanan Data",
+        "secom": true,
+        "other": "Rentan Diretas"
+      },
+      {
+        "feature": "Ketenangan Pikiran",
+        "secom": true,
+        "other": "Hanya Rekam, Tanpa Tindakan"
+      }
+    ]
+  },
+  "SolPackage": {
+    "title": "Paket Keamanan Fleksibel untuk Segala Kebutuhan",
+    "desc": "Pilih paket keamanan sesuai kebutuhan rumah Anda.",
+    "tabs": [
+      {
+        "title": "SEWA",
+        "desc": ""
+      },
+      {
+        "title": "BELI",
+        "desc": ""
+      }
+    ]
+  },
+  "SolDifferences": {
+    "title": "Lihat Perbedaan",
+    "hint": "Sembunyikan Informasi",
+    "note": "*Syarat&Ketentuan<br><ul><li>Paket dapat disesuaikan dengan kebutuhan rumah Anda.</li><li>Harga belum termasuk PPN.</li><li>Harga belum termasuk biaya instalasi profesional.</li></ul>",
+    "serviceTitle": "Biaya Layanan"
+  },
+  "SolFAQ": {
+    "title": "Pertanyaan Umum",
+    "desc": "Untuk Anda yang sedang mengeksplorasi paket keamanan kami, maupun sudah menggunakan solusi SECOM, kami hadir untuk membantu Anda memahami lebih dalam cara kerja layanan SECOM Smart Security untuk bisnis Anda.",
+    "items": [
+      {
+        "question": "Apa fungsi SECOM Smart Security Web Portal dan Aplikasi Mobile?",
+        "answer": "SECOM Smart Security Web Portal dan Aplikasi Mobile memungkinkan Anda mengelola sistem keamanan kapan saja, di mana saja. Kedua platform dirancang untuk memberi Anda kendali penuh atas keamanan rumah, dengan perlindungan data pribadi yang maksimal.<ul><li><strong>Melalui Aplikasi:</strong> Anda bisa mengaktifkan atau menonaktifkan alarm, melihat rekaman kamera secara langsung, dan menerima notifikasi instan..</li><li><strong>Melalui Web Portal</strong>: Anda dapat mengakses fitur-fitur lanjutan seperti pengaturan perangkat, pengelolaan akses pengguna, dan log aktivitas secara detail.</li></ul>"
+      },
+      {
+        "question": "Apakah saya akan menerima notifikasi jika alarm mendeteksi ancaman saat saya tidak di rumah?",
+        "answer": "Ya. Jika alarm Anda aktif saat Anda sedang tidak di rumah, Anda akan langsung menerima notifikasi melalui Aplikasi SECOM Smart Security. Tim monitoring SECOM yang siaga 24/7 juga akan segera merespons untuk memverifikasi situasi dan mengambil tindakan yang diperlukan."
+      },
+      {
+        "question": "Apakah privasi saya akan terlindungi dengan penyimpanan video di <i>cloud</i>?",
+        "answer": "Ya. <b>Privasi Anda adalah prioritas utama kami.</b> Seluruh rekaman video dienkripsi dengan aman dan disimpan di cloud. Hanya Anda yang dapat mengakses rekaman tersebut. SECOM hanya dapat melihat rekaman video Anda dalam situasi darurat yang telah diverifikasi, semata-mata untuk memastikan keselamatan Anda. Di luar kondisi tersebut, data Anda tetap sepenuhnya bersifat pribadi."
+      },
+      {
+        "question": "Bisakah saya melihat rekaman dari beberapa properti dalam satu aplikasi?",
+        "answer": "Ya. Aplikasi SECOM Smart Security memungkinkan Anda memantau beberapa properti dalam satu akun. Anda bisa dengan mudah beralih antar lokasi untuk melihat rekaman langsung, memeriksa notifikasi, dan mengelola sistem keamanan masing-masing properti, semuanya dari satu aplikasi."
+      }
+    ]
+  },
+
+  "AlarmBanner": {
+    "title": "Sistem Alarm Andal untuk Lindungi <b>Bisnis Anda 24/7</b>",
+    "background": "/img/temp/alarm/alarm-banner.jpg",
+    "backgroundMd": "/img/temp/alarm/alarm-banner-mobile.jpg"
+  },
+  "AlarmOverview": {
+    "desc": "<b>Bisnis Anda adalah tempat di mana tujuan dicapai</b>, tim berkembang, dan masa depan dibangun. <b>Di SECOM, kami menghadirkan solusi keamanan</b> yang disesuaikan untuk melindungi apa yang telah Anda bangun dengan <b>keyakinan, kepedulian, dan teknologi terkini.</b>",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "title": "Sistem Keamanan Terintegrasi"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Control Center.svg",
+        "title": "Pemantauan 24/7"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "Tim Respon Fisik Terlatih"
+      }
+    ]
+  },
+  "AlarmReason": {
+    "title": "Bagaimana SECOM Bekerja?",
+    "items": [
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-1.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-1.jpg",
+        "title": "Dimulai dengan Pemahaman",
+        "desc": "Tim SECOM akan mempelajari lokasi dan operasional bisnis Anda secara menyeluruh, lalu merekomendasikan solusi yang sesuai dengan kebutuhan industri Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-2.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-2.jpg",
+        "title": "Desain Strategis, Perlindungan Menyeluruh",
+        "desc": "Kami merancang tata letak dengan presisi. Menempatkan sensor, alarm, dan kamera di titik-titik paling krusial untuk melindungi setiap area penting bisnis Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-3.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-3.jpg",
+        "title": "Efisien, Instalasi Profesional",
+        "desc": "Teknisi kami memastikan proses pemasangan berjalan lancar dengan gangguan seminimal mungkin terhadap aktivitas bisnis Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-4.jpeg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-4.jpg",
+        "title": "Pemantauan 24/7. Selalu Siaga.",
+        "desc": "Sistem Anda terhubung langsung ke Pusat Kontrol SECOM, memberikan pemantauan real-time dan respons cepat terhadap keadaan darurat kapan saja."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-5.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-5.jpg",
+        "title": "Dukungan Berkelanjutan",
+        "desc": "Kami melakukan pengecekan rutin dan layanan proaktif agar sistem keamanan Anda tetap andal, seiring pertumbuhan bisnis Anda."
+      }
+    ]
+  },
+  "AlarmProtect": {
+    "title": "Keamanan Terintegrasi untuk Bisnis Anda",
+    "desc": "",
+    "image": "/img/temp/alarm/Circle-of-Service.png",
+    "imageMobile": "/img/temp/alarm/Circle-of-Service-Mobile.png",
+    "items": [
+      {
+        "title": "Deteksi Darurat",
+        "desc": "Sensor kami mendeteksi aktivitas yang tidak biasa dan langsung mengirim sinyal ke sistem <i>cloud</i>."
+      },
+      {
+        "title": "Tim Pemantauan SECOM",
+        "desc": "Sistem <i>cloud</i> mengirimkan peringatan ke Anda dan Pusat Kontrol SECOM 24/7. Tim kami menghubungi Anda dan segera menugaskan tim respons ke lokasi Anda.<br><b>*Jika diperlukan, SECOM menghubungi pihak kepolisian atau pemadam kebakaran.</b>"
+      },
+      {
+        "title": "Tim Respon Fisik SECOM",
+        "desc": "Jika ancaman terkonfirmasi, SECOM akan mengirim tim respons fisik terlatih untuk memeriksa properti Anda dan memberikan laporan langsung, memberi ketenangan, bahkan saat Anda sedang tidak di lokasi."
+      }
+    ],
+    "btnCTA": {
+      "text": "Konsultasi Sekarang",
+      "href": "/contact/?location=business",
+      "target": "_self"
+    }
+  },
+  "AlarmProduct": {
+    "title": "Teknologi Canggih, Perlindungan Terpercaya",
+    "desc": "Jelajahi rangkaian produk keamanan dari SECOM yang dirancang untuk melindungi bisnis, aset, dan karyawan Anda."
+  },
+  "AlarmCorners": {
+    "title": "Lindungi Setiap Sudut Bisnis Anda ",
+    "desc": "",
+    "image": "/img/temp/alarm/Product-Placement-Business.jpg"
+  },
+  "AlarmApps": {
+    "title": "Selalu Terhubung.<br>Selalu Terlindungi",
+    "desc": "Kendalikan keamanan bisnis Anda kapan saja, di mana saja lewat aplikasi SECOM Smart Security. Data tetap aman*",
+    "descBottom": "*Rekaman hanya diakses saat darurat terverifikasi untuk memastikan keselamatan Anda.",
+    "image": "/img/temp/mockup-app-new.png",
+    "logo": "/img/temp/logo-secom-red.png",
+    "items": [
+      {
+        "title": "Video Real-Time",
+        "desc": "Lihat rekaman langsung lokasi Anda kapan saja, di mana saja.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Video Real Time.svg"
+      },
+      {
+        "title": "Aktif & Non-Aktif",
+        "desc": "Aktifkan atau nonaktifkan sistem alarm dengan sekali sentuhan.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Active Non Active.svg"
+      },
+      {
+        "title": "Notifikasi Langsung",
+        "desc": "Dapatkan peringatan langsung saat ada kejadian di lokasi.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Instan Notif.svg"
+      },
+      {
+        "title": "Riwayat Aktivitas",
+        "desc": "Lihat apa yang terjadi dan kapan. Semua tercatat demi ketenangan Anda.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Log.svg"
+      },
+      {
+        "title": "Kelola Banyak Cabang",
+        "desc": "Pantau dan kendalikan lebih dari satu lokasi melalui satu aplikasi.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Banyak Rumah.svg"
+      },
+      {
+        "title": "Laporan Aktivitas",
+        "desc": "Lihat ringkasan aktivitas harian dengan laporan yang mudah dipahami.",
+        "icon": "/img/temp/alarm/Icon App Benefits-Report.svg"
+      }
+    ],
+    "download": [
+      {
+        "link": "https://play.google.com/store/apps/details?id=jp.co.secom.secomalarm",
+        "image": "/img/temp/googleplay.svg"
+      },
+      {
+        "link": "https://apps.apple.com/id/app/secom-smart-security/id1522939072",
+        "image": "/img/temp/appstore.svg"
+      }
+    ]
+  },
+  "AlarmTrusted": {
+    "title": "Bukan Sekadar Keamanan Biasa. Untuk Bisnis Anda.",
+    "desc": "",
+    "logoSecom": "/img/secom-logo.png",
+    "textSecom": "",
+    "textOther": "Perusahaan Lain",
+    "table": [
+      {
+        "feature": "Pemantauan 24/7",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Tim Respon Fisik",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Akses Aplikasi Ponsel",
+        "secom": true,
+        "other": "Terbatas"
+      },
+      {
+        "feature": "Dukungan Lokal di Indonesia",
+        "secom": true,
+        "other": "Terbatas"
+      },
+      {
+        "feature": "Instalasi oleh Tim Profesional",
+        "secom": true,
+        "other": "unavailable"
+      },
+      {
+        "feature": "Disesuaikan untuk Setiap Bisnis",
+        "secom": true,
+        "other": "Terbatas"
+      }
+    ]
+  },
+  "AlarmPackage": {
+    "title": "Paket Keamanan yang Disesuaikan untuk Setiap Jenis Bisnis",
+    "desc": "Mulai dari toko kecil hingga fasilitas besar, paket kami dirancang fleksibel untuk memberikan perlindungan optimal bagi kelangsungan operasional bisnis Anda.",
+    "tabs": [
+      {
+        "title": "SEWA",
+        "desc": ""
+      },
+      {
+        "title": "BELI",
+        "desc": ""
+      }
+    ]
+  },
+  "AlarmDifferences": {
+    "title": "Lihat Perbedaan",
+    "hint": "Sembunyikan Informasi",
+    "note": "*Syarat&Ketentuan<br><ul><li>Paket dapat disesuaikan dengan kebutuhan bisnis Anda.</li><li>Harga belum termasuk PPN.</li><li>Harga belum termasuk biaya instalasi profesional.</li></ul>",
+    "serviceTitle": "Biaya Layanan"
+  },
+  "AlarmFAQ": {
+    "title": "Pertanyaan Umum",
+    "desc": "Untuk Anda yang sedang mengeksplorasi paket keamanan kami, maupun sudah menggunakan solusi SECOM, kami hadir untuk membantu Anda memahami lebih dalam cara kerja layanan SECOM Smart Security untuk bisnis Anda.",
+    "items": [
+      {
+        "question": "Apa fungsi SECOM Smart Security Web Portal dan Aplikasi Mobile?",
+        "answer": "SECOM Smart Security Web Portal dan Aplikasi Mobile memungkinkan Anda mengelola sistem keamanan kapan saja, di mana saja. Kedua platform dirancang untuk memberi Anda kendali penuh atas keamanan lokasi bisnis Anda, dengan perlindungan data pribadi yang maksimal.<ul><li><strong>Melalui Aplikasi</strong>: Anda bisa mengaktifkan atau menonaktifkan alarm, melihat rekaman kamera secara langsung, dan menerima notifikasi instan.</li><li><strong>Melalui Web Portal</strong>: Anda dapat mengakses fitur-fitur lanjutan seperti pengaturan perangkat, pengelolaan akses pengguna, dan log aktivitas secara detail.</li></ul>"
+      },
+      {
+        "question": "Apakah saya akan menerima notifikasi jika alarm mendeteksi ancaman saat saya tidak di lokasi?",
+        "answer": "Ya. Jika alarm Anda aktif saat Anda sedang tidak di rumah, Anda akan langsung menerima notifikasi melalui Aplikasi SECOM Smart Security. Tim monitoring SECOM yang siaga 24/7 juga akan segera merespons untuk memverifikasi situasi dan mengambil tindakan yang diperlukan."
+      },
+      {
+        "question": "Apakah privasi saya akan terlindungi dengan penyimpanan video di <i>cloud</i>?",
+        "answer": "Ya. <b>Privasi Anda adalah prioritas utama kami.</b> Seluruh rekaman video dienkripsi dengan aman dan disimpan di <i>cloud</i>. Hanya Anda yang dapat mengakses rekaman tersebut. SECOM hanya dapat melihat rekaman video Anda dalam situasi darurat yang telah diverifikasi, semata-mata untuk memastikan keselamatan Anda. Di luar kondisi tersebut, data Anda tetap sepenuhnya bersifat pribadi."
+      },
+      {
+        "question": "Bisakah saya melihat rekaman dari beberapa properti dalam satu aplikasi?",
+        "answer": "Ya. Aplikasi SECOM Smart Security memungkinkan Anda memantau beberapa properti dalam satu akun. Anda bisa dengan mudah beralih antar lokasi untuk melihat rekaman langsung, memeriksa notifikasi, dan mengelola sistem keamanan masing-masing properti, semuanya dari satu aplikasi."
+      }
+    ]
+  },
+
+  "ProductDetails": [
+    {
+      "title": "Smart Video Camera",
+      "subtitleHome": "Pantau dan berinteraksi dengan tamu tak terduga, kendaraan yang keluar masuk, dan lainnya. Bahkan saat Anda tidak berada di rumah.",
+      "subtitleBusiness": "Pantau dan berinteraksi dengan tamu tak terduga, kendaraan yang keluar masuk, dan lainnya. Bahkan saat Anda tidak berada di lokasi.",
+      "image": "/img/temp/products/Smart-Video-Camera.png",
+      "link": "#5",
+      "type": ["home", "business"],
+      "pinBusiness": true,
+      "pinBusinessX": "70%",
+      "pinBusinessY": "32%",
+      "pinHome": true,
+      "pinHomeX": "86%",
+      "pinHomeY": "38%"
+    },
+    {
+      "title": "PIR Camera Indoor",
+      "subtitleHome": "Kamera di dalam rumah yang akan memicu alarm dan mengambil gambar saat mendeteksi gerakan.",
+      "subtitleBusiness": "Kamera di dalam lokasi Anda yang akan memicu alarm dan mengambil gambar saat mendeteksi gerakan.",
+      "image": "/img/temp/products/PIR-Camera-Indoor.png",
+      "link": "#7",
+      "type": ["home", "business"],
+      "pinBusiness": true,
+      "pinBusinessX": "43.5%",
+      "pinBusinessY": "49.5%",
+      "pinHome": true,
+      "pinHomeX": "22%",
+      "pinHomeY": "68%"
+    },
+    {
+      "title": "PIR Indoor",
+      "subtitleHome": "Sensor yang mendeteksi pergerakan di dalam rumah Anda dan memicu alarm.",
+      "subtitleBusiness": "Sensor yang mendeteksi pergerakan di dalam lokasi Anda dan memicu alarm jika diperlukan.",
+      "image": "/img/temp/products/PIR-Indoor.png",
+      "link": "#8",
+      "type": ["home", "business"],
+      "pinBusiness": false,
+      "pinBusinessX": "0%",
+      "pinBusinessY": "0%",
+      "pinHome": false,
+      "pinHomeX": "0%",
+      "pinHomeY": "0%"
+    },
+    {
+      "title": "Door Contact",
+      "subtitleHome": "Mendeteksi saat pintu atau jendela dibuka. Mengirimkan peringatan jika terjadi hal yang tidak biasa.",
+      "subtitleBusiness": "Mendeteksi saat pintu atau jendela dibuka. Mengirimkan peringatan jika terjadi hal yang tidak biasa.",
+      "image": "/img/temp/products/Door-Contact.png",
+      "link": "#6",
+      "type": ["home", "business"],
+      "pinBusiness": true,
+      "pinBusinessX": "27%",
+      "pinBusinessY": "51%",
+      "pinHome": true,
+      "pinHomeX": "49%",
+      "pinHomeY": "33%"
+    },
+    {
+      "title": "Siren Box",
+      "subtitleHome": "Suara keras akan berbunyi saat terjadi keadaan darurat, seperti upaya pembobolan.",
+      "subtitleBusiness": "Suara keras yang akan berbunyi saat terjadi keadaan darurat, seperti upaya pembobolan.",
+      "image": "/img/temp/products/Siren-Box.png",
+      "link": "#4",
+      "type": ["home", "business"],
+      "pinBusiness": true,
+      "pinBusinessX": "50.5%",
+      "pinBusinessY": "32.5%",
+      "pinHome": true,
+      "pinHomeX": "66%",
+      "pinHomeY": "57%"
+    },
+    {
+      "title": "Smoke Detector",
+      "subtitleHome": "Mendeteksi asap lebih awal untuk mencegah kebakaran.",
+      "subtitleBusiness": "Mendeteksi asap sejak dini untuk membantu mencegah kebakaran.",
+      "image": "/img/temp/products/Smoke-Detector.png",
+      "link": "#9",
+      "type": ["home", "business"],
+      "pinBusiness": true,
+      "pinBusinessX": "71%",
+      "pinBusinessY": "41.5%",
+      "pinHome": true,
+      "pinHomeX": "45%",
+      "pinHomeY": "65%"
+    },
+    {
+      "title": "Heat Sensor",
+      "subtitleHome": "Mendeteksi suhu lebih awal untuk mencegah kebakaran.",
+      "subtitleBusiness": "Mendeteksi suhu lebih awal untuk mencegah kebakaran.",
+      "image": "/img/temp/products/Heat-Sensor.png",
+      "link": "#10",
+      "type": ["home", "business"],
+      "pinBusiness": false,
+      "pinBusinessX": "0%",
+      "pinBusinessY": "0%",
+      "pinHome": false,
+      "pinHomeX": "0%",
+      "pinHomeY": "0%"
+    },
+    {
+      "title": "Panic Button",
+      "subtitleHome": "Tombol yang dapat ditekan saat keadaan darurat untuk segera meminta bantuan dari SECOM.",
+      "subtitleBusiness": "Tombol yang dapat ditekan saat keadaan darurat untuk segera meminta bantuan dari SECOM.",
+      "image": "/img/temp/products/Panic-Button.png",
+      "link": "#11",
+      "type": ["home", "business"],
+      "pinBusiness": true,
+      "pinBusinessX": "82.5%",
+      "pinBusinessY": "61%",
+      "pinHome": true,
+      "pinHomeX": "20%",
+      "pinHomeY": "48%"
+    },
+    {
+      "title": "Control Panel",
+      "subtitleHome": "Perangkat utama yang menghubungkan semua sensor dan alarm ke tim SECOM yang siaga 24/7.",
+      "subtitleBusiness": "Perangkat utama yang menghubungkan semua sensor dan alarm ke tim SECOM yang siaga 24/7.",
+      "image": "/img/temp/products/Control-Panel.png",
+      "link": "#1",
+      "type": ["home", "business"],
+      "pinBusiness": false,
+      "pinBusinessX": "0%",
+      "pinBusinessY": "0%",
+      "pinHome": true,
+      "pinHomeX": "28%",
+      "pinHomeY": "74%"
+    },
+    {
+      "title": "Remote Control",
+      "subtitleHome": "Perangkat kecil untuk mengaktifkan atau menonaktifkan sistem alarm dari jarak jauh.",
+      "subtitleBusiness": "Perangkat kecil untuk mengaktifkan atau menonaktifkan sistem alarm dari jarak jauh.",
+      "image": "/img/temp/products/Remote-Control.png",
+      "link": "#2",
+      "type": ["home", "business"],
+      "pinBusiness": false,
+      "pinBusinessX": "0%",
+      "pinBusinessY": "0%",
+      "pinHome": false,
+      "pinHomeX": "0%",
+      "pinHomeY": "0%"
+    },
+    {
+      "title": "Keypad",
+      "subtitleHome": "Panel tempat Anda memasukkan kode pribadi untuk mengontrol sistem alarm.",
+      "subtitleBusiness": "Panel tempat Anda memasukkan kode pribadi untuk mengontrol sistem alarm.",
+      "image": "/img/temp/products/Keypad.png",
+      "link": "#3",
+      "type": ["home", "business"],
+      "pinBusiness": false,
+      "pinBusinessX": "0%",
+      "pinBusinessY": "0%",
+      "pinHome": false,
+      "pinHomeX": "0%",
+      "pinHomeY": "0%"
+    }
+  ],
+  "BusinessPackages": [
+    {
+      "title": "Business",
+      "price": "1.105.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "1.105.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "1.327.000"
+        }
+      ],
+      "desc": "Paket sewa yang sederhana dan terjangkau untuk bisnis kecil atau kantor. Dilengkapi perangkat keamanan esensial untuk memulai perlindungan.",
+      "device": "8",
+      "image": "/img/temp/alarm/Business.png",
+      "isRent": true
+    },
+    {
+      "title": "Business PRO",
+      "price": "1.510.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "1.510.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "1.732.000"
+        }
+      ],
+      "desc": "Perlindungan menyeluruh dengan fitur keamanan canggih dan tambahan fitur keselamatan, ideal untuk area dengan risiko tinggi.",
+      "device": "12",
+      "image": "/img/temp/alarm/BusinessPro.png",
+      "isRent": true
+    },
+
+    {
+      "title": "Business",
+      "price": "18.732.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "471.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "693.000"
+        }
+      ],
+      "desc": "Paket pembelian satu kali untuk bisnis kecil atau kantor. Termasuk perangkat keamanan penting untuk memulai. Sederhana, terjangkau, dan sepenuhnya milik Anda.",
+      "device": "8",
+      "image": "/img/temp/alarm/Business.png",
+      "isRent": false
+    },
+    {
+      "title": "Business PRO",
+      "price": "26.405.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "623.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "845.000"
+        }
+      ],
+      "desc": "Miliki sistem keamanan lengkap dengan perlindungan canggih dan fitur keselamatan tambahan. Ideal untuk area berisiko tinggi dan keamanan jangka panjang bisnis Anda.",
+      "device": "12",
+      "image": "/img/temp/alarm/BusinessPro.png",
+      "isRent": false
+    }
+  ],
+  "BusinessPackagesBuy": [
+    {
+      "device": "Control Panel",
+      "image": "/img/temp/products/Control-Panel.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Camera Indoor",
+      "image": "/img/temp/products/PIR-Camera-Indoor.png",
+      "basic": "1",
+      "pro": "1"
+    },
+
+    {
+      "device": "Door Contact",
+      "image": "/img/temp/products/Door-Contact.png",
+      "basic": "3",
+      "pro": "3"
+    },
+    {
+      "device": "Siren Box",
+      "image": "/img/temp/products/Siren-Box.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Remote Control",
+      "image": "/img/temp/products/Remote-Control.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Keypad",
+      "image": "/img/temp/products/Keypad.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Panic Button",
+      "image": "/img/temp/products/Panic-Button.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smart Video Camera Indoor",
+      "image": "/img/temp/products/Smart-Video-Camera.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smoke Detector",
+      "image": "/img/temp/products/Smoke-Detector.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Indoor",
+      "image": "/img/temp/products/PIR-Indoor.png",
+      "basic": "-",
+      "pro": "1"
+    }
+  ],
+  "BusinessPackagesRent": [
+    {
+      "device": "Control Panel",
+      "image": "/img/temp/products/Control-Panel.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Camera Indoor",
+      "image": "/img/temp/products/PIR-Camera-Indoor.png",
+      "basic": "1",
+      "pro": "1"
+    },
+
+    {
+      "device": "Door Contact",
+      "image": "/img/temp/products/Door-Contact.png",
+      "basic": "3",
+      "pro": "3"
+    },
+    {
+      "device": "Siren Box",
+      "image": "/img/temp/products/Siren-Box.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Remote Control",
+      "image": "/img/temp/products/Remote-Control.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Keypad",
+      "image": "/img/temp/products/Keypad.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Panic Button",
+      "image": "/img/temp/products/Panic-Button.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smart Video Camera Indoor",
+      "image": "/img/temp/products/Smart-Video-Camera.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smoke Detector",
+      "image": "/img/temp/products/Smoke-Detector.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Indoor",
+      "image": "/img/temp/products/PIR-Indoor.png",
+      "basic": "-",
+      "pro": "1"
+    }
+  ],
+
+  "HomePackages": [
+    {
+      "title": "Home",
+      "price": "967.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "967.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "1.189.000"
+        }
+      ],
+      "desc": "Keamanan dasar untuk rumah dengan alarm, sensor, dan respons 24/7 dari SECOM.",
+      "device": "9",
+      "image": "/img/temp/solutions/package-home.png",
+      "isRent": true
+    },
+    {
+      "title": "Home PRO",
+      "price": "1.448.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "1.448.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "1.670.000"
+        }
+      ],
+      "desc": "Perlindungan maksimal dengan cakupan dalam dan luar rumah, deteksi pintar, serta sistem peringatan dini.",
+      "device": "15",
+      "image": "/img/temp/solutions/package-homepro.png",
+      "isRent": true
+    },
+
+    {
+      "title": "Home",
+      "price": "17.585.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "346.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "593.000"
+        }
+      ],
+      "desc": "Solusi keamanan yang pintar dan andal dengan perlindungan esensial serta pemantauan 24/7, kini tersedia untuk dimiliki.",
+      "device": "9",
+      "image": "/img/temp/solutions/package-home.png",
+      "isRent": false
+    },
+    {
+      "title": "Home PRO",
+      "price": "29.398.000",
+      "serviceFee": [
+        {
+          "text": "Biaya Layanan Pemantauan 24/7",
+          "fee": "463.000"
+        },
+        {
+          "text": "Biaya Layanan Pemantauan 24/7 + Respon Fisik",
+          "fee": "685.000"
+        }
+      ],
+      "desc": "Perlindungan total untuk rumah Anda mencakup dalam dan luar ruangan, deteksi canggih, dan pemantauan 24/7, kini bisa Anda miliki sepenuhnya.",
+      "device": "15",
+      "image": "/img/temp/solutions/package-homepro.png",
+      "isRent": false
+    }
+  ],
+
+  "HomePackagesBuy": [
+    {
+      "device": "Control Panel",
+      "image": "/img/temp/products/Control-Panel.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Panic Button",
+      "image": "/img/temp/products/Panic-Button.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Door Contact",
+      "image": "/img/temp/products/Door-Contact.png",
+      "basic": "3",
+      "pro": "5"
+    },
+    {
+      "device": "Heat Sensor",
+      "image": "/img/temp/products/Heat-Sensor.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Siren Box",
+      "image": "/img/temp/products/Siren-Box.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Remote Control",
+      "image": "/img/temp/products/Remote-Control.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Keypad",
+      "image": "/img/temp/products/Keypad.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Camera Indoor",
+      "image": "/img/temp/products/PIR-Camera-Indoor.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Indoor",
+      "image": "/img/temp/products/PIR-Indoor.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smart Video Camera Outdoor",
+      "image": "/img/temp/products/Smart-Video-Camera.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smoke Detector",
+      "image": "/img/temp/products/Smoke-Detector.png",
+      "basic": "-",
+      "pro": "1"
+    }
+  ],
+  "HomePackagesRent": [
+    {
+      "device": "Control Panel",
+      "image": "/img/temp/products/Control-Panel.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Panic Button",
+      "image": "/img/temp/products/Panic-Button.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Door Contact",
+      "image": "/img/temp/products/Door-Contact.png",
+      "basic": "3",
+      "pro": "5"
+    },
+    {
+      "device": "Heat Sensor",
+      "image": "/img/temp/products/Heat-Sensor.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Siren Box",
+      "image": "/img/temp/products/Siren-Box.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Remote Control",
+      "image": "/img/temp/products/Remote-Control.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "Keypad",
+      "image": "/img/temp/products/Keypad.png",
+      "basic": "1",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Camera Indoor",
+      "image": "/img/temp/products/PIR-Camera-Indoor.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "PIR Indoor",
+      "image": "/img/temp/products/PIR-Indoor.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smart Video Camera Outdoor",
+      "image": "/img/temp/products/Smart-Video-Camera.png",
+      "basic": "-",
+      "pro": "1"
+    },
+    {
+      "device": "Smoke Detector",
+      "image": "/img/temp/products/Smoke-Detector.png",
+      "basic": "-",
+      "pro": "1"
+    }
+  ],
+
+  "HomeBanner": [
+    {
+      "title": "#1 Qui ipsorum lingua Celtae, nostra",
+      "desc": "Quisque ut dolor gravida, placerat libero vel, euismod. Unam incolunt Belgae, aliam Aquitani, tertiam. Hi omnes lingua, institutis, legibus inter se differunt. gravida, placerat libero vel, euismod. Unam incolunt Belgae, aliam Aquitani, tertiam. Hi omnes lingua, institutis, legibus inter se differunt.",
+      "btnCTA": {
+        "text": "Lebih Lengkap",
+        "href": "/#lebihlengkap",
+        "target": "_self"
+      },
+      "bgDesktop": "/img/temp/h-banner-bg.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    },
+    {
+      "title": "#2 Qui ipsorum lingua Celtae, nostra",
+      "desc": "Quisque ut dolor gravida, placerat libero vel, euismod. Unam incolunt Belgae, aliam Aquitani, tertiam. Hi omnes lingua, institutis, legibus inter se differunt.",
+      "btnCTA": {
+        "text": "Lebih Lengkap",
+        "href": "/#lebihlengkap",
+        "target": "_self"
+      },
+      "bgDesktop": "/img/temp/h-banner-bg.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    },
+    {
+      "title": "#3 Qui ipsorum lingua Celtae, nostra",
+      "desc": "Quisque ut dolor gravida, placerat libero vel, euismod. Unam incolunt Belgae, aliam Aquitani, tertiam. Hi omnes lingua, institutis, legibus inter se differunt.",
+      "btnCTA": {
+        "text": "Lebih Lengkap",
+        "href": "/#lebihlengkap",
+        "target": "_self"
+      },
+      "bgDesktop": "/img/temp/h-banner-bg.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    },
+    {
+      "title": "#4 Qui ipsorum lingua Celtae, nostra",
+      "desc": "Quisque ut dolor gravida, placerat libero vel, euismod. Unam incolunt Belgae, aliam Aquitani, tertiam. Hi omnes lingua, institutis, legibus inter se differunt.",
+      "btnCTA": {
+        "text": "Lebih Lengkap",
+        "href": "/#lebihlengkap",
+        "target": "_self"
+      },
+      "bgDesktop": "/img/temp/h-banner-bg.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    }
+  ],
+  "HomeValue": {
+    "title": "Pelanggan Kami Adalah yang Utama",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "#1 Lorem ipsum dolor sit amet, consectetur adipisici elit"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "#2 Lorem ipsum dolor sit amet, consectetur adipisici elit"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "#3 Lorem ipsum dolor sit amet, consectetur adipisici elit"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "#4 Lorem ipsum dolor sit amet, consectetur adipisici elit"
+      }
+    ]
+  },
+  "HomeSegment": {
+    "title": "Segmen Bisnis Kami",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+    "card": [
+      {
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "title": "Residensial",
+        "desc": "Gallia est omnis divisa in partes tres, quarum. Idque Caesaris facere voluntate liceret: sese habere."
+      },
+      {
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "title": "Bisnis",
+        "desc": "Gallia est omnis divisa in partes tres, quarum. Idque Caesaris facere voluntate liceret: sese habere."
+      }
+    ]
+  },
+  "HomeAbout": {
+    "title": "Lebih Aman, Lebih Nyaman",
+    "desc": "SECOM Indonesia menawarkan layanan keamanan dalam mencapai tujuan 'Peace of Mind' di masyarakat. Dengan pengalaman lebih dari 30 tahun di Indonesia, SECOM tidak hanya menyediakan berbagai jenis peralatan, tapi juga menawarkan solusi keamanan berkualitas secara menyeluruh sesuai dengan kebutuhan private atau bisnis Anda.",
+    "btnCTA": {
+      "text": "Tentang Kami",
+      "href": "/about/",
+      "target": "_self"
+    },
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+
+    "image2": "/img/temp/solutions/sol-bg-high.jpg",
+    "thumb": "/img/temp/solutions/sol-bg-high.jpg",
+    "linkVideo": "https://youtu.be/euM9kW0ZRWg"
+  },
+
+  "AboutBanner": {
+    "subtitle": "About Secom Indonesia",
+    "title": "Protecting What Matters, Since 1994",
+    "bgDesktop": "/img/temp/solutions/sol-bg-high.jpg"
+  },
+  "AboutStory": {
+    "title": "Our Story and Purpose",
+    "desc": "SECOM Indonesia is part of SECOM Group, Japan’s No. 1 security company with over 60 years of experience in safety innovation. Since 1994, we have brought the Man-Machine concept to Indonesia, blending smart technology with skilled people to create real peace of mind.<br>With more than 30 years of local know-how, SECOM delivers complete security: consulting, engineering, 24/7 monitoring, rapid response, and ongoing care. We don’t just install devices; we run the whole system so people, property, and businesses stay safe every day.",
+    "bgDesktop": "/img/temp/solutions/sol-bg-high.jpg"
+  },
+  "AboutWhy": {
+    "title": "Why Choose SECOM?",
+    "desc": "Choosing SECOM means choosing more than just a security system. It means choosing peace of mind, backed by decades of expertise and trusted service.",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "30+ Years of Local Expertise",
+        "desc": "Deep knowledge of Indonesian risks and regulations since 1994."
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "End-to-End Advanced Solutions",
+        "desc": "From security consulting to AI-powered systems and elite guard services, everything tailored to your safety."
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "30+ Years of Local Expertise",
+        "desc": "Deep knowledge of Indonesian risks and regulations since 1994."
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "End-to-End Advanced Solutions",
+        "desc": "From security consulting to AI-powered systems and elite guard services, everything tailored to your safety."
+      }
+    ]
+  },
+  "AboutWork": {
+    "title": "How We Work",
+    "items": [
+      {
+        "title": "Pengadaan",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "desc": "Plura mihi bona sunt, inclinet, amari petere vellent. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ab illo tempore, ab est sed immemorabili. Ambitioni dedisse scripsisse iudicaretur. Paullum deliquit, ponderibus modulisque suis ratio utitur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Cras mattis iudicium purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua."
+      },
+      {
+        "title": "2Pengadaan",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "desc": "Plura mihi bona sunt, inclinet, amari petere vellent. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ab illo tempore, ab est sed immemorabili. Ambitioni dedisse scripsisse iudicaretur. Paullum deliquit, ponderibus modulisque suis ratio utitur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Cras mattis iudicium purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua."
+      },
+      {
+        "title": "3Pengadaan",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "desc": "Plura mihi bona sunt, inclinet, amari petere vellent. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ab illo tempore, ab est sed immemorabili. Ambitioni dedisse scripsisse iudicaretur. Paullum deliquit, ponderibus modulisque suis ratio utitur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Cras mattis iudicium purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua."
+      }
+    ]
+  },
+  "AboutCertificate": {
+    "title": "Certification & Awards",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+    "items": [
+      {
+        "image": "/img/temp/products/Smart-Video-Camera.png",
+        "title": "Forbes 2024: Global 2000 World’s Largest Public Companies",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua"
+      },
+      {
+        "image": "/img/temp/products/Smart-Video-Camera.png",
+        "title": "2Forbes 2024: Global 2000 World’s Largest Public Companies",
+        "desc": "Perusahaan SECOM kembali dipilih oleh Forbes untuk penghargaan peruhaan besar Global 2000 tahun 2024.<br><br>SECOM sebagai perusahaan multi-nasional telah beroperasi di 3 benua, 17 negara (dengan pusatnya di Jepang) dan dengan pertumbuhan bisnis yang stabil yang telah melayani 3,7 juta pelanggan internasional, berjanji untuk memberikan “ketenangan pikiran” sebagai satu dari perusahaan multi-nasional terpercaya di dunia. Tercatatnya dalam daftar Forbes 2023 merupakan indikator yang terbukti dari nilai dan pencapaian bisnis SECOM. Perusahaan SECOM kembali dipilih oleh Forbes untuk penghargaan peruhaan besar Global 2000 tahun 2024.<br><br>SECOM sebagai perusahaan multi-nasional telah beroperasi di 3 benua, 17 negara (dengan pusatnya di Jepang) dan dengan pertumbuhan bisnis yang stabil yang telah melayani 3,7 juta pelanggan internasional, berjanji untuk memberikan “ketenangan pikiran” sebagai satu dari perusahaan multi-nasional terpercaya di dunia. Tercatatnya dalam daftar Forbes 2023 merupakan indikator yang terbukti dari nilai dan pencapaian bisnis SECOM.<br><br>Perusahaan SECOM kembali dipilih oleh Forbes untuk penghargaan peruhaan besar Global 2000 tahun 2024.<br><br>SECOM sebagai perusahaan multi-nasional telah beroperasi di 3 benua, 17 negara (dengan pusatnya di Jepang) dan dengan pertumbuhan bisnis yang stabil yang telah melayani 3,7 juta pelanggan internasional, berjanji untuk memberikan “ketenangan pikiran” sebagai satu dari perusahaan multi-nasional terpercaya di dunia. Tercatatnya dalam daftar Forbes 2023 merupakan indikator yang terbukti dari nilai dan pencapaian bisnis SECOM."
+      },
+      {
+        "image": "/img/temp/products/Smart-Video-Camera.png",
+        "title": "3Forbes 2024: Global 2000 World’s Largest Public Companies",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua"
+      }
+    ]
+  },
+  "AboutTeam": {
+    "title": "Great things in business are never done by one person. They're done by a team of people.",
+    "photo": "/img/temp/about/team-photo-dummy.png",
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+    "items": [
+      {
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "video": "/img/temp/about/video-dummy.mp4",
+        "name": "Go Miyachi",
+        "position": "President Director ",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur."
+      },
+      {
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "video": "/img/temp/about/video-dummy.mp4",
+        "name": "Emanuel N. Mustika",
+        "position": "HRDGA Director",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur."
+      },
+      {
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "video": "/img/temp/about/video-dummy.mp4",
+        "name": "Ryoichi Kojima",
+        "position": "Operations Director",
+        "desc": "Sejak bergabung dengan SECOM pada tahun 2001, Go Miyachi telah memainkan peran penting dalam membentuk kesuksesan perusahaan dan memperluas kehadirannya di pasar lokal maupun internasional. Sebelum menjabat sebagai Presiden Direktur SECOM Indonesia, Go Miyachi memperdalam keahliannya dalam ekspansi bisnis di SECOM Thailand. Pengalaman ini memberinya perspektif unik tentang dinamika bisnis lokal dan global.<br><br>Sejak bergabung dengan SECOM pada tahun 2001, Go Miyachi telah memainkan peran penting dalam membentuk kesuksesan perusahaan dan memperluas kehadirannya di pasar lokal maupun internasional. Sebelum menjabat sebagai Presiden Direktur SECOM Indonesia, Go Miyachi memperdalam keahliannya dalam ekspansi bisnis di SECOM Thailand. Pengalaman ini memberinya perspektif unik tentang dinamika bisnis lokal dan global.Sejak bergabung dengan SECOM pada tahun 2001, Go Miyachi telah memainkan peran penting dalam membentuk kesuksesan perusahaan dan memperluas kehadirannya di pasar lokal maupun internasional. Sebelum menjabat sebagai Presiden Direktur SECOM Indonesia, Go Miyachi memperdalam keahliannya dalam ekspansi bisnis di SECOM Thailand. Pengalaman ini memberinya perspektif unik tentang dinamika bisnis lokal dan global.<br><br>Sejak bergabung dengan SECOM pada tahun 2001, Go Miyachi telah memainkan peran penting dalam membentuk kesuksesan perusahaan dan memperluas kehadirannya di pasar lokal maupun internasional. Sebelum menjabat sebagai Presiden Direktur SECOM Indonesia, Go Miyachi memperdalam keahliannya dalam ekspansi bisnis di SECOM Thailand. Pengalaman ini memberinya perspektif unik tentang dinamika bisnis lokal dan global."
+      },
+      {
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "video": "/img/temp/about/video-dummy.mp4",
+        "name": "Kyota Komori",
+        "position": "Finance Director",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur."
+      }
+    ]
+  },
+  "AboutLocation": {
+    "title": "Our Location",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua",
+    "items": [
+      {
+        "name": "Jakarta Head Office",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "address": "Mangkuluhur City Tower 1, 8th Floor Jl. Jend. Gatot Subroto Kav. 1-3 Jakarta Selatan 12930",
+        "gmaps": "https://maps.app.goo.gl/sLUzwEnV3YNrtTKb6",
+        "phone": "021-12345678",
+        "embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.324156888034!2d106.81172947557094!3d-6.220916993767115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f41cdd44237f%3A0x51d08defabef4ce7!2sPT%20SECOM%20Indonesia!5e0!3m2!1sen!2sid!4v1757479767414!5m2!1sen!2sid\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+      },
+      {
+        "name": "Karawang Branch Office",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "address": "Karawang Branch Office, Karawang Branch Office, Karawang Branch Office",
+        "gmaps": "https://maps.app.goo.gl/sLUzwEnV3YNrtTKb6",
+        "phone": "021-12345678",
+        "embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.324156888034!2d106.81172947557094!3d-6.220916993767115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f41cdd44237f%3A0x51d08defabef4ce7!2sPT%20SECOM%20Indonesia!5e0!3m2!1sen!2sid!4v1757479767414!5m2!1sen!2sid\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+      },
+      {
+        "name": "Surabaya Branch Office",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "address": "Surabaya Branch Office, Surabaya Branch Office,Surabaya Branch Office",
+        "gmaps": "https://maps.app.goo.gl/sLUzwEnV3YNrtTKb6",
+        "phone": "021-12345678",
+        "embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.324156888034!2d106.81172947557094!3d-6.220916993767115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f41cdd44237f%3A0x51d08defabef4ce7!2sPT%20SECOM%20Indonesia!5e0!3m2!1sen!2sid!4v1757479767414!5m2!1sen!2sid\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+      }
+    ]
+  },
+  "AboutTrusted": {
+    "title": "Trusted By",
+    "items": [
+      "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+      "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+      "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+      "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+      "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+      "/img/temp/alarm/Residence How SECOM Protects You BE.svg"
+    ]
+  },
+
+  "AbWorldBanner": {
+    "subtitle": "SECOM WORLDWIDE",
+    "title": "Curabitur blandit tempus ardua ridiculus sed magna.",
+    "bgDesktop": "/img/temp/solutions/sol-bg-high.jpg"
+  },
+  "AbWorldStory": {
+    "title": "Brief Story About Us",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "1962",
+        "desc": "Established Year in Japan"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": ">30 Tahun",
+        "desc": "Experience in Indonesia"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "8.2 Million",
+        "desc": "International Sales (in USD)"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "3.8 Million",
+        "desc": "Global Customers"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "71.000",
+        "desc": "Employee Around The World"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "18 Countries",
+        "desc": "International Sales (in USD)"
+      }
+    ]
+  },
+  "AbWorldMap": {
+    "title": "Our Global Presence",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+    "bgMap": "/img/temp/about/abw-bg-map.png"
+  },
+  "AbWorldRnD": {
+    "subtitle": "R&D Innovation",
+    "title": "Revolutionizing Security with Robotics and Virtual Reality",
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+    "items": [
+      {
+        "title": "Virtual KEIBI System",
+        "desc": "The Virtual KEIBI System is the world's first service featuring a 3D character on a mirror display for both security monitoring and reception. Developed in collaboration with three major Japanese companies, this innovation won the METI Minister Award at the 2021 Japan Open Innovation Prize, presented by the Cabinet Office of Japan for pioneering and creative open innovation initiatives.",
+        "image": "/img/temp/alarm-reason-bg.jpg"
+      },
+      {
+        "title": "Cococbo",
+        "desc": "The Virtual KEIBI System is the world's first service featuring a 3D character on a mirror display for both security monitoring and reception. Developed in collaboration with three major Japanese companies, this innovation won the METI Minister Award at the 2021 Japan Open Innovation Prize, presented by the Cabinet Office of Japan for pioneering and creative open innovation initiatives.",
+        "image": "/img/temp/solutions/sol-bg-high.jpg"
+      }
+    ]
+  },
+  "AbWorldSustain": {
+    "title": "Sustainability & Impact",
+    "desc": "We are committed to creating a positive impact through sustainable practices for a safer and greener future.",
+    "items": [
+      {
+        "title": "Global Warming",
+        "desc": "Driving sustainability forward with green vehicles and eco-friendly office operations.",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "link": "/#test"
+      },
+      {
+        "title": "Recycling-Based Society",
+        "desc": "Building a sustainable future with Reduce, Reuse, Recycle actions at the core of our recycling-driven society.",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "link": "/#test"
+      },
+      {
+        "title": "Customer-Oriented Services",
+        "desc": "Combining advanced technology and trusted collaborations to meet every customer's unique needs.",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "link": "/#test"
+      },
+      {
+        "title": "3Customer- Services",
+        "desc": "Combining advanced technology and trusted collaborations to meet every customer's unique needs.",
+        "image": "/img/temp/alarm/alarm-banner.jpg",
+        "link": "/#test"
+      }
+    ]
+  },
+  "AbWorldCard": [
+    {
+      "title": "SECOM is a member of",
+      "image": "/img/temp/alarm/Residence How SECOM Protects You BE.svg"
+    },
+    {
+      "title": "SECOM Global Website",
+      "image": "/img/temp/alarm/Residence How SECOM Protects You BE.svg"
+    }
+  ],
+  "BusinessBanner": [
+    {
+      "title": "Curabitur blandit tempus ardua ridiculus sed magna. Cum sociis.",
+      "desc": "Quae vero auctorem tractata ab fiducia dicuntur. At nos hinc posthac, sitientis piros Afros. Salutantibus vitae elit libero, a pharetra augue. Paullum deliquit, ponderibus modulisque suis ratio utitur. Quid securi etiam tamquam eu fugiat nulla pariatur.",
+      "bgDesktop": "/img/temp/alarm/alarm-banner.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    },
+    {
+      "title": "2Curabitur blandit tempus ardua ridiculus sed magna. Cum sociis.",
+      "desc": "2Quae vero auctorem tractata ab fiducia dicuntur. At nos hinc posthac, sitientis piros Afros. Salutantibus vitae elit libero, a pharetra augue. Paullum deliquit, ponderibus modulisque suis ratio utitur. Quid securi etiam tamquam eu fugiat nulla pariatur.",
+      "bgDesktop": "/img/temp/alarm/alarm-banner.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    },
+    {
+      "title": "3Curabitur blandit tempus ardua ridiculus sed magna. Cum sociis.",
+      "desc": "3Quae vero auctorem tractata ab fiducia dicuntur. At nos hinc posthac, sitientis piros Afros. Salutantibus vitae elit libero, a pharetra augue. Paullum deliquit, ponderibus modulisque suis ratio utitur. Quid securi etiam tamquam eu fugiat nulla pariatur.",
+      "bgDesktop": "/img/temp/alarm/alarm-banner.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    },
+    {
+      "title": "4Curabitur blandit tempus ardua ridiculus sed magna. Cum sociis.",
+      "desc": "4Quae vero auctorem tractata ab fiducia dicuntur. At nos hinc posthac, sitientis piros Afros. Salutantibus vitae elit libero, a pharetra augue. Paullum deliquit, ponderibus modulisque suis ratio utitur. Quid securi etiam tamquam eu fugiat nulla pariatur.",
+      "bgDesktop": "/img/temp/alarm/alarm-banner.jpg",
+      "bgMobile": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+    }
+  ],
+  "BusinessWhy": {
+    "title": "Why is SECOM important for your business?",
+    "image": "/img/temp/residential/Residence-How-SECOM-Protects-You.jpg",
+    "items": [
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "title": "Intelligent and Secured Platform"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Control Center.svg",
+        "title": "Protected by Professionals"
+      },
+      {
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
+        "title": "Unique Smart Features and Function"
+      }
+    ]
+  },
+  "BusinessCard": [
+    {
+      "title": "Sectors We Support",
+      "desc": "Inmensae subtilitatis, obscuris et malesuada fames. ",
+      "image": "/img/temp/business/blp-card-1.png"
+    },
+    {
+      "title": "Our Solutions",
+      "desc": "Inmensae subtilitatis, obscuris et malesuada fames. ",
+      "image": "/img/temp/business/blp-card-2.png"
+    }
+  ],
+
+  "SolutionBanner": {
+    "title": "The <b>Right Solution</b> for Every Risk",
+    "image": "/img/temp/alarm/alarm-banner.jpg",
+    "imageMd": "/img/temp/alarm/alarm-banner.jpg"
+  },
+  "SolutionServices": {
+    "title": "We Offer the Best Services",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae.",
+    "items": [
+      {
+        "title": "Security Consulting",
+        "desc": "Gallia est omnis divisa in partes tres, quarum. Idque Caesaris facere voluntate liceret: sese habere.",
+        "image": "/img/temp/fix-photo-banner.png"
+      },
+      {
+        "title": "2Security Consulting",
+        "desc": "Gallia est omnis divisa in partes tres, quarum. Idque Caesaris facere voluntate liceret: sese habere.",
+        "image": "/img/temp/fix-photo-banner.png"
+      },
+      {
+        "title": "3Security Consulting",
+        "desc": "Gallia est omnis divisa in partes tres, quarum. Idque Caesaris facere voluntate liceret: sese habere.",
+        "image": "/img/temp/fix-photo-banner.png"
+      }
+    ]
+  },
+  "SolutionProducts": {
+    "title": "Our Products",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae"
+  },
+
+  "SectorBanner": {
+    "title": "<b>Total Security</b> for Every Sectors",
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+    "imageMd": "/img/temp/residential/Residence LP Hero ENG Mobile.jpg"
+  },
+
+  "SectorServices": {
+    "title": "Security Across All Sectors",
+    "items": [
+      {
+        "title": "1Data Center",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "2Financial",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "3Retail",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "4Manufacture",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "5Hospital",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "6Government",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "7Hotel",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "8Restaurant",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "9Hospital",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "10Government",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "11Hotel",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "12Restaurant",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "13Government",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "14Hotel",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      },
+      {
+        "title": "15Restaurant",
+        "desc": "We provide smart, reliable security solutions for data centers — from strict access control to 24/7 surveillance",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#data-center"
+      }
+    ]
+  },
+
+  "SectorDetailBanner": {
+    "title": "<b>Complete Protection</b> for Your Data Center",
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+    "imageMd": "/img/temp/solutions/sol-bg-high.jpg",
+    "desc": "Data center security is about more than hardware, it's about <b>protecting your entire digital operation</b>. We offer end-to-end solutions, from access control to on-site security, ensuring 24/7 protection, compliance, and peace of mind."
+  },
+  "SectorDetailSlider": {
+    "title": "Data Center Security Challenges",
+    "items": [
+      {
+        "title": "Unauthorized Physical Access Unauthorized Physical Access",
+        "desc": "Plura mihi bona sunt, inclinet, amari petere vellent. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ab illo tempore, ab est sed immemorabili. Ambitioni dedisse scripsisse iudicaretur. Paullum deliquit, ponderibus modulisque suis ratio utitur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Cras mattis iudicium purus",
+        "image": "/img/temp/solutions/sol-bg-high.jpg"
+      },
+      {
+        "title": "#2Unauthorized Physical Access",
+        "desc": "Plura mihi bona sunt, inclinet, amari petere vellent. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ab illo tempore, ab est sed immemorabili. Ambitioni dedisse scripsisse iudicaretur. Paullum deliquit, ponderibus modulisque suis ratio utitur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Cras mattis iudicium purus",
+        "image": "/img/temp/solutions/sol-bg-high.jpg"
+      }
+    ]
+  },
+  "SectorDetailCard": {
+    "title": "Tailored Solutions for Your Business",
+    "desc": "We are committed to creating a positive impact through sustainable practices for a safer and greener future.",
+    "items": [
+      {
+        "title": "EAS: Electronice Article Surveillance",
+        "desc": "Excepteur sint obcaecat cupiditat non proident culpa. Mercedem aut nummos unde unde extricat, amaras.",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#card-1"
+      },
+      {
+        "title": "2EAS: Electronice Article Surveillance",
+        "desc": "Excepteur sint obcaecat cupiditat non proident culpa. Mercedem aut nummos unde unde extricat, amaras.",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#card-2"
+      },
+      {
+        "title": "3EAS: Electronice Article Surveillance",
+        "desc": "Excepteur sint obcaecat cupiditat non proident culpa. Mercedem aut nummos unde unde extricat, amaras.",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#card-3"
+      },
+      {
+        "title": "4EAS: Electronice Article Surveillance",
+        "desc": "Excepteur sint obcaecat cupiditat non proident culpa. Mercedem aut nummos unde unde extricat, amaras.",
+        "image": "/img/temp/solutions/sol-bg-high.jpg",
+        "link": "/#card-4"
+      }
+    ]
+  },
+  "SectorDetailCTA": {
+    "title": "Protect Your Data Center with SECOM",
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+    "btnCTA": {
+      "text": "BUILD YOUR SYSTEM",
+      "href": "/#cta",
+      "target": "_self"
+    }
+  },
+  "CareerBanner": {
+    "title": "Tu quoque, Brute, fili mi, nihil timor.",
+    "desc": "Plura mihi bona sunt, inclinet, amari petere vellent. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ab illo tempore, ab est sed immemorabili. Ambitioni dedisse scripsisse iudicaretur. Paullum deliquit, ponderibus modulisque suis ratio utitur. Morbi fringilla convallis sapien, id pulvinar odio volutpat. Cras mattis iudicium purus",
+    "image": "/img/temp/solutions/sol-bg-high.jpg"
+  },
+  "CareerCard": {
+    "title": "Prima luce, cum quibus mons aliud consensu ab eo.",
+    "items": [
+      {
+        "title": "",
+        "icon": "",
+        "image": "/img/temp/solutions/sol-bg-high.jpg"
+      },
+      {
+        "title": "2Curabitur blandit tempus ardua ridiculus sed magna.",
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "image": ""
+      },
+      {
+        "title": "3Curabitur blandit tempus ardua ridiculus sed magna.",
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "image": ""
+      },
+      {
+        "title": "4Prima luce, cum quibus mons aliud consensu ab eo.",
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "image": ""
+      },
+      {
+        "title": "5Curabitur blandit tempus ardua ridiculus sed magna.",
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "image": ""
+      },
+      {
+        "title": "",
+        "icon": "",
+        "image": "/img/temp/solutions/sol-bg-high.jpg"
+      },
+      {
+        "title": "5Prima luce, cum quibus mons aliud consensu ab eo.",
+        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
+        "image": ""
+      },
+      {
+        "title": "",
+        "icon": "",
+        "image": "/img/temp/solutions/sol-bg-high.jpg"
+      }
+    ]
+  },
+  "CareerVacancies": {
+    "title": "Job Vacancies",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur."
+  },
+
+  "Vacancies": [
+    {
+      "title": "#1 Salesforce Developer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Excepteur sint obcaecat cupiditat non proident culpa. Mercedem aut nummos unde unde extricat, amaras.",
+      "location": "Jakarta",
+      "type": "Full Time",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in any major.",
+        "Good knowledge of a programming language.",
+        "Minimum of 5 years of experience in software development with a focus on Salesforce Development.",
+        "Proficient in developing, deploying, customizing, and integrating Salesforce.",
+        "Demonstrated proficiency in installing and deploying CRM Organizations.",
+        "Demonstrated proficiency in customizing and creating CRM entities.",
+        "Demonstrated proficiency in understanding and implementing business workflows and processes.",
+        "Experience with source control management systems and continuous integration/deployment environments.",
+        "Ability to work independently as well as in a team environment.",
+        "Excellent communication skills with both internal team members and external business stakeholders.",
+        "Strong initiative to find ways to improve solutions, systems, and processes.",
+        "Experience working on an agile development team.",
+        "Fluent in English (Professionally)"
+      ],
+      "responsibilities": [
+        "Develop and maintain Salesforce applications.",
+        "Collaborate with cross-functional teams.",
+        "Participate in code reviews and technical discussions."
+      ],
+      "benefit": ["Health insurance", "Annual leave", "Flexible working hours"]
+    },
+    {
+      "title": "#2 Frontend Engineer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Build modern and scalable user interfaces for enterprise applications.",
+      "location": "Bandung",
+      "type": "Part Time",
+      "experience": "3 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Computer Science or related field.",
+        "Strong knowledge of React.js and Next.js.",
+        "Familiarity with TailwindCSS and responsive design.",
+        "Experience with state management libraries such as Redux or Zustand.",
+        "Understanding of RESTful APIs and GraphQL.",
+        "Knowledge of CI/CD workflows.",
+        "Strong problem-solving skills and teamwork.",
+        "Fluent in English."
+      ],
+      "responsibilities": [
+        "Develop responsive and reusable components.",
+        "Ensure application performance and scalability.",
+        "Work closely with backend engineers and designers."
+      ],
+      "benefit": ["Remote work option", "Project bonus", "Annual team retreat"]
+    },
+    {
+      "title": "#3 UI/UX Designer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Design intuitive user experiences and interfaces for web and mobile applications.",
+      "location": "Yogyakarta",
+      "type": "Freelance",
+      "experience": "Fresh Graduate",
+      "requirements": [
+        "Bachelor’s degree in Design, IT, or related field.",
+        "Proficiency in Figma, Adobe XD, or Sketch.",
+        "Understanding of design systems and accessibility principles.",
+        "Ability to collaborate with engineers and product managers.",
+        "Portfolio showcasing design projects.",
+        "Strong visual and communication skills."
+      ],
+      "responsibilities": [
+        "Create wireframes, prototypes, and mockups.",
+        "Conduct user research and usability testing.",
+        "Ensure consistency across all design assets."
+      ],
+      "benefit": [
+        "Flexible working schedule",
+        "Project-based income",
+        "Networking opportunities"
+      ]
+    },
+    {
+      "title": "#4 Backend Engineer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Design and implement server-side applications and scalable APIs.",
+      "location": "Surabaya",
+      "type": "Full Time",
+      "experience": "3 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Computer Science or similar field.",
+        "Experience with Node.js, Express, or NestJS.",
+        "Knowledge of SQL/NoSQL databases.",
+        "Understanding of microservices architecture.",
+        "Experience with Docker and Kubernetes.",
+        "Familiarity with AWS or GCP.",
+        "Team collaboration and problem-solving skills."
+      ],
+      "responsibilities": [
+        "Develop REST and GraphQL APIs.",
+        "Maintain database performance and security.",
+        "Integrate third-party services and APIs."
+      ],
+      "benefit": ["Health insurance", "Performance bonus", "Learning budget"]
+    },
+    {
+      "title": "#5 Data Analyst",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Analyze data to provide business insights and recommendations.",
+      "location": "Medan",
+      "type": "Part Time",
+      "experience": "Fresh Graduate",
+      "requirements": [
+        "Bachelor’s degree in Statistics, Mathematics, or related field.",
+        "Strong skills in SQL and Excel.",
+        "Familiarity with Python or R for data analysis.",
+        "Experience with visualization tools like Tableau or PowerBI.",
+        "Analytical mindset and attention to detail.",
+        "Good communication and presentation skills."
+      ],
+      "responsibilities": [
+        "Prepare data reports for stakeholders.",
+        "Identify trends and insights from datasets.",
+        "Support business decision-making with data."
+      ],
+      "benefit": [
+        "Flexible hours",
+        "Remote-friendly",
+        "Skill development program"
+      ]
+    },
+    {
+      "title": "#6 Digital Marketing Specialist",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Plan and execute online marketing campaigns to boost brand awareness.",
+      "location": "Bali",
+      "type": "Freelance",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Marketing or related field.",
+        "Proven experience in SEO, SEM, and social media ads.",
+        "Knowledge of Google Analytics and marketing automation tools.",
+        "Creative thinking and copywriting skills.",
+        "Ability to manage multiple campaigns simultaneously.",
+        "Strong communication and leadership skills."
+      ],
+      "responsibilities": [
+        "Develop and implement marketing strategies.",
+        "Manage advertising budgets and optimize ROI.",
+        "Monitor performance metrics and prepare reports."
+      ],
+      "benefit": [
+        "Performance-based bonuses",
+        "Remote work availability",
+        "Professional development courses"
+      ]
+    },
+    {
+      "title": "#7 Digital Marketing Specialist",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Plan and execute online marketing campaigns to boost brand awareness.",
+      "location": "Bali",
+      "type": "Freelance",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Marketing or related field.",
+        "Proven experience in SEO, SEM, and social media ads.",
+        "Knowledge of Google Analytics and marketing automation tools.",
+        "Creative thinking and copywriting skills.",
+        "Ability to manage multiple campaigns simultaneously.",
+        "Strong communication and leadership skills."
+      ],
+      "responsibilities": [
+        "Develop and implement marketing strategies.",
+        "Manage advertising budgets and optimize ROI.",
+        "Monitor performance metrics and prepare reports."
+      ],
+      "benefit": [
+        "Performance-based bonuses",
+        "Remote work availability",
+        "Professional development courses"
+      ]
+    },
+    {
+      "title": "#8 Digital Marketing Specialist",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Plan and execute online marketing campaigns to boost brand awareness.",
+      "location": "Bali",
+      "type": "Freelance",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Marketing or related field.",
+        "Proven experience in SEO, SEM, and social media ads.",
+        "Knowledge of Google Analytics and marketing automation tools.",
+        "Creative thinking and copywriting skills.",
+        "Ability to manage multiple campaigns simultaneously.",
+        "Strong communication and leadership skills."
+      ],
+      "responsibilities": [
+        "Develop and implement marketing strategies.",
+        "Manage advertising budgets and optimize ROI.",
+        "Monitor performance metrics and prepare reports."
+      ],
+      "benefit": [
+        "Performance-based bonuses",
+        "Remote work availability",
+        "Professional development courses"
+      ]
+    },
+
+    {
+      "title": "#9 Salesforce Developer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Excepteur sint obcaecat cupiditat non proident culpa. Mercedem aut nummos unde unde extricat, amaras.",
+      "location": "Jakarta",
+      "type": "Full Time",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in any major.",
+        "Good knowledge of a programming language.",
+        "Minimum of 5 years of experience in software development with a focus on Salesforce Development.",
+        "Proficient in developing, deploying, customizing, and integrating Salesforce.",
+        "Demonstrated proficiency in installing and deploying CRM Organizations.",
+        "Demonstrated proficiency in customizing and creating CRM entities.",
+        "Demonstrated proficiency in understanding and implementing business workflows and processes.",
+        "Experience with source control management systems and continuous integration/deployment environments.",
+        "Ability to work independently as well as in a team environment.",
+        "Excellent communication skills with both internal team members and external business stakeholders.",
+        "Strong initiative to find ways to improve solutions, systems, and processes.",
+        "Experience working on an agile development team.",
+        "Fluent in English (Professionally)"
+      ],
+      "responsibilities": [
+        "Develop and maintain Salesforce applications.",
+        "Collaborate with cross-functional teams.",
+        "Participate in code reviews and technical discussions."
+      ],
+      "benefit": ["Health insurance", "Annual leave", "Flexible working hours"]
+    },
+    {
+      "title": "#10 Frontend Engineer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Build modern and scalable user interfaces for enterprise applications.",
+      "location": "Bandung",
+      "type": "Part Time",
+      "experience": "3 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Computer Science or related field.",
+        "Strong knowledge of React.js and Next.js.",
+        "Familiarity with TailwindCSS and responsive design.",
+        "Experience with state management libraries such as Redux or Zustand.",
+        "Understanding of RESTful APIs and GraphQL.",
+        "Knowledge of CI/CD workflows.",
+        "Strong problem-solving skills and teamwork.",
+        "Fluent in English."
+      ],
+      "responsibilities": [
+        "Develop responsive and reusable components.",
+        "Ensure application performance and scalability.",
+        "Work closely with backend engineers and designers."
+      ],
+      "benefit": ["Remote work option", "Project bonus", "Annual team retreat"]
+    },
+    {
+      "title": "#11 UI/UX Designer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Design intuitive user experiences and interfaces for web and mobile applications.",
+      "location": "Yogyakarta",
+      "type": "Freelance",
+      "experience": "Fresh Graduate",
+      "requirements": [
+        "Bachelor’s degree in Design, IT, or related field.",
+        "Proficiency in Figma, Adobe XD, or Sketch.",
+        "Understanding of design systems and accessibility principles.",
+        "Ability to collaborate with engineers and product managers.",
+        "Portfolio showcasing design projects.",
+        "Strong visual and communication skills."
+      ],
+      "responsibilities": [
+        "Create wireframes, prototypes, and mockups.",
+        "Conduct user research and usability testing.",
+        "Ensure consistency across all design assets."
+      ],
+      "benefit": [
+        "Flexible working schedule",
+        "Project-based income",
+        "Networking opportunities"
+      ]
+    },
+    {
+      "title": "#12 Backend Engineer",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Design and implement server-side applications and scalable APIs.",
+      "location": "Surabaya",
+      "type": "Full Time",
+      "experience": "3 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Computer Science or similar field.",
+        "Experience with Node.js, Express, or NestJS.",
+        "Knowledge of SQL/NoSQL databases.",
+        "Understanding of microservices architecture.",
+        "Experience with Docker and Kubernetes.",
+        "Familiarity with AWS or GCP.",
+        "Team collaboration and problem-solving skills."
+      ],
+      "responsibilities": [
+        "Develop REST and GraphQL APIs.",
+        "Maintain database performance and security.",
+        "Integrate third-party services and APIs."
+      ],
+      "benefit": ["Health insurance", "Performance bonus", "Learning budget"]
+    },
+    {
+      "title": "#13 Data Analyst",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Analyze data to provide business insights and recommendations.",
+      "location": "Medan",
+      "type": "Part Time",
+      "experience": "Fresh Graduate",
+      "requirements": [
+        "Bachelor’s degree in Statistics, Mathematics, or related field.",
+        "Strong skills in SQL and Excel.",
+        "Familiarity with Python or R for data analysis.",
+        "Experience with visualization tools like Tableau or PowerBI.",
+        "Analytical mindset and attention to detail.",
+        "Good communication and presentation skills."
+      ],
+      "responsibilities": [
+        "Prepare data reports for stakeholders.",
+        "Identify trends and insights from datasets.",
+        "Support business decision-making with data."
+      ],
+      "benefit": [
+        "Flexible hours",
+        "Remote-friendly",
+        "Skill development program"
+      ]
+    },
+    {
+      "title": "#14 Digital Marketing Specialist",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Plan and execute online marketing campaigns to boost brand awareness.",
+      "location": "Bali",
+      "type": "Freelance",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Marketing or related field.",
+        "Proven experience in SEO, SEM, and social media ads.",
+        "Knowledge of Google Analytics and marketing automation tools.",
+        "Creative thinking and copywriting skills.",
+        "Ability to manage multiple campaigns simultaneously.",
+        "Strong communication and leadership skills."
+      ],
+      "responsibilities": [
+        "Develop and implement marketing strategies.",
+        "Manage advertising budgets and optimize ROI.",
+        "Monitor performance metrics and prepare reports."
+      ],
+      "benefit": [
+        "Performance-based bonuses",
+        "Remote work availability",
+        "Professional development courses"
+      ]
+    },
+    {
+      "title": "#15 Digital Marketing Specialist",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Plan and execute online marketing campaigns to boost brand awareness.",
+      "location": "Bali",
+      "type": "Freelance",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Marketing or related field.",
+        "Proven experience in SEO, SEM, and social media ads.",
+        "Knowledge of Google Analytics and marketing automation tools.",
+        "Creative thinking and copywriting skills.",
+        "Ability to manage multiple campaigns simultaneously.",
+        "Strong communication and leadership skills."
+      ],
+      "responsibilities": [
+        "Develop and implement marketing strategies.",
+        "Manage advertising budgets and optimize ROI.",
+        "Monitor performance metrics and prepare reports."
+      ],
+      "benefit": [
+        "Performance-based bonuses",
+        "Remote work availability",
+        "Professional development courses"
+      ]
+    },
+    {
+      "title": "#16 Digital Marketing Specialist",
+      "desc": "Email your CV to lusi@secom.co.id with the subject “position_FullName”. We are looking forward to working together with you!<br><br>SECOM is a global corporation providing comprehensive, integrated security services and systems that make your life more secure, convenient, and comfortable. SECOM, means SECURITY COMMUNICATION, initially established in 1962, is a pioneer in Japan’s security services industry and has expertise in every aspect of security management through its Total Security Solutions services.",
+      "shortDesc": "Plan and execute online marketing campaigns to boost brand awareness.",
+      "location": "Bali",
+      "type": "Freelance",
+      "experience": "5 Years of experience",
+      "requirements": [
+        "Bachelor’s degree in Marketing or related field.",
+        "Proven experience in SEO, SEM, and social media ads.",
+        "Knowledge of Google Analytics and marketing automation tools.",
+        "Creative thinking and copywriting skills.",
+        "Ability to manage multiple campaigns simultaneously.",
+        "Strong communication and leadership skills."
+      ],
+      "responsibilities": [
+        "Develop and implement marketing strategies.",
+        "Manage advertising budgets and optimize ROI.",
+        "Monitor performance metrics and prepare reports."
+      ],
+      "benefit": [
+        "Performance-based bonuses",
+        "Remote work availability",
+        "Professional development courses"
+      ]
+    }
+  ],
+  "FAQPage": [
+    {
+      "question": "#1 Apa saja layanan dan produk yang ditawarkan oleh Secom?",
+      "answer": "Secom menawarkan berbagai layanan dan produk keamanan, termasuk sistem alarm, CCTV, akses kontrol, dan solusi keamanan terintegrasi untuk rumah dan bisnis. Kami menyediakan konsultasi gratis untuk membantu Anda memilih solusi yang paling sesuai dengan kebutuhan Anda.",
+      "category": "Informasi Layanan & Produk Secom"
+    },
+    {
+      "question": "#2 Apakah produk Secom memiliki sertifikasi keamanan?",
+      "answer": "Ya, semua produk Secom telah melalui uji coba ketat dan memiliki sertifikasi dari lembaga terkait untuk memastikan standar keamanan dan kualitas yang tinggi. Kami berkomitmen untuk memberikan perlindungan terbaik bagi pelanggan kami.",
+      "category": "Informasi Layanan & Produk Secom"
+    },
+    {
+      "question": "#3 Bagaimana cara mendapatkan demo produk Secom?",
+      "answer": "Anda dapat menghubungi tim sales kami melalui website atau telepon untuk menjadwalkan demo produk. Kami akan memberikan presentasi langsung mengenai fitur dan manfaat dari produk keamanan kami, serta menjawab pertanyaan Anda secara mendalam.",
+      "category": "Informasi Layanan & Produk Secom"
+    },
+    {
+      "question": "#4 Apa saja layanan dan produk yang ditawarkan oleh Secom?",
+      "answer": "Secom menawarkan berbagai layanan dan produk keamanan, termasuk sistem alarm, CCTV, akses kontrol, dan solusi keamanan terintegrasi untuk rumah dan bisnis. Kami menyediakan konsultasi gratis untuk membantu Anda memilih solusi yang paling sesuai dengan kebutuhan Anda.",
+      "category": "Informasi Layanan & Produk Secom"
+    },
+    {
+      "question": "#5 Apakah produk Secom memiliki sertifikasi keamanan?",
+      "answer": "Ya, semua produk Secom telah melalui uji coba ketat dan memiliki sertifikasi dari lembaga terkait untuk memastikan standar keamanan dan kualitas yang tinggi. Kami berkomitmen untuk memberikan perlindungan terbaik bagi pelanggan kami.",
+      "category": "Informasi Layanan & Produk Secom"
+    },
+    {
+      "question": "#6 Bagaimana cara mendapatkan demo produk Secom?",
+      "answer": "Anda dapat menghubungi tim sales kami melalui website atau telepon untuk menjadwalkan demo produk. Kami akan memberikan presentasi langsung mengenai fitur dan manfaat dari produk keamanan kami, serta menjawab pertanyaan Anda secara mendalam.",
+      "category": "Informasi Layanan & Produk Secom"
+    },
+    {
+      "question": "#1 Bagaimana cara melakukan pemesanan produk Secom?",
+      "answer": "Anda bisa melakukan pemesanan melalui website resmi kami, mengisi formulir pemesanan, atau menghubungi layanan pelanggan kami. Tim kami akan memandu Anda melalui proses pemesanan dari awal hingga selesai.",
+      "category": "Pemesanan"
+    },
+    {
+      "question": "#2 Apakah saya bisa membatalkan pesanan?",
+      "answer": "Pembatalan pesanan dapat dilakukan dalam waktu 24 jam setelah pesanan dikonfirmasi. Silakan hubungi layanan pelanggan kami secepatnya untuk proses pembatalan dan pengembalian dana, sesuai dengan kebijakan yang berlaku.",
+      "category": "Pemesanan"
+    },
+    {
+      "question": "#3 Berapa lama waktu yang dibutuhkan untuk proses pemesanan hingga pengiriman?",
+      "answer": "Proses pemesanan hingga pengiriman biasanya memakan waktu 3-5 hari kerja, tergantung pada ketersediaan produk dan lokasi pengiriman. Kami akan memberikan informasi pelacakan agar Anda dapat memantau status pesanan Anda.",
+      "category": "Pemesanan"
+    },
+    {
+      "question": "#1 Metode pembayaran apa saja yang diterima oleh Secom?",
+      "answer": "Kami menerima berbagai metode pembayaran, termasuk transfer bank, kartu kredit, dan dompet digital. Informasi detail mengenai rekening dan cara pembayaran akan diberikan setelah pesanan Anda dikonfirmasi.",
+      "category": "Pembayaran"
+    },
+    {
+      "question": "#2 Apakah ada opsi cicilan untuk pembayaran?",
+      "answer": "Ya, Secom bekerja sama dengan beberapa bank dan penyedia layanan keuangan untuk menawarkan opsi cicilan dengan bunga 0% untuk produk-produk tertentu. Anda bisa menanyakan informasi lebih lanjut kepada tim sales kami.",
+      "category": "Pembayaran"
+    },
+    {
+      "question": "#3 Bagaimana jika terjadi masalah saat pembayaran?",
+      "answer": "Jika Anda mengalami kendala saat melakukan pembayaran, segera hubungi layanan pelanggan kami dengan menyertakan bukti pembayaran atau tangkapan layar masalah. Tim kami akan membantu menyelesaikan masalah tersebut secepat mungkin.",
+      "category": "Pembayaran"
+    },
+    {
+      "question": "#1 Siapa yang akan melakukan instalasi produk?",
+      "answer": "Instalasi akan dilakukan oleh teknisi Secom yang profesional dan bersertifikasi. Kami memastikan setiap teknisi memiliki pengetahuan dan pengalaman yang memadai untuk memasang produk dengan aman dan benar.",
+      "category": "Teknisi & Instalasi"
+    },
+    {
+      "question": "#2 Berapa lama waktu yang dibutuhkan untuk instalasi?",
+      "answer": "Waktu instalasi bervariasi tergantung pada jenis produk dan kompleksitas pemasangan. Rata-rata, instalasi bisa memakan waktu 1-3 hari. Teknisi kami akan memberikan estimasi waktu yang lebih akurat setelah survei lokasi.",
+      "category": "Teknisi & Instalasi"
+    },
+    {
+      "question": "#3 Apakah saya perlu menyiapkan sesuatu sebelum teknisi datang?",
+      "answer": "Anda hanya perlu memastikan area instalasi dalam kondisi bersih dan mudah diakses. Teknisi kami akan membawa semua peralatan dan material yang diperlukan. Jika ada kebutuhan khusus, tim kami akan memberitahu Anda sebelumnya.",
+      "category": "Teknisi & Instalasi"
+    },
+    {
+      "question": "#1 Apa saja yang termasuk dalam garansi produk?",
+      "answer": "Garansi produk mencakup kerusakan akibat cacat pabrik atau masalah fungsional dalam jangka waktu tertentu, sesuai dengan ketentuan yang tertera di kartu garansi. Garansi tidak mencakup kerusakan akibat kesalahan penggunaan atau bencana alam.",
+      "category": "Garansi & Pemeliharaan"
+    },
+    {
+      "question": "#2 Bagaimana cara mengklaim garansi?",
+      "answer": "Untuk mengklaim garansi, Anda dapat menghubungi layanan pelanggan kami dan menyertakan bukti pembelian serta kartu garansi produk. Tim kami akan memandu Anda melalui proses perbaikan atau penggantian.",
+      "category": "Garansi & Pemeliharaan"
+    },
+    {
+      "question": "#3 Apakah ada layanan pemeliharaan rutin?",
+      "answer": "Ya, Secom menawarkan paket layanan pemeliharaan rutin untuk memastikan produk keamanan Anda berfungsi optimal. Paket ini mencakup pemeriksaan berkala, pembersihan, dan penyesuaian sistem. Anda bisa menghubungi kami untuk informasi detail paket.",
+      "category": "Garansi & Pemeliharaan"
+    }
+  ],
+
+  "NewsSingle": [
+    {
+      "id": "news-article-001",
+      "title": "Me non paenitet nullum festiviorem excogitasse ad hoc.",
+      "slug": "news-article-001",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/solutions/sol-bg-high.jpg",
+      "content": "<p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><h2>Heading 2</h2><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><ul><li>Me non paenitet nullum festiviorem excogitasse ad hoc.</li><li>Me non paenitet nullum festiviorem excogitasse ad hoc.</li><li>Me non paenitet nullum festiviorem excogitasse ad hoc.</li></ul><ol><li>Me non paenitet nullum festiviorem excogitasse ad hoc.<ol type=\"a\"><li>Fabio vel iudice vincam, sunt in culpa qui officia.</li><li>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.<ol type=\"i\"><li>Gallia est omnis divisa in partes tres, quarum. Ut enim ad minim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident culpa.</li></ol></li></ol></li><li>Me non paenitet nullum festiviorem excogitasse ad hoc.<ol type=\"a\"><li>Gallia est omnis divisa in partes tres, quarum.</li></ol></li></ol><h3>Heading 3 : Tityre, tu patulae recubans sub tegmine fagi dolor.</h3><img src=\"https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Elderly couple sitting on couch\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor.</p><h4>Heading 4 : Tityre, tu patulae recubans sub tegmine fagi dolor.</h4><blockquote style=\"border-left: 4px solid #20b2aa; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Pellentesque habitant morbi tristique senectus et netus. Tityre, tu patulae recubans sub tegmine fagi dolor.</blockquote><h5>Heading 5 : Tityre, tu patulae recubans sub tegmine fagi dolor.</h5><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse. Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa.</p>",
+      "author": "John Doe",
+      "publishedDate": "2024-09-18T10:30:00Z",
+      "category": "General",
+      "tags": ["lorem", "ipsum", "content", "article"],
+      "excerpt": "Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor."
+    },
+    {
+      "id": "news-article-002",
+      "title": "Heading 1 : Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+      "slug": "news-article-002",
+      "isFeatured": true,
+      "featuredImage": "",
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p><h2>Secondary Heading</h2><p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>At vero eos et accusamus et iusto odio dignissimos ducimus.</li><li>Qui blanditiis praesentium voluptatum deleniti atque corrupti.</li><li>Quos dolores et quas molestias excepturi sint occaecati.</li></ul><ol><li>Cupiditate non provident, similique sunt in culpa.<ol type=\"a\"><li>Qui officia deserunt mollitia animi, id est laborum.</li><li>Et harum quidem rerum facilis est et expedita distinctio.<ol type=\"i\"><li>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.</li></ol></li></ol></li><li>Quo minus id quod maxime placeat facere possimus.<ol type=\"a\"><li>Omnis voluptas assumenda est, omnis dolor repellendus.</li></ol></li></ol><h3>Heading 3 : Temporibus autem quibusdam et aut officiis debitis.</h3><img src=\"https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Modern office workspace\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p><h4>Heading 4 : Itaque earum rerum hic tenetur a sapiente delectus.</h4><blockquote style=\"border-left: 4px solid #3498db; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</blockquote><h5>Heading 5 : Et harum quidem rerum facilis est et expedita distinctio.</h5><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.</p>",
+      "author": "Jane Smith",
+      "publishedDate": "2025-09-17T14:15:00Z",
+      "category": "Category 1",
+      "tags": ["business", "technology", "innovation", "growth"],
+      "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "news-article-003",
+      "title": "Heading 1 : Sed ut perspiciatis unde omnis iste natus error.",
+      "slug": "news-article-003",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/alarm/alarm-banner.jpg",
+      "content": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p><h2>Important Section</h2><p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p><p>Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p><ul><li>Excepteur sint occaecat cupidatat non proident sunt in culpa.</li><li>Qui officia deserunt mollit anim id est laborum et dolorum fuga.</li><li>Et harum quidem rerum facilis est et expedita distinctio.</li></ul><ol><li>Nam libero tempore cum soluta nobis est eligendi.<ol type=\"a\"><li>Optio cumque nihil impedit quo minus id quod maxime.</li><li>Placeat facere possimus omnis voluptas assumenda est.<ol type=\"i\"><li>Omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis.</li></ol></li></ol></li><li>Aut rerum necessitatibus saepe eveniet ut et voluptates.<ol type=\"a\"><li>Repudiandae sint et molestiae non recusandae.</li></ol></li></ol><h3>Heading 3 : Itaque earum rerum hic tenetur a sapiente delectus.</h3><img src=\"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Person using laptop\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p><h4>Heading 4 : Omnis voluptas assumenda est omnis dolor repellendus.</h4><blockquote style=\"border-left: 4px solid #e74c3c; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</blockquote><h5>Heading 5 : Et molestiae non recusandae itaque earum rerum.</h5><p>Hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>",
+      "author": "Michael Johnson",
+      "publishedDate": "2025-09-16T09:45:00Z",
+      "category": "Category 2",
+      "tags": ["education", "learning", "development", "skills"],
+      "excerpt": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+    },
+    {
+      "id": "news-article-004",
+      "title": "Heading 1 : At vero eos et accusamus et iusto odio dignissimos.",
+      "slug": "news-article-004",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/solutions/sol-bg-high.jpg",
+      "content": "<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p><p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio.</p><h2>Key Points</h2><p>Cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.</p><p>Ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p><ul><li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</li><li>Accusantium doloremque laudantium totam rem aperiam eaque ipsa.</li><li>Quae ab illo inventore veritatis et quasi architecto beatae vitae.</li></ul><ol><li>Dicta sunt explicabo nemo enim ipsam voluptatem.<ol type=\"a\"><li>Quia voluptas sit aspernatur aut odit aut fugit.</li><li>Sed quia consequuntur magni dolores eos qui ratione.<ol type=\"i\"><li>Voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum.</li></ol></li></ol></li><li>Quia dolor sit amet consectetur adipisci velit.<ol type=\"a\"><li>Sed quia non numquam eius modi tempora incidunt.</li></ol></li></ol><h3>Heading 3 : Ut labore et dolore magnam aliquam quaerat voluptatem.</h3><img src=\"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Team collaboration\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p><h4>Heading 4 : Vel illum qui dolorem eum fugiat quo voluptas nulla.</h4><blockquote style=\"border-left: 4px solid #f39c12; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</blockquote><h5>Heading 5 : Deleniti atque corrupti quos dolores et quas molestias.</h5><p>Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.</p>",
+      "author": "Sarah Williams",
+      "publishedDate": "2025-09-15T16:20:00Z",
+      "category": "Category 3",
+      "tags": ["health", "wellness", "lifestyle", "fitness"],
+      "excerpt": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti."
+    },
+    {
+      "id": "news-article-005",
+      "title": "Heading 1 : Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
+      "slug": "news-article-005",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/alarm/alarm-banner.jpg",
+      "content": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p><p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p><h2>Main Content</h2><p>Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p><ul><li>Similique sunt in culpa qui officia deserunt mollitia animi.</li><li>Id est laborum et dolorum fuga et harum quidem rerum.</li><li>Facilis est et expedita distinctio nam libero tempore.</li></ul><ol><li>Cum soluta nobis est eligendi optio cumque nihil.<ol type=\"a\"><li>Impedit quo minus id quod maxime placeat facere possimus.</li><li>Omnis voluptas assumenda est omnis dolor repellendus.<ol type=\"i\"><li>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.</li></ol></li></ol></li><li>Saepe eveniet ut et voluptates repudiandae sint.<ol type=\"a\"><li>Et molestiae non recusandae itaque earum rerum hic.</li></ol></li></ol><h3>Heading 3 : Tenetur a sapiente delectus ut aut reiciendis voluptatibus.</h3><img src=\"https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Woman working on computer\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p><h4>Heading 4 : Et quasi architecto beatae vitae dicta sunt explicabo.</h4><blockquote style=\"border-left: 4px solid #9b59b6; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.</blockquote><h5>Heading 5 : Eos qui ratione voluptatem sequi nesciunt neque porro.</h5><p>Quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>",
+      "author": "David Brown",
+      "publishedDate": "2025-09-14T11:10:00Z",
+      "category": "Category 4",
+      "tags": ["science", "research", "innovation", "discovery"],
+      "excerpt": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."
+    },
+    {
+      "id": "news-article-006",
+      "title": "#6 Me non paenitet nullum festiviorem excogitasse ad hoc.",
+      "slug": "news-article-006",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/solutions/sol-bg-high.jpg",
+      "content": "<p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><h2>Heading 2</h2><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.</p><ul><li>Me non paenitet nullum festiviorem excogitasse ad hoc.</li><li>Me non paenitet nullum festiviorem excogitasse ad hoc.</li><li>Me non paenitet nullum festiviorem excogitasse ad hoc.</li></ul><ol><li>Me non paenitet nullum festiviorem excogitasse ad hoc.<ol type=\"a\"><li>Fabio vel iudice vincam, sunt in culpa qui officia.</li><li>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.<ol type=\"i\"><li>Gallia est omnis divisa in partes tres, quarum. Ut enim ad minim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident culpa.</li></ol></li></ol></li><li>Me non paenitet nullum festiviorem excogitasse ad hoc.<ol type=\"a\"><li>Gallia est omnis divisa in partes tres, quarum.</li></ol></li></ol><h3>Heading 3 : Tityre, tu patulae recubans sub tegmine fagi dolor.</h3><img src=\"https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Elderly couple sitting on couch\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse.Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor.</p><h4>Heading 4 : Tityre, tu patulae recubans sub tegmine fagi dolor.</h4><blockquote style=\"border-left: 4px solid #20b2aa; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Pellentesque habitant morbi tristique senectus et netus. Tityre, tu patulae recubans sub tegmine fagi dolor.</blockquote><h5>Heading 5 : Tityre, tu patulae recubans sub tegmine fagi dolor.</h5><p>Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa in partes tres, quarum. Quis aute iure reprehenderit in voluptate velit esse. Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor. Gallia est omnis divisa.</p>",
+      "author": "John Doe",
+      "publishedDate": "2024-09-18T10:30:00Z",
+      "category": "General",
+      "tags": ["lorem", "ipsum", "content", "article"],
+      "excerpt": "Cum sociis natoque penatibus et magnis dis parturient. Quo usque tandem abutere, Catilina, patientia nostra? Tityre, tu patulae recubans sub tegmine fagi dolor."
+    },
+    {
+      "id": "news-article-007",
+      "title": "#7 Heading 1 : Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+      "slug": "news-article-007",
+      "isFeatured": true,
+      "featuredImage": "",
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p><h2>Secondary Heading</h2><p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>At vero eos et accusamus et iusto odio dignissimos ducimus.</li><li>Qui blanditiis praesentium voluptatum deleniti atque corrupti.</li><li>Quos dolores et quas molestias excepturi sint occaecati.</li></ul><ol><li>Cupiditate non provident, similique sunt in culpa.<ol type=\"a\"><li>Qui officia deserunt mollitia animi, id est laborum.</li><li>Et harum quidem rerum facilis est et expedita distinctio.<ol type=\"i\"><li>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.</li></ol></li></ol></li><li>Quo minus id quod maxime placeat facere possimus.<ol type=\"a\"><li>Omnis voluptas assumenda est, omnis dolor repellendus.</li></ol></li></ol><h3>Heading 3 : Temporibus autem quibusdam et aut officiis debitis.</h3><img src=\"https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Modern office workspace\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p><h4>Heading 4 : Itaque earum rerum hic tenetur a sapiente delectus.</h4><blockquote style=\"border-left: 4px solid #3498db; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</blockquote><h5>Heading 5 : Et harum quidem rerum facilis est et expedita distinctio.</h5><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.</p>",
+      "author": "Jane Smith",
+      "publishedDate": "2025-09-17T14:15:00Z",
+      "category": "Category 1",
+      "tags": ["business", "technology", "innovation", "growth"],
+      "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "news-article-008",
+      "title": "#8 Heading 1 : Sed ut perspiciatis unde omnis iste natus error.",
+      "slug": "news-article-008",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/alarm/alarm-banner.jpg",
+      "content": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p><h2>Important Section</h2><p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p><p>Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p><ul><li>Excepteur sint occaecat cupidatat non proident sunt in culpa.</li><li>Qui officia deserunt mollit anim id est laborum et dolorum fuga.</li><li>Et harum quidem rerum facilis est et expedita distinctio.</li></ul><ol><li>Nam libero tempore cum soluta nobis est eligendi.<ol type=\"a\"><li>Optio cumque nihil impedit quo minus id quod maxime.</li><li>Placeat facere possimus omnis voluptas assumenda est.<ol type=\"i\"><li>Omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis.</li></ol></li></ol></li><li>Aut rerum necessitatibus saepe eveniet ut et voluptates.<ol type=\"a\"><li>Repudiandae sint et molestiae non recusandae.</li></ol></li></ol><h3>Heading 3 : Itaque earum rerum hic tenetur a sapiente delectus.</h3><img src=\"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Person using laptop\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p><h4>Heading 4 : Omnis voluptas assumenda est omnis dolor repellendus.</h4><blockquote style=\"border-left: 4px solid #e74c3c; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</blockquote><h5>Heading 5 : Et molestiae non recusandae itaque earum rerum.</h5><p>Hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>",
+      "author": "Michael Johnson",
+      "publishedDate": "2025-09-16T09:45:00Z",
+      "category": "Category 2",
+      "tags": ["education", "learning", "development", "skills"],
+      "excerpt": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+    },
+    {
+      "id": "news-article-009",
+      "title": "#9 Heading 1 : At vero eos et accusamus et iusto odio dignissimos.",
+      "slug": "news-article-009",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/solutions/sol-bg-high.jpg",
+      "content": "<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p><p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio.</p><h2>Key Points</h2><p>Cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.</p><p>Ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p><ul><li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</li><li>Accusantium doloremque laudantium totam rem aperiam eaque ipsa.</li><li>Quae ab illo inventore veritatis et quasi architecto beatae vitae.</li></ul><ol><li>Dicta sunt explicabo nemo enim ipsam voluptatem.<ol type=\"a\"><li>Quia voluptas sit aspernatur aut odit aut fugit.</li><li>Sed quia consequuntur magni dolores eos qui ratione.<ol type=\"i\"><li>Voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum.</li></ol></li></ol></li><li>Quia dolor sit amet consectetur adipisci velit.<ol type=\"a\"><li>Sed quia non numquam eius modi tempora incidunt.</li></ol></li></ol><h3>Heading 3 : Ut labore et dolore magnam aliquam quaerat voluptatem.</h3><img src=\"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Team collaboration\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p><h4>Heading 4 : Vel illum qui dolorem eum fugiat quo voluptas nulla.</h4><blockquote style=\"border-left: 4px solid #f39c12; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</blockquote><h5>Heading 5 : Deleniti atque corrupti quos dolores et quas molestias.</h5><p>Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.</p>",
+      "author": "Sarah Williams",
+      "publishedDate": "2025-09-15T16:20:00Z",
+      "category": "Category 3",
+      "tags": ["health", "wellness", "lifestyle", "fitness"],
+      "excerpt": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti."
+    },
+    {
+      "id": "news-article-0010",
+      "title": "#10 Heading 1 : Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
+      "slug": "news-article-010",
+      "isFeatured": true,
+      "featuredImage": "/img/temp/alarm/alarm-banner.jpg",
+      "content": "<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p><p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p><h2>Main Content</h2><p>Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p><ul><li>Similique sunt in culpa qui officia deserunt mollitia animi.</li><li>Id est laborum et dolorum fuga et harum quidem rerum.</li><li>Facilis est et expedita distinctio nam libero tempore.</li></ul><ol><li>Cum soluta nobis est eligendi optio cumque nihil.<ol type=\"a\"><li>Impedit quo minus id quod maxime placeat facere possimus.</li><li>Omnis voluptas assumenda est omnis dolor repellendus.<ol type=\"i\"><li>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.</li></ol></li></ol></li><li>Saepe eveniet ut et voluptates repudiandae sint.<ol type=\"a\"><li>Et molestiae non recusandae itaque earum rerum hic.</li></ol></li></ol><h3>Heading 3 : Tenetur a sapiente delectus ut aut reiciendis voluptatibus.</h3><img src=\"https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80\" alt=\"Woman working on computer\" style=\"width: 100%; height: auto; border-radius: 8px; margin: 20px 0;\"><p>Maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p><h4>Heading 4 : Et quasi architecto beatae vitae dicta sunt explicabo.</h4><blockquote style=\"border-left: 4px solid #9b59b6; padding-left: 20px; margin: 20px 0; font-style: italic; color: #2c3e50; font-size: 1.1em;\">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.</blockquote><h5>Heading 5 : Eos qui ratione voluptatem sequi nesciunt neque porro.</h5><p>Quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>",
+      "author": "David Brown",
+      "publishedDate": "2025-09-14T11:10:00Z",
+      "category": "Category 4",
+      "tags": ["science", "research", "innovation", "discovery"],
+      "excerpt": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."
+    }
+  ],
+  "SolutionDetailBanner": {
+    "title": "Comprehensive X-Ray Screening for High-Security Environments",
+    "image": "/img/temp/solutions/sol-bg-high.jpg",
+    "desc": "Every checkpoint, shipment, and entryway carries a responsibility. <b>One missed threat can change everything</b>. SECOM X-ray security scanners go beyond surface-level screening. They deliver fast, reliable detection that helps you stop risks before they become incidents"
+  },
+  "SolutionDetailHow": {
+    "title": "Bagaimana SECOM Bekerja?",
+    "items": [
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-1.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-1.jpg",
+        "title": "Mulai dari Mendengarkan",
+        "desc": "Tim SECOM akan menilai kondisi rumah Anda dan merekomendasikan solusi yang sesuai dengan kebutuhan serta gaya hidup Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-2.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-2.jpg",
+        "title": "Desain Cerdas & Menyeluruh",
+        "desc": "Kami merencanakan dengan cermat penempatan setiap sensor dan kamera, untuk memastikan setiap sudut rumah Anda terlindungi."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-3.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-3.jpg",
+        "title": "Pemasangan Anti Ribet",
+        "desc": "Tim teknisi kami memasang sistem dengan cepat, rapi, dan tanpa mengganggu kenyamanan rumah Anda."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-4.jpeg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-4.jpg",
+        "title": "Selalu Siaga",
+        "desc": "Sistem Anda terhubung langsung ke Control Center SECOM, siap merespons keadaan darurat kapan pun dibutuhkan."
+      },
+      {
+        "image": "/img/temp/alarm/solutions-how-secom-works-5.jpg",
+        "imageMd": "/img/temp/alarm/solutions-how-secom-works-md-5.jpg",
+        "title": "Perlindungan Tahan Lama",
+        "desc": "Kami menyediakan pengecekan dan perawatan rutin agar sistem Anda tetap andal, tahun demi tahun."
+      }
+    ]
+  },
+  "SolutionDetailHighlight": [
+    {
+      "title": "Reveal Hidden Threats",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+      "image": "/img/temp/alarm/solutions-how-secom-works-5.jpg"
+    },
+    {
+      "title": "2Reveal Hidden Threats",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+      "image": "/img/temp/alarm/solutions-how-secom-works-5.jpg"
+    },
+    {
+      "title": "3Reveal Hidden Threats",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Ambitioni dedisse scripsisse iudicaretur.",
+      "image": "/img/temp/alarm/solutions-how-secom-works-5.jpg"
+    }
+  ],
+  "SolutionDetailDocument": {
+    "title": "Check our product in our catalogue",
+    "image": "/img/temp/products/PIR-Camera-Indoor.png",
+    "file": "/dummy.pdf"
+  },
+  "SolutionDetailFAQ": [
+    {
+      "question": "#1Contra legem facit qui id facit quod lex prohibet.",
+      "answer": "Curabitur est gravida et libero vitae dictum. Quisque ut dolor gravida, placerat libero vel, euismod. Cum sociis natoque penatibus et magnis dis parturient. Integer legentibus erat a ante historiarum dapibus.<br><br>Etiam habebis sem dicantur magna mollis euismod. At nos hinc posthac, sitientis piros Afros. Ab illo tempore, ab est sed immemorabili. Mercedem aut nummos unde unde extricat, amaras. Quisque placerat facilisis egestas cillum dolore. Non equidem invideo, miror magis posuere velit aliquet."
+    },
+    {
+      "question": "#2Contra legem facit qui id facit quod lex prohibet.",
+      "answer": "Curabitur est gravida et libero vitae dictum. Quisque ut dolor gravida, placerat libero vel, euismod. Cum sociis natoque penatibus et magnis dis parturient. Integer legentibus erat a ante historiarum dapibus.<br><br>Etiam habebis sem dicantur magna mollis euismod. At nos hinc posthac, sitientis piros Afros. Ab illo tempore, ab est sed immemorabili. Mercedem aut nummos unde unde extricat, amaras. Quisque placerat facilisis egestas cillum dolore. Non equidem invideo, miror magis posuere velit aliquet."
+    },
+    {
+      "question": "#3Contra legem facit qui id facit quod lex prohibet.",
+      "answer": "Curabitur est gravida et libero vitae dictum. Quisque ut dolor gravida, placerat libero vel, euismod. Cum sociis natoque penatibus et magnis dis parturient. Integer legentibus erat a ante historiarum dapibus.<br><br>Etiam habebis sem dicantur magna mollis euismod. At nos hinc posthac, sitientis piros Afros. Ab illo tempore, ab est sed immemorabili. Mercedem aut nummos unde unde extricat, amaras. Quisque placerat facilisis egestas cillum dolore. Non equidem invideo, miror magis posuere velit aliquet."
+    }
+  ],
+
+  "SecomWorldList": [
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Japan",
+      "top": "25%",
+      "left": "70%",
+      "href": "https://www.secom.co.jp/english/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Korea",
+      "top": "25%",
+      "left": "60%",
+      "href": "https://www.s1.co.kr/en"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "China",
+      "top": "25%",
+      "left": "50%",
+      "href": "https://www.secom.cn/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Taiwan",
+      "top": "25%",
+      "left": "40%",
+      "href": "https://www.secom.com.tw/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Thailand",
+      "top": "35%",
+      "left": "80%",
+      "href": "https://www.secom.co.th/en/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Vietnam",
+      "top": "45%",
+      "left": "10%",
+      "href": "https://www.secom.vn/en/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Malaysia",
+      "top": "55%",
+      "left": "20%",
+      "href": "https://www.secom.com.my/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Singapore",
+      "top": "45%",
+      "left": "90%",
+      "href": "https://www.secom.com.sg/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Indonesia",
+      "top": "25%",
+      "left": "90%",
+      "href": "https://secom.co.id/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Australia",
+      "top": "5%",
+      "left": "80%",
+      "href": "https://secom.com.au/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "New Zealand",
+      "top": "5%",
+      "left": "11%",
+      "href": "https://secom.co.nz/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "United Kingdom",
+      "top": "11%",
+      "left": "11%",
+      "href": "https://www.secom.plc.uk/"
+    },
+    {
+      "flag": "/img/flag-en.svg",
+      "text": "Turkey",
+      "top": "44%",
+      "left": "44%",
+      "href": "https://secomtr.com/"
+    }
+  ],
+
+  "MenuServices": [
+    {
+      "text": "Security Consulting",
+      "href": "#1"
+    },
+    {
+      "text": "Monitoring & Response",
+      "href": "#2"
+    },
+    {
+      "text": "Security Guard",
+      "href": "#3"
+    }
+  ],
+
+  "MenuProducts": [
+    {
+      "text": "Alarm Monitoring",
+      "href": "#"
+    },
+    {
+      "text": "CCTV",
+      "href": "#"
+    },
+    {
+      "text": "Access Control",
+      "href": "#"
+    },
+    {
+      "text": "X-Ray",
+      "href": "#"
+    },
+    {
+      "text": "Automated External Defibrilator",
+      "href": "#"
+    },
+    {
+      "text": "Pedestrian Gate and Full Height Turnstile",
+      "href": "#"
+    },
+    {
+      "text": "Boom Gate, blocker, bollard and barrier",
+      "href": "#"
+    },
+    {
+      "text": "Key Management System",
+      "href": "#"
+    },
+    {
+      "text": "Perimeter Border Security",
+      "href": "#"
+    },
+    {
+      "text": "Walkthrought and handheld metal detector",
+      "href": "#"
+    },
+    {
+      "text": "Under Vehicle Surveilence System",
+      "href": "#"
+    },
+    {
+      "text": "Digital Guard Patrol",
+      "href": "#"
+    },
+    {
+      "text": "Elevator Control",
+      "href": "#"
+    },
+    {
+      "text": "Security Guard",
+      "href": "#"
+    }
+  ]
+}
