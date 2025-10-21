@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import FloatButton from "@/components/Elements/FloatButton";
 import AmApps from "@/components/Fragments/Alarm/AmApps";
 import AmFAQ from "@/components/Fragments/Alarm/AmFAQ";
@@ -28,6 +29,7 @@ export default async function ProductDetail({ params }) {
   if (!translationData) return notFound();
 
   const fieldType = translationData.field_type;
+
   // mapping component
   const bannerData = {
     title: translationData.banner_title,
@@ -64,6 +66,7 @@ export default async function ProductDetail({ params }) {
     background_image_desktop: translationData.banner_image_desktop,
     background_image_mobile: translationData.banner_image_mobile,
   };
+
   const overviewFullData = {
     desc: translationData.overview_title_section,
     items: translationData.overview_cards,
@@ -80,6 +83,7 @@ export default async function ProductDetail({ params }) {
     title: translationData.our_product_title_section,
     desc: translationData.our_product_description_section,
   };
+
   const productDevices =
     translationData.devices?.map((device) => {
       return {
@@ -120,21 +124,57 @@ export default async function ProductDetail({ params }) {
     type: null,
     competitor: locale === "en" ? "Other Company" : "Perusahaan Lain",
   };
+
   const packagesSection = {
     title: translationData.package_title_section,
     desc: translationData.package_description_section,
     terms: translationData.terms,
   };
-  const packagesData = translationData.packages;
+
+  const packagesData =
+    translationData.packages?.map((pkg) => {
+      // Hitung total quantity semua devices
+      const totalDevice =
+        pkg.devices?.reduce((total, device) => {
+          return total + parseInt(device.pivot?.quantity || 0);
+        }, 0) || 0;
+
+      return {
+        id: pkg.id,
+        title: pkg.name,
+        image: pkg.image
+          ? `${process.env.NEXT_PUBLIC_STORAGE_URL}${pkg.image}`
+          : null,
+        totalDevice: totalDevice,
+        rentDesc:
+          pkg.rent_description?.[locale] || pkg.rent_description?.en || "",
+        buyDesc: pkg.buy_description?.[locale] || pkg.buy_description?.en || "",
+        priceBuy: pkg.price,
+        serviceFeeBuy: {
+          basic: pkg.buy_monitoring_service_fee,
+          full: pkg.buy_full_service_fee,
+        },
+        serviceFeeRent: {
+          basic: pkg.rent_monitoring_service_fee,
+          full: pkg.rent_full_service_fee,
+        },
+        devices:
+          pkg.devices?.map((device) => ({
+            name: device.name,
+            image: device.image
+              ? `${process.env.NEXT_PUBLIC_STORAGE_URL}${device.image}`
+              : null,
+            quantity: device.pivot?.quantity || "0",
+          })) || [],
+      };
+    }) || [];
 
   return (
     <>
       {fieldType === "default" ? (
         <>
           {/* template default */}
-
           <BannerClipText dataSection={bannerData} />
-
           <OverviewGlobal dataSection={overviewData} />
           <HowWeWork dataSection={reasonData} />
           <SolDtHighlight dataSection={highlightData} />
@@ -147,9 +187,7 @@ export default async function ProductDetail({ params }) {
 
           <OverviewGlobal dataSection={overviewFullData} />
           <HowWeWork dataSection={reasonData} />
-
           <AmProtect dataSection={protectData} />
-
           <AmProducts
             dataSection={productSection}
             dataProducts={productDevices}
@@ -158,16 +196,17 @@ export default async function ProductDetail({ params }) {
             dataSection={placementData}
             dataProducts={productDevices}
           />
-
           <AmApps dataSection={appsData} />
           <AmTrusted translationKey="AlarmTrusted" dataSection={featuresData} />
-          <AmPackage
+          {/* <AmPackage
             translationKey="AlarmPackage"
             differences="AlarmDifferences"
             listPackages="BusinessPackages"
             packagesBuy="BusinessPackagesBuy"
             packagesRent="BusinessPackagesRent"
-          />
+            packagesData={packagesData}
+            packagesSection={packagesSection}
+          /> */}
           <AmFAQ dataSection={faqData} />
           <FloatButton />
         </>

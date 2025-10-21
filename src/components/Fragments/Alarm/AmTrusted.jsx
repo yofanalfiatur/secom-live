@@ -96,17 +96,31 @@ const AmTrusted = ({ dataSection }) => {
                       <div className="flex items-center justify-center mx-auto">
                         <CrossIcon />
                       </div>
-                    ) : (
+                    ) : row.notes !== null ? (
                       <div className="flex flex-col justify-center items-start w-full max-w-[200px]">
                         <div className="flex flex-col lg:flex-row gap-2 w-full items-center">
                           <div className="flex flex-col lg:w-[35px]">
                             <LimitIcon />
                           </div>
                           <div className="lg:w-[85%] lg:max-w-max font-raleway font-medium text-xs lg:text-xl text-darkblue capitalize lg:text-start flex flex-col">
-                            <p>{row.other}</p>
+                            <p>{row.notes}</p>
                           </div>
                         </div>
                       </div>
+                    ) : (
+                      row.other === "Limited" &&
+                      row.notes === null && (
+                        <div className="flex flex-col justify-center items-start w-full max-w-[200px]">
+                          <div className="flex flex-col lg:flex-row gap-2 w-full items-center">
+                            <div className="flex flex-col lg:w-[35px]">
+                              <LimitIcon />
+                            </div>
+                            <div className="lg:w-[85%] lg:max-w-max font-raleway font-medium text-xs lg:text-xl text-darkblue capitalize lg:text-start flex flex-col">
+                              <p>{locale === "en" ? "Limited" : "Terbatas"}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )
                     )}
                   </div>
                 </div>
