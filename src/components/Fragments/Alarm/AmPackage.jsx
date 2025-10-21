@@ -603,8 +603,7 @@ const AmPackage = (props) => {
                           className="py-4 lg:py-6 col-span-4 flex flex-col items-center justify-center"
                         >
                           <p className="text-white text-[13px] lg:text-xl font-bold">
-                            {locale === "en" ? "IDR" : "Rp"}{" "}
-                            {item.serviceFeeRent.basic}
+                            {locale === "en" ? "IDR" : "Rp"} {item.priceBuy}
                           </p>
                         </div>
                       ))}
