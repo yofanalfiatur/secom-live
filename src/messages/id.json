@@ -46,11 +46,11 @@
       "href": "#",
       "subMenu": [
         {
-          "subMenuText": "Secom Indonesia",
+          "subMenuText": "SECOM Indonesia",
           "subMenuHref": "/about"
         },
         {
-          "subMenuText": "Secom Worldwide",
+          "subMenuText": "SECOM Worldwide",
           "subMenuHref": "/about-world"
         }
       ]
@@ -85,11 +85,11 @@
       "icon": "",
       "subMenu": [
         {
-          "subMenuText": "Secom Indonesia",
+          "subMenuText": "SECOM Indonesia",
           "subMenuHref": "/about"
         },
         {
-          "subMenuText": "Secom Worldwide",
+          "subMenuText": "SECOM Worldwide",
           "subMenuHref": "/about-world"
         }
       ]
