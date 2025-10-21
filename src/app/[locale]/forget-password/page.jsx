@@ -32,7 +32,13 @@ const ForgetPassword = () => {
             </motion.h1>
 
             <div className="w-full mt-4 login__wrap-form">
-              <ForgetPasswordForm />
+              {/* <ForgetPasswordForm /> */}
+              <iframe
+                src="https://www.alarm.com/getlogininfo_asp_frame.aspx"
+                className="w-full h-[600px] border-0 rounded-lg overflow-hidden"
+                title="Forget Password Form"
+                loading="lazy"
+              ></iframe>
             </div>
 
             <div className="w-full flex flex-col items-center justify-center">
