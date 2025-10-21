@@ -22,7 +22,7 @@ const SolServices = (props) => {
             const content = item.translations[locale];
 
             const hrefLink =
-              index === 2 ? "/about-world" : `/service/${item.slug}`;
+              index === 2 ? "/about-global" : `/service/${item.slug}`;
 
             return (
               <li

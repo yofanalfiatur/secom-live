@@ -16,11 +16,9 @@ const AbWorldRnD = ({ dataSection }) => {
         <div className="w-full flex flex-col lg:pr-4">
           <p className="text-darkblue uppercase tracking-[3px] lg:text-xl">
             {dataSection.subtitle}
-            lorem ipsum subtitle
           </p>
           <h2 className="text-darkblue font-raleway font-medium text-[30px] lg:text-[45px] leading-[1.3] lg:leading-[1.2] mt-3 mb-5">
             {dataSection.title}
-            Lorem Ipsum Lorem IpsumLorem IpsumLorem Ipsum
           </h2>
 
           {/* Dropdown (Mobile Only) */}

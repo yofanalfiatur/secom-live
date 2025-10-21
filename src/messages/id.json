@@ -50,8 +50,8 @@
           "subMenuHref": "/about"
         },
         {
-          "subMenuText": "SECOM Worldwide",
-          "subMenuHref": "/about-world"
+          "subMenuText": "SECOM Global",
+          "subMenuHref": "/about-global"
         }
       ]
     },
@@ -89,8 +89,8 @@
           "subMenuHref": "/about"
         },
         {
-          "subMenuText": "SECOM Worldwide",
-          "subMenuHref": "/about-world"
+          "subMenuText": "SECOM Global",
+          "subMenuHref": "/about-global"
         }
       ]
     },
@@ -1827,7 +1827,7 @@
   },
 
   "AbWorldBanner": {
-    "subtitle": "SECOM WORLDWIDE",
+    "subtitle": "SECOM Global",
     "title": "Curabitur blandit tempus ardua ridiculus sed magna.",
     "bgDesktop": "/img/temp/solutions/sol-bg-high.jpg"
   },
