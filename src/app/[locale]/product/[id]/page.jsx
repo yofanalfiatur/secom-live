@@ -126,14 +126,30 @@ export default async function ProductDetail({ params }) {
   };
 
   const packagesSection = {
-    title: translationData.package_title_section,
-    desc: translationData.package_description_section,
+    title: translationData.packages_title_section,
+    desc: translationData.packages_description_section,
     terms: translationData.terms,
+  };
+
+  const formatPrice = (price, currentLocale) => {
+    try {
+      const number = parseInt(price) || 0;
+
+      if (currentLocale === "id") {
+        // Format Indonesia: 1.000.000
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      } else {
+        // Format English: 1,000,000
+        return number.toLocaleString("en-US");
+      }
+    } catch (error) {
+      console.error("Error formatting price:", error);
+      return price; // Return original value if error
+    }
   };
 
   const packagesData =
     translationData.packages?.map((pkg) => {
-      // Hitung total quantity semua devices
       const totalDevice =
         pkg.devices?.reduce((total, device) => {
           return total + parseInt(device.pivot?.quantity || 0);
@@ -149,14 +165,15 @@ export default async function ProductDetail({ params }) {
         rentDesc:
           pkg.rent_description?.[locale] || pkg.rent_description?.en || "",
         buyDesc: pkg.buy_description?.[locale] || pkg.buy_description?.en || "",
-        priceBuy: pkg.price,
+        // Format semua harga
+        priceBuy: formatPrice(pkg.price, locale),
         serviceFeeBuy: {
-          basic: pkg.buy_monitoring_service_fee,
-          full: pkg.buy_full_service_fee,
+          basic: formatPrice(pkg.buy_monitoring_service_fee, locale),
+          full: formatPrice(pkg.buy_full_service_fee, locale),
         },
         serviceFeeRent: {
-          basic: pkg.rent_monitoring_service_fee,
-          full: pkg.rent_full_service_fee,
+          basic: formatPrice(pkg.rent_monitoring_service_fee, locale),
+          full: formatPrice(pkg.rent_full_service_fee, locale),
         },
         devices:
           pkg.devices?.map((device) => ({
@@ -198,7 +215,7 @@ export default async function ProductDetail({ params }) {
           />
           <AmApps dataSection={appsData} />
           <AmTrusted translationKey="AlarmTrusted" dataSection={featuresData} />
-          {/* <AmPackage
+          <AmPackage
             translationKey="AlarmPackage"
             differences="AlarmDifferences"
             listPackages="BusinessPackages"
@@ -206,7 +223,7 @@ export default async function ProductDetail({ params }) {
             packagesRent="BusinessPackagesRent"
             packagesData={packagesData}
             packagesSection={packagesSection}
-          /> */}
+          />
           <AmFAQ dataSection={faqData} />
           <FloatButton />
         </>

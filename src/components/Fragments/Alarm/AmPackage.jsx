@@ -1,35 +1,15 @@
 "use client";
 import Image from "next/image";
-import React, { act, useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import useIsDesktop from "@/components/Hooks/useIsDesktop";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 const AmPackage = (props) => {
-  const {
-    translationKey,
-    differences,
-    listPackages,
-    packagesBuy,
-    packagesRent,
-  } = props;
-
-  const t = useTranslations();
-  const PackageInfo = t.raw(translationKey);
-  const DifferncesInfo = t.raw(differences);
-  const Packages = t.raw(listPackages);
-  const SoPackagesBuy = t.raw(packagesBuy);
-  const SoPackagesRent = t.raw(packagesRent);
+  const { packagesData, packagesSection } = props;
 
   const locale = useLocale();
 
-  const isDesktop = useIsDesktop();
   const [activeTab, setActiveTab] = useState(0); // 0 = Rent, 1 = Buy
-
-  // Filter items based on the active tab
-  const filteredItems = Packages.filter((item) =>
-    activeTab === 0 ? item.isRent === true : item.isRent === false
-  );
 
   const handleTabClick = (tabIndex) => {
     setActiveTab(tabIndex);
@@ -62,48 +42,53 @@ const AmPackage = (props) => {
     <section className="pt-7 lg:pt-13 am-packages" id="am-packages">
       <div className="container mx-auto flex flex-col lg:items-center">
         <h2 className="text-darkblue text-[25px] lg:text-[40px] lg:text-center font-normal">
-          {PackageInfo.title}
+          {packagesSection.title}
         </h2>
 
         <p className="text-darkblue text-sm lg:text-lg lg:text-center lg:w-[70%] mt-3 mb-6 lg:mt-3 lg:mb-8">
-          {PackageInfo.desc}
+          {packagesSection.desc}
         </p>
 
         {/* Tabs for Rent and Buy */}
         <div className="flex flex-col border-1 border-[#00000033] w-full lg:w-10/12 rounded-[5px] overflow-hidden">
           <div className="flex flex-row relative border-b-[1px] border-[#00000033]">
-            {PackageInfo.tabs.map((tab, index) => (
-              <div
-                className="w-1/2 relative first:border-r-[1px] first:border-[#00000033]"
-                key={index}
+            <div className="w-1/2 relative first:border-r-[1px] first:border-[#00000033]">
+              <button
+                onClick={() => handleTabClick(0)} // 0 untuk Rent
+                className={`w-full pt-4 pb-3 lg:px-6 lg:pb-5 lg:pt-8 flex flex-col items-center cursor-pointer relative z-10 border-b-[4px] lg:border-b-[9px] hover:bg-[#00AAAD33] transition-all duration-200 ease mb-[-1px]  ${
+                  activeTab === 0
+                    ? " border-[#00AAAD]"
+                    : "bg-transparent border-transparent"
+                }`}
               >
-                <button
-                  onClick={() => handleTabClick(index)}
-                  className={`w-full pt-4 pb-3 lg:px-6 lg:pb-5 lg:pt-8 flex flex-col items-center cursor-pointer relative z-10 border-b-[4px] lg:border-b-[9px] hover:bg-[#00AAAD33] transition-all duration-200 ease mb-[-1px]  ${
-                    activeTab === index
-                      ? " border-[#00AAAD]"
-                      : "bg-transparent border-transparent"
+                <p
+                  className={`text-xs lg:text-xl text-center uppercase tracking-[2px] lg:tracking-normal font-raleway font-normal ${
+                    activeTab === 0 ? "text-navyblue" : "text-slate-500"
                   }`}
                 >
-                  <p
-                    className={`text-xs lg:text-xl text-center uppercase tracking-[2px] lg:tracking-normal font-raleway font-normal ${
-                      activeTab === index ? "text-navyblue" : "text-slate-500"
-                    }`}
-                  >
-                    {tab.title}
-                  </p>
-                  {isDesktop && (
-                    <p
-                      className={`text-sm ${
-                        activeTab === index ? "text-navyblue" : "text-slate-400"
-                      }`}
-                    >
-                      {tab.desc}
-                    </p>
-                  )}
-                </button>
-              </div>
-            ))}
+                  {locale === "en" ? "Rent" : "Sewa"}
+                </p>
+              </button>
+            </div>
+
+            <div className="w-1/2 relative first:border-r-[1px] first:border-[#00000033]">
+              <button
+                onClick={() => handleTabClick(1)} // 1 untuk Buy
+                className={`w-full pt-4 pb-3 lg:px-6 lg:pb-5 lg:pt-8 flex flex-col items-center cursor-pointer relative z-10 border-b-[4px] lg:border-b-[9px] hover:bg-[#00AAAD33] transition-all duration-200 ease mb-[-1px]  ${
+                  activeTab === 1
+                    ? " border-[#00AAAD]"
+                    : "bg-transparent border-transparent"
+                }`}
+              >
+                <p
+                  className={`text-xs lg:text-xl text-center uppercase tracking-[2px] lg:tracking-normal font-raleway font-normal ${
+                    activeTab === 1 ? "text-navyblue" : "text-slate-500"
+                  }`}
+                >
+                  {locale === "en" ? "Buy" : "Beli"}
+                </p>
+              </button>
+            </div>
           </div>
 
           {/* Tab content */}
@@ -117,7 +102,7 @@ const AmPackage = (props) => {
                 exit="exit"
                 className="flex flex-col"
               >
-                {filteredItems.map((item, index) => (
+                {packagesData.map((item, index) => (
                   <div
                     key={`${activeTab}-${index}`}
                     className="flex flex-col lg:flex-row am-package__item border-b border-gray-200 last:border-b-0 overflow-hidden"
@@ -125,14 +110,14 @@ const AmPackage = (props) => {
                     <div className="w-full lg:w-[30%] flex flex-col">
                       <div className="opacity-100 translate-y-0 transition duration-300 flex flex-col items-center">
                         <p className="bg-navyblue text-sm lg:text-lg text-white text-center py-2 rounded-b-[10px] w-[150px]">
-                          {item.device}{" "}
+                          {item.totalDevice}{" "}
                           {locale === "en" ? "Device" : "Perangkat"}
                         </p>
                       </div>
                       <div className="relative">
                         <Image
                           src={item.image}
-                          alt={item.title}
+                          alt="Package"
                           width={239}
                           height={156}
                           quality={100}
@@ -147,7 +132,7 @@ const AmPackage = (props) => {
                           {item.title}
                         </p>
                         <p className="text-darkblue text-center lg:text-start mb-2">
-                          {item.desc}
+                          {activeTab === 0 ? item.rentDesc : item.buyDesc}
                         </p>
                         {activeTab === 0 && (
                           <p className="text-xs lg:text-base font-bold text-navyblue leading-[1] mb-1 text-center lg:text-start">
@@ -160,7 +145,11 @@ const AmPackage = (props) => {
                               <span className="font-bold">
                                 {locale === "en" ? "IDR" : "Rp"}{" "}
                               </span>
-                              <span className="font-bold">{item.price}</span>
+                              <span className="font-bold">
+                                {activeTab === 0
+                                  ? item.serviceFeeRent.basic
+                                  : item.priceBuy}
+                              </span>
 
                               {activeTab === 0 && (
                                 <span>
@@ -170,50 +159,48 @@ const AmPackage = (props) => {
                             </p>
                           </div>
 
-                          {item.serviceFee &&
-                            item.serviceFee.length > 0 &&
-                            activeTab === 1 && (
-                              <div className="bg-[#CE2129] relative z-[1] text-white px-3 py-[4px] rounded text-sm flex flex-col items-center">
-                                <svg
-                                  width="13"
-                                  height="13"
-                                  viewBox="0 0 13 13"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="absolute top-1/2 -translate-y-1/2 left-[-25px] scale-[180%]"
-                                >
-                                  <circle
-                                    cx="6.30964"
-                                    cy="6.30964"
-                                    r="6.30964"
-                                    fill="#00529C"
-                                  />
-                                  <path
-                                    d="M8.43516 6.06586V6.97445H6.94608V8.58972H5.93654V6.97445H4.44746V6.06586H5.93654V4.45059H6.94608V6.06586H8.43516Z"
-                                    fill="white"
-                                  />
-                                </svg>
+                          {activeTab === 1 && (
+                            <div className="bg-[#CE2129] relative z-[1] text-white px-3 py-[4px] rounded text-sm flex flex-col items-center">
+                              <svg
+                                width="13"
+                                height="13"
+                                viewBox="0 0 13 13"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="absolute top-1/2 -translate-y-1/2 left-[-25px] scale-[180%]"
+                              >
+                                <circle
+                                  cx="6.30964"
+                                  cy="6.30964"
+                                  r="6.30964"
+                                  fill="#00529C"
+                                />
+                                <path
+                                  d="M8.43516 6.06586V6.97445H6.94608V8.58972H5.93654V6.97445H4.44746V6.06586H5.93654V4.45059H6.94608V6.06586H8.43516Z"
+                                  fill="white"
+                                />
+                              </svg>
 
-                                <span className="text-[10px] leading-[1] mb-1 text-center">
-                                  {locale === "en"
-                                    ? "Service Fee starting from"
-                                    : "Biaya Layanan Mulai dari"}
-                                </span>
-                                <div className="flex flex-row items-start">
-                                  <p className="text-[8px] leading-[1] mr-[1px] mt-[1px]">
-                                    {locale === "en" ? "IDR" : "Rp"}
-                                  </p>
-                                  <p className="text-sm leading-[1] flex flex-row gap-1">
-                                    <span className="font-bold">
-                                      {item.serviceFee[0].fee}
-                                    </span>
-                                    <span>
-                                      /{locale === "en" ? "month" : "bulan"}
-                                    </span>
-                                  </p>
-                                </div>
+                              <span className="text-[10px] leading-[1] mb-1 text-center">
+                                {locale === "en"
+                                  ? "Service Fee starting from"
+                                  : "Biaya Layanan Mulai dari"}
+                              </span>
+                              <div className="flex flex-row items-start">
+                                <p className="text-[8px] leading-[1] mr-[1px] mt-[1px]">
+                                  {locale === "en" ? "IDR" : "Rp"}
+                                </p>
+                                <p className="text-sm leading-[1] flex flex-row gap-1">
+                                  <span className="font-bold">
+                                    {item.serviceFeeBuy.basic}
+                                  </span>
+                                  <span>
+                                    /{locale === "en" ? "month" : "bulan"}
+                                  </span>
+                                </p>
                               </div>
-                            )}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -239,7 +226,7 @@ const AmPackage = (props) => {
                 }`}
               >
                 <span className="text-white font-raleway text-sm lg:text-xl lg:font-normal tracking-[4px] uppercase">
-                  {DifferncesInfo.title}
+                  {locale === "en" ? "SEE THE DIFFERENCES" : "LIHAT PERBEDAAN"}
                 </span>
                 <svg
                   width="15"
@@ -270,60 +257,87 @@ const AmPackage = (props) => {
                     <div className="grid grid-cols-12 border-b-[1px] border-[#0000001A]">
                       <div className="py-3 lg:py-6 border-r-[1px] border-[#0000001A] col-span-4 flex flex-col items-center justify-center">
                         <p className="font-raleway text-navyblue text-sm lg:text-xl font-bold uppercase">
-                          Device
+                          {locale === "en" ? "Device" : "Perangkat"}
                         </p>
                       </div>
-                      {Packages.map(
-                        (item, index) =>
-                          item.isRent === true && (
-                            <div
-                              key={index}
-                              className={`py-3 lg:py-6 col-span-4 flex flex-col items-center justify-center ${
-                                index !== Packages.length - 1
-                                  ? "border-r-[1px] border-[#0000001A]"
-                                  : ""
-                              } `}
-                            >
-                              <p className="font-raleway text-navyblue text-sm lg:text-xl font-bold uppercase">
-                                {item.title}
-                              </p>
-                            </div>
-                          )
-                      )}
+                      {packagesData.map((item, index) => (
+                        <div
+                          key={index}
+                          className={`py-3 lg:py-6 col-span-4 flex flex-col items-center justify-center ${
+                            index !== packagesData.length - 1
+                              ? "border-r-[1px] border-[#0000001A]"
+                              : ""
+                          } `}
+                        >
+                          <p className="font-raleway text-navyblue text-sm lg:text-xl font-bold uppercase">
+                            {item.title}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                     {/* Body Content */}
-                    {SoPackagesRent.map((item, index) => (
-                      <div
-                        key={index}
-                        className="grid grid-cols-12 border-b-[1px] border-[#0000001A]"
-                      >
-                        {/* device */}
-                        <div className="col-span-4 flex flex-col lg:flex-row items-center gap-2 lg:gap-6 border-r-[1px] border-[#0000001A] lg:min-h-[130px] p-5 lg:py-2 lg:px-10">
-                          <Image
-                            src={item.image}
-                            alt="secom"
-                            width={88}
-                            height={88}
-                            className="w-[55px] h-[55px] lg:w-[88px] lg:h-[88px]"
-                          />
-                          <p className="font-raleway text-center lg:text-start text-sm lg:text-xl font-normal">
-                            {item.device}
-                          </p>
+
+                    {/* Dapatkan semua device unik dari semua package */}
+                    {(() => {
+                      const allDevices = [];
+                      packagesData.forEach((pkg) => {
+                        pkg.devices.forEach((device) => {
+                          if (!allDevices.find((d) => d.name === device.name)) {
+                            allDevices.push({
+                              name: device.name,
+                              image: device.image,
+                            });
+                          }
+                        });
+                      });
+
+                      return allDevices.map((device, index) => (
+                        <div
+                          key={index}
+                          className="grid grid-cols-12 border-b-[1px] border-[#0000001A]"
+                        >
+                          {/* Device */}
+                          <div className="col-span-4 flex flex-col lg:flex-row items-center gap-2 lg:gap-6 border-r-[1px] border-[#0000001A] lg:min-h-[130px] p-5 lg:py-2 lg:px-10">
+                            <Image
+                              src={device.image}
+                              alt={device.name}
+                              width={88}
+                              height={88}
+                              className="w-[55px] h-[55px] lg:w-[88px] lg:h-[88px]"
+                            />
+                            <p className="font-raleway text-center lg:text-start text-sm lg:text-xl font-normal">
+                              {device.name}
+                            </p>
+                          </div>
+
+                          {/* Quantity untuk setiap package */}
+                          {packagesData.map((pkg, pkgIndex) => {
+                            // Cari device yang sesuai dalam package ini
+                            const deviceInPackage = pkg.devices.find(
+                              (d) => d.name === device.name
+                            );
+                            const quantity = deviceInPackage
+                              ? deviceInPackage.quantity
+                              : "-";
+
+                            return (
+                              <div
+                                key={pkgIndex}
+                                className={`col-span-4 flex flex-col items-center justify-center ${
+                                  pkgIndex !== packagesData.length - 1
+                                    ? "border-r-[1px] border-[#0000001A]"
+                                    : ""
+                                }`}
+                              >
+                                <p className="font-raleway lg:text-xl font-normal">
+                                  {quantity}
+                                </p>
+                              </div>
+                            );
+                          })}
                         </div>
-                        {/* Basic */}
-                        <div className="col-span-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]">
-                          <p className=" font-raleway lg:text-xl font-normal">
-                            {item.basic}
-                          </p>
-                        </div>
-                        {/* Pro */}
-                        <div className="col-span-4 flex flex-col items-center justify-center">
-                          <p className=" font-raleway lg:text-xl font-normal">
-                            {item.pro}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
+                      ));
+                    })()}
 
                     {/* price */}
                     <div className="grid grid-cols-12 bg-tosca">
@@ -333,19 +347,17 @@ const AmPackage = (props) => {
                         </p>
                       </div>
 
-                      {Packages.map(
-                        (item, index) =>
-                          item.isRent === true && (
-                            <div
-                              key={index}
-                              className="py-4 lg:py-6 col-span-4 flex flex-col items-center justify-center"
-                            >
-                              <p className="text-white text-[13px] lg:text-xl font-bold">
-                                {locale === "en" ? "IDR" : "Rp"} {item.price}
-                              </p>
-                            </div>
-                          )
-                      )}
+                      {packagesData.map((item, index) => (
+                        <div
+                          key={index}
+                          className="py-4 lg:py-6 col-span-4 flex flex-col items-center justify-center"
+                        >
+                          <p className="text-white text-[13px] lg:text-xl font-bold">
+                            {locale === "en" ? "IDR" : "Rp"}{" "}
+                            {item.serviceFeeRent.basic}
+                          </p>
+                        </div>
+                      ))}
                     </div>
 
                     {/* Icon Plus */}
@@ -359,63 +371,60 @@ const AmPackage = (props) => {
                     </div>
                     <div className="bg-navyblue py-4 lg:py-6 flex flex-col items-center justify-center">
                       <p className="text-white text-sm lg:text-xl font-raleway font-semibold uppercase">
-                        {DifferncesInfo.serviceTitle}
+                        {locale === "en" ? "SERVICE FEE" : "BIAYA LAYANAN"}
                       </p>
                     </div>
 
-                    {/* Service Fee */}
-                    {Packages.find(
-                      (pkg) =>
-                        (pkg.isRent && pkg.title === "Business") ||
-                        (pkg.isRent && pkg.title === "Home")
-                    ).serviceFee.map((service, index) => (
-                      <div
-                        key={index}
-                        className="grid grid-cols-12 border-b-[1px] border-[#0000001A]"
-                      >
-                        {/* Name */}
-                        <div className="col-span-4 p-4 flex flex-row items-center justify-center border-r-[1px] border-[#0000001A] lg:min-h-[100px]">
-                          <p className="text-xs text-darkblue text-center lg:text-xl font-normal">
-                            {service.text}
-                          </p>
-                        </div>
-                        {/* Basic */}
-                        <div className="col-span-4 p-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]">
+                    {/* Service Fee Rent */}
+                    <div className="grid grid-cols-12 border-b-[1px] border-[#0000001A]">
+                      {/* Name */}
+                      <div className="col-span-4 p-4 flex flex-row items-center justify-center border-r-[1px] border-[#0000001A] lg:min-h-[100px]">
+                        <p className="text-xs text-darkblue text-center lg:text-xl font-normal">
+                          {locale === "en"
+                            ? "Service fee 24/7 monitoring only"
+                            : "Biaya Layanan Pemantauan 24/7"}
+                        </p>
+                      </div>
+                      {packagesData.map((item, index) => (
+                        <div
+                          className="col-span-4 p-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]"
+                          key={index}
+                        >
                           <p className="text-[13px] lg:text-xl text-darkblue font-bold">
                             {locale === "en" ? "IDR" : "Rp"}{" "}
-                            {
-                              Packages.find(
-                                (pkg) =>
-                                  (pkg.isRent && pkg.title === "Business") ||
-                                  (pkg.isRent && pkg.title === "Home")
-                              ).serviceFee[index].fee
-                            }
+                            {item.serviceFeeRent.basic}
                           </p>
                           <p className="text-[13px] lg:text-lg text-darkblue">
                             {"/"}
                             {locale === "en" ? "month" : "bulan"}
                           </p>
                         </div>
-                        {/* Pro */}
-                        <div className="col-span-4 p-4 flex flex-col items-center justify-center">
-                          <p className="text-[13px] lg:text-xl font-bold text-darkblue">
-                            {locale === "en" ? "IDR" : "Rp"}{" "}
-                            {
-                              Packages.find(
-                                (pkg) =>
-                                  (pkg.isRent &&
-                                    pkg.title === "Business PRO") ||
-                                  (pkg.isRent && pkg.title === "Home PRO")
-                              ).serviceFee[index].fee
-                            }
-                          </p>
-                          <p className="text-[13px] lg:text-lg text-darkblue">
-                            {"/"}
-                            {locale === "en" ? "month" : "bulan"}
-                          </p>
-                        </div>
+                      ))}
+
+                      {/* Name */}
+                      <div className="col-span-4 p-4 flex flex-row items-center justify-center border-r-[1px] border-[#0000001A] lg:min-h-[100px]">
+                        <p className="text-xs text-darkblue text-center lg:text-xl font-normal">
+                          {locale === "en"
+                            ? "Service fee 24/7 monitoring + dispatch"
+                            : "Biaya Layanan Pemantauan 24/7 + Respon Fisik"}
+                        </p>
                       </div>
-                    ))}
+                      {packagesData.map((item, index) => (
+                        <div
+                          className="col-span-4 p-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]"
+                          key={index}
+                        >
+                          <p className="text-[13px] lg:text-xl text-darkblue font-bold">
+                            {locale === "en" ? "IDR" : "Rp"}{" "}
+                            {item.serviceFeeRent.full}
+                          </p>
+                          <p className="text-[13px] lg:text-lg text-darkblue">
+                            {"/"}
+                            {locale === "en" ? "month" : "bulan"}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -430,7 +439,9 @@ const AmPackage = (props) => {
                   className=" text-tosca text-sm font-semibold mt-8 lg:mt-8 uppercase cursor-pointer flex flex-row justify-center items-center gap-2 self-center"
                 >
                   <p className="font-raleway font-normal text-xs tracking-[2px]">
-                    {DifferncesInfo.hint}
+                    {locale === "en"
+                      ? "Hide Information"
+                      : "Sembunyikan Informasi"}
                   </p>
                   <svg
                     width="15"
@@ -465,7 +476,7 @@ const AmPackage = (props) => {
                 }`}
               >
                 <span className="text-white font-raleway text-sm lg:text-xl lg:font-normal tracking-[4px] uppercase">
-                  {DifferncesInfo.title}
+                  {locale === "en" ? "SEE THE DIFFERENCES" : "LIHAT PERBEDAAN"}
                 </span>
                 <svg
                   width="15"
@@ -496,59 +507,87 @@ const AmPackage = (props) => {
                     <div className="grid grid-cols-12 border-b-[1px] border-[#0000001A]">
                       <div className="py-3 lg:py-6 border-r-[1px] border-[#0000001A] col-span-4 flex flex-col items-center justify-center">
                         <p className="font-raleway text-navyblue text-sm lg:text-xl font-bold uppercase">
-                          Device
+                          {locale === "en" ? "Device" : "Perangkat"}
                         </p>
                       </div>
-                      {Packages.map(
-                        (item, index) =>
-                          item.isRent === false && (
-                            <div
-                              className={`py-3 lg:py-6 col-span-4 flex flex-col items-center justify-center ${
-                                index !== Packages.length - 1
-                                  ? "border-r-[1px] border-[#0000001A]"
-                                  : ""
-                              } `}
-                            >
-                              <p className="font-raleway text-navyblue text-sm lg:text-xl font-bold uppercase">
-                                {item.title}
-                              </p>
-                            </div>
-                          )
-                      )}
+                      {packagesData.map((item, index) => (
+                        <div
+                          key={index}
+                          className={`py-3 lg:py-6 col-span-4 flex flex-col items-center justify-center ${
+                            index !== packagesData.length - 1
+                              ? "border-r-[1px] border-[#0000001A]"
+                              : ""
+                          } `}
+                        >
+                          <p className="font-raleway text-navyblue text-sm lg:text-xl font-bold uppercase">
+                            {item.title}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                     {/* Body Content */}
-                    {SoPackagesBuy.map((item, index) => (
-                      <div
-                        key={index}
-                        className="grid grid-cols-12 border-b-[1px] border-[#0000001A]"
-                      >
-                        {/* device */}
-                        <div className="col-span-4 flex flex-col lg:flex-row items-center gap-2 lg:gap-6 border-r-[1px] border-[#0000001A] lg:min-h-[130px] p-5 lg:py-2 lg:px-10">
-                          <Image
-                            src={item.image}
-                            alt="secom"
-                            width={88}
-                            height={88}
-                            className="w-[55px] h-[55px] lg:w-[88px] lg:h-[88px]"
-                          />
-                          <p className="font-raleway text-center lg:text-start text-sm lg:text-xl font-normal">
-                            {item.device}
-                          </p>
+
+                    {/* Dapatkan semua device unik dari semua package */}
+                    {(() => {
+                      const allDevices = [];
+                      packagesData.forEach((pkg) => {
+                        pkg.devices.forEach((device) => {
+                          if (!allDevices.find((d) => d.name === device.name)) {
+                            allDevices.push({
+                              name: device.name,
+                              image: device.image,
+                            });
+                          }
+                        });
+                      });
+
+                      return allDevices.map((device, index) => (
+                        <div
+                          key={index}
+                          className="grid grid-cols-12 border-b-[1px] border-[#0000001A]"
+                        >
+                          {/* Device */}
+                          <div className="col-span-4 flex flex-col lg:flex-row items-center gap-2 lg:gap-6 border-r-[1px] border-[#0000001A] lg:min-h-[130px] p-5 lg:py-2 lg:px-10">
+                            <Image
+                              src={device.image}
+                              alt={device.name}
+                              width={88}
+                              height={88}
+                              className="w-[55px] h-[55px] lg:w-[88px] lg:h-[88px]"
+                            />
+                            <p className="font-raleway text-center lg:text-start text-sm lg:text-xl font-normal">
+                              {device.name}
+                            </p>
+                          </div>
+
+                          {/* Quantity untuk setiap package */}
+                          {packagesData.map((pkg, pkgIndex) => {
+                            // Cari device yang sesuai dalam package ini
+                            const deviceInPackage = pkg.devices.find(
+                              (d) => d.name === device.name
+                            );
+                            const quantity = deviceInPackage
+                              ? deviceInPackage.quantity
+                              : "-";
+
+                            return (
+                              <div
+                                key={pkgIndex}
+                                className={`col-span-4 flex flex-col items-center justify-center ${
+                                  pkgIndex !== packagesData.length - 1
+                                    ? "border-r-[1px] border-[#0000001A]"
+                                    : ""
+                                }`}
+                              >
+                                <p className="font-raleway lg:text-xl font-normal">
+                                  {quantity}
+                                </p>
+                              </div>
+                            );
+                          })}
                         </div>
-                        {/* Basic */}
-                        <div className="col-span-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]">
-                          <p className=" font-raleway lg:text-xl font-normal">
-                            {item.basic}
-                          </p>
-                        </div>
-                        {/* Pro */}
-                        <div className="col-span-4 flex flex-col items-center justify-center">
-                          <p className=" font-raleway lg:text-xl font-normal">
-                            {item.pro}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
+                      ));
+                    })()}
 
                     {/* price */}
                     <div className="grid grid-cols-12 bg-tosca">
@@ -558,20 +597,19 @@ const AmPackage = (props) => {
                         </p>
                       </div>
 
-                      {Packages.map(
-                        (item, index) =>
-                          item.isRent === false && (
-                            <div
-                              key={index}
-                              className="py-4 lg:py-6 col-span-4 flex flex-col items-center justify-center"
-                            >
-                              <p className="text-white text-[13px] lg:text-xl font-bold">
-                                {locale === "en" ? "IDR" : "Rp"} {item.price}
-                              </p>
-                            </div>
-                          )
-                      )}
+                      {packagesData.map((item, index) => (
+                        <div
+                          key={index}
+                          className="py-4 lg:py-6 col-span-4 flex flex-col items-center justify-center"
+                        >
+                          <p className="text-white text-[13px] lg:text-xl font-bold">
+                            {locale === "en" ? "IDR" : "Rp"}{" "}
+                            {item.serviceFeeRent.basic}
+                          </p>
+                        </div>
+                      ))}
                     </div>
+
                     {/* Icon Plus */}
                     <div className="w-full flex flex-col justify-center items-center">
                       <div className="my-3 lg:my-5 flex flex-col items-center w-[42px] h-[42px] lg:w-[70px] lg:h-[70px] justify-center  bg-navyblue rounded-full">
@@ -583,63 +621,60 @@ const AmPackage = (props) => {
                     </div>
                     <div className="bg-navyblue py-4 lg:py-6 flex flex-col items-center justify-center">
                       <p className="text-white text-sm lg:text-xl font-raleway font-semibold uppercase">
-                        {DifferncesInfo.serviceTitle}
+                        {locale === "en" ? "SERVICE FEE" : "BIAYA LAYANAN"}
                       </p>
                     </div>
 
                     {/* Service Fee Buy */}
-                    {Packages.find(
-                      (pkg) =>
-                        (!pkg.isRent && pkg.title === "Business") ||
-                        (!pkg.isRent && pkg.title === "Home")
-                    ).serviceFee.map((service, index) => (
-                      <div
-                        key={index}
-                        className="grid grid-cols-12 border-b-[1px] border-[#0000001A]"
-                      >
-                        {/* Name */}
-                        <div className="col-span-4 p-4 flex flex-row items-center justify-center border-r-[1px] border-[#0000001A] lg:min-h-[100px]">
-                          <p className="text-xs text-darkblue text-center lg:text-xl font-normal">
-                            {service.text}
-                          </p>
-                        </div>
-                        {/* Basic */}
-                        <div className="col-span-4 p-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]">
+                    <div className="grid grid-cols-12 border-b-[1px] border-[#0000001A]">
+                      {/* Name */}
+                      <div className="col-span-4 p-4 flex flex-row items-center justify-center border-r-[1px] border-[#0000001A] lg:min-h-[100px]">
+                        <p className="text-xs text-darkblue text-center lg:text-xl font-normal">
+                          {locale === "en"
+                            ? "Service fee 24/7 monitoring only"
+                            : "Biaya Layanan Pemantauan 24/7"}
+                        </p>
+                      </div>
+                      {packagesData.map((item, index) => (
+                        <div
+                          className="col-span-4 p-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]"
+                          key={index}
+                        >
                           <p className="text-[13px] lg:text-xl text-darkblue font-bold">
                             {locale === "en" ? "IDR" : "Rp"}{" "}
-                            {
-                              Packages.find(
-                                (pkg) =>
-                                  (!pkg.isRent && pkg.title === "Business") ||
-                                  (!pkg.isRent && pkg.title === "Home")
-                              ).serviceFee[index].fee
-                            }
+                            {item.serviceFeeBuy.basic}
                           </p>
                           <p className="text-[13px] lg:text-lg text-darkblue">
                             {"/"}
                             {locale === "en" ? "month" : "bulan"}
                           </p>
                         </div>
-                        {/* Pro */}
-                        <div className="col-span-4 p-4 flex flex-col items-center justify-center">
-                          <p className="text-[13px] lg:text-xl font-bold text-darkblue">
-                            {locale === "en" ? "IDR" : "Rp"}{" "}
-                            {
-                              Packages.find(
-                                (pkg) =>
-                                  (!pkg.isRent &&
-                                    pkg.title === "Business PRO") ||
-                                  (!pkg.isRent && pkg.title === "Home PRO")
-                              ).serviceFee[index].fee
-                            }
-                          </p>
-                          <p className="text-[13px] lg:text-lg text-darkblue">
-                            {"/"}
-                            {locale === "en" ? "month" : "bulan"}
-                          </p>
-                        </div>
+                      ))}
+
+                      {/* Name */}
+                      <div className="col-span-4 p-4 flex flex-row items-center justify-center border-r-[1px] border-[#0000001A] lg:min-h-[100px]">
+                        <p className="text-xs text-darkblue text-center lg:text-xl font-normal">
+                          {locale === "en"
+                            ? "Service fee 24/7 monitoring + dispatch"
+                            : "Biaya Layanan Pemantauan 24/7 + Respon Fisik"}
+                        </p>
                       </div>
-                    ))}
+                      {packagesData.map((item, index) => (
+                        <div
+                          className="col-span-4 p-4 flex flex-col items-center justify-center border-r-[1px] border-[#0000001A]"
+                          key={index}
+                        >
+                          <p className="text-[13px] lg:text-xl text-darkblue font-bold">
+                            {locale === "en" ? "IDR" : "Rp"}{" "}
+                            {item.serviceFeeBuy.full}
+                          </p>
+                          <p className="text-[13px] lg:text-lg text-darkblue">
+                            {"/"}
+                            {locale === "en" ? "month" : "bulan"}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -654,7 +689,9 @@ const AmPackage = (props) => {
                   className=" text-tosca text-sm font-semibold mt-8 lg:mt-8 uppercase cursor-pointer flex flex-row justify-center items-center gap-2 self-center"
                 >
                   <p className="font-raleway font-normal text-xs tracking-[2px]">
-                    {DifferncesInfo.hint}
+                    {locale === "en"
+                      ? "Hide Information"
+                      : "Sembunyikan Informasi"}
                   </p>
                   <svg
                     width="15"
@@ -682,7 +719,7 @@ const AmPackage = (props) => {
           {/* Hint */}
           <div
             className="text-[#13223399] mt-7 lg:mt-10 text-sm lg:text-[16px] package-note"
-            dangerouslySetInnerHTML={{ __html: DifferncesInfo.note }}
+            dangerouslySetInnerHTML={{ __html: packagesSection.terms }}
           />
         </div>
       </div>
