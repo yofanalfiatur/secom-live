@@ -71,7 +71,7 @@ export default function NewsContent({
                   </p>
                 </div>
                 <Link
-                  href={`/news/${item.slug}`}
+                  href={`/news/${item.slug}-${item.id}`}
                   className="text-darkblue text-[25px] leading-[1.3] font-normal font-raleway transition-all ease duration-300 hover:text-navyblue mt-3 mb-2 lg:mb-1"
                 >
                   {item.title}
@@ -80,7 +80,7 @@ export default function NewsContent({
                   {item.excerpt}
                 </p>
                 <Link
-                  href={`/news/${item.slug}`}
+                  href={`/news/${item.slug}-${item.id}`}
                   className="flex flex-row max-w-max items-center gap-2 relative mt-5 lg:mb-4 after:content-[''] after:absolute after:bg-navyblue after:w-0 after:h-[1px] after:left-0 after:bottom-0 after:z-[-1] hover:after:w-full hover:after:transition-all hover:after:ease-in-out hover:after:duration-300"
                 >
                   <p className="flex flex-col text-navyblue uppercase tracking-[2px] text-sm lg:text-lg leading-[1.7] lg:leading-[1.5]">
