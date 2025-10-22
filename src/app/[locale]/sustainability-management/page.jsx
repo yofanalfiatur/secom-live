@@ -2,11 +2,11 @@ import FAQsFragment from "@/components/Fragments/FAQs/page";
 import { getPosts } from "@/libs/api";
 import React from "react";
 
-export default async function FAQPage(props) {
+export default async function SustainabilityPage(props) {
   const params = await props.params;
   const locale = params?.locale || "en";
 
-  const response = await getPosts("faqs?type=faq");
+  const response = await getPosts("faqs?type=sustainability-management");
 
   // console.log(response);
 
@@ -19,5 +19,11 @@ export default async function FAQPage(props) {
     },
   };
 
-  return <FAQsFragment sections={sections} locale={locale} />;
+  return (
+    <FAQsFragment
+      titleSection="Sustainability Management"
+      sections={sections}
+      locale={locale}
+    />
+  );
 }

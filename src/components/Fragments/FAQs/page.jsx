@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import AccordionItem from "@/components/Elements/AccordionItem";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 
-const FAQsFragment = ({ sections, locale }) => {
+const FAQsFragment = ({ sections, locale, titleSection }) => {
   const isDesktop = useIsDesktop();
 
   // Ambil data faqs dari struktur sections (bisa menyesuaikan struktur API)
@@ -35,9 +35,11 @@ const FAQsFragment = ({ sections, locale }) => {
         {/* Column Category */}
         <div className="w-full lg:w-4/12 h-max flex flex-col lg:pr-10 mb-5 lg:mb-0 lg:sticky lg:top-[120px]">
           <h2 className="text-darkblue text-[30px] lg:text-[40px] leading-[1.2] font-normal font-raleway mb-4 lg:mb-6">
-            {locale === "en"
-              ? "Frequently Asked Questions"
-              : "Pertanyaan yang sering ditanyakan"}
+            {titleSection === null
+              ? locale === "en"
+                ? "Frequently Asked Questions"
+                : "Pertanyaan yang sering ditanyakan"
+              : titleSection}
           </h2>
 
           {isDesktop ? (
