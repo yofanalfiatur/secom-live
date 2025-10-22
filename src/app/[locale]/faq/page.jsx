@@ -19,5 +19,15 @@ export default async function FAQPage(props) {
     },
   };
 
-  return <FAQsFragment sections={sections} locale={locale} />;
+  return (
+    <FAQsFragment
+      titleSection={
+        locale === "en"
+          ? "Frequently Asked Questions"
+          : "Pertanyaan yang sering ditanyakan"
+      }
+      sections={sections}
+      locale={locale}
+    />
+  );
 }
