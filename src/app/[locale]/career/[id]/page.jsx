@@ -106,12 +106,7 @@ export default async function CareerDetailPage({ params }) {
           </Link>
         </div>
 
-        <div className="w-ful lg:w-8/12 flex flex-col lg:pl-16 pt-4 lg:pt-3">
-          <div
-            className="mb-5 lg:mb-9 text-sm lg:text-base leading-[1.7] lg:leading-[1.5] flex flex-col cr-detail__desc"
-            dangerouslySetInnerHTML={{ __html: careerDetail.description }}
-          />
-
+        <div className="w-ful lg:w-8/12 flex flex-col lg:pl-16">
           <CareerDetail careerDetail={careerDetail} />
 
           <ButtonPrimary

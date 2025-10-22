@@ -13,7 +13,7 @@ const HomeSegment = ({ dataSection }) => {
           <h2 className="text-white text-[30px] lg:text-[45px] font-raleway font-normal">
             {dataSection.title}
           </h2>
-          <p className="text-white text-center text-sm lg:text-lg leading-[1.7] lg:leading-[1.5] lg:w-[55%] mt-2 mb-5 lg:mt-1 lg:mb-10">
+          <p className="text-white text-center text-sm lg:text-lg leading-[1.7] lg:leading-[1.5] w-full mt-2 mb-5 lg:mt-1 lg:mb-10">
             {dataSection.description}
           </p>
           <div className="gap-5 flex flex-col lg:flex-row mb-[-150px] lg:mb-[-270px]">

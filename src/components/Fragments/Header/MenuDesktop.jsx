@@ -3,6 +3,7 @@ import ButtonPrimary from "@/components/Elements/ButtonPrimary";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import LocaleLink from "@/components/Hooks/LocaleLink";
 const MenuDesktop = () => {
   const t = useTranslations();
   // const MenuHeader = t.raw("MenuHeader");
@@ -15,8 +16,8 @@ const MenuDesktop = () => {
         <ul className=" flex flex-row gap-10 header__type">
           {MenuType.map(({ icon, text, href, subMenu }, index) => (
             <li className="relative header__type__item group" key={index}>
-              <Link
-                href={`${href}`}
+              <LocaleLink
+                href={href}
                 // // temp
                 // onClick={(e) => {
                 //   e.preventDefault();
@@ -41,7 +42,7 @@ const MenuDesktop = () => {
                     />
                   </svg>
                 )}
-              </Link>
+              </LocaleLink>
               {/* Submenu */}
               {subMenu && subMenu.length > 0 && (
                 <div className="flex flex-col ease top-full absolute ease duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 z-50 ">

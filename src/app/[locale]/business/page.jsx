@@ -76,7 +76,7 @@ export default async function BusinessPage(props) {
     <>
       <HeaderList locale={locale} />
       <BlpBanner dataSection={bannerData} />
-      <ResSurvey dataSection={surveyData} />
+      <ResSurvey dataSection={surveyData} dataDiscover="/product/alarm" />
       <BlpWhy dataSection={whyData} />
       <BlpCard dataSection={cardData} />
 

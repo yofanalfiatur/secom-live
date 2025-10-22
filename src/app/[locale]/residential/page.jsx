@@ -35,7 +35,10 @@ export default async function ResidentialPage(props) {
     <>
       <ResBannerImage dataSection={bannerData} />
       {/* <ResBanner /> */}
-      <ResSurvey dataSection={surveyData} />
+      <ResSurvey
+        dataSection={surveyData}
+        dataDiscover="/product/residential-solutions/"
+      />
       <ResAbout dataSection={aboutData} />
       <ResSolution dataSection={solutionData} />
       <ResTesti dataSection={testiData} />

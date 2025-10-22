@@ -10,17 +10,21 @@ const AboutTeam = ({ dataSection }) => {
 
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // Handle overflow body
+  //lock when popup open
   useEffect(() => {
+    const header = document.querySelector(".header");
+
     if (activeIndex !== null) {
       document.body.classList.add("overflow-hidden");
+      if (header) header.style.setProperty("top", "-95px", "important");
     } else {
       document.body.classList.remove("overflow-hidden");
+      if (header) header.style.removeProperty("top");
     }
 
-    // Cleanup biar aman
     return () => {
       document.body.classList.remove("overflow-hidden");
+      if (header) header.style.removeProperty("top");
     };
   }, [activeIndex]);
 
@@ -130,14 +134,14 @@ const AboutTeam = ({ dataSection }) => {
 
                 {/* Popup team */}
                 <div
-                  className={`flex flex-col lg:flex-row fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-item__item__popup transition-all duration-500 overflow-auto ${
+                  className={`flex flex-col justify-start lg:justify-center fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-item__item__popup transition-all duration-500 overflow-auto ${
                     isActive
                       ? "left-0 opacity-100 visible"
                       : "left-[120%] opacity-0 invisible"
                   }`}
                   onClick={() => setActiveIndex(null)} // klik overlay = close
                 >
-                  <div className="container flex flex-col h-max justify-center lg:flex-row mx-auto mt-[150px] lg:mt-[200px] mb-[50px]">
+                  <div className="container flex flex-col h-max justify-center lg:flex-row mx-auto mt-[70px] mb-[50px]">
                     <div
                       className="w-full lg:w-10/12 bg-white flex flex-col lg:flex-row h-max relative ab-team__item__popup__wrap"
                       onClick={(e) => e.stopPropagation()} // klik di dalam box putih jangan close
@@ -169,7 +173,7 @@ const AboutTeam = ({ dataSection }) => {
                           height={800}
                           alt={item.name}
                           quality={100}
-                          className="w-full h-full aspect-[385/542] object-cover object-center"
+                          className="w-full h-full aspect-square lg:aspect-[385/542] object-cover object-center"
                         />
                         <video
                           ref={videoRefPopup}

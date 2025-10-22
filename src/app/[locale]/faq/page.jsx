@@ -6,7 +6,9 @@ export default async function FAQPage(props) {
   const params = await props.params;
   const locale = params?.locale || "en";
 
-  const response = await getPosts("faqs");
+  const response = await getPosts("faqs?type=sustainability-management");
+
+  // console.log(response);
 
   const faqsByLocale =
     response?.data?.faqs?.[locale] || response?.data?.faqs?.id || [];

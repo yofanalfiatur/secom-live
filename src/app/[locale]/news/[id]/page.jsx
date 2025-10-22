@@ -1,22 +1,20 @@
 import { Link } from "@/i18n/navigation";
-import { getPostById } from "@/libs/api";
+import { getPostById, getPostBySlug } from "@/libs/api";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default async function NewsDetailPage({ params }) {
   const { id, locale } = await params;
 
-  // 🔹 Extract numeric ID from slug
-  const idMatch = id.match(/(\d+)$/);
-  const articleId = idMatch ? idMatch[1] : null;
-
-  if (!articleId) return notFound();
-
-  // 🔹 Fetch by ID
-  const response = await getPostById("articles", articleId);
+  // 🔹 Fetch by Slug
+  const response = await getPostBySlug("articles", id);
   if (!response || !response.data) return notFound();
 
   const data = response.data;
+
+  if (!data) return notFound();
+
+  // console.log(data);
 
   // 🔹 get data by locale
   const title = data.title?.[locale] || data.title?.id || "";

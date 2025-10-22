@@ -32,7 +32,7 @@ export async function getPageData(slug) {
  * Example: /sector/, /services/, /products/, /faqs/, /vacancies/
  */
 export async function getPosts(type) {
-  return apiFetch(`/${type}/`);
+  return apiFetch(`/${type}`);
 }
 
 /**

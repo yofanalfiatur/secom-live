@@ -13,15 +13,21 @@ const AboutCertificate = (props) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const videoRefPopup = useRef(null);
 
-  // Lock scroll kalau popup terbuka
+  //lock when popup open
   useEffect(() => {
+    const header = document.querySelector(".header");
+
     if (activeIndex !== null) {
       document.body.classList.add("overflow-hidden");
+      if (header) header.style.setProperty("top", "-95px", "important");
     } else {
       document.body.classList.remove("overflow-hidden");
+      if (header) header.style.removeProperty("top");
     }
+
     return () => {
       document.body.classList.remove("overflow-hidden");
+      if (header) header.style.removeProperty("top");
     };
   }, [activeIndex]);
 
@@ -128,7 +134,7 @@ const AboutCertificate = (props) => {
             const isActive = activeIndex === index;
             return (
               <div
-                className={`flex flex-col lg:flex-row fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-certif__item__popup transition-all duration-500 overflow-auto ${
+                className={`flex flex-col justify-start  lg:justify-center fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-certif__item__popup transition-all duration-500 overflow-auto ${
                   isActive
                     ? "opacity-100 left-0 visible"
                     : "opacity-0 left-[120%] invisible"
@@ -136,7 +142,7 @@ const AboutCertificate = (props) => {
                 onClick={() => setActiveIndex(null)}
                 key={index}
               >
-                <div className="container flex flex-col h-max justify-center lg:flex-row mx-auto mt-[150px] lg:mt-[200px] mb-[50px]">
+                <div className="container flex flex-col h-max justify-center lg:flex-row mx-auto mt-[70px] mb-[50px]">
                   <div
                     className="w-full lg:w-10/12 bg-white flex flex-col lg:flex-row h-max relative ab-certif__item__popup__wrap"
                     onClick={(e) => e.stopPropagation()}
@@ -157,7 +163,7 @@ const AboutCertificate = (props) => {
                         height={250}
                         alt={item.name}
                         quality={100}
-                        className="m-auto"
+                        className="m-auto p-4"
                       />
                     </div>
 
