@@ -33,7 +33,7 @@ const AboutStory = ({ dataSection }) => {
     <>
       <section className="relative mt-[-150px] lg:mt-[-140px] ab-story">
         <div className="container mx-auto flex flex-col lg:flex-row lg:bg-navyblue relative">
-          <div className="w-full lg:w-6/12 flex flex-col justify-center  px-6 lg:px-12 pt-6 lg:pt-0 pb-10 lg:pb-0 bg-navyblue lg:bg-[unset] relative z-0">
+          <div className="w-full lg:w-6/12 flex flex-col justify-center  px-6 lg:px-12 pt-6 lg:pt-10 pb-10 lg:pb-10 bg-navyblue lg:bg-[unset] relative z-0">
             <h2 className="text-white text-[30px] lg:text-[40px] font-raleway font-normal">
               {dataSection.title}
             </h2>
@@ -43,15 +43,19 @@ const AboutStory = ({ dataSection }) => {
             />
           </div>
           <Link
-            href={dataSection.url_video}
-            className="glightbox w-full lg:w-6/12 flex flex-col bg-navyblue lg:bg-[unset] relative z-1 transition-all duration-300 hover:opacity-75"
+            href={dataSection.url_video === null ? "#" : dataSection.url_video}
+            className={`${
+              dataSection.url_video === null
+                ? "cursor-default pointer-events-none"
+                : "glightbox"
+            } w-full lg:w-6/12 flex flex-col bg-navyblue lg:bg-[unset] relative z-1 transition-all duration-300 hover:opacity-75`}
           >
             <Image
               src={process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.image}
               alt="About"
               width={1000}
               height={1000}
-              className="object-cover w-full aspect-[28/25] lg:aspect-[unset] lg:h-[486px]"
+              className="object-cover w-full aspect-[28/25] lg:aspect-[unset] lg:min-h-[486px] lg:h-full"
             />
           </Link>
         </div>

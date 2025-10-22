@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const AboutCertificate = (props) => {
-  const { dataSection, dataCertif } = props;
+  const { dataSection } = props;
 
   const [activeIndex, setActiveIndex] = useState(null);
   const videoRefPopup = useRef(null);
@@ -50,7 +50,7 @@ const AboutCertificate = (props) => {
               hasTrack={false}
             >
               <SplideTrack className="!overflow-visible ab-certif__track">
-                {dataCertif.map((item, index) => (
+                {dataSection.awards.map((item, index) => (
                   <SplideSlide
                     key={index}
                     className="ab-certif__slide"
@@ -66,7 +66,7 @@ const AboutCertificate = (props) => {
                         className="max-h-[138px] w-full lg:max-h-[188px] object-contain h-full  ab-certif__img"
                       />
                       <p className="text-sm lg:text-xl mt-2 lg:mt-4 mb-2 lg:mb-4 font-medium text-darkblue text-center ab-certif__caption">
-                        {item.title}
+                        {item.name}
                       </p>
                     </div>
                   </SplideSlide>
@@ -124,7 +124,7 @@ const AboutCertificate = (props) => {
 
         {/* Popup Certif */}
         <div className="flex flex-col">
-          {dataCertif.map((item, index) => {
+          {dataSection.awards.map((item, index) => {
             const isActive = activeIndex === index;
             return (
               <div
@@ -155,7 +155,7 @@ const AboutCertificate = (props) => {
                         src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
                         width={250}
                         height={250}
-                        alt={item.title}
+                        alt={item.name}
                         quality={100}
                         className="m-auto"
                       />
@@ -165,7 +165,7 @@ const AboutCertificate = (props) => {
                     <div className="flex flex-col w-full lg:w-[65%] bg-[#e5e9f5] relative">
                       <div className="flex flex-col justify-center lg:min-h-[130px] border-b-[1px] border-[#13223333] py-5 px-6 lg:px-10">
                         <p className="text-darkblue text-[25px] lg:text-[35px] leading-[1.5] lg:leading-[1.2] font-raleway font-semibold">
-                          {item.title}
+                          {item.name}
                         </p>
                       </div>
                       <div className="flex flex-col h-full">

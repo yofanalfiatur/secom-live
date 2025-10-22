@@ -1,8 +1,4 @@
 {
-  "HomePage": {
-    "title": "Hallo Halo",
-    "description": "test deskripsi indoo ceunah"
-  },
   "promoFloat": {
     "text": "25% Off for your first step in Smart Security Solutions",
     "btn": {
@@ -50,6 +46,10 @@
           "subMenuHref": "/about"
         },
         {
+          "subMenuText": "SECOM Bhayangkara",
+          "subMenuHref": "/about-bhayangkara"
+        },
+        {
           "subMenuText": "SECOM Global",
           "subMenuHref": "/about-global"
         }
@@ -87,6 +87,10 @@
         {
           "subMenuText": "SECOM Indonesia",
           "subMenuHref": "/about"
+        },
+        {
+          "subMenuText": "SECOM Bhayangkara",
+          "subMenuHref": "/about-bhayangkara"
         },
         {
           "subMenuText": "SECOM Global",
@@ -168,60 +172,7 @@
     "FtYoutube": "https://www.youtube.com/@secom.indonesia",
     "FtTiktok": "https://www.tiktok.com/@secomindonesia"
   },
-  "FooterDropdown": [
-    {
-      "text": "Japan",
-      "href": "https://www.secom.co.jp/english/"
-    },
-    {
-      "text": "Korea",
-      "href": "https://www.s1.co.kr/en"
-    },
-    {
-      "text": "China",
-      "href": "https://www.secom.cn/"
-    },
-    {
-      "text": "Taiwan",
-      "href": "https://www.secom.com.tw/"
-    },
-    {
-      "text": "Thailand",
-      "href": "https://www.secom.co.th/en/"
-    },
-    {
-      "text": "Vietnam",
-      "href": "https://www.secom.vn/en/"
-    },
-    {
-      "text": "Malaysia",
-      "href": "https://www.secom.com.my/"
-    },
-    {
-      "text": "Singapore",
-      "href": "https://www.secom.com.sg/"
-    },
-    {
-      "text": "Indonesia",
-      "href": "https://secom.co.id/"
-    },
-    {
-      "text": "Australia",
-      "href": "https://secom.com.au/"
-    },
-    {
-      "text": "New Zealand",
-      "href": "https://secom.co.nz/"
-    },
-    {
-      "text": "United Kingdom",
-      "href": "https://www.secom.plc.uk/"
-    },
-    {
-      "text": "Turkey",
-      "href": "https://secomtr.com/"
-    }
-  ],
+
   "ReBanner": {
     "title": "Semua Anggota Keluarga Anda,<br>Layak Merasa Aman",
     "photo": "/img/temp/residential/front-upscale-min.png",
@@ -271,175 +222,7 @@
       }
     ]
   },
-  "ReSurvey": {
-    "title": "Apakah Rumah Saya Aman?",
-    "desc": "Jawab 3 pertanyaan singkat ini untuk temukan solusi dari kami",
-    "descResult": "Berikut Hasil Survei Keamanan Anda",
 
-    "survey": [
-      {
-        "question": "Seberapa sering rumah Anda ditinggal kosong?",
-        "options": [
-          {
-            "text": "Hampir setiap hari",
-            "value": "a"
-          },
-          {
-            "text": "Beberapa jam saja setiap harinya",
-            "value": "b"
-          }
-        ]
-      },
-      {
-        "question": "Apakah Anda tinggal bersama anak-anak, orang lanjut usia, atau anggota keluarga dengan kebutuhan khusus?",
-        "options": [
-          {
-            "text": "Ya",
-            "value": "a"
-          },
-          {
-            "text": "Tidak",
-            "value": "b"
-          }
-        ]
-      },
-      {
-        "question": "Sistem keamanan apa yang saat ini sudah terpasang di rumah Anda?",
-        "options": [
-          {
-            "text": "Belum ada",
-            "value": "a"
-          },
-          {
-            "text": "CCTV yang dipasang sendiri",
-            "value": "b"
-          }
-        ]
-      }
-    ],
-    "result": [
-      {
-        "icon": "/img/survey-h-risk.png",
-        "title": "Risiko Tinggi",
-        "subtitle": "Rumah Anda dalam Risiko Tinggi!",
-        "desc": "Perlindungan saat ini belum cukup. Temukan sistem keamanan yang memberi rasa aman bagi keluarga Anda.",
-        "btn": {
-          "text": "Temukan Solusinya",
-          "href": "/solutions/",
-          "target": "_self"
-        }
-      },
-      {
-        "icon": "/img/survey-m-risk.png",
-        "title": "RISIKO SEDANG",
-        "subtitle": "Rumah Anda Mungkin dalam Risiko!",
-        "desc": "Keamanan rumah Anda belum maksimal. Cari tahu apa yang kurang dan bagaimana SECOM bisa membantu.",
-        "btn": {
-          "text": "Temukan Solusinya",
-          "href": "/solutions/",
-          "target": "_self"
-        }
-      }
-    ],
-    "resultCombinations": {
-      "high": ["a-a-a", "a-b-a", "b-a-a"],
-      "moderate": ["a-a-b", "a-b-b", "b-a-b", "b-b-a", "b-b-b"]
-    }
-  },
-  "ReAbout": {
-    "title": "Bagaimana SECOM Melindungi Anda?",
-    "desc": "Kami hadir dengan teknologi dan respons untuk melindungi yang paling berarti bagi Anda.",
-    "photo": "/img/temp/residential/Residence-How-SECOM-Protects-You.jpg",
-    "items": [
-      {
-        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
-        "title": "Deteksi intrusi, kebakaran, atau aktivitas mencurigakan."
-      },
-      {
-        "icon": "/img/temp/alarm/Residence How SECOM Protects You Control Center.svg",
-        "title": "Kami hanya memantau saat darurat, menjaga privasi Anda."
-      },
-      {
-        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
-        "title": "Tim respons fisik segera turun ke lokasi."
-      }
-    ],
-    "btnAbout": {
-      "text": "Learn More",
-      "href": "/about",
-      "target": "_self"
-    }
-  },
-  "ReSolution": {
-    "hint": "Solusi Kami",
-    "title": "Lindungi Setiap Sudut Rumah Anda",
-    "desc": "Setiap ruangan memiliki risiko yang berbeda. SECOM membantu Anda memberikan perlindungan yang tepat di tempat yang tepat.",
-    "itemSlider": [
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 1.jpg",
-        "title": "Smart Video Camera - Luar Ruangan",
-        "desc": "Pantau gerbang, garasi, dan halaman Anda dengan deteksi pintar dan audio dua arah."
-      },
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 2.jpg",
-        "title": "PIR Camera Indoor - Ruang Tamu",
-        "desc": "Awasi area utama rumah Anda dengan perlindungan sensor gerak yang andal."
-      },
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 3.jpg",
-        "title": "Door Contact - Jendela",
-        "desc": "Lindungi jendela dari upaya masuk tanpa suara dengan sensor magnetik pintar."
-      },
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 4.jpg",
-        "title": "Smoke Detector - Dapur Bersih",
-        "desc": "Bahkan di dapur, kecelakaan bisa saja terjadi. Tetap waspada dengan detektor asap."
-      }
-    ],
-    "btnSolution": {
-      "text": "Selengkapnya",
-      "href": "/solutions",
-      "target": "_self"
-    }
-  },
-  "ReQuote": [
-    {
-      "thumb": "/img/temp/quote-thumb.jpg",
-      "linkVideo": "https://youtu.be/euM9kW0ZRWg",
-      "text": "Bukan soal sistem keamanan yang memadai saja, yang saya cari juga rasa tenang. SECOM kasih keduanya."
-    }
-  ],
-  "ReTestimonial": {
-    "title": "Mereka Memilih SECOM. Ini Alasannya",
-    "desc": "",
-    "items": [
-      {
-        "testimony": "Saat saya dan istri di kantor, anak-anak di rumah bersama pengasuh. Dengan SECOM, saya bisa memantau kapan saja, jadi tetap tenang dan merasa dekat dengan keluarga.",
-        "name": "Andi Widjaja",
-        "location": "Jakarta"
-      },
-      {
-        "testimony": "Orang tua saya sering sendirian di rumah, dan usia mereka sudah lanjut. Adanya panic button bikin saya lebih tenang ,mereka bisa langsung dapat bantuan kalau ada apa-apa.",
-        "name": "Tania Gunawan",
-        "location": "Tangerang"
-      },
-      {
-        "testimony": "Sering ada paket datang saat rumah kosong. Dengan SECOM, saya bisa memantau siapa pun yang datang dan memastikan semuanya aman dan terekam.",
-        "name": "Teguh Santoso",
-        "location": "Bandung"
-      },
-      {
-        "testimony": "Kami baru pindah ke rumah pertama, dan saya ingin memastikan semuanya aman untuk keluarga. SECOM bantu kami pilih sistem keamanan yang pas, cepat, simpel, dan sekarang kami jauh lebih tenang.",
-        "name": "Rudi Adinata",
-        "location": "Karawang"
-      },
-      {
-        "testimony": "Dulu kami selalu khawatir saat ninggalin rumah, bahkan cuma sebentar. Sejak pasang sistem SECOM, rasa cemas itu hilang. Bukan karena takut, tapi karena tahu rumah kami dijaga.",
-        "name": "Dimas Hadi",
-        "location": "Surabaya"
-      }
-    ]
-  },
   "RePromotion": {
     "hint": "Promotion",
     "title": "Lindungi Yang Paling Berarti, Mulai dari Rumah Anda",
@@ -451,12 +234,7 @@
       "target": "_self"
     }
   },
-  "ContactPage": {
-    "title": "Konsultasi Gratis Sekarang.",
-    "desc": "Kami akan menganalisis kebutuhan spesifik Anda dan merekomendasikan solusi yang paling tepat secara akurat dan efisien.",
-    "photo": "/img/temp/Free Consultation.jpg",
-    "photoMd": "/img/temp/Free Consultation Mobile.jpg"
-  },
+
   "FormValue": {
     "LabelInput": {
       "name": "NAMA LENGKAP",
@@ -514,26 +292,7 @@
     "textBtnSend": "Kirim Pesan",
     "textBtnSuccess": "Terkirim"
   },
-  "ThankYouPage": {
-    "title": "Terima kasih",
-    "title2": "atas permintaan Anda!",
-    "desc": "Konsultan profesional SECOM akan segera menghubungi Anda untuk memahami kebutuhan Anda dan memberikan rekomendasi terbaik.",
-    "logo": "/img/logo-thankyou.svg",
-    "buttonCTA": {
-      "text": "Kembali ke Beranda",
-      "href": "/",
-      "target": "_self"
-    }
-  },
-  "ErrorPage": {
-    "title": "Halaman tidak ditemukan.",
-    "description": "Maaf, halaman yang Anda cari tidak tersedia atau sudah dipindahkan.",
-    "buttonCTA": {
-      "text": "Kembali ke Beranda",
-      "href": "/",
-      "target": "_self"
-    }
-  },
+
   "LoginDummy": {
     "title": "Masuk ke Akun Anda"
   },

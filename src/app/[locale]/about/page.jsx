@@ -29,6 +29,7 @@ export default async function AboutPage(props) {
   const whyData = sections.about_why_secom || {};
   const workData = sections.about_how_we_work || {};
   const certifData = sections.about_award || {};
+
   const teamData = sections.about_teams || {};
   const locationData = sections.about_locations || {};
 
@@ -36,12 +37,6 @@ export default async function AboutPage(props) {
   const responseCertif = await getPosts("awards");
   // temp
   const listCertif = responseCertif.data || [];
-
-  const listDataCertif = listCertif.map((item) => ({
-    title: item.name?.[locale] || "",
-    description: item.description?.[locale] || "",
-    image: item.image || "",
-  }));
 
   // ambil data dari posts Representative
   const responseLogoTrustedBy = await getPosts("settings");
@@ -54,7 +49,7 @@ export default async function AboutPage(props) {
       <AboutStory dataSection={storyData} />
       <AboutWhy dataSection={whyData} />
       <AboutWork dataSection={workData} />
-      <AboutCertificate dataSection={certifData} dataCertif={listDataCertif} />
+      <AboutCertificate dataSection={certifData} />
       <AboutTeam dataSection={teamData} />
       <AboutLocation dataSection={locationData} />
       <AboutTrusted dataSection={logoTrustedData} />

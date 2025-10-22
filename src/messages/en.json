@@ -1,10 +1,4 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "description": "Go to the about page"
-  },
-  "LocalSwitcher": "{locale, select, id {Indonesia}, en {English}}",
-
   "promoFloat": {
     "text": "25% Off for your first step in Smart Security Solutions",
     "btn": {
@@ -52,6 +46,10 @@
           "subMenuHref": "/about"
         },
         {
+          "subMenuText": "SECOM Bhayangkara",
+          "subMenuHref": "/about-bhayangkara"
+        },
+        {
           "subMenuText": "SECOM Global",
           "subMenuHref": "/about-global"
         }
@@ -89,6 +87,10 @@
         {
           "subMenuText": "SECOM Indonesia",
           "subMenuHref": "/about"
+        },
+        {
+          "subMenuText": "SECOM Bhayangkara",
+          "subMenuHref": "/about-bhayangkara"
         },
         {
           "subMenuText": "SECOM Global",
@@ -170,60 +172,7 @@
     "FtYoutube": "https://www.youtube.com/@secom.indonesia",
     "FtTiktok": "https://www.tiktok.com/@secomindonesia"
   },
-  "FooterDropdown": [
-    {
-      "text": "Japan",
-      "href": "https://www.secom.co.jp/english/"
-    },
-    {
-      "text": "Korea",
-      "href": "https://www.s1.co.kr/en"
-    },
-    {
-      "text": "China",
-      "href": "https://www.secom.cn/"
-    },
-    {
-      "text": "Taiwan",
-      "href": "https://www.secom.com.tw/"
-    },
-    {
-      "text": "Thailand",
-      "href": "https://www.secom.co.th/en/"
-    },
-    {
-      "text": "Vietnam",
-      "href": "https://www.secom.vn/en/"
-    },
-    {
-      "text": "Malaysia",
-      "href": "https://www.secom.com.my/"
-    },
-    {
-      "text": "Singapore",
-      "href": "https://www.secom.com.sg/"
-    },
-    {
-      "text": "Indonesia",
-      "href": "https://secom.co.id/"
-    },
-    {
-      "text": "Australia",
-      "href": "https://secom.com.au/"
-    },
-    {
-      "text": "New Zealand",
-      "href": "https://secom.co.nz/"
-    },
-    {
-      "text": "United Kingdom",
-      "href": "https://www.secom.plc.uk/"
-    },
-    {
-      "text": "Turkey",
-      "href": "https://secomtr.com/"
-    }
-  ],
+
   "ReBanner": {
     "title": "Every Member of Your Family<br>Deserves To Be Safe",
     "photo": "/img/temp/residential/front-upscale-min.png",
@@ -273,174 +222,7 @@
       }
     ]
   },
-  "ReSurvey": {
-    "title": "How Safe Is My Home?",
-    "desc": "3 quick questions to find out our solution",
-    "descResult": "Here are the results of your security survey",
-    "survey": [
-      {
-        "question": "How often is your home left empty?",
-        "options": [
-          {
-            "text": "Most Days",
-            "value": "a"
-          },
-          {
-            "text": "Few Hours A Day",
-            "value": "b"
-          }
-        ]
-      },
-      {
-        "question": "Do you live with children, elderly parents, or loved ones with special needs?",
-        "options": [
-          {
-            "text": "Yes",
-            "value": "a"
-          },
-          {
-            "text": "No",
-            "value": "b"
-          }
-        ]
-      },
-      {
-        "question": "What security systems do you currently have installed?",
-        "options": [
-          {
-            "text": "None",
-            "value": "a"
-          },
-          {
-            "text": "Self-Installed CCTV",
-            "value": "b"
-          }
-        ]
-      }
-    ],
-    "result": [
-      {
-        "icon": "/img/survey-h-risk.png",
-        "title": "HIGH RISK",
-        "subtitle": "Your Home is at High Risk!",
-        "desc": "Your current protection isn't enough. Find out the system that gives your family real peace of mind.",
-        "btn": {
-          "text": "Discover Now",
-          "href": "/solutions/",
-          "target": "_self"
-        }
-      },
-      {
-        "icon": "/img/survey-m-risk.png",
-        "title": "MODERATE RISK",
-        "subtitle": "Your Home May Be at Risk!",
-        "desc": "Your home is not fully protected. Find out what it's missing and how SECOM can help.",
-        "btn": {
-          "text": "Discover Now",
-          "href": "/solutions/",
-          "target": "_self"
-        }
-      }
-    ],
-    "resultCombinations": {
-      "high": ["a-a-a", "a-b-a", "b-a-a"],
-      "moderate": ["a-a-b", "a-b-b", "b-a-b", "b-b-a", "b-b-b"]
-    }
-  },
-  "ReAbout": {
-    "title": "How SECOM Protects You?",
-    "desc": "We combine smart technology with human response to truly protect what matters most.",
-    "photo": "/img/temp/residential/Residence-How-SECOM-Protects-You.jpg",
-    "items": [
-      {
-        "icon": "/img/temp/alarm/Residence How SECOM Protects You Alarm.svg",
-        "title": "Instantly spots intrusions, fire, or suspicious activity."
-      },
-      {
-        "icon": "/img/temp/alarm/Residence How SECOM Protects You Control Center.svg",
-        "title": "We only view live video during emergencies, protecting your privacy."
-      },
-      {
-        "icon": "/img/temp/alarm/Residence How SECOM Protects You BE.svg",
-        "title": "In a emergency, our physical response personnel is on the ground."
-      }
-    ],
-    "btnAbout": {
-      "text": "Learn More",
-      "href": "/about",
-      "target": "_self"
-    }
-  },
-  "ReSolution": {
-    "hint": "Our Solutions",
-    "title": "Secure Every Corner of Your Home",
-    "desc": "Each room has different risks. SECOM helps you place the right protection in the right place.",
-    "itemSlider": [
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 1.jpg",
-        "title": "Smart Video Camera - Outdoor",
-        "desc": "Monitor your gates, garage, and yard with smart detection and two-way audio."
-      },
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 2.jpg",
-        "title": "PIR Cam Indoor - Living Room",
-        "desc": "Watch over your home's central space with reliable motion-sensing protection."
-      },
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 3.jpg",
-        "title": "Door Contact - Windows",
-        "desc": "Protect windows from silent entry with smart magnetic sensors."
-      },
-      {
-        "photo": "/img/temp/residential/Residence Solution Landing Page 4.jpg",
-        "title": "Smoke Detector - Clean Kitchen",
-        "desc": "Even in the cleanest kitchens, accidents can happen. Stay alert with a smoke detector."
-      }
-    ],
-    "btnSolution": {
-      "text": "Learn More",
-      "href": "/solutions",
-      "target": "_self"
-    }
-  },
-  "ReQuote": [
-    {
-      "thumb": "/img/temp/quote-thumb.jpg",
-      "linkVideo": "https://youtu.be/euM9kW0ZRWg",
-      "text": "I wasn't just looking for a security system, I wanted to feel really safe. SECOM gave me both."
-    }
-  ],
-  "ReTestimonial": {
-    "title": "They Chose SECOM. Here's Why",
-    "desc": "",
-    "items": [
-      {
-        "testimony": "When me and my wife are at work, the kids stay home with our nanny. With SECOM, I can check in anytime. It helps me stay connected and calm throughout the day.",
-        "name": "Andi Widjaja",
-        "location": "Jakarta"
-      },
-      {
-        "testimony": "My parents are often home alone, and they're getting older. Having the panic button makes me feel more at ease knowing they can get help fast.",
-        "name": "Tania Gunawan",
-        "location": "Tangerang"
-      },
-      {
-        "testimony": "We often get packages delivered when no one's home. With SECOM, I can monitor visitors and make sure everything's safe and recorded.",
-        "name": "Teguh Santoso",
-        "location": "Bandung"
-      },
-      {
-        "testimony": "We just moved into our first house, and I wanted to make sure it was safe for my family. SECOM helped us choose the right security setup. Simple, fast, and now we feel a lot more at ease at home.",
-        "name": "Rudi Adinata",
-        "location": "Karawang"
-      },
-      {
-        "testimony": "We used to worry whenever we left the house empty, even just for a few hours. Since installing SECOM's system, we feel more at ease. It's not about fear, it's about knowing our home is being looked after.",
-        "name": "Dimas Hadi",
-        "location": "Surabaya"
-      }
-    ]
-  },
+
   "RePromotion": {
     "hint": "Promotion",
     "title": "Because home is where they should always feel safe",
@@ -451,12 +233,6 @@
       "href": "/contact",
       "target": "_self"
     }
-  },
-  "ContactPage": {
-    "title": "Get Your Free Consultation",
-    "desc": "We'll assess your specific needs and recommend the best-fit solution with accuracy and efficiency.",
-    "photo": "/img/temp/Free Consultation.jpg",
-    "photoMd": "/img/temp/Free Consultation Mobile.jpg"
   },
 
   "FormValue": {
@@ -517,26 +293,6 @@
     "textBtnSuccess": "Sent"
   },
 
-  "ThankYouPage": {
-    "title": "Thank You",
-    "title2": "for your inquiry!",
-    "desc": "A SECOM professional consultant will be in touch shortly to understand your needs and provide the best recommendation.",
-    "logo": "/img/logo-thankyou.svg",
-    "buttonCTA": {
-      "text": "Back to Home",
-      "href": "/",
-      "target": "_self"
-    }
-  },
-  "ErrorPage": {
-    "title": "Page not found.",
-    "description": "Sorry, the page you're looking for has been moved or no longer exists.",
-    "buttonCTA": {
-      "text": "Back to Home",
-      "href": "/",
-      "target": "_self"
-    }
-  },
   "LoginDummy": {
     "title": "Login to Your Account"
   },

@@ -24,9 +24,7 @@ export default async function BusinessPage(props) {
   const whyData = sections.business_how_secom_protects || {};
   const cardData = sections.business_two_card?.cards || {};
 
-  // Trusted By section
-  const responseLogoTrustedBy = await getPosts("settings");
-  const logoTrustedData = responseLogoTrustedBy.data.logo || [];
+  const logoTrustedData = sections.business_trusted_by || [];
 
   // Fetch and filter articles
   const responsePosts = await getPosts("articles");
