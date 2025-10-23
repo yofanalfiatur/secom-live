@@ -45,7 +45,7 @@ const BannerSecondary = ({ dataSection }) => {
       </picture>
 
       <div className="container mx-auto relative z-[2] flex flex-col">
-        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[35%] mb-4 lg:mb-6">
+        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[50%] mb-4 lg:mb-6">
           {renderTitle()}
         </h1>
       </div>
