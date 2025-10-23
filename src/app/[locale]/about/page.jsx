@@ -34,11 +34,6 @@ export default async function AboutPage(props) {
   const locationData = sections.about_locations || {};
 
   // ambil data dari posts Representative
-  const responseCertif = await getPosts("awards");
-  // temp
-  const listCertif = responseCertif.data || [];
-
-  // ambil data dari posts Representative
   const responseLogoTrustedBy = await getPosts("settings");
   // temp
   const logoTrustedData = responseLogoTrustedBy.data.logo || [];

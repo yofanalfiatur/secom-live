@@ -46,7 +46,7 @@ const SecDetailCard = (props) => {
             height={600}
             quality={100}
             alt="SecDetailCTA"
-            className={`lg:[clip-path:polygon(0_0,89%_0,100%_100%,0%_100%)] w-full h-full object-cover aspect-[285/121] lg:aspect-[431/146]`}
+            className={`lg:[clip-path:polygon(0_0,89%_0,100%_100%,0%_100%)] w-full h-full object-cover aspect-[285/121] lg:aspect-[431/220]`}
           />
         </div>
         <div className="w-full lg:w-[41%] flex flex-col justify-center bg-navyblue px-5 lg:px-0 pt-3 lg:pt-0 pb-3 lg:pb-0">

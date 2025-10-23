@@ -31,6 +31,16 @@ export default async function ResidentialPage(props) {
   const testiData = sections.residential_testimonial || {};
   const quoteData = sections.residential_testimonial_2?.cards || {};
 
+  const preFooterData = sections.residential_prefooter
+    ? {
+        condition: sections.residential_prefooter.active || false,
+        title: sections.residential_prefooter.title || "",
+        desc: sections.residential_prefooter.description || "",
+        label: sections.residential_prefooter.button_text || "",
+        link: sections.residential_prefooter.button_link || "",
+      }
+    : {};
+
   return (
     <>
       <ResBannerImage dataSection={bannerData} />

@@ -19,11 +19,7 @@ const HomeSegment = ({ dataSection }) => {
           <div className="gap-5 flex flex-col lg:flex-row mb-[-150px] lg:mb-[-270px]">
             {dataSection.cards?.map((item, index) => (
               <Link
-                href={
-                  index === 0
-                    ? "/product/residential-solutions"
-                    : "/product/alarm"
-                }
+                href={item.url}
                 key={index}
                 className="flex flex-col items-center relative group transition-all duration-300 ease hover:shadow-lg hover:shadow-black/30"
               >

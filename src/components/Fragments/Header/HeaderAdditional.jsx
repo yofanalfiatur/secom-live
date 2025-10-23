@@ -182,7 +182,7 @@ const HeaderAdditional = (props) => {
 
         {/* tab content sector */}
         <div
-          className={`w-full h-[calc(100vh-98px)] lg:h-max overflow-scroll lg:overflow-[unset] flex flex-col bg-[#E6E9F5] absolute left-0 transition-all duration-300 ease-[cubic-bezier(.2,1,.3,1)] header-add__ct-wrap ${
+          className={`w-full h-[calc(100vh-98px)] lg:h-max overflow-scroll lg:overflow-hidden flex flex-col bg-[#E6E9F5] absolute left-0 transition-all duration-300 ease-[cubic-bezier(.2,1,.3,1)] header-add__ct-wrap ${
             hoveredTab === "sector"
               ? "opacity-100 visible top-full z-[10] lg:max-h-[1000px]"
               : "opacity-0 invisible top-[-50%] z-[-1] lg:max-h-[0px]"
@@ -349,7 +349,7 @@ const HeaderAdditional = (props) => {
 
         {/* tab content solution */}
         <div
-          className={`w-full h-[calc(100vh-98px)] lg:h-max overflow-scroll lg:overflow-[unset] flex flex-col bg-[#E6E9F5] absolute left-0 transition-all duration-300 ease-[cubic-bezier(.2,1,.3,1)] header-add__ct-wrap ${
+          className={`w-full h-[calc(100vh-98px)] lg:h-max overflow-scroll lg:overflow-hidden flex flex-col bg-[#E6E9F5] absolute left-0 transition-all duration-300 ease-[cubic-bezier(.2,1,.3,1)] header-add__ct-wrap ${
             hoveredTab === "solutions"
               ? "opacity-100 visible top-full z-[10] lg:max-h-[1000px]"
               : "opacity-0 invisible top-[-50%] z-[-1] lg:max-h-[0px]"

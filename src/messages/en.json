@@ -17,7 +17,7 @@
     {
       "icon": "/img/menu-type-1.svg",
       "text": "Business",
-      "href": "business",
+      "href": "/business",
       "subMenu": ""
     },
     {
