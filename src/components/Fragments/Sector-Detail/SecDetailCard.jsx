@@ -32,6 +32,7 @@ const SecDetailCard = (props) => {
               items={dataSection.items}
               linkLabel={{ en: "See Details", id: "Lihat Detail" }}
               target="_self"
+              imageClass="!object-contain lg:!object-contain"
             />
           )}
         </div>

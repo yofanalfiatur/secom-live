@@ -3,19 +3,19 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
-import { useTranslations } from "next-intl";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import CardProduct from "@/components/Elements/CardProduct";
 
 const SolProduct = (props) => {
   const { dataSection, listProducts, listFilterSector } = props;
-  // const t = useTranslations();
-  // const listProducts = t.raw(listProducts);
   const isDesktop = useIsDesktop();
   const locale = useLocale();
 
   return (
-    <section className="bg-navyblue flex flex-col pt-6 lg:pt-21 pb-20 lg:pb-25 sol-product">
+    <section
+      className="bg-navyblue flex flex-col pt-6 lg:pt-21 pb-20 lg:pb-25 sol-product"
+      id="sol-product-lp"
+    >
       <div className="container mx-auto flex flex-col">
         <div className="flex flex-col lg:flex-row sol-product__intro">
           <div className="w-full lg:w-8/12 lg:pr-20">
@@ -34,7 +34,7 @@ const SolProduct = (props) => {
               <select
                 name="dropdown-filter-sector"
                 id="dropdown-filter-sector"
-                className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer"
+                className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer sol-filter-product"
               >
                 <option value="">
                   {locale === "en" ? "All Industries" : "Semua Industri"}

@@ -52,7 +52,7 @@ const SolServices = (props) => {
                     />
                     <div
                       style={{
-                        clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0 100%)",
+                        clipPath: "polygon(0 33%, 100% 0, 100% 100%, 0 100%)",
                       }}
                       className="bg-navyblue w-full h-full absolute z-0 top-0 right-0"
                     ></div>

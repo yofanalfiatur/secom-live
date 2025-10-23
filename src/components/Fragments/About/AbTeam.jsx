@@ -7,8 +7,8 @@ import Image from "next/image";
 
 const AboutTeam = ({ dataSection }) => {
   const locale = useLocale();
-
   const [activeIndex, setActiveIndex] = useState(null);
+  const isDesktop = useIsDesktop(); // Asumsi hook ini mengembalikan true untuk desktop
 
   //lock when popup open
   useEffect(() => {
@@ -27,6 +27,20 @@ const AboutTeam = ({ dataSection }) => {
       if (header) header.style.removeProperty("top");
     };
   }, [activeIndex]);
+
+  // Auto play video popup di mobile ketika popup terbuka
+  useEffect(() => {
+    if (activeIndex !== null && !isDesktop) {
+      const videoElement = document.querySelector(
+        `.ab-team__item[data-index="${activeIndex}"] .ab-team__item__popup video`
+      );
+      if (videoElement) {
+        videoElement.play().catch((error) => {
+          console.log("Autoplay prevented:", error);
+        });
+      }
+    }
+  }, [activeIndex, isDesktop]);
 
   return (
     <section className="flex flex-col relative overflow-hidden ab-team">
@@ -76,6 +90,7 @@ const AboutTeam = ({ dataSection }) => {
             return (
               <div
                 key={index}
+                data-index={index}
                 className={`ab-team__item flex flex-col group ${
                   isActive ? "active-card" : ""
                 }`}
@@ -92,27 +107,17 @@ const AboutTeam = ({ dataSection }) => {
                     }
                   }}
                 >
-                  {/* Wrapper image + video */}
+                  {/* Wrapper video only */}
                   <div className="w-full relative aspect-[1/1] overflow-hidden">
-                    {/* Video */}
+                    {/* Video - langsung terlihat dari awal */}
                     <video
                       ref={videoRef}
                       src={process.env.NEXT_PUBLIC_STORAGE_URL + item.video}
-                      className="absolute z-0 inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      className="absolute z-0 inset-0 w-full h-full object-cover object-center"
                       muted
                       loop
                       playsInline
                     ></video>
-
-                    {/* Image */}
-                    <Image
-                      src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
-                      width={800}
-                      height={800}
-                      alt={item.name}
-                      quality={100}
-                      className="w-full h-full relative z-0 object-cover object-center transition-opacity duration-500 group-hover:opacity-0"
-                    />
 
                     {/* Plus Icon */}
                     <div className="absolute z-10 top-[10px] right-[10px] w-[40px] h-[40px] bg-navyblue flex items-center justify-center p-[10px]">
@@ -156,9 +161,10 @@ const AboutTeam = ({ dataSection }) => {
                         </span>
                       </button>
 
-                      {/* Image + Video */}
+                      {/* Video Only - Auto play di mobile */}
                       <div
                         className="flex flex-col justify-center w-full lg:w-[35%] relative"
+                        onClick={() => setActiveIndex(index)}
                         onMouseEnter={() => videoRefPopup.current?.play()}
                         onMouseLeave={() => {
                           if (videoRefPopup.current) {
@@ -167,26 +173,29 @@ const AboutTeam = ({ dataSection }) => {
                           }
                         }}
                       >
-                        <Image
-                          src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
-                          width={800}
-                          height={800}
-                          alt={item.name}
-                          quality={100}
-                          className="w-full h-full aspect-square lg:aspect-[385/542] object-cover object-center"
-                        />
                         <video
                           ref={videoRefPopup}
                           src={process.env.NEXT_PUBLIC_STORAGE_URL + item.video}
-                          className="absolute z-0 inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 hover:opacity-100"
+                          className="w-full h-full aspect-square object-cover object-center"
                           muted
                           loop
                           playsInline
+                          autoPlay={!isDesktop && isActive} // Auto play di mobile ketika popup terbuka
                         ></video>
                       </div>
 
                       {/* Text Content */}
-                      <div className="flex flex-col w-full lg:w-[65%] relative bg-[#E6E9F5]">
+                      <div
+                        className="flex flex-col w-full lg:w-[65%] relative bg-[#E6E9F5]"
+                        onClick={() => setActiveIndex(index)}
+                        onMouseEnter={() => videoRefPopup.current?.play()}
+                        onMouseLeave={() => {
+                          if (videoRefPopup.current) {
+                            videoRefPopup.current.pause();
+                            videoRefPopup.current.currentTime = 0;
+                          }
+                        }}
+                      >
                         <div className="flex flex-col border-b-[1px] border-[#13223333] p-6">
                           <p className="text-darkblue text-[25px] lg:text-[35px] font-raleway font-semibold">
                             {item.name}
