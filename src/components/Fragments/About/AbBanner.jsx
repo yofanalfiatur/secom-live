@@ -17,7 +17,7 @@ const AboutBanner = ({ dataSection }) => {
           </p>
           <h2
             dangerouslySetInnerHTML={{ __html: dataSection.title }}
-            className="text-white font-raleway font-medium text-center text-[35px] lg:text-6xl leading-[1.3] lg:leading-[1.2] lg:w-[40%] mt-2 mb-4"
+            className="text-white font-raleway font-medium text-center text-[35px] lg:text-6xl leading-[1.3] lg:leading-[1.2] lg:w-[70%] mt-2 mb-4"
           />
         </div>
       </section>

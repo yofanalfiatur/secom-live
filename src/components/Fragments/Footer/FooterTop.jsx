@@ -1,10 +1,19 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import ButtonSecondary from "@/components/Elements/ButtonSecondary";
 
-const FooterTop = ({ shouldHideFooterTop, prefooterData }) => {
-  if (shouldHideFooterTop) return null;
+const FooterTop = ({ prefooterData }) => {
+  const [shouldHide, setShouldHide] = useState(false);
 
+  useEffect(() => {
+    // Simple client-side detection
+    const hasHideFooterTop =
+      document.querySelector(".hide__footer__top") !== null;
+    setShouldHide(hasHideFooterTop);
+  }, []);
+
+  if (shouldHide) return null;
   return (
     <>
       <section className="relative z-10 flex flex-col border-b-1 border-[#ffffff66] w-full footer__top">

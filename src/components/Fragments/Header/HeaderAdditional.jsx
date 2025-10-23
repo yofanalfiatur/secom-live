@@ -193,7 +193,7 @@ const HeaderAdditional = (props) => {
           <div className="container mx-auto mt-9 lg:mt-0 mb-20 lg:mb-0 pt-0 lg:pt-9 header-add__content h-max lg:h-[300px] grid grid-cols-12 lg:gap-y-4">
             <div className="col-span-12 lg:col-span-2 flex flex-col max-h-max">
               <Link
-                href={locale === "en" ? "/en/sector" : "/sector"}
+                href={`/sector`}
                 className="flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative"
               >
                 <p className="text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease">
@@ -360,7 +360,7 @@ const HeaderAdditional = (props) => {
           <div className="container mx-auto mt-9 lg:mt-0 mb-20 lg:mb-0 pt-0 lg:pt-9 header-add__content h-max lg:h-[300px] grid grid-cols-12 lg:gap-y-4">
             <div className="col-span-12 lg:col-span-2 flex flex-col max-h-max">
               <Link
-                href={locale === "en" ? "/en/solution" : "/solution"}
+                href={`/solution`}
                 className="flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative"
               >
                 <p className="text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease">

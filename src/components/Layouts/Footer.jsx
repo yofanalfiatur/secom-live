@@ -41,11 +41,7 @@ export default async function Footer(props) {
       <div className="radial three"></div>
       <Starfield />
 
-      <FooterTop
-        FooterContent={FooterContent}
-        shouldHideFooterTop={false}
-        prefooterData={prefooterData}
-      />
+      <FooterTop FooterContent={FooterContent} prefooterData={prefooterData} />
       <FooterMiddle
         FooterContent={FooterContent}
         FooterMenu={FooterMenu}

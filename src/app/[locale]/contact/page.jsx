@@ -37,7 +37,7 @@ export default async function Contact(props) {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center relative overflow-hidden hide__footer__top contact-page">
+      <section className="flex flex-col items-center justify-center relative overflow-hidden contact-page hide__footer__top">
         <div className="flex flex-col relative lg:absolute top-0 left-0 w-full h-auto lg:h-full lg:max-h-[calc(100vh-94px)] lg:w-[45vw]">
           <picture>
             <source
