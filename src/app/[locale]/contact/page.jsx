@@ -1,7 +1,7 @@
 import ContactForm from "@/components/Fragments/Contact/ContactForm";
 import Image from "next/image";
 import FloatButton from "@/components/Elements/FloatButton";
-import { getPageData } from "@/libs/api";
+import { getPageData, getPosts } from "@/libs/api";
 
 export default async function Contact(props) {
   const params = await props.params;
@@ -18,6 +18,22 @@ export default async function Contact(props) {
   }, {});
 
   const ContactPage = sections.contact_us || {};
+
+  // Ambil data dari posts sectors
+  const responseProduct = await getPosts("products");
+  const productsDataRaw = responseProduct.data || [];
+
+  // Map ke struktur yang sesuai untuk komponen
+  const listProducts = productsDataRaw.map((item) => {
+    const translation = item.translations[locale] || item.translations.id;
+    return {
+      id: item.id,
+      title: translation.title,
+      type: item.type,
+      slug: item.slug,
+      field_type: item.field_type,
+    };
+  });
 
   return (
     <>
@@ -52,7 +68,7 @@ export default async function Contact(props) {
             </p>
 
             <div className="flex flex-col w-full mb-6 ct__wrap-form">
-              <ContactForm />
+              <ContactForm product={listProducts} />
             </div>
           </div>
         </div>

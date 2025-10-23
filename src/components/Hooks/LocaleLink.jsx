@@ -4,7 +4,13 @@
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 
-export default function LocaleLink({ href, children, className, ...props }) {
+export default function LocaleLink({
+  href,
+  children,
+  target,
+  className,
+  ...props
+}) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -23,7 +29,7 @@ export default function LocaleLink({ href, children, className, ...props }) {
     : `/${locale}/${href === "/" ? "" : href}`;
 
   return (
-    <Link href={localizedHref} className={className} {...props}>
+    <Link href={localizedHref} target={target} className={className} {...props}>
       {children}
     </Link>
   );

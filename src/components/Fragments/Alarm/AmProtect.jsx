@@ -7,8 +7,9 @@ import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import BackgroundDots from "@/components/Elements/BackgroundDots";
 import ButtonPrimary from "@/components/Elements/ButtonPrimary";
 import { useLocale } from "next-intl";
+import LocaleLink from "@/components/Hooks/LocaleLink";
 
-const AmProtect = ({ dataSection }) => {
+const AmProtect = ({ dataSection, typeProduct }) => {
   const isDesktop = useIsDesktop();
   const locale = useLocale();
 
@@ -138,9 +139,13 @@ const AmProtect = ({ dataSection }) => {
           )}
         </div>
 
-        <ButtonPrimary href="contact" target="_self" className="lg:mt-15">
+        <LocaleLink
+          href={`contact?location=${typeProduct}`}
+          target="_self"
+          className="flex flex-col items-center w-full max-w-full sm:max-w-max sm:max-h-max font-raleway bg-tosca text-white text-sm lg:text-base px-4 py-4 lg:px-5 lg:py-5 rounded-[5px] tracking-[4px] leading-none uppercase transition-all ease duration-200 hover:bg-navyblue"
+        >
           {locale === "en" ? "CONSULT NOW" : "KONSULTASI SEKARANG"}
-        </ButtonPrimary>
+        </LocaleLink>
       </div>
     </section>
   );

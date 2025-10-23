@@ -28,7 +28,9 @@ export default async function ProductDetail({ params }) {
 
   if (!translationData) return notFound();
 
-  const fieldType = translationData.field_type;
+  const fieldType = productData.field_type;
+
+  const typeProduct = productData.type;
 
   // mapping component
   const bannerData = {
@@ -204,7 +206,7 @@ export default async function ProductDetail({ params }) {
 
           <OverviewGlobal dataSection={overviewFullData} />
           <HowWeWork dataSection={reasonData} />
-          <AmProtect dataSection={protectData} />
+          <AmProtect dataSection={protectData} typeProduct={typeProduct} />
           <AmProducts
             dataSection={productSection}
             dataProducts={productDevices}

@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { useRouter, usePathname } from "next/navigation";
 
-const ContactForm = () => {
+export default function ContactForm({ product }) {
   const t = useTranslations();
   const FormValue = t.raw("FormValue");
   const LabelInput = FormValue.LabelInput;
@@ -20,6 +20,7 @@ const ContactForm = () => {
     phone: "",
     location: "",
     company: "",
+    product: "", // Tambahkan product di formData
     howDidYouKnow: "",
     message: "",
   });
@@ -32,16 +33,32 @@ const ContactForm = () => {
 
   const searchParams = useSearchParams();
 
-  // Auto-set location dari query param
+  // Auto-set location dan product dari query param
   useEffect(() => {
     const locationParam = searchParams.get("location"); // ex: business / residential
+    const productParam = searchParams.get("product"); // ex: nama-product-slug
+
     if (locationParam) {
       setFormData((prev) => ({
         ...prev,
         location: locationParam.toLowerCase(),
       }));
     }
-  }, [searchParams]);
+
+    if (productParam) {
+      // Cari product berdasarkan slug
+      const selectedProduct = product.find(
+        (item) => item.slug.toLowerCase() === productParam.toLowerCase()
+      );
+
+      if (selectedProduct) {
+        setFormData((prev) => ({
+          ...prev,
+          product: selectedProduct.title, // Gunakan title sebagai value
+        }));
+      }
+    }
+  }, [searchParams, product]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -57,6 +74,8 @@ const ContactForm = () => {
       newErrors.phone = "Please enter a valid phone number !";
     }
     if (!formData.location) newErrors.location = "Location is required !";
+    // if (!formData.product) newErrors.product = "Product is required !";
+
     if (!formData.message.trim()) newErrors.message = "Message is required !";
 
     setErrors(newErrors);
@@ -112,6 +131,7 @@ const ContactForm = () => {
           phone: "",
           location: "",
           company: "",
+          product: "",
           howDidYouKnow: "",
           message: "",
         });
@@ -129,8 +149,6 @@ const ContactForm = () => {
       setIsLoading(false);
     }
   };
-
-  // console.log("SERVICE ID:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
 
   return (
     <div className="w-full mx-auto rounded-lg form__wrap">
@@ -363,11 +381,61 @@ const ContactForm = () => {
             </motion.div>
           )}
 
-          {/* How Did You Know Field */}
+          {/* Product Field - Menggunakan data dari props product */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
+            className="relative overflow-hidden flex flex-col mb-3 lg:mb-4"
+          >
+            <div
+              className={`relative flex flex-col rounded-[5px] overflow-hidden ct__wrap__input form__wrap__input ${
+                errors.product ? "border-red-500" : ""
+              }`}
+            >
+              <select
+                name="product"
+                value={formData.product}
+                onChange={handleChange}
+                className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
+                  !formData.product ? "text-gray-400" : ""
+                }`}
+              >
+                <option value=""></option>
+                {product.map((item) => (
+                  <option key={item.id} value={item.title}>
+                    {item.title}
+                  </option>
+                ))}
+              </select>
+              <label
+                htmlFor="product"
+                className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
+                  formData.product
+                    ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
+                    : ""
+                }`}
+              >
+                {LabelInput.product}
+              </label>
+              <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
+            </div>
+            {/* {errors.product && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-white text-xs mt-2 ml-1 bg-[#ff4444b9] max-w-max px-2"
+              >
+                {errors.product}
+              </motion.p>
+            )} */}
+          </motion.div>
+
+          {/* How Did You Know Field */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
             className="relative overflow-hidden flex flex-col mb-3 lg:mb-4"
           >
             <div
@@ -416,7 +484,7 @@ const ContactForm = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             className="relative overflow-hidden flex flex-col mb-3 lg:mb-4"
           >
             <div
@@ -481,6 +549,4 @@ const ContactForm = () => {
       </form>
     </div>
   );
-};
-
-export default ContactForm;
+}

@@ -242,6 +242,7 @@
       "phone": "PHONE NUMBER",
       "location": "LOCATION TYPE",
       "company": "COMPANY NAME",
+      "product": "PRODUCT",
       "howDidYouKnow": "HOW DID YOU KNOW SECOM?",
       "message": "MESSAGE"
     },

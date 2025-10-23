@@ -37,7 +37,7 @@ const AboutLocation = ({ dataSection }) => {
                     : "bg-white text-tosca hover:bg-tosca hover:text-white"
                 }`}
               >
-                {item.name}
+                <p dangerouslySetInnerHTML={{ __html: item.name }} />
               </button>
             ))}
           </div>
