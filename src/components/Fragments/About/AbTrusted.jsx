@@ -5,14 +5,19 @@ import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 
-const AboutTrusted = ({ dataSection }) => {
+const AboutTrusted = ({ dataSection, classWrapper }) => {
   const locale = useLocale();
 
   return (
-    <section className="flex flex-col pt-0 pb-8 lg:pt-10 lg:pb-30 overflow-hidden ab-trusted">
+    <section
+      className={`flex flex-col pt-0 pb-8 lg:pt-10 lg:pb-30 overflow-hidden ab-trusted ${classWrapper}`}
+    >
       <div className="container mx-auto flex flex-col items-center justify-center">
         <h2 className="text-darkblue text-[25px] lg:text-[40px] font-raleway font-medium">
-          {dataSection.title_override}
+          {dataSection.title_override === null ||
+          dataSection.title_override === undefined
+            ? dataSection.title
+            : dataSection.title_override}
         </h2>
         <div className="flex flex-col mb-4 mt-4 ab-trusted__wrap-slider">
           <Splide

@@ -35,7 +35,7 @@ const AboutWork = ({ dataSection }) => {
             {dataSection.title}
           </h2>
         </div>
-        <div className="w-full lg:w-5/12 flex flex-col py-4 px-4 lg:py-10 lg:px-15 border-t-[1px] lg:border-t-[0] border-white/50 ab-work__wrap-slider-title">
+        <div className="w-full lg:w-5/12 flex flex-col py-4 px-4 lg:py-10 lg:px-10 border-t-[1px] lg:border-t-[0] border-white/50 ab-work__wrap-slider-title">
           <Splide
             ref={titleSplideRef}
             options={{

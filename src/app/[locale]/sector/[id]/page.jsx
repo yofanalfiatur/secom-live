@@ -45,7 +45,10 @@ export default async function SectorDetailPage({ params }) {
     title: translationData.build_title_section,
     desc: translationData.build_description_section,
     items: products,
-    ctaTitle: translationData.cta_text,
+    ctaTitle:
+      locale === "en"
+        ? `Protect Your ${translationData.title} with SECOM`
+        : `Lindungi ${translationData.title} Anda dengan SECOM`,
     ctaImage: translationData.cta_image,
     ctaLabel: translationData.cta_button_label,
     ctaUrl: translationData.cta_button_url,

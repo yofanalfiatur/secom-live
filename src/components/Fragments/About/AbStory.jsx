@@ -48,7 +48,7 @@ const AboutStory = ({ dataSection }) => {
               dataSection.url_video === null
                 ? "cursor-default pointer-events-none"
                 : "glightbox"
-            } w-full lg:w-6/12 flex flex-col bg-navyblue lg:bg-[unset] relative z-1 transition-all duration-300 hover:opacity-75`}
+            } w-full lg:w-6/12 flex flex-col bg-navyblue lg:bg-[unset] relative z-1 transition-all duration-300 hover:opacity-75 group`}
           >
             <Image
               src={process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.image}
@@ -57,6 +57,9 @@ const AboutStory = ({ dataSection }) => {
               height={1000}
               className="object-cover w-full aspect-[28/25] lg:aspect-[unset] lg:min-h-[486px] lg:h-full"
             />
+            {dataSection.url_video && (
+              <div class="bg-navyblue triangle-shape w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] absolute top-1/2 left-1/2 transform opacity-60 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease group-hover:bg-tosca group-hover:opacity-100"></div>
+            )}
           </Link>
         </div>
       </section>

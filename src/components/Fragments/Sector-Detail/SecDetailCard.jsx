@@ -50,7 +50,7 @@ const SecDetailCard = (props) => {
           />
         </div>
         <div className="w-full lg:w-[41%] flex flex-col justify-center bg-navyblue px-5 lg:px-0 pt-3 lg:pt-0 pb-3 lg:pb-0">
-          <h3 className="text-white font-raleway font-normal text-[20px] lg:text-[30px] lg:pl-10 leading-[1.7] lg:leading-[1.5] lg:max-w-[455px] ">
+          <h3 className="text-white font-raleway font-normal text-[20px] lg:text-[30px] lg:pl-10 leading-[1.7] lg:leading-[1.5] lg:max-w-full ">
             {dataSection.ctaTitle}
           </h3>
         </div>

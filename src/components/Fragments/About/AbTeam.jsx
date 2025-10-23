@@ -46,9 +46,7 @@ const AboutTeam = ({ dataSection }) => {
     <section className="flex flex-col relative overflow-hidden ab-team">
       {/* Intro Section */}
       <div
-        className={`flex flex-col h-full w-full relative bg-cover bg-center bg-no-repeat after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[#00529C99] ab-team__intro ${
-          dataSection.photo_group === null ? "aspect-[20/11]" : ""
-        }`}
+        className={`flex flex-col h-full w-full relative bg-cover bg-center bg-no-repeat after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[#00529C99] ab-team__intro aspect-[20/11]`}
         style={{
           backgroundImage: `url(${
             process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.background
@@ -67,7 +65,7 @@ const AboutTeam = ({ dataSection }) => {
             height={600}
             alt="About"
             quality={100}
-            className={`w-full h-full object-cover object-center relative z-[1]`}
+            className={`w-full h-full object-cover object-center z-[1] absolute top-0 left-0 aspect-[20/11]`}
           />
         )}
       </div>

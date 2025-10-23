@@ -4,7 +4,7 @@ const AboutBanner = ({ dataSection }) => {
   return (
     <>
       <section
-        className="overflow-hidden h-[450px] lg:h-[623px] relative bg-cover bg-no-repeat bg-center after:content-[''] after:absolute after:top-0 after:left-0 after:z-[0] after:w-full after:h-full after:bg-navyblue after:opacity-60 ab-banner"
+        className="overflow-hidden h-[450px] lg:h-[700px] relative bg-cover bg-no-repeat bg-top after:content-[''] after:absolute after:top-0 after:left-0 after:z-[0] after:w-full after:h-full after:bg-navyblue after:opacity-60 ab-banner"
         style={{
           backgroundImage: `url(${
             process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.image

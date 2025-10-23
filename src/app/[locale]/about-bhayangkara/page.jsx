@@ -6,6 +6,7 @@ import AboutTeam from "@/components/Fragments/About/AbTeam";
 import AboutTrusted from "@/components/Fragments/About/AbTrusted";
 import AboutWhy from "@/components/Fragments/About/AbWhy";
 import AboutWork from "@/components/Fragments/About/AbWork";
+import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
 import { getPageData, getPosts } from "@/libs/api";
 import React from "react";
 
@@ -27,7 +28,15 @@ export default async function AboutBhayangkaraPage(props) {
   const bannerData = sections.about_bhayangkara_banner || {};
   const storyData = sections.about_bhayangkara_story_and_purpose || {};
   const whyData = sections.about_bhayangkara_why_secom || {};
-  const workData = sections.about_bhayangkara_how_we_work || {};
+  // const workData = sections.about_bhayangkara_how_we_work || {};
+  const workData = {
+    title: sections.about_bhayangkara_how_we_work.title,
+    items: sections.about_bhayangkara_how_we_work.slides.map((slide) => ({
+      image: slide.logo,
+      title: slide.title,
+      description: slide.description,
+    })),
+  };
   const certifData = sections.about_bhayangkara_award || {};
   const teamData = sections.about_bhayangkara_teams || {};
 
@@ -38,10 +47,15 @@ export default async function AboutBhayangkaraPage(props) {
       <AboutBanner dataSection={bannerData} />
       <AboutStory dataSection={storyData} />
       <AboutWhy dataSection={whyData} />
-      <AboutWork dataSection={workData} />
+      {/* <AboutWork dataSection={workData} /> */}
+      <SecDetailSlider dataSection={workData} />
+
       <AboutCertificate dataSection={certifData} />
       <AboutTeam dataSection={teamData} />
-      <AboutTrusted dataSection={logoTrustedData} />
+      <AboutTrusted
+        dataSection={logoTrustedData}
+        classWrapper="mt-8 lg:mt-15"
+      />
     </>
   );
 }
