@@ -27,7 +27,7 @@ const BannerBasic = ({ dataSection }) => {
 
   return (
     <section
-      className={`flex-col flex justify-end lg:justify-center py-6 h-[480px] sm:h-[408px] bg-no-repeat bg-center lg:bg-right bg-cover lg:bg-inherit overflow-hidden relative after:content-[''] after:absolute after:top-0 after:left-0 after:z-[1] after:w-full after:lg:w-[40%] after:h-full after:bg-[linear-gradient(0deg,_#00529C_25%,_rgba(0,82,156,0)_40%)] after:lg:bg-[linear-gradient(270deg,rgba(0,82,156,0)_0%,#00529C_100%)] am-banner`}
+      className={`flex-col flex justify-end lg:justify-center py-6 h-[480px] sm:h-[408px] bg-no-repeat bg-center lg:bg-right bg-cover lg:bg-inherit overflow-hidden relative after:content-[''] after:absolute after:top-0 after:left-0 after:z-[1] after:w-full after:lg:w-[50%] after:h-full after:bg-[linear-gradient(0deg,_#00529C_25%,_rgba(0,82,156,0)_40%)] after:lg:bg-[linear-gradient(270deg,rgba(0,82,156,0)_0%,#00529C_100%)] am-banner`}
     >
       <picture>
         <source
@@ -45,7 +45,7 @@ const BannerBasic = ({ dataSection }) => {
       </picture>
 
       <div className="container mx-auto relative z-[2] flex flex-col">
-        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[50%] mb-4 lg:mb-6">
+        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[60%] mb-4 lg:mb-6">
           {renderTitle()}
         </h1>
       </div>

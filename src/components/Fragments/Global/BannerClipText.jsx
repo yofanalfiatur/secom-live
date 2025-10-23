@@ -54,7 +54,7 @@ const BannerClipText = ({ dataSection }) => {
       rendered.push(
         <span
           key={`bold-run-${i}`}
-          className="inline-block relative h-[45px] lg:h-[68px] overflow-hidden align-bottom"
+          className="inline-block relative h-[45px] lg:h-[68px] overflow-hidden align-bottom lg:mb-[-3px]"
         >
           <AnimatePresence mode="wait">
             <motion.span

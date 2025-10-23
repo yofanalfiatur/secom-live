@@ -9,8 +9,8 @@ const BlpCard = ({ dataSection }) => {
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-5">
         {dataSection.map((item, index) => (
           <Link
-            href={index === 0 ? "/sector" : "solution"}
-            className=" flex flex-col group"
+            href={index === 0 ? "/sector" : "solutions"}
+            className=" flex flex-col group transition-all duration-300 ease hover:shadow-lg hover:shadow-black/30"
             key={index}
           >
             <Image
@@ -22,9 +22,7 @@ const BlpCard = ({ dataSection }) => {
             />
             <div
               className={`flex flex-col items-center pt-2 pb-2 lg:pt-5 lg:pb-6 px-6 w-full transition-all duration-300 ease ${
-                index === 0
-                  ? "bg-navyblue group-hover:bg-tosca"
-                  : "bg-tosca group-hover:bg-navyblue"
+                index === 0 ? "bg-navyblue" : "bg-tosca"
               }`}
             >
               <p className="text-white leading-[1.3] lg:leading-[1.2] text-sm lg:text-[30px] mb-1 lg:mb-2">

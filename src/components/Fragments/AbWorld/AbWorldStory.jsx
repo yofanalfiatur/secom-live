@@ -82,7 +82,7 @@ const AbWorldStory = ({ dataSection }) => {
                       {item.title}
                     </p>
                     <p className="font-raleway font-normal text-darkblue text-base lg:text-[25px]">
-                      {item.desc}
+                      {item.description}
                     </p>
                   </div>
                 </SplideSlide>

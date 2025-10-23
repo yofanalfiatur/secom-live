@@ -130,9 +130,11 @@ const AboutTeam = ({ dataSection }) => {
                   <p className="text-darkblue text-xl lg:text-[25px] font-raleway font-semibold mt-4 lg:mt-9 mb-1">
                     {item.name}
                   </p>
-                  <p className="text-base lg:text-xl text-darkblue font-raleway font-normal">
-                    {item.position}
-                  </p>
+
+                  <p
+                    dangerouslySetInnerHTML={{ __html: item.position }}
+                    className="text-base lg:text-xl text-darkblue font-raleway font-normal"
+                  />
                 </div>
 
                 {/* Popup team */}
