@@ -30,7 +30,7 @@ export default async function SolutionsLP(props) {
 
   // Ambil data dari posts sectors
   const responseProduct = await getPosts("products");
-  const productsDataRaw = responseProduct.data || [];
+  const productsDataRaw = responseProduct.data.products || [];
 
   // Map ke struktur yang sesuai untuk komponen
   const listProducts = productsDataRaw.map((item) => {

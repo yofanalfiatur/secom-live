@@ -66,9 +66,11 @@ const SolProduct = (props) => {
         {isDesktop ? (
           <div className="w-full flex flex-col am-products__grid">
             <ul className="flex flex-row flex-wrap justify-center gap-4">
-              {listProducts.map((item, index) => (
-                <CardProduct key={index} item={item} variant="desktop" />
-              ))}
+              {listProducts
+                .filter((item) => item.type === "business")
+                .map((item, index) => (
+                  <CardProduct key={index} item={item} variant="desktop" />
+                ))}
             </ul>
           </div>
         ) : (
@@ -88,11 +90,13 @@ const SolProduct = (props) => {
               className="[&_.splide__track]:!overflow-visible w-full"
             >
               <SplideTrack>
-                {listProducts.map((item, index) => (
-                  <SplideSlide key={index}>
-                    <CardProduct item={item} variant="mobile" />
-                  </SplideSlide>
-                ))}
+                {listProducts
+                  .filter((item) => item.type === "business")
+                  .map((item, index) => (
+                    <SplideSlide key={index}>
+                      <CardProduct item={item} variant="mobile" />
+                    </SplideSlide>
+                  ))}
               </SplideTrack>
               {/* Custom Arrow Buttons */}
               <div className="splide__arrows absolute bottom-[-35px] w-full z-10">
