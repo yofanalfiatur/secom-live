@@ -28,51 +28,12 @@ export default async function SolutionsLP(props) {
   const servicesData = sections.solution_service || {};
   const productsData = sections.solution_list_product || {};
 
-  // Ambil data dari posts sectors
-  const responseProduct = await getPosts("products");
-  const productsDataRaw = responseProduct.data || [];
-
-  // Map ke struktur yang sesuai untuk komponen
-  const listProducts = productsDataRaw.map((item) => {
-    const translation = item.translations[locale] || item.translations.id;
-    return {
-      id: item.id,
-      title: translation.title,
-      desc: translation.description || "",
-      image:
-        item.image === null
-          ? "/img/secom-logo.png"
-          : `${process.env.NEXT_PUBLIC_STORAGE_URL}${item.image}`,
-      type: item.type,
-      field_type: item.field_type,
-      link: `/product/${item.slug}`,
-    };
-  });
-
-  // Ambil data dari posts sectors
-  const responseSector = await getPosts("sectors");
-  const sectorsDataRaw = responseSector.data || [];
-
-  // Map ke struktur yang sesuai untuk komponen
-  const listFilterSector = sectorsDataRaw.map((item) => {
-    const translation = item.translations[locale] || item.translations.id;
-    return {
-      id: item.id,
-      title: translation.title,
-      link: `/solution?sector=${item.slug}`,
-    };
-  });
-
   return (
     <>
       <HeaderList locale={locale} />
       <BannerBasic dataSection={bannerData} />
       <SolServices dataSection={servicesData} listService={listService} />
-      <SolProduct
-        dataSection={productsData}
-        listProducts={listProducts}
-        listFilterSector={listFilterSector}
-      />
+      <SolProduct dataSection={productsData} />
     </>
   );
 }
