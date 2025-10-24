@@ -5,8 +5,9 @@ import SolServices from "@/components/Fragments/Solutions/SolServices";
 import { getPageData, getPosts } from "@/libs/api";
 import React from "react";
 
-export default async function SolutionsLP(props) {
-  const { locale } = await props.params;
+export default async function SolutionsLP({ params, searchParams }) {
+    const { locale } = params;
+    const sector = searchParams?.sector || null;
 
   // Ambil data halaman dari API
   const response = await getPageData("solution");
@@ -33,7 +34,7 @@ export default async function SolutionsLP(props) {
       <HeaderList locale={locale} />
       <BannerBasic dataSection={bannerData} />
       <SolServices dataSection={servicesData} listService={listService} />
-      <SolProduct dataSection={productsData} />
+      <SolProduct dataSection={productsData} defaultSector={sector}/>
     </>
   );
 }
