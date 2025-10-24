@@ -9,7 +9,7 @@ const BlpCard = ({ dataSection }) => {
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-5">
         {dataSection.map((item, index) => (
           <Link
-            href={index === 0 ? "/sector" : "solutions"}
+            href={index === 0 ? "/sector" : "/solution"}
             className=" flex flex-col group transition-all duration-300 ease hover:shadow-lg hover:shadow-black/30"
             key={index}
           >
