@@ -4,12 +4,75 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
-import CardProduct from "@/components/Elements/CardProduct";
+import CardProductV2 from "@/components/Elements/CardProductV2";
+import {useEffect, useState} from "react";
+import {apiFetch} from "@/libs/api";
 
 const SolProduct = (props) => {
-  const { dataSection, listProducts, listFilterSector } = props;
+  const { dataSection } = props;
   const isDesktop = useIsDesktop();
   const locale = useLocale();
+
+  const [Sectors, setSectors] = useState([]);
+  const [Products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const sectorsData = await apiFetch("/sectors");
+        const productsData = await apiFetch("/products");
+
+        setSectors(sectorsData?.data || []);
+        // Filter & map products in one go
+        const mappedProducts = productsData?.data
+            ?.filter((item) => item.type === "business")
+            ?.map((item) => ({
+              title: item.translations?.[locale]?.title,
+              slug: item.slug,
+              type: item.type,
+              description: item.translations?.[locale]?.description,
+              image: item.image,
+            })) || [];
+
+        setProducts(mappedProducts);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+
+    loadData();
+  }, [locale]);
+
+  const handleSectorChange = async (e) => {
+    const slug = e.target.value;
+
+    if (!slug) {
+      // Reset to all products when user selects "All Industries"
+      const productsData = await apiFetch("/products");
+      const mappedProducts = productsData?.data
+          ?.filter((item) => item.type === "business")
+          ?.map((item) => ({
+            title: item.translations?.[locale]?.title,
+            slug: item.slug,
+            type: item.type,
+            description: item.translations?.[locale]?.description,
+            image: item.image,
+          })) || [];
+
+      console.log(mappedProducts);
+      setProducts(mappedProducts|| []);
+      return;
+    }
+
+    try {
+      const response = await apiFetch(`/sectors/${slug}`);
+      const rawData = response?.data.translations?.[locale]?.products;
+      console.log(rawData);
+      setProducts(rawData || []);
+    } catch (error) {
+      console.error(`Error loading products for sector: ${slug}`, error);
+    }
+  };
 
   return (
     <section
@@ -34,15 +97,17 @@ const SolProduct = (props) => {
               <select
                 name="dropdown-filter-sector"
                 id="dropdown-filter-sector"
+                onChange={handleSectorChange}
                 className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer sol-filter-product"
               >
                 <option value="">
                   {locale === "en" ? "All Industries" : "Semua Industri"}
                 </option>
-                {listFilterSector.map((item, index) => (
-                  <option key={index} value={item.link}>
-                    {item.title}
-                  </option>
+
+                {Sectors?.map((sector) => (
+                    <option key={sector.slug} value={sector.slug}>
+                      {sector.translations?.[locale]?.title ?? sector.translations?.en?.title}
+                    </option>
                 ))}
               </select>
               <svg
@@ -66,11 +131,13 @@ const SolProduct = (props) => {
         {isDesktop ? (
           <div className="w-full flex flex-col am-products__grid">
             <ul className="flex flex-row flex-wrap justify-center gap-4">
-              {listProducts
-                .filter((item) => item.type === "business")
-                .map((item, index) => (
-                  <CardProduct key={index} item={item} variant="desktop" />
-                ))}
+              {Products?.map((item) => (
+                  <CardProductV2
+                      key={item.slug}
+                      item={item}
+                      variant="desktop"
+                  />
+              ))}
             </ul>
           </div>
         ) : (
@@ -90,13 +157,22 @@ const SolProduct = (props) => {
               className="[&_.splide__track]:!overflow-visible w-full"
             >
               <SplideTrack>
-                {listProducts
-                  .filter((item) => item.type === "business")
-                  .map((item, index) => (
-                    <SplideSlide key={index}>
-                      <CardProduct item={item} variant="mobile" />
-                    </SplideSlide>
-                  ))}
+                {Products?.filter((item) => item.type === "business")
+                    .map((item) => {
+
+                      const mappedItem = {
+                        title: item.translations[locale]?.title,
+                        slug: item.slug,
+                        description: item.translations[locale]?.description,
+                        image: item.image,
+                      };
+
+                      return (
+                          <SplideSlide key={mappedItem.slug}>
+                            <CardProductV2 item={mappedItem} variant="mobile" />
+                          </SplideSlide>
+                      );
+                    })}
               </SplideTrack>
               {/* Custom Arrow Buttons */}
               <div className="splide__arrows absolute bottom-[-35px] w-full z-10">
