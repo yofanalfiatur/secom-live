@@ -33,7 +33,7 @@ export default async function NewsLanding(props) {
   });
 
   const postsData = responsePosts?.data || {};
-  const allPosts = postsData.data || [];
+  const allPosts = postsData.articles?.data || [];
 
   // Transform data to match the expected format
   const transformedPosts = allPosts.map((post) => ({
@@ -49,7 +49,7 @@ export default async function NewsLanding(props) {
       "Uncategorized",
     publishedDate: post.published_at || post.created_at || "",
     featuredImage: post.image?.[0]
-      ? `https://api.secom.madebystucel.com/storage/${post.image[0]}`
+      ? `${process.env.NEXT_PUBLIC_STORAGE_URL}${post.image[0]}`
       : "",
     slug: post.slug?.[locale] || post.slug?.id || "",
     content: post.content?.[locale] || post.content?.en || "",
