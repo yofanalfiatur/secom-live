@@ -12,9 +12,10 @@ const HomeValue = ({ dataSection }) => {
     <>
       <section className="flex flex-col pt-6 lg:pt-17 pb-10 lg:pb-27 h-value">
         <div className="flex flex-col container mx-auto">
-          <h2 className="text-navyblue text-[30px] lg:text-[45px] leading-[1.4] font-raleway font-medium mb-8 lg:mb-20">
-            {dataSection.title}
-          </h2>
+          <h2
+            className="text-navyblue text-[30px] lg:text-[45px] leading-[1.4] font-raleway font-medium mb-8 lg:mb-20"
+            dangerouslySetInnerHTML={{ __html: dataSection.title }}
+          />
           <div className="flex flex-col md:flex-row gap-8 lg:gap-5 justify-start lg:justify-between">
             {dataSection.features?.map((item, index) => (
               <div

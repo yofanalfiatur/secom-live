@@ -64,7 +64,7 @@ const HomeAbout = ({ dataSection }) => {
           <div className="flex flex-col w-[48%] lg:w-4/12">
             <Link
               href={dataSection.video_profile}
-              className="glightbox w-full h-full relative flex flex-col justify-center items-center after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-tosca after:opacity-60 group"
+              className="glightbox w-full h-full relative flex flex-col justify-center items-center after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-navyblue after:opacity-0 hover:after:opacity-15 group"
             >
               <Image
                 src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${dataSection.image_thumbnail}`}
@@ -74,14 +74,15 @@ const HomeAbout = ({ dataSection }) => {
                 alt="profile"
                 className="w-full h-full lg:h-[388] aspect-[135/124] lg:aspect-auto object-cover top-0 left-0 opacity-100"
               />
-              <div className="absolute z-[1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col lg:flex-row justify-center items-center w-max gap-4 lg:gap-6 after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:transition-all after:duration-200 after:ease-in-out after:w-[0%] after:h-[2px] after:z-[4] after:bg-white group-hover:after:w-full">
+              {/* <div className="absolute z-[1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col lg:flex-row justify-center items-center w-max gap-4 lg:gap-6 after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:transition-all after:duration-200 after:ease-in-out after:w-[0%] after:h-[2px] after:z-[4] after:bg-white group-hover:after:w-full">
                 <div className="bg-white triangle-shape w-[25px] h-[25px] lg:w-[30px] lg:h-[30px] "></div>
                 <p className="text-white text-xs lg:text-lg ">
                   {locale === "en"
                     ? "OUR COMPANY PROFILE VIDEO"
                     : "PROFIL PERUSAHAAN KAMI"}
                 </p>
-              </div>
+              </div> */}
+              <div class="bg-navyblue triangle-shape w-[40px] h-[40px] lg:w-[90px] lg:h-[90px] absolute top-1/2 left-1/2 transform opacity-60 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease group-hover:bg-tosca group-hover:opacity-100 z-10"></div>
             </Link>
           </div>
           <div className="flex flex-col w-full lg:w-8/12 order-1 lg:order-[unset] mt-4 lg:mt-[unset] mb-3 lg:mb-[unset]">

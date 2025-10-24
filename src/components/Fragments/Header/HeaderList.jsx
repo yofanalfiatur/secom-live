@@ -29,7 +29,7 @@ async function getMenuDataProduct(type, locale, prefix = "") {
 
 export default async function HeaderList({ locale }) {
   const [productsData, sectorsData, servicesData] = await Promise.all([
-    getMenuDataProduct("products", locale, "product/"),
+    getMenuData("products", locale, "product/"),
     getMenuData("sectors", locale, "sector/"),
     getMenuData("services", locale, "service/"),
   ]);

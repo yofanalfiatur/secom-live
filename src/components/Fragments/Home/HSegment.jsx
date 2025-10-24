@@ -21,17 +21,20 @@ const HomeSegment = ({ dataSection }) => {
               <Link
                 href={item.url}
                 key={index}
-                className="flex flex-col items-center relative group transition-all duration-300 ease hover:shadow-lg hover:shadow-black/30"
+                className={`flex flex-col items-center relative group transition-all duration-300 ease hover:shadow-lg hover:shadow-black/30`}
               >
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${item.image}`}
                   alt={item.title}
                   width={1000}
                   height={1000}
+                  quality={100}
                   className="w-full lg:h-[450px] object-cover"
                 />
                 <div
-                  className={`bg-tosca flex flex-col px-5 lg:px-6 py-4 lg:py-5 lg:absolute lg:bottom-0 w-full lg:w-[93%] lg:mb-5 group-hover:bg-navyblue transition-all duration-300 ease`}
+                  className={`flex flex-col px-5 lg:px-6 py-4 lg:py-5 lg:absolute lg:bottom-0 w-full lg:w-[93%] lg:mb-5 transition-all duration-300 ease ${
+                    index === 0 ? "bg-navyblue" : "bg-tosca"
+                  }`}
                 >
                   <p className="text-white lg:text-[25px] mb-1 lg:mb-2 font-medium">
                     {item.title}

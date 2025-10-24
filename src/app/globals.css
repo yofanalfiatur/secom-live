@@ -1107,6 +1107,25 @@ main {
   }
 }
 
+.ab-team .ab-team__intro__title {
+  color: transparent;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  transition: color 0.3s ease;
+  background: linear-gradient(
+    to right,
+    #01f3ff,
+    #01a2ff,
+    #004697,
+    #01a2ff,
+    #01f3ff,
+    #01f3ff
+  );
+  background-clip: text;
+  animation: shine 5s linear infinite;
+  background-size: 200% 200%;
+}
+
 @media (min-width: 1024px) {
   .ab-why__slider .splide__list {
     display: flex !important;

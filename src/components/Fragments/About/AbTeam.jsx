@@ -46,7 +46,7 @@ const AboutTeam = ({ dataSection }) => {
     <section className="flex flex-col relative overflow-hidden ab-team">
       {/* Intro Section */}
       <div
-        className={`flex flex-col h-full w-full relative bg-cover bg-center bg-no-repeat after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[#00529C99] ab-team__intro aspect-[20/11]`}
+        className={`flex flex-col h-full w-full relative bg-cover bg-center bg-no-repeat ab-team__intro aspect-[20/11]`}
         style={{
           backgroundImage: `url(${
             process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.background
@@ -54,7 +54,7 @@ const AboutTeam = ({ dataSection }) => {
         }}
       >
         <div className="container mx-auto flex flex-col items-center relative z-[2]">
-          <h2 className="text-white text-center w-full lg:w-[62%] text-sm sm:text-[18px] md:text-2xl lg:text-[50px] font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-2 lg:mb-8">
+          <h2 className="text-white text-center w-full lg:w-[62%] text-sm sm:text-[18px] md:text-2xl lg:text-[50px] font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-2 lg:mb-8 ab-team__intro__title">
             {dataSection.title}
           </h2>
         </div>
