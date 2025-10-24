@@ -10,14 +10,20 @@ export default function NewsContent({
   setCurrentPage,
   paginationInfo,
   locale,
+  onPageChange,
 }) {
   const router = useRouter();
 
   const handlePageChange = (page) => {
     if (page >= 1 && page <= paginationInfo.totalPages) {
       setCurrentPage(page);
-      // Update URL with new page parameter
-      router.push(`?page=${page}`, { scroll: false });
+      // Use the onPageChange callback if provided (for URL updates)
+      if (onPageChange) {
+        onPageChange(page);
+      } else {
+        // Fallback to direct router push
+        router.push(`?page=${page}`, { scroll: false });
+      }
     }
   };
 

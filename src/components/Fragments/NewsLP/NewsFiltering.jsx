@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getCategories } from "@/libs/api";
 
 export default function NewsFiltering({
   posts,
@@ -7,34 +8,96 @@ export default function NewsFiltering({
   setFilteredPosts,
   setCurrentPage,
   locale,
+  currentCategory = "",
+  onCategoryChange,
+  onYearChange,
+  availableYears = [],
 }) {
   const [clickedFilter, setClickedFilter] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch categories from API
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        setLoading(true);
+        const response = await getCategories();
+        const categoriesData = response?.data?.[locale] || response?.data?.en || [];
+        
+        // Transform categories to match expected format
+        const transformedCategories = categoriesData.map((cat) => ({
+          id: cat.id,
+          name: cat.name || "",
+          slug: cat.id.toString(), // Use ID as slug since API expects category ID
+        }));
+        
+        setCategories(transformedCategories);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+        // Fallback to extracting categories from posts
+        const uniqueCategories = [...new Set(posts.map((post) => post.category))];
+        setCategories(uniqueCategories.map((cat, index) => ({
+          id: index,
+          name: cat,
+          slug: cat.toLowerCase().replace(/\s+/g, '-'),
+        })));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, [locale, posts]);
 
   // Filter functions
   const handleArchiveFilter = (year) => {
-    const filtered = posts.filter((post) => {
-      const postYear = new Date(post.publishedDate).getFullYear();
-      return postYear === year;
-    });
-    setFilteredPosts(filtered);
-    setCurrentPage(1);
+    if (onYearChange) {
+      onYearChange(year);
+    } else {
+      // Fallback to client-side filtering
+      const filtered = posts.filter((post) => {
+        const postYear = new Date(post.publishedDate).getFullYear();
+        return postYear === year;
+      });
+      setFilteredPosts(filtered);
+      setCurrentPage(1);
+    }
     setClickedFilter(null);
   };
 
-  const handleCategoryFilter = (category) => {
-    const filtered = posts.filter((post) => post.category === category);
-    setFilteredPosts(filtered);
-    setCurrentPage(1);
+  const handleCategoryFilter = (categorySlug) => {
+    if (onCategoryChange) {
+      onCategoryChange(categorySlug);
+    } else {
+      // Fallback to client-side filtering
+      const filtered = posts.filter((post) => {
+        const category = categories.find(cat => cat.slug === categorySlug);
+        return category && post.category === category.name;
+      });
+      setFilteredPosts(filtered);
+      setCurrentPage(1);
+    }
     setClickedFilter(null);
   };
 
-  // Get unique years for archive filter
-  const uniqueYears = [
-    ...new Set(posts.map((post) => new Date(post.publishedDate).getFullYear())),
-  ].sort((a, b) => b - a);
+  const handleClearFilters = () => {
+    if (onCategoryChange) {
+      onCategoryChange("");
+    }
+    if (onYearChange) {
+      onYearChange("");
+    }
+    if (!onCategoryChange && !onYearChange) {
+      setFilteredPosts(posts);
+    }
+    setClickedFilter(null);
+  };
 
-  // Get unique categories for category filter
-  const uniqueCategories = [...new Set(posts.map((post) => post.category))];
+  // Get unique years for archive filter - use availableYears from API if available
+  const uniqueYears = availableYears.length > 0 
+    ? availableYears.sort((a, b) => b - a)
+    : [...new Set(posts.map((post) => new Date(post.publishedDate).getFullYear()))].sort((a, b) => b - a);
 
   return (
     <div className="w-full h-max lg:w-3/12 flex flex-col relative lg:sticky lg:top-[80px] lg:pr-10 lg:pt-10 pb-10 lg:pb-20 self-start">
@@ -107,7 +170,10 @@ export default function NewsFiltering({
               setClickedFilter(clickedFilter === "category" ? null : "category")
             }
           >
-            {locale === "en" ? "Category" : "Kategori"}
+            {currentCategory ? 
+              (categories.find(cat => cat.slug === currentCategory)?.name || currentCategory) :
+              (locale === "en" ? "Category" : "Kategori")
+            }
           </button>
           <svg
             width="22"
@@ -132,22 +198,41 @@ export default function NewsFiltering({
                 : "max-h-0 opacity-0 invisible"
             }`}
           >
-            {uniqueCategories.map((category, index) => (
-              <li
-                key={index}
-                className="text-darkblue py-2 px-2 hover:bg-gray-100"
-                onClick={() => handleCategoryFilter(category)}
-              >
-                {category}
+            {loading ? (
+              <li className="text-darkblue py-2 px-2">
+                {locale === "en" ? "Loading..." : "Memuat..."}
               </li>
-            ))}
+            ) : (
+              <>
+                {/* All Categories Option */}
+                <li
+                  className={`text-darkblue py-2 px-2 hover:bg-gray-100 ${
+                    !currentCategory ? "bg-gray-100 font-semibold" : ""
+                  }`}
+                  onClick={() => handleCategoryFilter("")}
+                >
+                  {locale === "en" ? "All Categories" : "Semua Kategori"}
+                </li>
+                {categories.map((category) => (
+                  <li
+                    key={category.id}
+                    className={`text-darkblue py-2 px-2 hover:bg-gray-100 ${
+                      currentCategory === category.slug ? "bg-gray-100 font-semibold" : ""
+                    }`}
+                    onClick={() => handleCategoryFilter(category.slug)}
+                  >
+                    {category.name}
+                  </li>
+                ))}
+              </>
+            )}
           </ul>
         </div>
 
         {/* Clear Filters Button */}
-        {filteredPosts.length !== posts.length && (
+        {(currentCategory || filteredPosts.length !== posts.length) && (
           <button
-            onClick={() => setFilteredPosts(posts)}
+            onClick={handleClearFilters}
             className="text-navyblue uppercase tracking-[3px] font-raleway text-xs lg:text-base rounded-[5px] px-4 py-[16px] border-[1px] border-[#00000033] text-start cursor-pointer hover:bg-gray-100"
           >
             {locale === "en" ? "Clear Filters" : "Hapus Filter"}

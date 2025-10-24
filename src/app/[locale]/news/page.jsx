@@ -23,17 +23,33 @@ export default async function NewsLanding(props) {
   const { locale } = await props.params;
   const searchParams = await props.searchParams;
 
-  // Get page from search params, default to 1
+  // Get page, category, and year from search params
   const currentPage = parseInt(searchParams.page) || 1;
+  const selectedCategory = searchParams.category || "";
+  const selectedYear = searchParams.year || "";
 
-  // Fetch articles data with pagination
-  const responsePosts = await getPosts("articles", {
+  // Build API parameters
+  const apiParams = {
     page: currentPage,
     per_page: 5, // Match ITEMS_PER_PAGE in client component
-  });
+  };
 
-  const postsData = responsePosts?.data || {};
-  const allPosts = postsData.articles?.data || [];
+  // Add category filter if selected
+  if (selectedCategory) {
+    apiParams.category = selectedCategory;
+  }
+
+  // Add year filter if selected
+  if (selectedYear) {
+    apiParams.year = selectedYear;
+  }
+
+  // Fetch articles data with pagination and filtering
+  const responsePosts = await getPosts("articles", apiParams);
+
+  const postsData = responsePosts?.data?.articles || {};
+  const allPosts = postsData.data || [];
+  const availableYears = responsePosts?.data?.availableYears || [];
 
   // Transform data to match the expected format
   const transformedPosts = allPosts.map((post) => ({
@@ -70,6 +86,8 @@ export default async function NewsLanding(props) {
       locale={locale}
       initialPage={currentPage}
       paginationInfo={paginationInfo}
+      selectedCategory={selectedCategory}
+      availableYears={availableYears}
     />
   );
 }

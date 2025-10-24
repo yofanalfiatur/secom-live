@@ -31,8 +31,10 @@ export async function getPageData(slug) {
  * 🔹 Get all posts from a specific type
  * Example: /sector/, /services/, /products/, /faqs/, /vacancies/
  */
-export async function getPosts(type) {
-  return apiFetch(`/${type}`);
+export async function getPosts(type, params = {}) {
+  const queryString = new URLSearchParams(params).toString();
+  const endpoint = queryString ? `/${type}?${queryString}` : `/${type}`;
+  return apiFetch(endpoint);
 }
 
 /**
@@ -45,4 +47,11 @@ export async function getPostBySlug(type, slug) {
 
 export async function getPostById(type, id) {
   return apiFetch(`/${type}/${id}`);
+}
+
+/**
+ * 🔹 Get categories for articles
+ */
+export async function getCategories() {
+  return apiFetch("/categories/article");
 }
