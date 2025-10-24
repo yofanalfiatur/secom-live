@@ -9,8 +9,10 @@ export default function NewsFiltering({
   setCurrentPage,
   locale,
   currentCategory = "",
+  currentYear = "",
   onCategoryChange,
   onYearChange,
+  onClearAllFilters,
   availableYears = [],
 }) {
   const [clickedFilter, setClickedFilter] = useState(null);
@@ -82,14 +84,29 @@ export default function NewsFiltering({
   };
 
   const handleClearFilters = () => {
-    if (onCategoryChange) {
-      onCategoryChange("");
-    }
-    if (onYearChange) {
-      onYearChange("");
-    }
-    if (!onCategoryChange && !onYearChange) {
-      setFilteredPosts(posts);
+    // Use the dedicated clear all filters function if available
+    if (onClearAllFilters) {
+      onClearAllFilters();
+    } else {
+      // Fallback: Clear both category and year filters by directly manipulating URL
+      if (onCategoryChange || onYearChange) {
+        const params = new URLSearchParams(window.location.search);
+        params.delete("category");
+        params.delete("year");
+        params.delete("page");
+        
+        const queryString = params.toString();
+        const newUrl = queryString ? `?${queryString}` : window.location.pathname;
+        
+        // Use router from parent component or fallback to window navigation
+        if (typeof window !== 'undefined') {
+          window.history.pushState({}, '', newUrl);
+          window.location.reload();
+        }
+      } else {
+        // Fallback to client-side filtering
+        setFilteredPosts(posts);
+      }
     }
     setClickedFilter(null);
   };
@@ -119,7 +136,7 @@ export default function NewsFiltering({
               setClickedFilter(clickedFilter === "archive" ? null : "archive")
             }
           >
-            {locale === "en" ? "Archive" : "Arsip"}
+            {currentYear ? currentYear : (locale === "en" ? "Archive" : "Arsip")}
           </button>
           <svg
             width="22"
@@ -230,7 +247,7 @@ export default function NewsFiltering({
         </div>
 
         {/* Clear Filters Button */}
-        {(currentCategory || filteredPosts.length !== posts.length) && (
+        {(currentCategory || currentYear || filteredPosts.length !== posts.length) && (
           <button
             onClick={handleClearFilters}
             className="text-navyblue uppercase tracking-[3px] font-raleway text-xs lg:text-base rounded-[5px] px-4 py-[16px] border-[1px] border-[#00000033] text-start cursor-pointer hover:bg-gray-100"

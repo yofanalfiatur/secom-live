@@ -10,6 +10,7 @@ export default function NewsLP({
   initialPage = 1,
   paginationInfo,
   selectedCategory = "",
+  selectedYear = "",
   availableYears = [],
 }) {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function NewsLP({
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [currentCategory, setCurrentCategory] = useState(selectedCategory);
+  const [currentYear, setCurrentYear] = useState(selectedYear);
 
   // Update filteredPosts when posts prop changes
   useEffect(() => {
@@ -33,6 +35,11 @@ export default function NewsLP({
     setCurrentCategory(selectedCategory);
   }, [selectedCategory]);
 
+  // Sync currentYear with selectedYear
+  useEffect(() => {
+    setCurrentYear(selectedYear);
+  }, [selectedYear]);
+
   // Handle category filter change
   const handleCategoryChange = (category) => {
     const params = new URLSearchParams(searchParams);
@@ -44,6 +51,18 @@ export default function NewsLP({
     }
     
     // Reset to page 1 when filtering
+    params.delete("page");
+    
+    const queryString = params.toString();
+    const newUrl = queryString ? `?${queryString}` : window.location.pathname;
+    router.push(newUrl);
+  };
+
+  // Handle clearing all filters
+  const handleClearAllFilters = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete("category");
+    params.delete("year");
     params.delete("page");
     
     const queryString = params.toString();
@@ -96,8 +115,10 @@ export default function NewsLP({
           setCurrentPage={setCurrentPage}
           locale={locale}
           currentCategory={currentCategory}
+          currentYear={currentYear}
           onCategoryChange={handleCategoryChange}
           onYearChange={handleYearChange}
+          onClearAllFilters={handleClearAllFilters}
           availableYears={availableYears}
         />
 

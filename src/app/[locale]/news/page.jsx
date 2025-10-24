@@ -87,6 +87,7 @@ export default async function NewsLanding(props) {
       initialPage={currentPage}
       paginationInfo={paginationInfo}
       selectedCategory={selectedCategory}
+      selectedYear={selectedYear}
       availableYears={availableYears}
     />
   );
