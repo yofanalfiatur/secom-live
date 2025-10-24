@@ -5,49 +5,59 @@ import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import CardProductV2 from "@/components/Elements/CardProductV2";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {apiFetch} from "@/libs/api";
 
-const SolProduct = (props) => {
-  const { dataSection } = props;
+const SolProduct = ({ dataSection, defaultSector }) => {
+  // const { dataSection } = dataSection;
   const isDesktop = useIsDesktop();
   const locale = useLocale();
 
   const [Sectors, setSectors] = useState([]);
   const [Products, setProducts] = useState([]);
+  const [selectedSector, setSelectedSector] = useState(defaultSector || "");
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const loadData = async () => {
       try {
         const sectorsData = await apiFetch("/sectors");
-        const productsData = await apiFetch("/products");
-
         setSectors(sectorsData?.data || []);
-        // Filter & map products in one go
-        const mappedProducts = productsData?.data
-            ?.filter((item) => item.type === "business")
-            ?.map((item) => ({
-              title: item.translations?.[locale]?.title,
-              slug: item.slug,
-              type: item.type,
-              description: item.translations?.[locale]?.description,
-              image: item.image,
-            })) || [];
 
-        setProducts(mappedProducts);
+        if (defaultSector) {
+          const response = await apiFetch(`/sectors/${defaultSector}`);
+          const rawData = response?.data.translations?.[locale]?.products;
+          setProducts(rawData || []);
+          setTimeout(() => {
+            sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+          }, 500);
+        } else {
+          // otherwise show all
+          const productsData = await apiFetch("/products");
+          const mappedProducts = productsData?.data
+              ?.filter((item) => item.type === "business")
+              ?.map((item) => ({
+                title: item.translations?.[locale]?.title,
+                slug: item.slug,
+                type: item.type,
+                description: item.translations?.[locale]?.description,
+                image: item.image,
+              })) || [];
+          setProducts(mappedProducts);
+        }
       } catch (error) {
         console.error("Error loading data:", error);
       }
     };
 
     loadData();
-  }, [locale]);
+  }, [locale, defaultSector]);
 
   const handleSectorChange = async (e) => {
     const slug = e.target.value;
+    setSelectedSector(slug);
 
     if (!slug) {
-      // Reset to all products when user selects "All Industries"
       const productsData = await apiFetch("/products");
       const mappedProducts = productsData?.data
           ?.filter((item) => item.type === "business")
@@ -58,16 +68,13 @@ const SolProduct = (props) => {
             description: item.translations?.[locale]?.description,
             image: item.image,
           })) || [];
-
-      console.log(mappedProducts);
-      setProducts(mappedProducts|| []);
+      setProducts(mappedProducts);
       return;
     }
 
     try {
       const response = await apiFetch(`/sectors/${slug}`);
       const rawData = response?.data.translations?.[locale]?.products;
-      console.log(rawData);
       setProducts(rawData || []);
     } catch (error) {
       console.error(`Error loading products for sector: ${slug}`, error);
@@ -76,6 +83,7 @@ const SolProduct = (props) => {
 
   return (
     <section
+      ref={sectionRef}
       className="bg-navyblue flex flex-col pt-6 lg:pt-21 pb-20 lg:pb-25 sol-product"
       id="sol-product-lp"
     >
@@ -98,6 +106,7 @@ const SolProduct = (props) => {
                 name="dropdown-filter-sector"
                 id="dropdown-filter-sector"
                 onChange={handleSectorChange}
+                value={selectedSector}
                 className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer sol-filter-product"
               >
                 <option value="">

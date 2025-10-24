@@ -15,7 +15,6 @@ export default async function SectorDetailPage({ params }) {
   const sectorData = response.data;
   const translationData =
     sectorData.translations?.[locale] || sectorData.translations?.id;
-
   if (!translationData) return notFound();
 
   // mapping component
@@ -51,7 +50,7 @@ export default async function SectorDetailPage({ params }) {
         : `Lindungi ${translationData.title} Anda dengan SECOM`,
     ctaImage: translationData.cta_image,
     ctaLabel: translationData.cta_button_label,
-    ctaUrl: translationData.cta_button_url,
+    ctaUrl: sectorData.slug,
   };
 
   return (

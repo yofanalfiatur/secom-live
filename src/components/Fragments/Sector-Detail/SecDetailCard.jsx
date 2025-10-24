@@ -56,7 +56,7 @@ const SecDetailCard = (props) => {
         </div>
         <div className="w-full lg:w-[24%] flex flex-col justify-center lg:items-end lg:pr-7 bg-navyblue px-5 lg:px-0 pb-6 lg:pb-0">
           <ButtonPrimary
-            href={dataSection.ctaUrl}
+            href={`/solution?sector=${dataSection.ctaUrl}`}
             target="_self"
             className="hover:bg-white hover:text-navyblue "
           >
