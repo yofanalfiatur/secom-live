@@ -8,7 +8,6 @@ import { Link } from "@/i18n/navigation";
 const AboutLocation = ({ dataSection }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const locale = useLocale();
-  // Fungsi untuk membersihkan nomor telepon
   const cleanPhoneNumber = (phoneNumber) => {
     return phoneNumber.replace(/[^0-9+]/g, "");
   };
@@ -81,7 +80,7 @@ const AboutLocation = ({ dataSection }) => {
               </div>
 
               {/* Embed + Address */}
-              <div className="w-full lg:w-2/3 flex flex-col">
+              <div className="w-full lg:w-2/3 flex flex-col ab-loc__embed">
                 <div
                   dangerouslySetInnerHTML={{ __html: item.embed_gmaps }}
                   className="flex flex-col aspect-[285/147] lg:aspect-[720/300] w-full h-auto"

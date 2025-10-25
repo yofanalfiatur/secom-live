@@ -79,7 +79,11 @@ const AboutTeam = ({ dataSection }) => {
           <div className="flex-1 h-[1px] bg-[#13223333]"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-5 ab-team__list">
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 ${
+            dataSection.cards.length > 4 ? "lg:grid-cols-3" : "lg:grid-cols-4"
+          } gap-y-8 gap-x-8  lg:gap-x-5 lg:gap-y-10 ab-team__list`}
+        >
           {dataSection.cards.map((item, index) => {
             const videoRef = useRef(null);
             const videoRefPopup = useRef(null);
@@ -200,9 +204,10 @@ const AboutTeam = ({ dataSection }) => {
                           <p className="text-darkblue text-[25px] lg:text-[35px] font-raleway font-semibold">
                             {item.name}
                           </p>
-                          <p className="text-sm lg:text-xl text-darkblue font-raleway font-normal">
-                            {item.position}
-                          </p>
+                          <p
+                            className="text-sm lg:text-xl text-darkblue font-raleway font-normal flex flex-col"
+                            dangerouslySetInnerHTML={{ __html: item.position }}
+                          />
                         </div>
                         <div
                           dangerouslySetInnerHTML={{ __html: item.description }}

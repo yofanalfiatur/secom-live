@@ -23,8 +23,9 @@ const AboutTrusted = ({ dataSection, classWrapper }) => {
           <Splide
             options={{
               type: "loop",
-              autoplay: false,
-              interval: 4000,
+              autoplay: true,
+              interval: 2000,
+              perMove: 1,
               pauseOnHover: true,
               arrows: false,
               pagination: true,

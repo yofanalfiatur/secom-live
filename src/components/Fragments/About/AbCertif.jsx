@@ -39,8 +39,9 @@ const AboutCertificate = (props) => {
             <Splide
               options={{
                 type: "loop",
-                autoplay: false,
-                interval: 4000,
+                autoplay: true,
+                interval: 3000,
+                perMove: 1,
                 pauseOnHover: true,
                 arrows: true,
                 pagination: false,

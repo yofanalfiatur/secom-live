@@ -22,7 +22,7 @@ const SolServices = (props) => {
             const content = item.translations[locale];
 
             const hrefLink =
-              index === 2 ? "/about-global" : `/service/${item.slug}`;
+              index === 2 ? "/about-bhayangkara" : `/service/${item.slug}`;
 
             return (
               <li
@@ -50,12 +50,6 @@ const SolServices = (props) => {
                       alt={content.title}
                       className="w-full h-full object-cover relative z-[1]"
                     />
-                    <div
-                      style={{
-                        clipPath: "polygon(0 33%, 100% 0, 100% 100%, 0 100%)",
-                      }}
-                      className="bg-navyblue w-full h-full absolute z-0 top-0 right-0"
-                    ></div>
                   </div>
                 </Link>
 

@@ -18,32 +18,34 @@ const HomeSegment = ({ dataSection }) => {
           </p>
           <div className="gap-5 flex flex-col lg:flex-row mb-[-150px] lg:mb-[-270px]">
             {dataSection.cards?.map((item, index) => (
-              <Link
-                href={item.url}
-                key={index}
-                className={`flex flex-col items-center relative group transition-all duration-300 ease hover:shadow-lg hover:shadow-black/30`}
-              >
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${item.image}`}
-                  alt={item.title}
-                  width={1000}
-                  height={1000}
-                  quality={100}
-                  className="w-full lg:h-[450px] object-cover"
-                />
-                <div
-                  className={`flex flex-col px-5 lg:px-6 py-4 lg:py-5 lg:absolute lg:bottom-0 w-full lg:w-[93%] lg:mb-5 transition-all duration-300 ease ${
-                    index === 0 ? "bg-navyblue" : "bg-tosca"
-                  }`}
+              <div className="flex flex-col relative group" key={index}>
+                <Link
+                  href={item.url}
+                  className={`flex flex-col items-center relativ z-10 group transition-all duration-300 ease h-full m-1`}
                 >
-                  <p className="text-white lg:text-[25px] mb-1 lg:mb-2 font-medium">
-                    {item.title}
-                  </p>
-                  <p className="text-white text-sm lg:text-base leading-[1.7] lg:leading-[1.5]">
-                    {item.description}
-                  </p>
-                </div>
-              </Link>
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${item.image}`}
+                    alt={item.title}
+                    width={1000}
+                    height={1000}
+                    quality={100}
+                    className="w-full lg:h-[450px] object-cover"
+                  />
+                  <div
+                    className={`flex flex-col px-5 lg:px-6 py-4 lg:py-5 lg:absolute lg:bottom-0 w-full lg:w-[93%] lg:mb-5 transition-all duration-300 ease ${
+                      index === 0 ? "bg-tosca lg:bg-navyblue" : "bg-tosca"
+                    }`}
+                  >
+                    <p className="text-white lg:text-[25px] mb-1 lg:mb-2 font-medium">
+                      {item.title}
+                    </p>
+                    <p className="text-white text-sm lg:text-base leading-[1.7] lg:leading-[1.5]">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
+                <div className="absolute top-0 left-0 w-full h-full z-0 animated-gradient-bg2 transition-all duration-200 ease opacity-0 group-hover:opacity-100"></div>
+              </div>
             ))}
           </div>
         </div>

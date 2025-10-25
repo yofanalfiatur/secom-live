@@ -14,6 +14,7 @@ import OverviewGlobal from "@/components/Fragments/Global/OverviewGlobal";
 import SolDtHighlight from "@/components/Fragments/Solution-Detail/SolDtHighlight";
 import { getPostBySlug } from "@/libs/api";
 import React from "react";
+import HeaderList from "@/components/Fragments/Header/HeaderList";
 
 export default async function ProductDetail({ params }) {
   const { id, locale } = await params;
@@ -190,6 +191,8 @@ export default async function ProductDetail({ params }) {
 
   return (
     <>
+      <HeaderList locale={locale} />
+
       {fieldType === "default" ? (
         <>
           {/* template default */}

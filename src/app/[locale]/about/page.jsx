@@ -33,10 +33,7 @@ export default async function AboutPage(props) {
   const teamData = sections.about_teams || {};
   const locationData = sections.about_locations || {};
 
-  // ambil data dari posts Representative
-  const responseLogoTrustedBy = await getPosts("settings");
-  // temp
-  const logoTrustedData = responseLogoTrustedBy.data.logo || [];
+  const logoTrustedData = sections.about_trusted_by || [];
 
   return (
     <>

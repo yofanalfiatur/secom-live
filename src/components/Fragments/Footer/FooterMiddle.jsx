@@ -53,7 +53,7 @@ const FooterMiddle = (props) => {
                 <p className="f-hint text-white text-[12px] lg:text-[14px] font-semibold mb-3 lg:mb-3">
                   {locale === "en" ? "SITEMAP" : "MENU"}
                 </p>
-                <ul className="f-sitemap__list flex flex-col flex-wrap max-h-[105px] lg:max-h-[80px] max-w-max gap-[15px] lg:gap-5">
+                <ul className="f-sitemap__list flex flex-col flex-wrap max-h-[135px] lg:max-h-[80px] max-w-max gap-[15px] lg:gap-5">
                   {FooterMenu.map(({ FtMenuText, FtMenuLink }, index) => (
                     <li
                       className="f-sitemap__list__item flex flex-col max-w-max"

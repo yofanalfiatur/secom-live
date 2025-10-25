@@ -23,8 +23,12 @@
     {
       "icon": "/img/menu-type-2.svg",
       "text": "Residensial",
-      "href": "/residential",
+      "href": "/#",
       "subMenu": [
+        {
+          "subMenuText": "Sekilas",
+          "subMenuHref": "/residential"
+        },
         {
           "subMenuText": "Solusi Residensial",
           "subMenuHref": "/product/residential-solutions"
@@ -69,7 +73,7 @@
     },
     {
       "text": "Bisnis",
-      "href": "/#",
+      "href": "/business",
       "icon": "/img/menu-type-1.svg",
       "subMenu": ""
     },
@@ -77,7 +81,16 @@
       "text": "Residensial",
       "href": "/#",
       "icon": "/img/menu-type-2.svg",
-      "subMenu": ""
+      "subMenu": [
+        {
+          "subMenuText": "Sekilas",
+          "subMenuHref": "/residential"
+        },
+        {
+          "subMenuText": "Solusi Residensial",
+          "subMenuHref": "/product/residential-solutions"
+        }
+      ]
     },
     {
       "text": "Tentang",
@@ -152,17 +165,20 @@
       "FtMenuLink": "/about"
     },
     {
-      "FtMenuText": "Blog",
-      "FtMenuLink": "/blog"
+      "FtMenuText": "Artikel",
+      "FtMenuLink": "/news"
     },
     {
       "FtMenuText": "Karir",
       "FtMenuLink": "/career"
     },
-
     {
       "FtMenuText": "FAQ",
       "FtMenuLink": "/faq"
+    },
+    {
+      "FtMenuText": "Sustainability Management",
+      "FtMenuLink": "/sustainability-management"
     }
   ],
   "FooterSocMed": {

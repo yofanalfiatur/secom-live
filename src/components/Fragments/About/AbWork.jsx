@@ -56,7 +56,7 @@ const AboutWork = ({ dataSection }) => {
                   key={index}
                   className="h-max flex flex-row justify-center items-center gap-4 ab-work__slide-title"
                 >
-                  <p className="text-tosca font-raleway font-bold text-[25px] lg:text-[40px]">
+                  <p className="text-white font-raleway font-bold text-[25px] lg:text-[40px]">
                     {"0" + (index + 1) + "."}
                   </p>
                   <p className="text-white h-max font-normal text-[25px] lg:text-[40px] ab-work__item-title">

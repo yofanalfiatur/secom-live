@@ -89,10 +89,10 @@ const BlpBanner = ({ dataSection }) => {
                     className="w-full flex flex-col bg-navyblue"
                   >
                     <div className="w-full lg:h-[500px] flex flex-col px-0 pt-4 pb-4 lg:px-[40px] lg:pt-24 lg:pb-8">
-                      <p className="text-white text-[30px] lg:text-[40px] font-raleway font-normal leading-[1.3] lg:leading-[1.4]">
+                      <p className="text-white text-[30px] lg:text-[40px] font-raleway font-normal leading-[1.3] lg:leading-[1.2]">
                         {item.title}
                       </p>
-                      <p className="text-white text-sm lg:text-lg leading-[1.7] lg:leading-[1.5] mt-2 lg:mt-0 mb-4 lg:mb-0">
+                      <p className="text-white text-sm lg:text-lg leading-[1.7] lg:leading-[1.5] mt-2 lg:mt-6 mb-4 lg:mb-0">
                         {item.description}
                       </p>
                     </div>

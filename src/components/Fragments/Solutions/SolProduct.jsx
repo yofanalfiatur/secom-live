@@ -5,8 +5,8 @@ import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import CardProductV2 from "@/components/Elements/CardProductV2";
-import {useEffect, useRef, useState} from "react";
-import {apiFetch} from "@/libs/api";
+import { useEffect, useRef, useState } from "react";
+import { apiFetch } from "@/libs/api";
 
 const SolProduct = ({ dataSection, defaultSector }) => {
   // const { dataSection } = dataSection;
@@ -34,7 +34,8 @@ const SolProduct = ({ dataSection, defaultSector }) => {
         } else {
           // otherwise show all
           const productsData = await apiFetch("/products");
-          const mappedProducts = productsData?.data
+          const mappedProducts =
+            productsData?.data
               ?.filter((item) => item.type === "business")
               ?.map((item) => ({
                 title: item.translations?.[locale]?.title,
@@ -59,7 +60,8 @@ const SolProduct = ({ dataSection, defaultSector }) => {
 
     if (!slug) {
       const productsData = await apiFetch("/products");
-      const mappedProducts = productsData?.data
+      const mappedProducts =
+        productsData?.data
           ?.filter((item) => item.type === "business")
           ?.map((item) => ({
             title: item.translations?.[locale]?.title,
@@ -99,7 +101,7 @@ const SolProduct = ({ dataSection, defaultSector }) => {
           </div>
           <div className="w-full lg:w-4/12 lg:pl-3 ">
             <p className="text-white lg:mt-6 mb-3 text-sm lg:text-lg">
-              {locale === "en" ? "FILTER BY" : "FILTER BERDASARKAN"}
+              {locale === "en" ? "FILTER BY" : "SARING BERDASARKAN"}
             </p>
             <div className="flex flex-col relative mb-5 lg:mb-0">
               <select
@@ -114,9 +116,10 @@ const SolProduct = ({ dataSection, defaultSector }) => {
                 </option>
 
                 {Sectors?.map((sector) => (
-                    <option key={sector.slug} value={sector.slug}>
-                      {sector.translations?.[locale]?.title ?? sector.translations?.en?.title}
-                    </option>
+                  <option key={sector.slug} value={sector.slug}>
+                    {sector.translations?.[locale]?.title ??
+                      sector.translations?.en?.title}
+                  </option>
                 ))}
               </select>
               <svg
@@ -141,11 +144,7 @@ const SolProduct = ({ dataSection, defaultSector }) => {
           <div className="w-full flex flex-col am-products__grid">
             <ul className="flex flex-row flex-wrap justify-center gap-4">
               {Products?.map((item) => (
-                  <CardProductV2
-                      key={item.slug}
-                      item={item}
-                      variant="desktop"
-                  />
+                <CardProductV2 key={item.slug} item={item} variant="desktop" />
               ))}
             </ul>
           </div>
@@ -166,22 +165,22 @@ const SolProduct = ({ dataSection, defaultSector }) => {
               className="[&_.splide__track]:!overflow-visible w-full"
             >
               <SplideTrack>
-                {Products?.filter((item) => item.type === "business")
-                    .map((item) => {
+                {Products?.filter((item) => item.type === "business").map(
+                  (item) => {
+                    const mappedItem = {
+                      title: item.translations[locale]?.title,
+                      slug: item.slug,
+                      description: item.translations[locale]?.description,
+                      image: item.image,
+                    };
 
-                      const mappedItem = {
-                        title: item.translations[locale]?.title,
-                        slug: item.slug,
-                        description: item.translations[locale]?.description,
-                        image: item.image,
-                      };
-
-                      return (
-                          <SplideSlide key={mappedItem.slug}>
-                            <CardProductV2 item={mappedItem} variant="mobile" />
-                          </SplideSlide>
-                      );
-                    })}
+                    return (
+                      <SplideSlide key={mappedItem.slug}>
+                        <CardProductV2 item={mappedItem} variant="mobile" />
+                      </SplideSlide>
+                    );
+                  }
+                )}
               </SplideTrack>
               {/* Custom Arrow Buttons */}
               <div className="splide__arrows absolute bottom-[-35px] w-full z-10">

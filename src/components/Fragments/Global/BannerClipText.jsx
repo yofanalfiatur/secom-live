@@ -1,12 +1,14 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import Image from "next/image";
 
 const BannerClipText = ({ dataSection }) => {
   const isDesktop = useIsDesktop();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [containerWidth, setContainerWidth] = useState("auto");
+  const textRefs = useRef([]);
 
   // Pisahkan teks menjadi parts (teks biasa, <b>...</b>, dan <br>)
   const parts = dataSection.title
@@ -18,19 +20,56 @@ const BannerClipText = ({ dataSection }) => {
     dataSection.title.matchAll(/<b>(.*?)<\/b>/g)
   ).map((m) => m[1]);
 
+  // Update container width ketika activeIndex berubah
+  useEffect(() => {
+    if (!boldParts.length || !textRefs.current[activeIndex]) return;
+
+    const currentTextWidth = textRefs.current[activeIndex].offsetWidth;
+    setContainerWidth(currentTextWidth);
+  }, [activeIndex, boldParts.length]);
+
   // Interval untuk ganti teks bold
   useEffect(() => {
     if (!boldParts.length) return;
+
+    // Set initial width
+    if (textRefs.current[0]) {
+      setContainerWidth(textRefs.current[0].offsetWidth);
+    }
+
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % boldParts.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [boldParts.length]);
 
   const textVariants = {
-    enter: { y: "100%", opacity: 0 },
-    center: { y: "0%", opacity: 1 },
-    exit: { y: "-100%", opacity: 0 },
+    enter: {
+      y: "100%",
+      opacity: 0,
+      transition: { duration: 0.8, ease: "easeInOut" },
+    },
+    center: {
+      y: "0%",
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeInOut" },
+    },
+    exit: {
+      y: "-100%",
+      opacity: 0,
+      transition: { duration: 0.8, ease: "easeInOut" },
+    },
+  };
+
+  const containerVariants = {
+    animate: {
+      width: containerWidth,
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+        delay: 0.1,
+      },
+    },
   };
 
   const underlineVariants = {
@@ -42,34 +81,66 @@ const BannerClipText = ({ dataSection }) => {
     exit: { width: 0, transition: { duration: 1 } },
   };
 
-  // Gabungkan run <b> berturut-turut menjadi 1 slot
+  // Pre-render all text for measurement length text
+  const renderAllTexts = () => {
+    return boldParts.map((text, index) => (
+      <span
+        key={index}
+        ref={(el) => (textRefs.current[index] = el)}
+        className="inline-block text-white absolute top-0 left-0 opacity-0 pointer-events-none"
+        style={{ whiteSpace: "nowrap" }}
+      >
+        {text}
+      </span>
+    ));
+  };
+
+  // unify parts
   const rendered = [];
+  let boldIndex = -1;
+
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i];
 
     if (part.startsWith("<b>")) {
+      boldIndex++;
       let j = i;
       while (j < parts.length && parts[j].startsWith("<b>")) j++;
 
       rendered.push(
         <span
           key={`bold-run-${i}`}
-          className="inline-block relative h-[45px] lg:h-[68px] overflow-hidden align-bottom lg:mb-[-3px]"
+          className="inline-block relative overflow-hidden align-bottom lg:mb-[-3px]"
+          style={{ height: isDesktop ? "68px" : "45px" }}
         >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={activeIndex}
-              variants={textVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="inline-block text-white relative"
-            >
-              {boldParts[activeIndex]}
-            </motion.span>
-          </AnimatePresence>
-          {/* garis bawah animasi */}
+          {/* Hidden texts for measurement width */}
+          <div className="absolute top-0 left-0 opacity-0">
+            {renderAllTexts()}
+          </div>
+
+          {/* animated container */}
+          <motion.span
+            className="inline-block relative"
+            variants={containerVariants}
+            animate="animate"
+            style={{ width: containerWidth }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={activeIndex}
+                variants={textVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="inline-block text-white relative"
+                style={{ whiteSpace: "nowrap" }}
+              >
+                {boldParts[activeIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.span>
+
+          {/* underline animation */}
           <motion.span
             className="absolute left-0 bottom-0 h-[4px] bg-[#00aaad] z-10"
             variants={underlineVariants}
@@ -80,7 +151,7 @@ const BannerClipText = ({ dataSection }) => {
         </span>
       );
 
-      i = j - 1; // lewati run
+      i = j - 1;
     } else if (part.startsWith("<br")) {
       rendered.push(<br key={`br-${i}`} />);
     } else {
