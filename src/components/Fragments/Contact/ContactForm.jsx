@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -13,6 +13,7 @@ export default function ContactForm({ product }) {
   const LabelInput = FormValue.LabelInput;
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -407,6 +408,9 @@ export default function ContactForm({ product }) {
                     {item.title}
                   </option>
                 ))}
+                <option value="security guard">
+                  {locale === "en" ? "Security Guard" : "Konsultasi Keamanan"}
+                </option>
               </select>
               <label
                 htmlFor="product"

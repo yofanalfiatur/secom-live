@@ -33,6 +33,12 @@ export default async function ProductDetail({ params }) {
 
   const typeProduct = productData.type;
 
+  const catalogue = {
+    title: null,
+    image: productData.image,
+    file: null,
+  };
+
   // mapping component
   const bannerData = {
     title: translationData.banner_title,
@@ -197,9 +203,19 @@ export default async function ProductDetail({ params }) {
         <>
           {/* template default */}
           <BannerClipText dataSection={bannerData} />
-          <OverviewGlobal dataSection={overviewData} />
+          <OverviewGlobal
+            dataSection={overviewData}
+            buttonContact={true}
+            slugContact={productData.slug}
+          />
           <HowWeWork dataSection={reasonData} />
-          <SolDtHighlight dataSection={highlightData} />
+          <SolDtHighlight
+            dataSection={highlightData}
+            buttonContact={true}
+            slugContact={productData.slug}
+            haveCatalogue={true}
+            catalogue={catalogue}
+          />
           <AmFAQ dataSection={faqData} />
         </>
       ) : (
