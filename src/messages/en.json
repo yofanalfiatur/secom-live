@@ -23,7 +23,7 @@
     {
       "icon": "/img/menu-type-2.svg",
       "text": "Residential",
-      "href": "",
+      "href": "#",
       "subMenu": [
         {
           "subMenuText": "Overview",
@@ -79,7 +79,7 @@
     },
     {
       "text": "Residential",
-      "href": "",
+      "href": "#",
       "icon": "/img/menu-type-2.svg",
       "subMenu": [
         {

@@ -1,5 +1,6 @@
 import BannerClipText from "@/components/Fragments/Global/BannerClipText";
 import OverviewGlobal from "@/components/Fragments/Global/OverviewGlobal";
+import HeaderList from "@/components/Fragments/Header/HeaderList";
 import SecDetailCard from "@/components/Fragments/Sector-Detail/SecDetailCard";
 import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
 import { getPostBySlug } from "@/libs/api";
@@ -55,6 +56,7 @@ export default async function SectorDetailPage({ params }) {
 
   return (
     <>
+      <HeaderList locale={locale} />
       <BannerClipText dataSection={bannerData} />
       <OverviewGlobal
         dataSection={overviewData}

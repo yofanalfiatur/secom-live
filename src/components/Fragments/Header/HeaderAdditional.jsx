@@ -2,12 +2,14 @@
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const HeaderAdditional = (props) => {
   const { menuServices, menuProducts, menuSectors } = props;
   const locale = useLocale();
   const isDesktop = useIsDesktop();
+  const pathname = usePathname(); // Tambahkan ini
 
   // scroll state
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,6 +86,27 @@ const HeaderAdditional = (props) => {
     return isOpen
       ? "max-h-[1000px] opacity-100 visible"
       : "max-h-0 opacity-0 invisible";
+  };
+
+  // Function to check if link is active
+  const isActiveLink = (href) => {
+    // Remove trailing slashes for consistent comparison
+    const currentPath = pathname.replace(/\/$/, "");
+    const linkPath = href.replace(/\/$/, "");
+
+    // Special case for home page ("/")
+    if (linkPath === "") {
+      return currentPath === "";
+    }
+
+    // Exact match
+    if (currentPath === linkPath) return true;
+
+    // For submenu items, check if current path starts with the link path
+    // This will make parent menu active when on child pages
+    if (currentPath.startsWith(linkPath + "/")) return true;
+
+    return false;
   };
 
   return (
@@ -194,9 +217,15 @@ const HeaderAdditional = (props) => {
             <div className="col-span-12 lg:col-span-2 flex flex-col max-h-max">
               <Link
                 href={`/sector`}
-                className="flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative"
+                className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative ${
+                  isActiveLink("/sector") ? "active-add" : ""
+                }`}
               >
-                <p className="text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease">
+                <p
+                  className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease ${
+                    isActiveLink("/sector") ? "!text-tosca" : ""
+                  }`}
+                >
                   {locale === "en" ? "Sector Overview" : "Sektor Kami"}
                 </p>
                 <svg
@@ -213,7 +242,9 @@ const HeaderAdditional = (props) => {
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="transition-all duration-300 ease group-hover:stroke-tosca"
+                    className={`transition-all duration-300 ease group-hover:stroke-tosca ${
+                      isActiveLink("/sector") ? "!stroke-tosca" : ""
+                    }`}
                   />
                 </svg>
               </Link>
@@ -252,10 +283,16 @@ const HeaderAdditional = (props) => {
                 {menuServices.map((item, index) => (
                   <li className="flex flex-col" key={index}>
                     <Link
-                      href={item.href}
-                      className="flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative"
+                      href={index === 2 ? "/about-bhayangkara" : item.href}
+                      className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative ${
+                        isActiveLink(item.href) ? "active-add" : ""
+                      }`}
                     >
-                      <p className="text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca">
+                      <p
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca ${
+                          isActiveLink(item.href) ? "!text-tosca" : ""
+                        }`}
+                      >
                         {item.text}
                       </p>
                       <svg
@@ -272,7 +309,9 @@ const HeaderAdditional = (props) => {
                           strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="transition-all duration-200 ease group-hover:stroke-tosca"
+                          className={`transition-all duration-200 ease group-hover:stroke-tosca ${
+                            isActiveLink(item.href) ? "!stroke-tosca" : ""
+                          }`}
                         />
                       </svg>
                     </Link>
@@ -317,9 +356,15 @@ const HeaderAdditional = (props) => {
                   <li className="flex flex-col" key={index}>
                     <Link
                       href={item.href}
-                      className="flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative"
+                      className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative ${
+                        isActiveLink(item.href) ? "active-add" : ""
+                      }`}
                     >
-                      <p className="text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca">
+                      <p
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca ${
+                          isActiveLink(item.href) ? "!text-tosca" : ""
+                        }`}
+                      >
                         {item.text}
                       </p>
                       <svg
@@ -336,7 +381,9 @@ const HeaderAdditional = (props) => {
                           strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="transition-all duration-300 ease group-hover:stroke-tosca"
+                          className={`transition-all duration-300 ease group-hover:stroke-tosca ${
+                            isActiveLink(item.href) ? "!stroke-tosca" : ""
+                          }`}
                         />
                       </svg>
                     </Link>
@@ -361,9 +408,15 @@ const HeaderAdditional = (props) => {
             <div className="col-span-12 lg:col-span-2 flex flex-col max-h-max">
               <Link
                 href={`/solution`}
-                className="flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative"
+                className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative ${
+                  isActiveLink("/solution") ? "active-add" : ""
+                }`}
               >
-                <p className="text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease">
+                <p
+                  className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease ${
+                    isActiveLink("/solution") ? "!text-tosca" : ""
+                  }`}
+                >
                   {locale === "en" ? "Solutions Overview" : "Solusi Kami"}
                 </p>
                 <svg
@@ -380,7 +433,9 @@ const HeaderAdditional = (props) => {
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="transition-all duration-300 ease group-hover:stroke-tosca"
+                    className={`transition-all duration-300 ease group-hover:stroke-tosca ${
+                      isActiveLink("/solution") ? "!stroke-tosca" : ""
+                    }`}
                   />
                 </svg>
               </Link>
@@ -419,10 +474,16 @@ const HeaderAdditional = (props) => {
                 {menuServices.map((item, index) => (
                   <li className="flex flex-col" key={index}>
                     <Link
-                      href={item.href}
-                      className="flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative"
+                      href={index === 2 ? "/about-bhayangkara" : item.href}
+                      className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative ${
+                        isActiveLink(item.href) ? "active-add" : ""
+                      }`}
                     >
-                      <p className="text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca">
+                      <p
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca  ${
+                          isActiveLink(item.href) ? "!text-tosca" : ""
+                        }`}
+                      >
                         {item.text}
                       </p>
                       <svg
@@ -439,7 +500,9 @@ const HeaderAdditional = (props) => {
                           strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="transition-all duration-200 ease group-hover:stroke-tosca"
+                          className={`transition-all duration-200 ease group-hover:stroke-tosca ${
+                            isActiveLink(item.href) ? "!stroke-tosca" : ""
+                          }`}
                         />
                       </svg>
                     </Link>
@@ -484,9 +547,15 @@ const HeaderAdditional = (props) => {
                   <li className="flex flex-col" key={index}>
                     <Link
                       href={item.href}
-                      className="flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative"
+                      className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 transition-all duration-200 ease group relative ${
+                        isActiveLink(item.href) ? "active-add" : ""
+                      }`}
                     >
-                      <p className="text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca">
+                      <p
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca ${
+                          isActiveLink(item.href) ? "!text-tosca" : ""
+                        }`}
+                      >
                         {item.text}
                       </p>
                       <svg
@@ -503,7 +572,9 @@ const HeaderAdditional = (props) => {
                           strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="transition-all duration-300 ease group-hover:stroke-tosca"
+                          className={`transition-all duration-300 ease group-hover:stroke-tosca ${
+                            isActiveLink(item.href) ? "!stroke-tosca" : ""
+                          }`}
                         />
                       </svg>
                     </Link>

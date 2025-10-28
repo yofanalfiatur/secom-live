@@ -408,9 +408,15 @@ export default function ContactForm({ product }) {
                     {item.title}
                   </option>
                 ))}
-                <option value="security guard">
-                  {locale === "en" ? "Security Guard" : "Konsultasi Keamanan"}
+                <option value="security consulting">
+                  {locale === "en"
+                    ? "Security Consulting"
+                    : "Konsultasi Keamanan"}
                 </option>
+                <option value="security guard">
+                  {locale === "en" ? "Security Guard" : "Satuan Pengamanan"}
+                </option>
+                Konsultasi Keamanan
               </select>
               <label
                 htmlFor="product"

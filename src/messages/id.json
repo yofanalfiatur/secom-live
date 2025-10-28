@@ -23,7 +23,7 @@
     {
       "icon": "/img/menu-type-2.svg",
       "text": "Residensial",
-      "href": "",
+      "href": "#",
       "subMenu": [
         {
           "subMenuText": "Sekilas",
@@ -79,7 +79,7 @@
     },
     {
       "text": "Residensial",
-      "href": "",
+      "href": "#",
       "icon": "/img/menu-type-2.svg",
       "subMenu": [
         {

@@ -50,17 +50,6 @@ const SolDtHighlight = (props) => {
                 <p className="text-darkblue text-sm font-normal leading-[1.7] lg:leading-[1.5] mt-1 lg:mt-3 lg:text-[18px]">
                   {item.description}
                 </p>
-                {index === dataSection.cards.length - 1 &&
-                  buttonContact !== null &&
-                  buttonContact !== undefined &&
-                  buttonContact !== false && (
-                    <ButtonPrimary
-                      href={`/contact?product=${slugContact}`}
-                      className="mt-10"
-                    >
-                      {locale === "en" ? "CONSULT NOW" : "KONSULTASI SEKARANG"}
-                    </ButtonPrimary>
-                  )}
               </div>
             </div>
           ))}
