@@ -55,3 +55,27 @@ export async function getPostById(type, id) {
 export async function getCategories() {
   return apiFetch("/categories/article");
 }
+
+export async function apiPost(endpoint, body = {}, options = {}) {
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`;
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+    cache: "no-store",
+    ...options,
+  });
+
+  if (!res.ok) {
+    console.error(`API Error: ${res.status} ${res.statusText}`);
+    throw new Error(`Failed to POST: ${endpoint}`);
+  }
+
+  return res.json();
+}
+

@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { useRouter, usePathname } from "next/navigation";
+import {apiPost} from "@/libs/api";
 
 export default function ContactForm({ product }) {
   const t = useTranslations();
@@ -21,7 +21,7 @@ export default function ContactForm({ product }) {
     phone: "",
     location: "",
     company: "",
-    product: "", // Tambahkan product di formData
+    product_id: "", // Tambahkan product di formData
     howDidYouKnow: "",
     message: "",
   });
@@ -55,7 +55,7 @@ export default function ContactForm({ product }) {
       if (selectedProduct) {
         setFormData((prev) => ({
           ...prev,
-          product: selectedProduct.title, // Gunakan title sebagai value
+          product_id: selectedProduct.title, // Gunakan title sebagai value
         }));
       }
     }
@@ -114,41 +114,22 @@ export default function ContactForm({ product }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
-    setIsLoading(true);
+console.log(formData)
 
     try {
-      const res = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        { ...formData },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      setIsLoading(true);
+      const submission = await apiPost("/submissions", formData);
+      console.log(submission);
 
-      if (res.status === 200) {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          location: "",
-          company: "",
-          product: "",
-          howDidYouKnow: "",
-          message: "",
-        });
-
-        if (pathname.startsWith("/en")) {
-          router.push("/en/thankyou");
-        } else {
-          router.push("/thankyou");
-        }
+      if (submission.status === 'success'){
+        router.push(locale === "en" ? "en/thankyou" : "/thankyou")
       }
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      setErrors({ submit: "Failed to send message. Please try again." });
+    } catch (e) {
+      console.error(e);
     } finally {
       setIsLoading(false);
     }
+
   };
 
   return (
@@ -395,7 +376,7 @@ export default function ContactForm({ product }) {
               }`}
             >
               <select
-                name="product"
+                name="product_id"
                 value={formData.product}
                 onChange={handleChange}
                 className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
@@ -404,7 +385,7 @@ export default function ContactForm({ product }) {
               >
                 <option value=""></option>
                 {product.map((item) => (
-                  <option key={item.id} value={item.title}>
+                  <option key={item.id} value={item.id}>
                     {item.title}
                   </option>
                 ))}
@@ -454,7 +435,7 @@ export default function ContactForm({ product }) {
               }`}
             >
               <select
-                name="howDidYouKnow"
+                name="source"
                 value={formData.howDidYouKnow}
                 onChange={handleChange}
                 className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
@@ -468,7 +449,7 @@ export default function ContactForm({ product }) {
                 ))}
               </select>
               <label
-                htmlFor="howDidYouKnow"
+                htmlFor="source"
                 className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
                   formData.howDidYouKnow
                     ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
