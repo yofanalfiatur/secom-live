@@ -8,8 +8,7 @@ import Image from "next/image";
 import React from "react";
 
 const SolDtHighlight = (props) => {
-  const { dataSection, buttonContact, slugContact, haveCatalogue, catalogue } =
-    props;
+  const { dataSection, buttonContact, haveCatalogue, catalogue } = props;
   const locale = useLocale();
   const isDesktop = useIsDesktop();
 

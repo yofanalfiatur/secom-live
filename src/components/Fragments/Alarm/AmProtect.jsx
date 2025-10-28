@@ -44,7 +44,7 @@ const AmProtect = ({ dataSection, typeProduct }) => {
           />
         </picture>
 
-        <div className="relative w-full flex flex-col justify-center py-1">
+        <div className="relative w-full flex flex-col justify-center py-1 mb-3 lg:mb-8">
           {!isDesktop ? (
             <Splide
               options={{

@@ -206,13 +206,13 @@ export default async function ProductDetail({ params }) {
           <OverviewGlobal
             dataSection={overviewData}
             buttonContact={true}
-            slugContact={productData.slug}
+            idProdContact={productData.id}
           />
           <HowWeWork dataSection={reasonData} />
           <SolDtHighlight
             dataSection={highlightData}
             buttonContact={true}
-            slugContact={productData.slug}
+            idProdContact={productData.id}
             haveCatalogue={true}
             catalogue={catalogue}
           />

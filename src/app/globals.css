@@ -1144,6 +1144,11 @@ main {
   height: 100% !important;
 }
 
+/* styles.css */
+.ab-trusted__slider {
+  overflow: visible !important;
+}
+
 /* default slider pagination styles */
 .slider-with-pagin ul.splide__pagination {
   bottom: -25px;
@@ -1171,8 +1176,8 @@ main {
     gap: 4px;
   }
   .slider-with-pagin li .splide__pagination__page {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 }
 

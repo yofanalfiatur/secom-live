@@ -24,15 +24,14 @@ const AboutTrusted = ({ dataSection, classWrapper }) => {
             options={{
               type: "loop",
               autoplay: true,
-              interval: 2000,
-              perMove: 1,
+              interval: 4000,
               pauseOnHover: true,
               arrows: false,
               pagination: true,
               perPage: 4,
               gap: "1.5rem",
               breakpoints: {
-                1024: {
+                992: {
                   perPage: 3,
                 },
                 768: {

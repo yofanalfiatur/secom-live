@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-import {apiPost} from "@/libs/api";
+import { apiPost } from "@/libs/api";
 
 export default function ContactForm({ product }) {
   const t = useTranslations();
@@ -21,8 +21,8 @@ export default function ContactForm({ product }) {
     phone: "",
     location: "",
     company: "",
-    product_id: "", // Tambahkan product di formData
-    howDidYouKnow: "",
+    product_id: "",
+    source: "",
     message: "",
   });
 
@@ -37,7 +37,7 @@ export default function ContactForm({ product }) {
   // Auto-set location dan product dari query param
   useEffect(() => {
     const locationParam = searchParams.get("location"); // ex: business / residential
-    const productParam = searchParams.get("product"); // ex: nama-product-slug
+    const productParam = searchParams.get("product"); // ex: product-id
 
     if (locationParam) {
       setFormData((prev) => ({
@@ -47,15 +47,15 @@ export default function ContactForm({ product }) {
     }
 
     if (productParam) {
-      // Cari product berdasarkan slug
+      // Cari product berdasarkan ID
       const selectedProduct = product.find(
-        (item) => item.slug.toLowerCase() === productParam.toLowerCase()
+        (item) => item.id.toString() === productParam
       );
 
       if (selectedProduct) {
         setFormData((prev) => ({
           ...prev,
-          product_id: selectedProduct.title, // Gunakan title sebagai value
+          product_id: selectedProduct.id, // Simpan ID sebagai product_id
         }));
       }
     }
@@ -114,22 +114,21 @@ export default function ContactForm({ product }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-console.log(formData)
+    // console.log(formData);
 
     try {
       setIsLoading(true);
       const submission = await apiPost("/submissions", formData);
-      console.log(submission);
+      // console.log(submission);
 
-      if (submission.status === 'success'){
-        router.push(locale === "en" ? "en/thankyou" : "/thankyou")
+      if (submission.status === "success") {
+        router.push(locale === "en" ? "en/thankyou" : "/thankyou");
       }
     } catch (e) {
       console.error(e);
     } finally {
       setIsLoading(false);
     }
-
   };
 
   return (
@@ -372,15 +371,15 @@ console.log(formData)
           >
             <div
               className={`relative flex flex-col rounded-[5px] overflow-hidden ct__wrap__input form__wrap__input ${
-                errors.product ? "border-red-500" : ""
+                errors.product_id ? "border-red-500" : ""
               }`}
             >
               <select
                 name="product_id"
-                value={formData.product}
+                value={formData.product_id}
                 onChange={handleChange}
                 className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
-                  !formData.product ? "text-gray-400" : ""
+                  !formData.product_id ? "text-gray-400" : ""
                 }`}
               >
                 <option value=""></option>
@@ -400,9 +399,9 @@ console.log(formData)
                 Konsultasi Keamanan
               </select>
               <label
-                htmlFor="product"
+                htmlFor="product_id"
                 className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
-                  formData.product
+                  formData.product_id
                     ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
                     : ""
                 }`}
@@ -436,10 +435,10 @@ console.log(formData)
             >
               <select
                 name="source"
-                value={formData.howDidYouKnow}
+                value={formData.source}
                 onChange={handleChange}
                 className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
-                  !formData.howDidYouKnow ? "text-gray-400" : ""
+                  !formData.source ? "text-gray-400" : ""
                 }`}
               >
                 {howDidYouKnowOptions.map((option) => (
@@ -451,7 +450,7 @@ console.log(formData)
               <label
                 htmlFor="source"
                 className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
-                  formData.howDidYouKnow
+                  formData.source
                     ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
                     : ""
                 }`}

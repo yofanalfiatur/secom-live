@@ -3,7 +3,7 @@ import FooterTop from "@/components/Fragments/Footer/FooterTop";
 import FooterMiddle from "@/components/Fragments/Footer/FooterMiddle";
 import FooterBottom from "@/components/Fragments/Footer/FooterBottom";
 import Starfield from "@/components/Elements/Starfield";
-import { getPosts } from "@/libs/api";
+import { getPageData, getPosts } from "@/libs/api";
 
 export default async function Footer(props) {
   const params = await props.params;
@@ -26,9 +26,37 @@ export default async function Footer(props) {
   const prefooterData = {
     title: responseGeneral?.data.footer?.title?.[locale] || "",
     description: responseGeneral?.data.footer?.description?.[locale] || "",
-    buttonText: responseGeneral?.data.footer?.button_text?.[locale] || "",
-    buttonLink: responseGeneral?.data.footer?.button_link || "",
+    button_text: responseGeneral?.data.footer?.button_text?.[locale] || "",
+    button_link: responseGeneral?.data.footer?.button_link || "",
   };
+
+  const responseBusiness = await getPageData("business");
+  const businessData = responseBusiness.data[locale] || [];
+  const sectionsBusiness = businessData.sections.reduce((acc, section) => {
+    acc[section.component] = section.fields;
+    return acc;
+  }, {});
+
+  const responseResidential = await getPageData("residential");
+  const residentialData = responseResidential.data[locale] || [];
+  const sectionsResidential = residentialData.sections.reduce(
+    (acc, section) => {
+      acc[section.component] = section.fields;
+      return acc;
+    },
+    {}
+  );
+
+  const responseAbout = await getPageData("about-secom-indonesia");
+  const aboutData = responseAbout.data[locale] || [];
+  const sectionsAbout = aboutData.sections.reduce((acc, section) => {
+    acc[section.component] = section.fields;
+    return acc;
+  }, {});
+
+  const prefooterBusiness = sectionsBusiness.business_prefooter || {};
+  const prefooterResidential = sectionsResidential.residential_prefooter || {};
+  const prefooterAbout = sectionsAbout.about_prefooter || {};
 
   const t = await getTranslations();
   const FooterContent = t.raw("FooterContent");
@@ -41,7 +69,12 @@ export default async function Footer(props) {
       <div className="radial three"></div>
       <Starfield />
 
-      <FooterTop FooterContent={FooterContent} prefooterData={prefooterData} />
+      <FooterTop
+        prefooterData={prefooterData}
+        prefooterBusiness={prefooterBusiness}
+        prefooterResidential={prefooterResidential}
+        prefooterAbout={prefooterAbout}
+      />
       <FooterMiddle
         FooterContent={FooterContent}
         FooterMenu={FooterMenu}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 
 const OverviewGlobal = (props) => {
-  const { dataSection, buttonContact, slugContact, className } = props;
+  const { dataSection, buttonContact, idProdContact, className } = props;
   const locale = useLocale();
   useEffect(() => {
     const boldElements = document.querySelectorAll(
@@ -66,7 +66,7 @@ const OverviewGlobal = (props) => {
           buttonContact !== undefined &&
           buttonContact !== false && (
             <ButtonPrimary
-              href={`/contact?product=${slugContact}`}
+              href={`/contact?product=${idProdContact}`}
               className="mx-auto"
             >
               {locale === "en" ? "CONSULT NOW" : "KONSULTASI SEKARANG"}
