@@ -19,7 +19,12 @@ const nextConfig = {
   },
 
   images: {
-    domains: ["api.secom.co.id", "flagsapi.com", "placehold.co"],
+    domains: [
+      "api.secom.co.id",
+      "api.secom.madebystucel.com",
+      "flagsapi.com",
+      "placehold.co",
+    ],
   },
 };
 
