@@ -82,7 +82,7 @@ const HomeAbout = ({ dataSection }) => {
                     : "PROFIL PERUSAHAAN KAMI"}
                 </p>
               </div> */}
-              <div class="bg-navyblue triangle-shape w-[40px] h-[40px] lg:w-[90px] lg:h-[90px] absolute top-1/2 left-1/2 transform opacity-60 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease group-hover:bg-tosca group-hover:opacity-100 z-10"></div>
+              <div className="bg-navyblue triangle-shape w-[40px] h-[40px] lg:w-[90px] lg:h-[90px] absolute top-1/2 left-1/2 transform opacity-60 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease group-hover:bg-tosca group-hover:opacity-100 z-10"></div>
             </Link>
           </div>
           <div className="flex flex-col w-full lg:w-8/12 order-1 lg:order-[unset] mt-4 lg:mt-[unset] mb-3 lg:mb-[unset]">

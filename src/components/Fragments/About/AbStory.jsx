@@ -58,7 +58,7 @@ const AboutStory = ({ dataSection }) => {
               className="object-cover w-full aspect-[28/25] lg:aspect-[unset] lg:min-h-[486px] lg:h-full"
             />
             {dataSection.url_video && (
-              <div class="bg-navyblue triangle-shape w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] absolute top-1/2 left-1/2 transform opacity-60 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease group-hover:bg-tosca group-hover:opacity-100"></div>
+              <div className="bg-navyblue triangle-shape w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] absolute top-1/2 left-1/2 transform opacity-60 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease group-hover:bg-tosca group-hover:opacity-100"></div>
             )}
           </Link>
         </div>
