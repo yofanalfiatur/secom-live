@@ -10,7 +10,6 @@ const SecDetailCard = (props) => {
   const { dataSection } = props;
 
   const isDesktop = useIsDesktop();
-  console.log(dataSection.items);
 
   return (
     <section className="pt-8 lg:pt-19 pb-10 lg:pb-18 relative">

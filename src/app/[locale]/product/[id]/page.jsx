@@ -33,12 +33,6 @@ export default async function ProductDetail({ params }) {
 
   const typeProduct = productData.type;
 
-  const catalogue = {
-    title: null,
-    image: productData.image,
-    file: null,
-  };
-
   // mapping component
   const bannerData = {
     title: translationData.banner_title,
@@ -195,6 +189,11 @@ export default async function ProductDetail({ params }) {
       };
     }) || [];
 
+  const catalogue = {
+    image: productData.image,
+    file: translationData.catalogue,
+  };
+
   return (
     <>
       <HeaderList locale={locale} />
@@ -213,7 +212,6 @@ export default async function ProductDetail({ params }) {
             dataSection={highlightData}
             buttonContact={true}
             idProdContact={productData.id}
-            haveCatalogue={true}
             catalogue={catalogue}
           />
           <AmFAQ dataSection={faqData} />
