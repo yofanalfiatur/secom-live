@@ -21,10 +21,6 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={locale}>
       <head>
-        <title>SECOM</title>
-        <meta name="description" content="Website for SECOM" />
-        <meta name="robots" content="index, follow" />
-
         {/* Google Tag Manager (head) - Sementara disembunyikan */}
         {/*
         <Script id="gtm-script" strategy="afterInteractive">

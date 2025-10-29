@@ -15,8 +15,6 @@ const HeaderAdditional = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isScrollDown, setIsScrollDown] = useState(false);
 
-  console.log(menuProducts);
-
   // Scroll effect header
   useEffect(() => {
     let lastScrollTop = 0;

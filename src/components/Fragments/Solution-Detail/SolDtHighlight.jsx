@@ -54,7 +54,7 @@ const SolDtHighlight = (props) => {
           ))}
         </div>
       </div>
-      {catalogue.file !== null && catalogue.file !== undefined && (
+      {catalogue && catalogue.file !== null && catalogue.file !== undefined && (
         <div className="container mx-auto relative z-[1] mt-10 lg:mt-28 lg:bg-navyblue flex flex-col-reverse lg:flex-row overflow-hidden lg:overflow-visible">
           <div className="w-full lg:w-4/12 flex flex-col items-center relative bg-navyblue overflow-hidden lg:overflow-visible">
             <Image

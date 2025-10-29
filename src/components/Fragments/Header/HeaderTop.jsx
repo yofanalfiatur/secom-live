@@ -72,10 +72,10 @@ const HeaderTop = () => {
   };
 
   // Debug logging
-  useEffect(() => {
-    console.log("Current locale:", currentLocale);
-    console.log("Current pathname:", pathname);
-  }, [currentLocale, pathname]);
+  // useEffect(() => {
+  //   console.log("Current locale:", currentLocale);
+  //   console.log("Current pathname:", pathname);
+  // }, [currentLocale, pathname]);
 
   return (
     <>

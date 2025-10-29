@@ -3,68 +3,79 @@ import OverviewGlobal from "@/components/Fragments/Global/OverviewGlobal";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 import SecDetailCard from "@/components/Fragments/Sector-Detail/SecDetailCard";
 import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
-import { getPostBySlug } from "@/libs/api";
+import { generateDynamicMetadata } from "@/utils/metadata";
+import { getStructuredPostData } from "@/utils/page-data";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }) {
+  const { id, locale } = await params;
+
+  return generateDynamicMetadata("sectors", id, locale, "banner_image");
+}
 
 export default async function SectorDetailPage({ params }) {
   const { id, locale } = await params;
 
-  // fetch data based on slug
-  const response = await getPostBySlug("sectors", id);
-  if (!response || !response.data) return notFound();
+  try {
+    const { data: sectorData, rawData } = await getStructuredPostData(
+      "sectors",
+      id,
+      locale
+    );
 
-  const sectorData = response.data;
-  const translationData =
-    sectorData.translations?.[locale] || sectorData.translations?.id;
-  if (!translationData) return notFound();
+    // mapping component
+    const bannerData = {
+      title: sectorData.banner_title,
+      image: sectorData.banner_image,
+      imageMd: sectorData.banner_image,
+    };
 
-  // mapping component
-  const bannerData = {
-    title: translationData.banner_title,
-    image: translationData.banner_image,
-    imageMd: translationData.banner_image,
-  };
-  const overviewData = {
-    desc: translationData.overview,
-    items: null,
-  };
-  const sliderData = {
-    title: translationData.challenges_title_section,
-    items: translationData.challenges,
-  };
+    const overviewData = {
+      desc: sectorData.overview,
+      items: null,
+    };
 
-  const products =
-    translationData.products?.map((item) => ({
-      title: item.title,
-      description: item.description,
-      image: item.image,
-      url: `/product/${item.slug}`,
-      is_highlighted: item.is_highlighted,
-    })) || [];
+    const sliderData = {
+      title: sectorData.challenges_title_section,
+      items: sectorData.challenges,
+    };
 
-  const cardSection = {
-    title: translationData.build_title_section,
-    desc: translationData.build_description_section,
-    items: products.filter((product) => product.is_highlighted === "1"),
-    ctaTitle:
-      locale === "en"
-        ? `Protect Your ${translationData.title} with SECOM`
-        : `Lindungi ${translationData.title} Anda dengan SECOM`,
-    ctaImage: translationData.cta_image,
-    ctaLabel: translationData.cta_button_label,
-    ctaUrl: sectorData.slug,
-  };
+    const products =
+      sectorData.products?.map((item) => ({
+        title: item.title,
+        description: item.description,
+        image: item.image,
+        url: `/product/${item.slug}`,
+        is_highlighted: item.is_highlighted,
+      })) || [];
 
-  return (
-    <>
-      <HeaderList locale={locale} />
-      <BannerClipText dataSection={bannerData} />
-      <OverviewGlobal
-        dataSection={overviewData}
-        className="lg:!pt-17 !pb-10 lg:!pb-17"
-      />
-      <SecDetailSlider dataSection={sliderData} />
-      <SecDetailCard dataSection={cardSection} />
-    </>
-  );
+    const cardSection = {
+      title: sectorData.build_title_section,
+      desc: sectorData.build_description_section,
+      items: products.filter((product) => product.is_highlighted === "1"),
+      ctaTitle:
+        locale === "en"
+          ? `Protect Your ${sectorData.title} with SECOM`
+          : `Lindungi ${sectorData.title} Anda dengan SECOM`,
+      ctaImage: sectorData.cta_image,
+      ctaLabel: sectorData.cta_button_label,
+      ctaUrl: rawData.slug,
+    };
+
+    return (
+      <>
+        <HeaderList locale={locale} />
+        <BannerClipText dataSection={bannerData} />
+        <OverviewGlobal
+          dataSection={overviewData}
+          className="lg:!pt-17 !pb-10 lg:!pb-17"
+        />
+        <SecDetailSlider dataSection={sliderData} />
+        <SecDetailCard dataSection={cardSection} />
+      </>
+    );
+  } catch (error) {
+    console.error("Error loading sector detail:", error);
+    notFound();
+  }
 }

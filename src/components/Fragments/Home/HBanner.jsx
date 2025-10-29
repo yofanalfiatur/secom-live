@@ -73,6 +73,9 @@ const HomeBanner = ({ dataSection }) => {
                         width={2000}
                         height={1000}
                         alt={`Banner ${index + 1}`}
+                        loading="eager"
+                        fetchPriority="high"
+                        priority
                         className="object-cover w-full h-full"
                       />
                     </picture>
