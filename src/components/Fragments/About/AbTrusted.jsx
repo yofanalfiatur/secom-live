@@ -19,11 +19,11 @@ const AboutTrusted = ({ dataSection, classWrapper }) => {
             ? dataSection.title
             : dataSection.title_override}
         </h2>
-        <div className="flex flex-col mb-4 mt-4 ab-trusted__wrap-slider">
+        <div className="flex w-full flex-col mb-4 mt-4 ab-trusted__wrap-slider">
           <Splide
             options={{
               type: "loop",
-              autoplay: true,
+              autoplay: false,
               interval: 4000,
               pauseOnHover: true,
               arrows: false,
@@ -44,15 +44,18 @@ const AboutTrusted = ({ dataSection, classWrapper }) => {
           >
             <SplideTrack className="!overflow-visible mb-8 ab-trusted__track">
               {dataSection.logo.map((img, index) => (
-                <SplideSlide key={index} className="ab-trusted__slide">
-                  <div className="ab-trusted__item flex flex-col items-center">
+                <SplideSlide
+                  key={index}
+                  className="flex flex-col ab-trusted__slide"
+                >
+                  <div className="ab-trusted__item w-full h-full flex flex-col items-center">
                     <Image
                       src={process.env.NEXT_PUBLIC_STORAGE_URL + img}
                       alt={`trusted-${index}`}
-                      width={500}
-                      height={300}
+                      width={300}
+                      height={200}
                       quality={100}
-                      className="object-contain w-full max-h-[72px] lg:max-h-[165px] m-auto ab-trusted__img"
+                      className="object-contain w-full lg:max-h-[165px] ab-trusted__img"
                     />
                   </div>
                 </SplideSlide>

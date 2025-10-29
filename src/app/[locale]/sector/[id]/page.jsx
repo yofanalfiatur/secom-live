@@ -39,12 +39,13 @@ export default async function SectorDetailPage({ params }) {
       description: item.description,
       image: item.image,
       url: `/product/${item.slug}`,
+      is_highlighted: item.is_highlighted,
     })) || [];
 
   const cardSection = {
     title: translationData.build_title_section,
     desc: translationData.build_description_section,
-    items: products,
+    items: products.filter((product) => product.is_highlighted === "1"),
     ctaTitle:
       locale === "en"
         ? `Protect Your ${translationData.title} with SECOM`
