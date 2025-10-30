@@ -33,13 +33,13 @@ const HomeSegment = ({ dataSection }) => {
                   />
                   <div
                     className={`flex flex-col items-center px-5 lg:px-6 py-4 lg:py-5 lg:absolute lg:bottom-0 w-full lg:w-[93%] lg:mb-5 transition-all duration-300 ease ${
-                      index === 0 ? "bg-tosca lg:bg-navyblue" : "bg-tosca"
+                      index === 0 ? " bg-navyblue" : "bg-tosca"
                     }`}
                   >
                     <p className="text-white lg:text-[30px] mb-1">
                       {item.title}
                     </p>
-                    <p className="text-white text-sm lg:text-lg leading-[1.7] lg:leading-[1.5]">
+                    <p className="text-white text-sm lg:text-lg leading-[1.7] lg:leading-[1.5] text-center">
                       {item.description}
                     </p>
                   </div>

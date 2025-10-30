@@ -54,7 +54,7 @@ const AboutTeam = ({ dataSection }) => {
         }}
       >
         <div className="container mx-auto flex flex-col items-center relative z-[2]">
-          <h2 className="text-white text-center w-full lg:w-[62%] text-sm sm:text-[18px] md:text-2xl lg:text-[50px] font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-2 lg:mb-8 ab-team__intro__title">
+          <h2 className="text-white text-center w-full lg:w-[62%] text-sm sm:text-[18px] md:text-2xl lg:text-[50px] font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-2 lg:mb-8 text-shadow-lg/20">
             {dataSection.title}
           </h2>
         </div>

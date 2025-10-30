@@ -12,6 +12,7 @@ import {
   getArrayData,
 } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
+import AboutWork from "@/components/Fragments/About/AbWork";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -41,8 +42,20 @@ export default async function BusinessPage({ params }) {
     const cardData = getArrayData(sections, "business_two_card", "cards");
     const logoTrustedData = getSectionData(sections, "business_trusted_by");
 
+    // Mapping whyData untuk AboutWork component
+    const mappingWhyData = {
+      title: whyData?.title_section || "",
+      desc: whyData?.description_section || "",
+      slides:
+        whyData?.list_items?.map((item) => ({
+          title: item?.text || "",
+          logo: item?.logo || "",
+          description: item?.description || "",
+        })) || [],
+    };
+
     // Process articles data
-    const allPosts = postsData?.data?.data || [];
+    const allPosts = postsData?.data?.articles.data || [];
     const validPosts = allPosts.filter((post) => !post.expired_at);
     const sortedPosts = validPosts.sort((a, b) => {
       return new Date(b.published_at) - new Date(a.published_at);
@@ -83,7 +96,8 @@ export default async function BusinessPage({ params }) {
         <HeaderList locale={locale} />
         <BlpBanner dataSection={bannerData} />
         <ResSurvey dataSection={surveyData} dataDiscover="/product/alarm" />
-        <BlpWhy dataSection={whyData} />
+        {/* <BlpWhy dataSection={whyData} /> */}
+        <AboutWork dataSection={mappingWhyData} classParent="mt-10 lg:mt-20" />
         <BlpCard dataSection={cardData} />
 
         {mappedPosts.length > 0 && (
