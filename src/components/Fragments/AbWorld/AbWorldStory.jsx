@@ -38,11 +38,14 @@ const AbWorldStory = ({ dataSection }) => {
                     alt={item.title}
                     className="self-end"
                   />
-                  <p className="text-navyblue text-[30px] lg:text-[50px] font-bold mt-4 lg:mt-14">
+                  <p className="font-raleway font-normal text-darkblue text-base lg:text-[25px] mt-4 lg:mt-14">
+                    {item.description}
+                  </p>
+                  <p className="text-navyblue text-[30px] lg:text-[50px] font-bold">
                     {item.title}
                   </p>
                   <p className="font-raleway font-normal text-darkblue text-base lg:text-[25px]">
-                    {item.description}
+                    {item.subtitle}
                   </p>
                 </div>
 
@@ -78,11 +81,14 @@ const AbWorldStory = ({ dataSection }) => {
                       alt={item.title}
                       className="w-[35px] h-[35px] mb-12 object-contain self-end"
                     />
+                    <p className="font-raleway font-normal text-darkblue text-base lg:text-[25px]">
+                      {item.description}
+                    </p>
                     <p className="text-navyblue text-[32px] lg:text-[50px] font-bold">
                       {item.title}
                     </p>
                     <p className="font-raleway font-normal text-darkblue text-base lg:text-[25px]">
-                      {item.description}
+                      {item.subtitle}
                     </p>
                   </div>
                 </SplideSlide>

@@ -38,7 +38,7 @@ const SolDtHighlight = (props) => {
                   width={1600}
                   height={800}
                   alt={item.title}
-                  className="w-full h-auto aspect-[285/162] lg:aspect-[748/425] object-center object-cover"
+                  className="w-full h-auto object-center object-contain"
                   quality={100}
                 />
               </div>

@@ -38,7 +38,7 @@ export default async function AboutBhayangkaraPage({ params }) {
         sections.about_bhayangkara_how_we_work?.slides?.map((slide) => ({
           image: slide.logo,
           title: slide.title,
-          description: slide.description,
+          desc: slide.description,
         })) || [],
     };
 

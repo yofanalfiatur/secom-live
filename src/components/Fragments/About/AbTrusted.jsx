@@ -1,6 +1,7 @@
 "use client";
 
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
 import Image from "next/image";
@@ -30,6 +31,12 @@ const AboutTrusted = ({ dataSection, classWrapper }) => {
               pagination: true,
               perPage: 4,
               gap: "1.5rem",
+              autoScroll: {
+                speed: 0.7,
+                pauseOnHover: true,
+                pauseOnFocus: false,
+                autoStart: true,
+              },
               breakpoints: {
                 992: {
                   perPage: 3,
@@ -39,6 +46,7 @@ const AboutTrusted = ({ dataSection, classWrapper }) => {
                 },
               },
             }}
+            extensions={{ AutoScroll }}
             className="w-full slider-with-pagin ab-trusted__slider"
             hasTrack={false}
           >

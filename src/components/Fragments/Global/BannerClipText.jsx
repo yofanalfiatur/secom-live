@@ -165,18 +165,20 @@ const BannerClipText = ({ dataSection }) => {
     <section
       className={`flex-col flex justify-end lg:justify-center py-6 h-[480px] sm:h-[408px] bg-no-repeat bg-center lg:bg-right bg-cover lg:bg-inherit overflow-hidden relative after:content-[''] after:absolute after:top-0 after:left-0 after:z-[1] after:w-full after:h-full after:bg-[linear-gradient(0deg,_#00529C_30%,_rgba(0,82,156,0)_60.4%)] after:lg:bg-[linear-gradient(90deg,_#00529C_38%,_rgba(0,82,156,0)_75%)] am-banner`}
     >
-      <Image
-        src={
-          isDesktop
-            ? process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.image
-            : process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.imageMd
-        }
-        alt="Banner background"
-        width={1200}
-        height={900}
-        quality={100}
-        className="object-cover absolute top-0 right-0 w-full lg:w-[65%] h-full"
-      />
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcSet={`${process.env.NEXT_PUBLIC_STORAGE_URL}${dataSection.image}`}
+        />
+        <Image
+          src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${dataSection.imageMd}`}
+          alt="Banner background"
+          width={1200}
+          height={900}
+          quality={100}
+          className="object-cover absolute top-0 right-0 w-full lg:w-[65%] h-full"
+        />
+      </picture>
 
       <div className="container mx-auto relative z-[2] flex flex-col">
         <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium leading-[1.5] lg:leading-[1.3] mb-4 lg:mb-6 w-full">
