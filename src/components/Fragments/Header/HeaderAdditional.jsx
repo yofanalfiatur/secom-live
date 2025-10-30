@@ -222,7 +222,7 @@ const HeaderAdditional = (props) => {
                 }`}
               >
                 <p
-                  className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease ${
+                  className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease pr-[1.7rem] ${
                     isActiveLink("/sector") ? "!text-tosca" : ""
                   }`}
                 >
@@ -234,7 +234,7 @@ const HeaderAdditional = (props) => {
                   viewBox="0 0 14 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="absolute right-[-1.7rem] top-1/2 transform -translate-y-1/2 group-hover:right-[-2.2rem] transition-all duration-300 ease"
+                  className="absolute right-[7px] top-1/2 transform -translate-y-1/2 group-hover:right-0 transition-all duration-300 ease scale-80"
                 >
                   <path
                     d="M1 6L13 6M13 6L8.5 10.5M13 6L8.5 1.5"
@@ -289,7 +289,7 @@ const HeaderAdditional = (props) => {
                       }`}
                     >
                       <p
-                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca ${
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem]${
                           isActiveLink(item.href) ? "!text-tosca" : ""
                         }`}
                       >
@@ -301,7 +301,7 @@ const HeaderAdditional = (props) => {
                         viewBox="0 0 14 12"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="absolute right-[-1.7rem] top-1/2 transform -translate-y-1/2 group-hover:right-[-2.2rem] transition-all duration-300 ease"
+                        className="absolute right-[7px] top-1/2 transform -translate-y-1/2 group-hover:right-0 transition-all duration-300 ease scale-80"
                       >
                         <path
                           d="M1 6L13 6M13 6L8.5 10.5M13 6L8.5 1.5"
@@ -361,7 +361,7 @@ const HeaderAdditional = (props) => {
                       }`}
                     >
                       <p
-                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca ${
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem]${
                           isActiveLink(item.href) ? "!text-tosca" : ""
                         }`}
                       >
@@ -373,7 +373,7 @@ const HeaderAdditional = (props) => {
                         viewBox="0 0 14 12"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="absolute right-[-1.7rem] top-1/2 transform -translate-y-1/2 group-hover:right-[-2.2rem] transition-all duration-300 ease"
+                        className="absolute right-[7px] top-1/2 transform -translate-y-1/2 group-hover:right-0 transition-all duration-300 ease scale-80"
                       >
                         <path
                           d="M1 6L13 6M13 6L8.5 10.5M13 6L8.5 1.5"
@@ -413,7 +413,7 @@ const HeaderAdditional = (props) => {
                 }`}
               >
                 <p
-                  className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease ${
+                  className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease pr-[1.7rem] ${
                     isActiveLink("/solution") ? "!text-tosca" : ""
                   }`}
                 >
@@ -425,7 +425,7 @@ const HeaderAdditional = (props) => {
                   viewBox="0 0 14 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="absolute right-[-1.7rem] top-1/2 transform -translate-y-1/2 group-hover:right-[-2.2rem] transition-all duration-300 ease"
+                  className="absolute right-[7px] top-1/2 transform -translate-y-1/2 group-hover:right-0 transition-all duration-300 ease scale-80"
                 >
                   <path
                     d="M1 6L13 6M13 6L8.5 10.5M13 6L8.5 1.5"
@@ -480,7 +480,7 @@ const HeaderAdditional = (props) => {
                       }`}
                     >
                       <p
-                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca  ${
+                        className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem] ${
                           isActiveLink(item.href) ? "!text-tosca" : ""
                         }`}
                       >
@@ -492,7 +492,7 @@ const HeaderAdditional = (props) => {
                         viewBox="0 0 14 12"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="absolute right-[-1.7rem] top-1/2 transform -translate-y-1/2 group-hover:right-[-2.2rem] transition-all duration-300 ease"
+                        className="absolute right-[7px] top-1/2 transform -translate-y-1/2 group-hover:right-0 transition-all duration-300 ease scale-80"
                       >
                         <path
                           d="M1 6L13 6M13 6L8.5 10.5M13 6L8.5 1.5"
@@ -554,7 +554,7 @@ const HeaderAdditional = (props) => {
                         }`}
                       >
                         <p
-                          className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca ${
+                          className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem]${
                             isActiveLink(item.href) ? "!text-tosca" : ""
                           }`}
                         >
@@ -566,7 +566,7 @@ const HeaderAdditional = (props) => {
                           viewBox="0 0 14 12"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="absolute right-[-1.7rem] top-1/2 transform -translate-y-1/2 group-hover:right-[-2.2rem] transition-all duration-300 ease"
+                          className="absolute right-[7px] top-1/2 transform -translate-y-1/2 group-hover:right-0 transition-all duration-300 ease scale-80"
                         >
                           <path
                             d="M1 6L13 6M13 6L8.5 10.5M13 6L8.5 1.5"
