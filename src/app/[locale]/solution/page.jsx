@@ -12,10 +12,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SolutionsLP({ params, searchParams }) {
-  // Await both params and searchParams
   const { locale } = await params;
-  const awaitedSearchParams = await searchParams;
-  const sector = awaitedSearchParams?.sector || null;
+  const sector = searchParams?.sector || null;
 
   try {
     // Fetch data secara paralel
