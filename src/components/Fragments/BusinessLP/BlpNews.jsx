@@ -125,7 +125,7 @@ const BlpNews = (props) => {
                     </p>
                   </div>
                   <Link
-                    href={`/news/${item.slug}-${item.id}`}
+                    href={`/news/${item.slug}`}
                     className="blp-news__link group"
                   >
                     <p className="text-white font-normal text-[20px] lg:text-[30px] leading-[1.3] lg:leading-[1.2] mt-2 lg:mt-5 transition-all duration-300 ease group-hover:text-tosca">

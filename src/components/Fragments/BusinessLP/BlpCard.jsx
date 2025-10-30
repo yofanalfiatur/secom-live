@@ -18,7 +18,7 @@ const BlpCard = ({ dataSection }) => {
                 width={1000}
                 height={1000}
                 alt={item.title}
-                className="w-full h-full object-cover bg-white pt-2 lg:pt-6"
+                className="w-full h-full object-cover bg-white"
               />
               <div
                 className={`flex flex-col items-center pt-2 pb-2 lg:pt-5 lg:pb-6 px-6 w-full transition-all duration-300 ease ${
