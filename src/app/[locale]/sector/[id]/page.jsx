@@ -53,12 +53,17 @@ export default async function SectorDetailPage({ params }) {
       title: sectorData.build_title_section,
       desc: sectorData.build_description_section,
       items: products.filter((product) => product.is_highlighted === "1"),
-      ctaTitle:
-        locale === "en"
-          ? `Protect Your ${sectorData.title} with SECOM`
-          : `Lindungi ${sectorData.title} Anda dengan SECOM`,
+      ctaTitle: sectorData.cta_text
+        ? sectorData.cta_text
+        : locale === "en"
+        ? `Protect Your ${sectorData.title} with SECOM`
+        : `Lindungi ${sectorData.title} Anda dengan SECOM`,
       ctaImage: sectorData.cta_image,
-      ctaLabel: sectorData.cta_button_label,
+      ctaLabel: sectorData.cta_button_label
+        ? sectorData.cta_button_label
+        : locale === "en"
+        ? "Build Your System"
+        : "Rancang Sistem Anda",
       ctaUrl: rawData.slug,
     };
 
