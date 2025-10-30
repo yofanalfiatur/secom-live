@@ -165,22 +165,11 @@ const SolProduct = ({ dataSection, defaultSector }) => {
               className="[&_.splide__track]:!overflow-visible w-full"
             >
               <SplideTrack>
-                {Products?.filter((item) => item.type === "business").map(
-                  (item) => {
-                    const mappedItem = {
-                      title: item.translations[locale]?.title,
-                      slug: item.slug,
-                      description: item.translations[locale]?.description,
-                      image: item.image,
-                    };
-
-                    return (
-                      <SplideSlide key={mappedItem.slug}>
-                        <CardProductV2 item={mappedItem} variant="mobile" />
-                      </SplideSlide>
-                    );
-                  }
-                )}
+                {Products?.map((item) => (
+                  <SplideSlide key={item.slug}>
+                    <CardProductV2 item={item} variant="mobile" />
+                  </SplideSlide>
+                ))}
               </SplideTrack>
               {/* Custom Arrow Buttons */}
               <div className="splide__arrows absolute bottom-[-35px] w-full z-10">
