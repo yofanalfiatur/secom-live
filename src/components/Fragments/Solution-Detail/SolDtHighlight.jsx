@@ -16,8 +16,8 @@ const SolDtHighlight = (props) => {
     <section className="flex flex-col relative pt-11 lg:pt-36 pb-8 lg:pb-26 overflow-hidden sol-dt-highlight">
       <BackgroundDots
         dotSize={isDesktop ? 2.5 : 2}
-        dotsX={isDesktop ? 35 : 15}
-        dotsY={isDesktop ? 25 : 35}
+        dotsX={isDesktop ? 45 : 15}
+        dotsY={isDesktop ? 35 : 40}
       />
       <div className="container mx-auto relative z-[1]">
         <h2 className="text-darkblue font-raleway font-normal text-[30px] lg:text-[40px] text-center leading-[1.3] lg:leading-[1.2] mb-8 lg:mb-11">
@@ -26,23 +26,23 @@ const SolDtHighlight = (props) => {
         <p className="text-darkblue text-sm lg:text-lg font-normal text-center leading-[1.7] lg:leading-[1.5] mb-10 lg:mb-16">
           {dataSection.description}
         </p>
-        <div className="flex flex-col gap-y-10 lg:gap-y-10">
+        <div className="flex flex-col gap-y-10 lg:gap-y-0">
           {dataSection.cards.map((item, index) => (
             <div
               className="flex flex-col lg:flex-row [&:nth-child(even)]:lg:flex-row-reverse group"
               key={index}
             >
-              <div className="w-full lg:w-7/12 flex flex-col h-max">
+              <div className="w-full lg:w-6/12 flex flex-col h-max">
                 <Image
                   src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
                   width={1600}
                   height={800}
                   alt={item.title}
-                  className="w-full h-auto aspect-[285/162] lg:aspect-[748/350] object-center object-cover"
+                  className="w-full h-auto aspect-[285/162] lg:aspect-[748/380] object-center object-cover"
                   quality={100}
                 />
               </div>
-              <div className="w-full lg:w-5/12 flex flex-col justify-center group-[&:nth-child(odd)]:lg:pl-20 group-[&:nth-child(even)]:lg:pr-20">
+              <div className="w-full lg:w-6/12 flex flex-col justify-center group-[&:nth-child(odd)]:lg:pl-20 group-[&:nth-child(even)]:lg:pr-20 group-[&:nth-child(odd)]:lg:pr-10 group-[&:nth-child(even)]:lg:pl-10">
                 <p className="text-darkblue font-raleway font-normal text-[20px] lg:text-[35px] mt-2 lg:mt-0">
                   {item.title}
                 </p>
