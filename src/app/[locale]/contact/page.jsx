@@ -14,10 +14,11 @@ export default async function Contact({ params }) {
   const { locale } = await params;
 
   try {
-    // Fetch data secara paralel
-    const [pageData, productsData] = await Promise.all([
+    // Fetch data secara paralel - tambahkan services
+    const [pageData, productsData, servicesData] = await Promise.all([
       getStructuredPageData("contact-us", locale),
       getPosts("products"),
+      getPosts("services"), // Tambahkan ini
     ]);
 
     const { sections } = pageData;
@@ -35,6 +36,21 @@ export default async function Contact({ params }) {
         field_type: item.field_type,
       };
     });
+
+    // Process services data
+    const servicesDataRaw = servicesData.data || [];
+    const listServices = servicesDataRaw.map((item) => {
+      const translation = item.translations[locale] || item.translations.id;
+      return {
+        id: item.id,
+        title: translation.title,
+        slug: item.slug,
+        // Tambahkan field lain jika diperlukan
+      };
+    });
+
+    // Gabungkan products dan services
+    const combinedData = [...listProducts, ...listServices];
 
     return (
       <>
@@ -69,7 +85,8 @@ export default async function Contact({ params }) {
               </p>
 
               <div className="flex flex-col w-full mb-6 ct__wrap-form">
-                <ContactForm product={listProducts} />
+                {/* Kirim data gabungan ke ContactForm */}
+                <ContactForm product={combinedData} />
               </div>
             </div>
           </div>

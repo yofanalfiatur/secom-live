@@ -202,15 +202,10 @@ export default async function ProductDetail({ params }) {
             <OverviewGlobal
               dataSection={overviewData}
               buttonContact={true}
-              idProdContact={rawData.id}
+              slugContact={rawData.slug}
             />
             <HowWeWork dataSection={reasonData} />
-            <SolDtHighlight
-              dataSection={highlightData}
-              buttonContact={true}
-              idProdContact={rawData.id}
-              catalogue={catalogue}
-            />
+            <SolDtHighlight dataSection={highlightData} catalogue={catalogue} />
             <AmFAQ dataSection={faqData} />
           </>
         ) : (

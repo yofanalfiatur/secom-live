@@ -57,7 +57,11 @@ export default async function ServiceDetailPage({ params }) {
       <>
         <HeaderList locale={locale} />
         <BannerClipText dataSection={bannerData} />
-        <OverviewGlobal dataSection={overviewData} />
+        <OverviewGlobal
+          dataSection={overviewData}
+          buttonContact={true}
+          slugContact={serviceData.slug}
+        />
         <HowWeWork dataSection={reasonData} />
         <SolDtHighlight dataSection={highlightData} />
         <AmFAQ dataSection={faqData} />

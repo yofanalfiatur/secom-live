@@ -21,7 +21,7 @@ export default function ContactForm({ product }) {
     phone: "",
     location: "",
     company: "",
-    product_id: "",
+    product_service: "", // Ganti dari product_id ke product_service
     source: "",
     message: "",
   });
@@ -37,7 +37,7 @@ export default function ContactForm({ product }) {
   // Auto-set location dan product dari query param
   useEffect(() => {
     const locationParam = searchParams.get("location"); // ex: business / residential
-    const productParam = searchParams.get("product"); // ex: product-id
+    const productParam = searchParams.get("product"); // ex: product-slug
 
     if (locationParam) {
       setFormData((prev) => ({
@@ -47,15 +47,15 @@ export default function ContactForm({ product }) {
     }
 
     if (productParam) {
-      // Cari product berdasarkan ID
+      // Cari product berdasarkan SLUG (bukan ID)
       const selectedProduct = product.find(
-        (item) => item.id.toString() === productParam
+        (item) => item.slug === productParam
       );
 
       if (selectedProduct) {
         setFormData((prev) => ({
           ...prev,
-          product_id: selectedProduct.id, // Simpan ID sebagai product_id
+          product_service: selectedProduct.slug, // Simpan slug sebagai product_service
         }));
       }
     }
@@ -362,7 +362,7 @@ export default function ContactForm({ product }) {
             </motion.div>
           )}
 
-          {/* Product Field - Menggunakan data dari props product */}
+          {/* Product Field - Menggunakan data dari props product dengan SLUG */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -371,37 +371,30 @@ export default function ContactForm({ product }) {
           >
             <div
               className={`relative flex flex-col rounded-[5px] overflow-hidden ct__wrap__input form__wrap__input ${
-                errors.product_id ? "border-red-500" : ""
+                errors.product_service ? "border-red-500" : ""
               }`}
             >
               <select
-                name="product_id"
-                value={formData.product_id}
+                name="product_service" // Ganti dari product_id ke product_service
+                value={formData.product_service}
                 onChange={handleChange}
                 className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
-                  !formData.product_id ? "text-gray-400" : ""
+                  !formData.product_service ? "text-gray-400" : ""
                 }`}
               >
                 <option value=""></option>
                 {product.map((item) => (
-                  <option key={item.id} value={item.id}>
+                  <option key={item.slug} value={item.slug}>
+                    {" "}
+                    {/* Ganti key dan value menggunakan slug */}
                     {item.title}
                   </option>
                 ))}
-                <option value="security consulting">
-                  {locale === "en"
-                    ? "Security Consulting"
-                    : "Konsultasi Keamanan"}
-                </option>
-                <option value="security guard">
-                  {locale === "en" ? "Security Guard" : "Satuan Pengamanan"}
-                </option>
-                Konsultasi Keamanan
               </select>
               <label
-                htmlFor="product_id"
+                htmlFor="product_service" // Ganti dari product_id ke product_service
                 className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
-                  formData.product_id
+                  formData.product_service
                     ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
                     : ""
                 }`}
@@ -410,13 +403,13 @@ export default function ContactForm({ product }) {
               </label>
               <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
             </div>
-            {/* {errors.product && (
+            {/* {errors.product_service && (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-white text-xs mt-2 ml-1 bg-[#ff4444b9] max-w-max px-2"
               >
-                {errors.product}
+                {errors.product_service}
               </motion.p>
             )} */}
           </motion.div>
