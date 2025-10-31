@@ -45,9 +45,7 @@ export default async function FAQPage({ params }) {
     return (
       <FAQsFragment
         titleSection={
-          locale === "en"
-            ? "Frequently Asked Questions"
-            : "Pertanyaan yang sering ditanyakan"
+          locale === "en" ? "Frequently Asked Questions" : "Pertanyaan Umum"
         }
         sections={sections}
         locale={locale}

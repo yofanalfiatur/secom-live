@@ -44,7 +44,11 @@ export default async function SustainabilityPage({ params }) {
 
     return (
       <FAQsFragment
-        titleSection="Sustainability Management"
+        titleSection={
+          locale === "en"
+            ? "Sustainability Management"
+            : "Manajemen Keberlanjutan"
+        }
         sections={sections}
         locale={locale}
       />
