@@ -10,31 +10,21 @@ const BannerSecondary = ({ dataSection }) => {
       if (part.startsWith("<b>")) {
         const text = part.replace(/<\/?b>/g, "");
         return (
-          <motion.b
+          <motion.span
             key={idx}
             initial={{ backgroundSize: "0% 4px" }}
             animate={{ backgroundSize: "100% 4px" }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="highlighted"
+            className="highlighted "
           >
             {text}
-          </motion.b>
+          </motion.span>
         );
       } else if (part.match(/<br\s*\/?>/i)) {
         return <br key={idx} />;
       }
       return <span key={idx}>{part}</span>;
     });
-  };
-
-  // Fungsi untuk render dengan dangerouslySetInnerHTML
-  const renderTitleWithHTML = () => {
-    return {
-      __html: dataSection.title.replace(
-        /<b>(.*?)<\/b>/g,
-        '<span class="highlighted">$1</span>'
-      ),
-    };
   };
 
   return (
@@ -57,11 +47,9 @@ const BannerSecondary = ({ dataSection }) => {
       </picture>
 
       <div className="container mx-auto relative z-[2] flex flex-col">
-        {/* Opsi 1: Menggunakan dangerouslySetInnerHTML */}
-        <h1
-          className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[50%] mb-4 lg:mb-6"
-          dangerouslySetInnerHTML={renderTitleWithHTML()}
-        />
+        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[50%] mb-4 lg:mb-6">
+          {renderTitle()}
+        </h1>
       </div>
     </section>
   );
