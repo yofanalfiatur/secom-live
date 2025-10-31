@@ -7,17 +7,18 @@ const AbWorldBanner = ({ dataSection }) => {
     <section className="flex flex-col relative overflow-hidden lg:h-[654px] bg-navyblue abw-banner">
       <div className="relative lg:absolute top-0 left-0  w-full h-full">
         <div className="container mx-auto flex flex-col justify-center h-full">
-          <div className="flex flex-col lg:w-5/12 pt-10 lg:pt-0 pr-0 lg:pr-16 pb-8 lg:pb-0">
+          <div className="flex flex-col lg:w-[44%] pt-10 lg:pt-0 pr-0 lg:pr-5 pb-8 lg:pb-0">
             <p className="text-white tracking-[3px] font-raleway text-base lg:text-lg mb-3 lg:mb-6">
               {dataSection.subtitle}
             </p>
-            <h2 className="text-white font-raleway font-normal lg:font-medium text-[35px] lg:text-6xl leading-[1.3] lg:leading-[1.2]">
-              {dataSection.title}
-            </h2>
+            <h2
+              className="text-white font-raleway font-normal lg:font-medium text-[35px] lg:text-[50px] leading-[1.3] lg:leading-[1.2]"
+              dangerouslySetInnerHTML={{ __html: dataSection.title }}
+            />
           </div>
         </div>
       </div>
-      <div className="w-full h-full lg:ml-auto lg:w-7/12">
+      <div className="w-full h-full lg:ml-auto lg:w-[55%]">
         <Image
           src={process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.image}
           alt="ab-world-banner"
