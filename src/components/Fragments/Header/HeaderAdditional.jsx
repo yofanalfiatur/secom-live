@@ -223,7 +223,7 @@ const HeaderAdditional = (props) => {
               >
                 <p
                   className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease pr-[1.7rem] ${
-                    isActiveLink("/sector") ? "!text-tosca" : ""
+                    isActiveLink("/sector") ? " !text-tosca" : ""
                   }`}
                 >
                   {locale === "en" ? "Sector Overview" : "Sektor Kami"}
@@ -290,7 +290,7 @@ const HeaderAdditional = (props) => {
                     >
                       <p
                         className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem]${
-                          isActiveLink(item.href) ? "!text-tosca" : ""
+                          isActiveLink(item.href) ? " !text-tosca" : ""
                         }`}
                       >
                         {item.text}
@@ -362,7 +362,7 @@ const HeaderAdditional = (props) => {
                     >
                       <p
                         className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem]${
-                          isActiveLink(item.href) ? "!text-tosca" : ""
+                          isActiveLink(item.href) ? " !text-tosca" : ""
                         }`}
                       >
                         {item.text}
@@ -414,7 +414,7 @@ const HeaderAdditional = (props) => {
               >
                 <p
                   className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease pr-[1.7rem] ${
-                    isActiveLink("/solution") ? "!text-tosca" : ""
+                    isActiveLink("/solution") ? " !text-tosca" : ""
                   }`}
                 >
                   {locale === "en" ? "Solutions Overview" : "Solusi Kami"}
@@ -481,7 +481,7 @@ const HeaderAdditional = (props) => {
                     >
                       <p
                         className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem] ${
-                          isActiveLink(item.href) ? "!text-tosca" : ""
+                          isActiveLink(item.href) ? " !text-tosca" : ""
                         }`}
                       >
                         {item.text}
@@ -555,7 +555,7 @@ const HeaderAdditional = (props) => {
                       >
                         <p
                           className={`text-darkblue text-sm transition-all duration-200 ease group-hover:text-tosca pr-[1.7rem]${
-                            isActiveLink(item.href) ? "!text-tosca" : ""
+                            isActiveLink(item.href) ? " !text-tosca" : ""
                           }`}
                         >
                           {item.text}

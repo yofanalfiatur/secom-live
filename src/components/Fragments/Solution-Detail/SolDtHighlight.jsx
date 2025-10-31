@@ -20,7 +20,7 @@ const SolDtHighlight = (props) => {
         dotsY={isDesktop ? 25 : 35}
       />
       <div className="container mx-auto relative z-[1]">
-        <h2 className="text-darkblue font-raleway font-normal text-[30px] lg:text-[40px] text-center leading-[1.3] lg:leading-[1.2]mb-8 lg:mb-11">
+        <h2 className="text-darkblue font-raleway font-normal text-[30px] lg:text-[40px] text-center leading-[1.3] lg:leading-[1.2] mb-8 lg:mb-11">
           {dataSection.title}
         </h2>
         <p className="text-darkblue text-sm lg:text-lg font-normal text-center leading-[1.7] lg:leading-[1.5] mb-10 lg:mb-16">
@@ -38,7 +38,7 @@ const SolDtHighlight = (props) => {
                   width={1600}
                   height={800}
                   alt={item.title}
-                  className="w-full h-auto object-center object-contain"
+                  className="w-full h-auto aspect-[285/162] lg:aspect-[748/350] object-center object-cover"
                   quality={100}
                 />
               </div>

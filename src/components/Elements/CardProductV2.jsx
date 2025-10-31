@@ -20,6 +20,7 @@ const CardProductV2 = ({ item, variant = "desktop" }) => {
             spacing="11px"
             opacity={0.2}
             hoverRadius={300}
+            className="!cursor-pointer"
           />
           <div className="flex flex-col items-center pointer-events-none relative z-10">
             <p className="text-white text-[25px] font-raleway text-center">

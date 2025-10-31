@@ -67,7 +67,7 @@ const OverviewGlobal = (props) => {
           buttonContact !== false && (
             <ButtonPrimary
               href={`/contact?product=${idProdContact}`}
-              className="mx-auto"
+              className="mx-auto spesific__cta-detail"
             >
               {locale === "en" ? "CONSULT NOW" : "KONSULTASI SEKARANG"}
             </ButtonPrimary>

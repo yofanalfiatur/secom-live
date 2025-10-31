@@ -1232,6 +1232,7 @@ main {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   color: var(--color-darkblue);
+  margin-top: 5px;
 }
 .d-news__detail p,
 .d-news__detail ul,
@@ -1299,6 +1300,14 @@ main {
   object-fit: contain;
   margin: 1rem 0;
 }
+.d-news__detail a {
+  word-break: break-all;
+  color: var(--color-tosca);
+  transition: all 0.3s ease;
+}
+.d-news__detail a:hover {
+  opacity: 70%;
+}
 .d-news__title {
   color: var(--color-darkblue);
   font-family: "Raleway", sans-serif;
@@ -1316,6 +1325,7 @@ main {
   right: 0;
   top: 0;
 }
+
 @media screen and (max-width: 991px) {
   .d-news__item::after {
     top: unset;
