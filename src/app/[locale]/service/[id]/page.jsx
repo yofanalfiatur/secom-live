@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { generateDynamicMetadata } from "@/utils/metadata";
 import { getStructuredPostData } from "@/utils/page-data";
 import BannerClipText from "@/components/Fragments/Global/BannerClipText";
+import HeaderList from "@/components/Fragments/Header/HeaderList";
 
 export async function generateMetadata({ params }) {
   const { id, locale } = await params;
@@ -54,6 +55,7 @@ export default async function ServiceDetailPage({ params }) {
 
     return (
       <>
+        <HeaderList locale={locale} />
         <BannerClipText dataSection={bannerData} />
         <OverviewGlobal dataSection={overviewData} />
         <HowWeWork dataSection={reasonData} />
