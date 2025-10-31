@@ -3,19 +3,92 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useLocale } from "next-intl";
-import { useTranslations } from "next-intl";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
-import CardProduct from "@/components/Elements/CardProduct";
+import CardProductV2 from "@/components/Elements/CardProductV2";
+import { useEffect, useRef, useState } from "react";
+import { apiFetch } from "@/libs/api";
 
-const SolProduct = (props) => {
-  const { dataSection, listProducts } = props;
-  const t = useTranslations();
-  const ProductDetails = t.raw(listProducts);
+const SolProduct = ({ dataSection, defaultSector }) => {
+  // const { dataSection } = dataSection;
   const isDesktop = useIsDesktop();
   const locale = useLocale();
 
+  const [Sectors, setSectors] = useState([]);
+  const [Products, setProducts] = useState([]);
+  const [selectedSector, setSelectedSector] = useState(defaultSector || "");
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const sectorsData = await apiFetch("/sectors");
+        setSectors(sectorsData?.data || []);
+
+        if (defaultSector) {
+          const response = await apiFetch(`/sectors/${defaultSector}`);
+          const rawData = response?.data.translations?.[locale]?.products;
+          setProducts(rawData || []);
+          setTimeout(() => {
+            sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+          }, 500);
+        } else {
+          // otherwise show all
+          const productsData = await apiFetch("/products");
+          const mappedProducts =
+            productsData?.data
+              ?.filter((item) => item.type === "business")
+              ?.map((item) => ({
+                title: item.translations?.[locale]?.title,
+                slug: item.slug,
+                type: item.type,
+                description: item.translations?.[locale]?.description,
+                image: item.image,
+              })) || [];
+          setProducts(mappedProducts);
+        }
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+
+    loadData();
+  }, [locale, defaultSector]);
+
+  const handleSectorChange = async (e) => {
+    const slug = e.target.value;
+    setSelectedSector(slug);
+
+    if (!slug) {
+      const productsData = await apiFetch("/products");
+      const mappedProducts =
+        productsData?.data
+          ?.filter((item) => item.type === "business")
+          ?.map((item) => ({
+            title: item.translations?.[locale]?.title,
+            slug: item.slug,
+            type: item.type,
+            description: item.translations?.[locale]?.description,
+            image: item.image,
+          })) || [];
+      setProducts(mappedProducts);
+      return;
+    }
+
+    try {
+      const response = await apiFetch(`/sectors/${slug}`);
+      const rawData = response?.data.translations?.[locale]?.products;
+      setProducts(rawData || []);
+    } catch (error) {
+      console.error(`Error loading products for sector: ${slug}`, error);
+    }
+  };
+
   return (
-    <section className="bg-navyblue flex flex-col pt-6 lg:pt-21 pb-20 lg:pb-25 sol-product">
+    <section
+      ref={sectionRef}
+      className="bg-navyblue flex flex-col pt-6 lg:pt-21 pb-20 lg:pb-25 sol-product"
+      id="sol-product-lp"
+    >
       <div className="container mx-auto flex flex-col">
         <div className="flex flex-col lg:flex-row sol-product__intro">
           <div className="w-full lg:w-8/12 lg:pr-20">
@@ -28,17 +101,26 @@ const SolProduct = (props) => {
           </div>
           <div className="w-full lg:w-4/12 lg:pl-3 ">
             <p className="text-white lg:mt-6 mb-3 text-sm lg:text-lg">
-              {locale === "en" ? "FILTER BY" : "FILTER BERDASARKAN"}
+              {locale === "en" ? "FILTER BY" : "SARING BERDASARKAN"}
             </p>
             <div className="flex flex-col relative mb-5 lg:mb-0">
               <select
-                name=""
-                id=""
-                className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none"
+                name="dropdown-filter-sector"
+                id="dropdown-filter-sector"
+                onChange={handleSectorChange}
+                value={selectedSector}
+                className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer sol-filter-product"
               >
                 <option value="">
                   {locale === "en" ? "All Industries" : "Semua Industri"}
                 </option>
+
+                {Sectors?.map((sector) => (
+                  <option key={sector.slug} value={sector.slug}>
+                    {sector.translations?.[locale]?.title ??
+                      sector.translations?.en?.title}
+                  </option>
+                ))}
               </select>
               <svg
                 width="23"
@@ -61,8 +143,8 @@ const SolProduct = (props) => {
         {isDesktop ? (
           <div className="w-full flex flex-col am-products__grid">
             <ul className="flex flex-row flex-wrap justify-center gap-4">
-              {ProductDetails.map((item, index) => (
-                <CardProduct key={index} item={item} variant="desktop" />
+              {Products?.map((item) => (
+                <CardProductV2 key={item.slug} item={item} variant="desktop" />
               ))}
             </ul>
           </div>
@@ -83,9 +165,9 @@ const SolProduct = (props) => {
               className="[&_.splide__track]:!overflow-visible w-full"
             >
               <SplideTrack>
-                {ProductDetails.map((item, index) => (
-                  <SplideSlide key={index}>
-                    <CardProduct item={item} variant="mobile" />
+                {Products?.map((item) => (
+                  <SplideSlide key={item.slug}>
+                    <CardProductV2 item={item} variant="mobile" />
                   </SplideSlide>
                 ))}
               </SplideTrack>

@@ -8,20 +8,26 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const AboutCertificate = (props) => {
-  const { dataSection, dataCertif } = props;
+  const { dataSection } = props;
 
   const [activeIndex, setActiveIndex] = useState(null);
   const videoRefPopup = useRef(null);
 
-  // Lock scroll kalau popup terbuka
+  //lock when popup open
   useEffect(() => {
+    const header = document.querySelector(".header");
+
     if (activeIndex !== null) {
       document.body.classList.add("overflow-hidden");
+      if (header) header.style.setProperty("top", "-95px", "important");
     } else {
       document.body.classList.remove("overflow-hidden");
+      if (header) header.style.removeProperty("top");
     }
+
     return () => {
       document.body.classList.remove("overflow-hidden");
+      if (header) header.style.removeProperty("top");
     };
   }, [activeIndex]);
 
@@ -33,8 +39,9 @@ const AboutCertificate = (props) => {
             <Splide
               options={{
                 type: "loop",
-                autoplay: false,
-                interval: 4000,
+                autoplay: true,
+                interval: 3000,
+                perMove: 1,
                 pauseOnHover: true,
                 arrows: true,
                 pagination: false,
@@ -50,7 +57,7 @@ const AboutCertificate = (props) => {
               hasTrack={false}
             >
               <SplideTrack className="!overflow-visible ab-certif__track">
-                {dataCertif.map((item, index) => (
+                {dataSection.awards.map((item, index) => (
                   <SplideSlide
                     key={index}
                     className="ab-certif__slide"
@@ -66,7 +73,7 @@ const AboutCertificate = (props) => {
                         className="max-h-[138px] w-full lg:max-h-[188px] object-contain h-full  ab-certif__img"
                       />
                       <p className="text-sm lg:text-xl mt-2 lg:mt-4 mb-2 lg:mb-4 font-medium text-darkblue text-center ab-certif__caption">
-                        {item.title}
+                        {item.name}
                       </p>
                     </div>
                   </SplideSlide>
@@ -124,11 +131,11 @@ const AboutCertificate = (props) => {
 
         {/* Popup Certif */}
         <div className="flex flex-col">
-          {dataCertif.map((item, index) => {
+          {dataSection.awards.map((item, index) => {
             const isActive = activeIndex === index;
             return (
               <div
-                className={`flex flex-col lg:flex-row fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-certif__item__popup transition-all duration-500 overflow-auto ${
+                className={`flex flex-col justify-start  lg:justify-center fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-certif__item__popup transition-all duration-500 overflow-auto ${
                   isActive
                     ? "opacity-100 left-0 visible"
                     : "opacity-0 left-[120%] invisible"
@@ -136,7 +143,7 @@ const AboutCertificate = (props) => {
                 onClick={() => setActiveIndex(null)}
                 key={index}
               >
-                <div className="container flex flex-col h-max justify-center lg:flex-row mx-auto mt-[150px] lg:mt-[200px] mb-[50px]">
+                <div className="container flex flex-col h-max justify-center lg:flex-row mx-auto mt-[70px] mb-[50px]">
                   <div
                     className="w-full lg:w-10/12 bg-white flex flex-col lg:flex-row h-max relative ab-certif__item__popup__wrap"
                     onClick={(e) => e.stopPropagation()}
@@ -155,9 +162,9 @@ const AboutCertificate = (props) => {
                         src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
                         width={250}
                         height={250}
-                        alt={item.title}
+                        alt={item.name}
                         quality={100}
-                        className="m-auto"
+                        className="m-auto p-4"
                       />
                     </div>
 
@@ -165,7 +172,7 @@ const AboutCertificate = (props) => {
                     <div className="flex flex-col w-full lg:w-[65%] bg-[#e5e9f5] relative">
                       <div className="flex flex-col justify-center lg:min-h-[130px] border-b-[1px] border-[#13223333] py-5 px-6 lg:px-10">
                         <p className="text-darkblue text-[25px] lg:text-[35px] leading-[1.5] lg:leading-[1.2] font-raleway font-semibold">
-                          {item.title}
+                          {item.name}
                         </p>
                       </div>
                       <div className="flex flex-col h-full">

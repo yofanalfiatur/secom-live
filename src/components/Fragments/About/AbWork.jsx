@@ -5,7 +5,7 @@ import "@splidejs/react-splide/css";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 
-const AboutWork = ({ dataSection }) => {
+const AboutWork = ({ dataSection, classParent }) => {
   // Refs untuk sync
   const titleSplideRef = useRef(null);
   const imgSplideRef = useRef(null);
@@ -28,14 +28,14 @@ const AboutWork = ({ dataSection }) => {
   }, []);
 
   return (
-    <section className="relative bg-navyblue ab-work">
+    <section className={`relative bg-navyblue ab-work ${classParent}`}>
       <div className="container !p-0  mx-auto flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-7/12 flex flex-col justify-center h-auto lg:h-[200px] lg:border-white/50 lg:border-r-[1px]">
           <h2 className="text-white text-[35px] lg:text-[50px] font-normal my-4 lg:my-auto px-4 lg:px-0">
             {dataSection.title}
           </h2>
         </div>
-        <div className="w-full lg:w-5/12 flex flex-col py-4 px-4 lg:py-10 lg:px-15 border-t-[1px] lg:border-t-[0] border-white/50 ab-work__wrap-slider-title">
+        <div className="w-full lg:w-5/12 flex flex-col py-4 px-4 lg:py-10 lg:px-8 border-t-[1px] lg:border-t-[0] border-white/50 ab-work__wrap-slider-title">
           <Splide
             ref={titleSplideRef}
             options={{
@@ -54,12 +54,12 @@ const AboutWork = ({ dataSection }) => {
               {dataSection.slides.map((item, index) => (
                 <SplideSlide
                   key={index}
-                  className="h-max flex flex-row justify-center items-center gap-4 ab-work__slide-title"
+                  className="h-max flex flex-row justify-center items-center gap-1 lg:gap-4 ab-work__slide-title"
                 >
-                  <p className="text-tosca font-raleway font-bold text-[25px] lg:text-[40px]">
-                    {"0" + (index + 1) + "."}
+                  <p className="text-white font-bold text-[25px] lg:text-[40px] leading-[1]">
+                    {index + 1 + "."}
                   </p>
-                  <p className="text-white h-max font-normal text-[25px] lg:text-[40px] ab-work__item-title">
+                  <p className="text-white h-max font-normal text-[20px] lg:text-[35px] ab-work__item-title">
                     {item.title}
                   </p>
                 </SplideSlide>

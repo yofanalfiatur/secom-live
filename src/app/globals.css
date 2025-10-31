@@ -1107,6 +1107,25 @@ main {
   }
 }
 
+.ab-team .ab-team__intro__title {
+  color: transparent;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  transition: color 0.3s ease;
+  background: linear-gradient(
+    to right,
+    #01f3ff,
+    #01a2ff,
+    #004697,
+    #01a2ff,
+    #01f3ff,
+    #01f3ff
+  );
+  background-clip: text;
+  animation: shine 5s linear infinite;
+  background-size: 200% 200%;
+}
+
 @media (min-width: 1024px) {
   .ab-why__slider .splide__list {
     display: flex !important;
@@ -1152,8 +1171,8 @@ main {
     gap: 4px;
   }
   .slider-with-pagin li .splide__pagination__page {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 }
 
@@ -1213,6 +1232,7 @@ main {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   color: var(--color-darkblue);
+  margin-top: 5px;
 }
 .d-news__detail p,
 .d-news__detail ul,
@@ -1280,6 +1300,14 @@ main {
   object-fit: contain;
   margin: 1rem 0;
 }
+.d-news__detail a {
+  word-break: break-all;
+  color: var(--color-tosca);
+  transition: all 0.3s ease;
+}
+.d-news__detail a:hover {
+  opacity: 70%;
+}
 .d-news__title {
   color: var(--color-darkblue);
   font-family: "Raleway", sans-serif;
@@ -1297,6 +1325,7 @@ main {
   right: 0;
   top: 0;
 }
+
 @media screen and (max-width: 991px) {
   .d-news__item::after {
     top: unset;
@@ -1374,8 +1403,7 @@ main {
 .faq-answer a {
   color: #00529c;
   transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
   max-width: max-content;
 }
 .faq-answer a:hover {
@@ -1388,6 +1416,20 @@ main {
   list-style-type: disc;
 }
 
+.detail__desc > * {
+  line-height: 1.3;
+  color: red;
+}
+.cr-detail__desc a {
+  color: #00529c;
+  transition: all 0.3s ease;
+  display: inline-block;
+  max-width: max-content;
+}
+.cr-detail__desc a:hover {
+  color: #00aaad;
+  transition: all 0.3s ease;
+}
 .cr-detail__desc ul,
 .cr-detail__desc ol {
   padding-left: 1.5rem;

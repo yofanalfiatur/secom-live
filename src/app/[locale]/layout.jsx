@@ -21,11 +21,8 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={locale}>
       <head>
-        <title>SECOM</title>
-        <meta name="description" content="Website for SECOM" />
-        <meta name="robots" content="index, follow" />
-
-        {/* Google Tag Manager (head) */}
+        {/* Google Tag Manager (head) - Sementara disembunyikan */}
+        {/*
         <Script id="gtm-script" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -35,9 +32,11 @@ export default async function LocaleLayout({ children, params }) {
             })(window,document,'script','dataLayer','GTM-MZZM55X');
           `}
         </Script>
+        */}
       </head>
       <body>
-        {/* Google Tag Manager (noscript) */}
+        {/* Google Tag Manager (noscript) - Sementara disembunyikan */}
+        {/*
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MZZM55X"
@@ -46,12 +45,13 @@ export default async function LocaleLayout({ children, params }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+        */}
 
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ProgressBar />
-          <Header />
+          <Header params={params} />
           <main>{children}</main>
-          <Footer />
+          <Footer params={params} />
         </NextIntlClientProvider>
       </body>
     </html>

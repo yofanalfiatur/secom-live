@@ -1,18 +1,19 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { useRouter, usePathname } from "next/navigation";
+import { apiPost } from "@/libs/api";
 
-const ContactForm = () => {
+export default function ContactForm({ product }) {
   const t = useTranslations();
   const FormValue = t.raw("FormValue");
   const LabelInput = FormValue.LabelInput;
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,7 +21,8 @@ const ContactForm = () => {
     phone: "",
     location: "",
     company: "",
-    howDidYouKnow: "",
+    product_service: "", // Ganti dari product_id ke product_service
+    source: "",
     message: "",
   });
 
@@ -32,16 +34,32 @@ const ContactForm = () => {
 
   const searchParams = useSearchParams();
 
-  // Auto-set location dari query param
+  // Auto-set location dan product dari query param
   useEffect(() => {
     const locationParam = searchParams.get("location"); // ex: business / residential
+    const productParam = searchParams.get("product"); // ex: product-slug
+
     if (locationParam) {
       setFormData((prev) => ({
         ...prev,
         location: locationParam.toLowerCase(),
       }));
     }
-  }, [searchParams]);
+
+    if (productParam) {
+      // Cari product berdasarkan SLUG (bukan ID)
+      const selectedProduct = product.find(
+        (item) => item.slug === productParam
+      );
+
+      if (selectedProduct) {
+        setFormData((prev) => ({
+          ...prev,
+          product_service: selectedProduct.slug, // Simpan slug sebagai product_service
+        }));
+      }
+    }
+  }, [searchParams, product]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -57,6 +75,8 @@ const ContactForm = () => {
       newErrors.phone = "Please enter a valid phone number !";
     }
     if (!formData.location) newErrors.location = "Location is required !";
+    // if (!formData.product) newErrors.product = "Product is required !";
+
     if (!formData.message.trim()) newErrors.message = "Message is required !";
 
     setErrors(newErrors);
@@ -94,43 +114,22 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
-    setIsLoading(true);
+    // console.log(formData);
 
     try {
-      const res = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        { ...formData },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      setIsLoading(true);
+      const submission = await apiPost("/submissions", formData);
+      // console.log(submission);
 
-      if (res.status === 200) {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          location: "",
-          company: "",
-          howDidYouKnow: "",
-          message: "",
-        });
-
-        if (pathname.startsWith("/en")) {
-          router.push("/en/thankyou");
-        } else {
-          router.push("/thankyou");
-        }
+      if (submission.status === "success") {
+        router.push(locale === "en" ? "en/thankyou" : "/thankyou");
       }
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      setErrors({ submit: "Failed to send message. Please try again." });
+    } catch (e) {
+      console.error(e);
     } finally {
       setIsLoading(false);
     }
   };
-
-  console.log("SERVICE ID:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
 
   return (
     <div className="w-full mx-auto rounded-lg form__wrap">
@@ -363,7 +362,7 @@ const ContactForm = () => {
             </motion.div>
           )}
 
-          {/* How Did You Know Field */}
+          {/* Product Field - Menggunakan data dari props product dengan SLUG */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -372,15 +371,67 @@ const ContactForm = () => {
           >
             <div
               className={`relative flex flex-col rounded-[5px] overflow-hidden ct__wrap__input form__wrap__input ${
+                errors.product_service ? "border-red-500" : ""
+              }`}
+            >
+              <select
+                name="product_service" // Ganti dari product_id ke product_service
+                value={formData.product_service}
+                onChange={handleChange}
+                className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
+                  !formData.product_service ? "text-gray-400" : ""
+                }`}
+              >
+                <option value=""></option>
+                {product.map((item) => (
+                  <option key={item.slug} value={item.slug}>
+                    {" "}
+                    {/* Ganti key dan value menggunakan slug */}
+                    {item.title}
+                  </option>
+                ))}
+              </select>
+              <label
+                htmlFor="product_service" // Ganti dari product_id ke product_service
+                className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
+                  formData.product_service
+                    ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
+                    : ""
+                }`}
+              >
+                {LabelInput.product}
+              </label>
+              <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
+            </div>
+            {/* {errors.product_service && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-white text-xs mt-2 ml-1 bg-[#ff4444b9] max-w-max px-2"
+              >
+                {errors.product_service}
+              </motion.p>
+            )} */}
+          </motion.div>
+
+          {/* How Did You Know Field */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="relative overflow-hidden flex flex-col mb-3 lg:mb-4"
+          >
+            <div
+              className={`relative flex flex-col rounded-[5px] overflow-hidden ct__wrap__input form__wrap__input ${
                 errors.howDidYouKnow ? "border-red-500" : ""
               }`}
             >
               <select
-                name="howDidYouKnow"
-                value={formData.howDidYouKnow}
+                name="source"
+                value={formData.source}
                 onChange={handleChange}
                 className={`peer pb-2 px-3 pt-[20px] lg:pb-2 lg:px-4 lg:pt-[24px] text-navyblue text-[12px] lg:text-xl rounded-[3px] bg-white m-[3px] focus:outline-none appearance-none cursor-pointer ${
-                  !formData.howDidYouKnow ? "text-gray-400" : ""
+                  !formData.source ? "text-gray-400" : ""
                 }`}
               >
                 {howDidYouKnowOptions.map((option) => (
@@ -390,9 +441,9 @@ const ContactForm = () => {
                 ))}
               </select>
               <label
-                htmlFor="howDidYouKnow"
+                htmlFor="source"
                 className={`text-navyblue text-[12px] lg:text-xl tracking-[3px] absolute top-1/2 transform -translate-y-1/2 pointer-events-none left-[16px] lg:left-[18px] peer-focus:text-[8px] lg:peer-focus:text-[10px] peer-focus:top-[15px] lg:peer-focus:top-[16px] transition-all duration-200 ease-in-out ${
-                  formData.howDidYouKnow
+                  formData.source
                     ? "!text-[8px] lg:!text-[10px] top-[15px] lg:top-[16px]"
                     : ""
                 }`}
@@ -416,7 +467,7 @@ const ContactForm = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             className="relative overflow-hidden flex flex-col mb-3 lg:mb-4"
           >
             <div
@@ -481,6 +532,4 @@ const ContactForm = () => {
       </form>
     </div>
   );
-};
-
-export default ContactForm;
+}

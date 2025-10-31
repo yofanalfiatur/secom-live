@@ -6,17 +6,21 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const SliderBasic = ({ items, linkLabel, target }) => {
+const SliderBasic = ({ items, linkLabel, target, imageClass }) => {
   const locale = useLocale();
 
   // fallback if linkLabel is not provided
   const defaultLabel = locale === "en" ? "Read more" : "Baca Selengkapnya";
   const finalLabel = linkLabel ? linkLabel[locale] : defaultLabel;
 
+  // Tentukan type berdasarkan jumlah item
+  const shouldLoop = items.length > 3;
+  const splideType = shouldLoop ? "loop" : "slide";
+
   return (
     <Splide
       options={{
-        type: "loop",
+        type: splideType,
         autoplay: false,
         interval: 4000,
         pauseOnHover: true,
@@ -53,7 +57,7 @@ const SliderBasic = ({ items, linkLabel, target }) => {
                     width={420}
                     height={291}
                     quality={100}
-                    className="w-full h-full object-cover aspect-[285/197] lg:aspect-[420/291] card-slider-basic__img"
+                    className={`w-full h-full object-cover aspect-[285/197] lg:aspect-[420/291] card-slider-basic__img ${imageClass}`}
                   />
                 </div>
 

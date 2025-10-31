@@ -4,22 +4,24 @@ import Image from "next/image";
 
 const BannerSecondary = ({ dataSection }) => {
   const renderTitle = () => {
-    const parts = dataSection.title.split(/(<b>.*?<\/b>)/g);
+    const parts = dataSection.title.split(/(<b>.*?<\/b>|<br\s*\/?>)/g);
 
     return parts.map((part, idx) => {
       if (part.startsWith("<b>")) {
         const text = part.replace(/<\/?b>/g, "");
         return (
-          <motion.b
+          <motion.span
             key={idx}
             initial={{ backgroundSize: "0% 4px" }}
             animate={{ backgroundSize: "100% 4px" }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="highlighted"
+            className="highlighted "
           >
             {text}
-          </motion.b>
+          </motion.span>
         );
+      } else if (part.match(/<br\s*\/?>/i)) {
+        return <br key={idx} />;
       }
       return <span key={idx}>{part}</span>;
     });
@@ -45,7 +47,7 @@ const BannerSecondary = ({ dataSection }) => {
       </picture>
 
       <div className="container mx-auto relative z-[2] flex flex-col">
-        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[35%] mb-4 lg:mb-6">
+        <h1 className="am-banner__title text-white font-raleway text-3xl lg:text-[50px] font-medium w-full leading-[1.5] lg:leading-[1.3] lg:w-[50%] mb-4 lg:mb-6">
           {renderTitle()}
         </h1>
       </div>

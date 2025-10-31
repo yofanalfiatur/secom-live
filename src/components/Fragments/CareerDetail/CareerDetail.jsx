@@ -33,39 +33,48 @@ const CareerDetail = ({ careerDetail }) => {
   }, [careerDetail]);
 
   return (
-    <div className="flex flex-col gap-4">
-      {!isEmptyContent(careerDetail.requirements) && (
-        <AccordionItem
-          index={0}
-          isOpen={activeIndex === 0}
-          onToggle={toggleAccordion}
-          question={locale === "en" ? "Requirements" : "Kualifikasi"}
-          answer={careerDetail.requirements}
+    <>
+      {!isEmptyContent(careerDetail.description) && (
+        <div
+          className="mt-4 lg:mt-3 mb-5 lg:mb-9 text-sm lg:text-base leading-[1.7] lg:leading-[1.5] flex flex-col cr-detail__desc"
+          dangerouslySetInnerHTML={{ __html: careerDetail.description }}
         />
       )}
 
-      {!isEmptyContent(careerDetail.responsibilities) && (
-        <AccordionItem
-          index={1}
-          isOpen={activeIndex === 1}
-          onToggle={toggleAccordion}
-          question={
-            locale === "en" ? "Responsibilities" : "Tugas dan Tanggung Jawab"
-          }
-          answer={careerDetail.responsibilities}
-        />
-      )}
+      <div className="flex flex-col gap-4">
+        {!isEmptyContent(careerDetail.requirements) && (
+          <AccordionItem
+            index={0}
+            isOpen={activeIndex === 0}
+            onToggle={toggleAccordion}
+            question={locale === "en" ? "Requirements" : "Kualifikasi"}
+            answer={careerDetail.requirements}
+          />
+        )}
 
-      {!isEmptyContent(careerDetail.benefit) && (
-        <AccordionItem
-          index={2}
-          isOpen={activeIndex === 2}
-          onToggle={toggleAccordion}
-          question={locale === "en" ? "Benefit" : "Keuntungan"}
-          answer={careerDetail.benefit}
-        />
-      )}
-    </div>
+        {!isEmptyContent(careerDetail.responsibilities) && (
+          <AccordionItem
+            index={1}
+            isOpen={activeIndex === 1}
+            onToggle={toggleAccordion}
+            question={
+              locale === "en" ? "Responsibilities" : "Tugas dan Tanggung Jawab"
+            }
+            answer={careerDetail.responsibilities}
+          />
+        )}
+
+        {!isEmptyContent(careerDetail.benefit) && (
+          <AccordionItem
+            index={2}
+            isOpen={activeIndex === 2}
+            onToggle={toggleAccordion}
+            question={locale === "en" ? "Benefit" : "Keuntungan"}
+            answer={careerDetail.benefit}
+          />
+        )}
+      </div>
+    </>
   );
 };
 

@@ -1,9 +1,12 @@
 "use client";
+import ButtonPrimary from "@/components/Elements/ButtonPrimary";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useEffect } from "react";
 
 const OverviewGlobal = (props) => {
-  const { dataSection, className } = props;
+  const { dataSection, buttonContact, slugContact, className } = props;
+  const locale = useLocale();
   useEffect(() => {
     const boldElements = document.querySelectorAll(
       ".am-value__desc b, .am-value__desc strong"
@@ -59,6 +62,16 @@ const OverviewGlobal = (props) => {
             ))}
           </ul>
         )}
+        {buttonContact !== null &&
+          buttonContact !== undefined &&
+          buttonContact !== false && (
+            <ButtonPrimary
+              href={`/contact?product=${slugContact}`}
+              className="mx-auto spesific__cta-detail"
+            >
+              {locale === "en" ? "CONSULT NOW" : "KONSULTASI SEKARANG"}
+            </ButtonPrimary>
+          )}
       </div>
     </section>
   );

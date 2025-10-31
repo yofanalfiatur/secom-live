@@ -1,12 +1,14 @@
 "use client";
 import BackgroundDots from "@/components/Elements/BackgroundDots";
+import ButtonPrimary from "@/components/Elements/ButtonPrimary";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
-const SolDtHighlight = ({ dataSection }) => {
+const SolDtHighlight = (props) => {
+  const { dataSection, buttonContact, haveCatalogue, catalogue } = props;
   const locale = useLocale();
   const isDesktop = useIsDesktop();
 
@@ -14,33 +16,33 @@ const SolDtHighlight = ({ dataSection }) => {
     <section className="flex flex-col relative pt-11 lg:pt-36 pb-8 lg:pb-26 overflow-hidden sol-dt-highlight">
       <BackgroundDots
         dotSize={isDesktop ? 2.5 : 2}
-        dotsX={isDesktop ? 35 : 15}
-        dotsY={isDesktop ? 25 : 35}
+        dotsX={isDesktop ? 45 : 15}
+        dotsY={isDesktop ? 35 : 40}
       />
       <div className="container mx-auto relative z-[1]">
-        <h2 className="text-darkblue font-raleway font-normal text-[30px] lg:text-[40px] text-center leading-[1.3] lg:leading-[1.2]mb-8 lg:mb-11">
+        <h2 className="text-darkblue font-raleway font-normal text-[30px] lg:text-[40px] text-center leading-[1.3] lg:leading-[1.2] mb-8 lg:mb-11">
           {dataSection.title}
         </h2>
         <p className="text-darkblue text-sm lg:text-lg font-normal text-center leading-[1.7] lg:leading-[1.5] mb-10 lg:mb-16">
           {dataSection.description}
         </p>
-        <div className="flex flex-col gap-y-10 lg:gap-y-6">
+        <div className="flex flex-col gap-y-10 lg:gap-y-0">
           {dataSection.cards.map((item, index) => (
             <div
               className="flex flex-col lg:flex-row [&:nth-child(even)]:lg:flex-row-reverse group"
               key={index}
             >
-              <div className="w-full lg:w-7/12 flex flex-col h-max">
+              <div className="w-full lg:w-6/12 flex flex-col h-max">
                 <Image
                   src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
                   width={1600}
                   height={800}
                   alt={item.title}
-                  className="w-full h-auto aspect-[285/162] lg:aspect-[748/425] object-center object-cover"
+                  className="w-full h-auto aspect-[285/162] lg:aspect-[748/380] object-center object-cover"
                   quality={100}
                 />
               </div>
-              <div className="w-full lg:w-5/12 flex flex-col justify-center group-[&:nth-child(odd)]:lg:pl-15 group-[&:nth-child(even)]:lg:pr-15">
+              <div className="w-full lg:w-6/12 flex flex-col justify-center group-[&:nth-child(odd)]:lg:pl-20 group-[&:nth-child(even)]:lg:pr-20 group-[&:nth-child(odd)]:lg:pr-10 group-[&:nth-child(even)]:lg:pl-10">
                 <p className="text-darkblue font-raleway font-normal text-[20px] lg:text-[35px] mt-2 lg:mt-0">
                   {item.title}
                 </p>
@@ -52,15 +54,15 @@ const SolDtHighlight = ({ dataSection }) => {
           ))}
         </div>
       </div>
-      {dataSection.cta && (
+      {catalogue && catalogue.file !== null && catalogue.file !== undefined && (
         <div className="container mx-auto relative z-[1] mt-10 lg:mt-28 lg:bg-navyblue flex flex-col-reverse lg:flex-row overflow-hidden lg:overflow-visible">
           <div className="w-full lg:w-4/12 flex flex-col items-center relative bg-navyblue overflow-hidden lg:overflow-visible">
             <Image
-              src={process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.imageCTA}
+              src={process.env.NEXT_PUBLIC_STORAGE_URL + catalogue.image}
               width={171}
               height={171}
               quality={100}
-              alt={dataSection.cta.titleCTA}
+              alt="banner catalogue"
               className=" object-contain relative z-[1] lg:mt-[-10%]"
             />
             <div
@@ -72,14 +74,16 @@ const SolDtHighlight = ({ dataSection }) => {
               }}
             ></div>
           </div>
-          <div className="w-full lg:w-5/12 order-[1] lg:order-[unset] flex flex-col justify-center items-center lg:items-start px-4 lg:px-0 pt-6 pb-3 bg-navyblue">
+          <div className="w-full lg:w-5/12 order-[1] lg:order-[unset] flex flex-col justify-center items-center lg:items-start px-4 lg:px-0 pt-6 pb-6 bg-navyblue">
             <p className="text-white font-raleway font-normal text-[20px] lg:text-[30px] text-center lg:text-start leading-[1.5]">
-              {dataSection.cta.titleCTA}
+              {locale === "en"
+                ? "Check our products in our catalogue"
+                : "Periksa produk kami di katalog kami"}
             </p>
           </div>
           <div className="w-full lg:w-3/12 flex flex-col justify-center items-center lg:items-end lg:pr-6  bg-navyblue">
             <Link
-              href="#document"
+              href={process.env.NEXT_PUBLIC_STORAGE_URL + catalogue.file}
               target="_blank"
               className="flex flex-row items-center bg-tosca rounded-[5px] max-w-max px-3 py-1.5 lg:px-5 lg:py-4 mb-8 lg:mb-0 gap-3 transition-all ease duration-200 hover:bg-white group"
             >

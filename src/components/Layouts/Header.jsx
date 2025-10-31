@@ -78,6 +78,8 @@ const Header = () => {
                 alt="SECOM Logo"
                 width={148}
                 height={37}
+                quality={100}
+                priority
                 className="w-[105px] lg:w-[148px] object-contain"
               />
             </Link>

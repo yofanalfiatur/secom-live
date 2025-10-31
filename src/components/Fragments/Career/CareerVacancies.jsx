@@ -37,7 +37,7 @@ const CareerVacancies = (props) => {
       <div className="container mx-auto flex flex-col lg:flex-row">
         {/* Intro */}
         <div className="w-full lg:w-4/12 lg:pr-25 mb-5 lg:mb-0 cr-vac__intro">
-          <h2 className="text-darkblue text-[30px] lg:text-[40px] font-raleway font-normal">
+          <h2 className="text-darkblue text-[30px] lg:text-[40px] font-raleway font-normal leading-[1.2]">
             {dataSection.title_section}
           </h2>
           <p className="text-darkblue text-sm lg:text-lg leading-[1.7] lg:leading-[1.5] mt-2 lg:mt-4">

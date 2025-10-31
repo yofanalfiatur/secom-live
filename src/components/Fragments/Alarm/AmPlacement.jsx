@@ -2,20 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import ButtonPrimary from "@/components/Elements/ButtonPrimary";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useTranslations } from "next-intl";
 
 const AmPlacement = (props) => {
-  const { translationKey, listProducts, pinPlacement } = props;
-  const t = useTranslations();
-  const AlarmCorners = t.raw(translationKey);
-  const ProductDetails = t.raw(listProducts);
-  const filteredProducts = ProductDetails.filter(
-    (item) => item[pinPlacement] === true
-  );
+  const { dataSection, dataProducts } = props;
 
   const isDesktop = useIsDesktop();
   const [activeIndex, setActiveIndex] = useState(null); // index of hovered pin
@@ -36,20 +29,25 @@ const AmPlacement = (props) => {
     return () => clearTimeout(timer);
   }, [activeIndex]);
 
+  //filter x and y not null
+  const filteredProducts = dataProducts.filter(
+    (item) => item.position_x !== null && item.position_y !== null
+  );
+
   return (
     <section className="pt-10 lg:pt-19 pb-35 lg:pb-8 am-corner" id="am-corner">
       <div className="container mx-auto flex flex-col items-center">
         <h2 className="text-darkblue font-normal text-[25px] lg:text-[40px] font-raleway lg:text-center">
-          {AlarmCorners.title}
+          {dataSection.title}
         </h2>
-        <p className="text-darkblue text-sm lg:text-lg mt-2 lg:mt-5 lg:text-center w-full lg:w-7/12">
-          {AlarmCorners.desc}
-        </p>
+        {/* <p className="text-darkblue text-sm lg:text-lg mt-2 lg:mt-5 lg:text-center w-full lg:w-7/12">
+          {dataSection.desc}
+        </p> */}
         <div className="relative flex flex-col w-full mt-2 lg:mt-10">
           {isDesktop ? (
             <>
               <Image
-                src={AlarmCorners.image}
+                src={dataSection.image}
                 alt="AlarmCorners"
                 width={1300}
                 height={700}
@@ -64,8 +62,8 @@ const AmPlacement = (props) => {
                       : "z-0"
                   }`}
                   style={{
-                    top: item[`${pinPlacement}Y`],
-                    left: item[`${pinPlacement}X`],
+                    top: `${item.position_y}%`,
+                    left: `${item.position_x}%`,
                   }}
                   onMouseLeave={() => {
                     setActiveIndex(null);
@@ -130,7 +128,7 @@ const AmPlacement = (props) => {
             <>
               <div className="flex flex-col relative">
                 <Image
-                  src={AlarmCorners.image}
+                  src={dataSection.image}
                   alt="AlarmCorners"
                   width={1300}
                   height={700}
@@ -141,8 +139,8 @@ const AmPlacement = (props) => {
                     <div
                       className="z-[1] rounded-full w-[20px] h-[20px] flex items-center justify-center cursor-pointer absolute"
                       style={{
-                        top: `calc(${item[`${pinPlacement}Y`]} - 10px)`,
-                        left: `calc(${item[`${pinPlacement}X`]} - 10px)`,
+                        top: `calc(${item.position_y}% - 10px)`,
+                        left: `calc(${item.position_x}% - 10px)`,
                       }}
                       key={index}
                     >

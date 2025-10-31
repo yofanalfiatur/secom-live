@@ -6,47 +6,37 @@ import AboutTeam from "@/components/Fragments/About/AbTeam";
 import AboutTrusted from "@/components/Fragments/About/AbTrusted";
 import AboutWhy from "@/components/Fragments/About/AbWhy";
 import AboutWork from "@/components/Fragments/About/AbWork";
-import { getPageData, getPosts } from "@/libs/api";
 import React from "react";
+import { generatePageMetadata } from "@/utils/metadata";
+import { getStructuredPageData } from "@/utils/page-data";
 
-export default async function AboutPage(props) {
-  const params = await props.params;
-  const locale = params.locale;
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return generatePageMetadata(
+    "about-secom-indonesia",
+    locale,
+    "about_banner.image"
+  );
+}
 
-  // Ambil data halaman dari API
-  const response = await getPageData("about-secom-indonesia");
-  const pageData = response.data[locale];
+export default async function AboutPage({ params }) {
+  const { locale } = await params;
 
-  // Mapping section agar mudah diakses berdasarkan nama component
-  const sections = pageData.sections.reduce((acc, section) => {
-    acc[section.component] = section.fields;
-    return acc;
-  }, {});
+  const { sections } = await getStructuredPageData(
+    "about-secom-indonesia",
+    locale
+  );
 
-  // Ambil tiap data section sesuai komponennya
   const bannerData = sections.about_banner || {};
   const storyData = sections.about_story_and_purpose || {};
   const whyData = sections.about_why_secom || {};
   const workData = sections.about_how_we_work || {};
   const certifData = sections.about_award || {};
+
   const teamData = sections.about_teams || {};
   const locationData = sections.about_locations || {};
 
-  // ambil data dari posts Representative
-  const responseCertif = await getPosts("awards");
-  // temp
-  const listCertif = responseCertif.data || [];
-
-  const listDataCertif = listCertif.map((item) => ({
-    title: item.name?.[locale] || "",
-    description: item.description?.[locale] || "",
-    image: item.image || "",
-  }));
-
-  // ambil data dari posts Representative
-  const responseLogoTrustedBy = await getPosts("settings");
-  // temp
-  const logoTrustedData = responseLogoTrustedBy.data.logo || [];
+  const logoTrustedData = sections.about_trusted_by || [];
 
   return (
     <>
@@ -54,7 +44,7 @@ export default async function AboutPage(props) {
       <AboutStory dataSection={storyData} />
       <AboutWhy dataSection={whyData} />
       <AboutWork dataSection={workData} />
-      <AboutCertificate dataSection={certifData} dataCertif={listDataCertif} />
+      <AboutCertificate dataSection={certifData} />
       <AboutTeam dataSection={teamData} />
       <AboutLocation dataSection={locationData} />
       <AboutTrusted dataSection={logoTrustedData} />

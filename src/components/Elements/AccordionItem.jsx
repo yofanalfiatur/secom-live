@@ -37,7 +37,7 @@ const AccordionItem = ({ index, isOpen, onToggle, question, answer }) => {
         <div
           className={`faq-answer flex flex-col transition-all duration-500 ease-in-out overflow-hidden px-4 lg:px-8 text-sm lg:text-lg text-darkblue ${
             isOpen
-              ? "max-h-[4000px] py-5 lg:pt-5 lg:pb-8 opacity-100"
+              ? "max-h-[4000px] py-5 lg:pt-5 lg:pb-5 opacity-100"
               : "max-h-0 opacity-0"
           }`}
           dangerouslySetInnerHTML={{ __html: answer }}

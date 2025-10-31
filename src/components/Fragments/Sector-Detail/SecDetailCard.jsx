@@ -32,6 +32,7 @@ const SecDetailCard = (props) => {
               items={dataSection.items}
               linkLabel={{ en: "See Details", id: "Lihat Detail" }}
               target="_self"
+              imageClass="!object-contain lg:!object-contain"
             />
           )}
         </div>
@@ -45,17 +46,17 @@ const SecDetailCard = (props) => {
             height={600}
             quality={100}
             alt="SecDetailCTA"
-            className={`lg:[clip-path:polygon(0_0,89%_0,100%_100%,0%_100%)] w-full h-full object-cover aspect-[285/121] lg:aspect-[431/146]`}
+            className={`lg:[clip-path:polygon(0_0,89%_0,100%_100%,0%_100%)] w-full h-full object-cover aspect-[285/121] lg:aspect-[431/220]`}
           />
         </div>
         <div className="w-full lg:w-[41%] flex flex-col justify-center bg-navyblue px-5 lg:px-0 pt-3 lg:pt-0 pb-3 lg:pb-0">
-          <h3 className="text-white font-raleway font-normal text-[20px] lg:text-[30px] lg:pl-10 leading-[1.7] lg:leading-[1.5] lg:max-w-[455px] ">
+          <h3 className="text-white font-raleway font-normal text-[20px] lg:text-[30px] lg:pl-10 leading-[1.7] lg:leading-[1.5] lg:max-w-full ">
             {dataSection.ctaTitle}
           </h3>
         </div>
         <div className="w-full lg:w-[24%] flex flex-col justify-center lg:items-end lg:pr-7 bg-navyblue px-5 lg:px-0 pb-6 lg:pb-0">
           <ButtonPrimary
-            href={dataSection.ctaUrl}
+            href={`/solution?sector=${dataSection.ctaUrl}`}
             target="_self"
             className="hover:bg-white hover:text-navyblue "
           >

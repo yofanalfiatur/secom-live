@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 const AbWorldRnD = ({ dataSection }) => {
   const isDesktop = useIsDesktop();
+  const locale = useLocale();
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -16,11 +18,9 @@ const AbWorldRnD = ({ dataSection }) => {
         <div className="w-full flex flex-col lg:pr-4">
           <p className="text-darkblue uppercase tracking-[3px] lg:text-xl">
             {dataSection.subtitle}
-            lorem ipsum subtitle
           </p>
           <h2 className="text-darkblue font-raleway font-medium text-[30px] lg:text-[45px] leading-[1.3] lg:leading-[1.2] mt-3 mb-5">
             {dataSection.title}
-            Lorem Ipsum Lorem IpsumLorem IpsumLorem Ipsum
           </h2>
 
           {/* Dropdown (Mobile Only) */}
@@ -84,12 +84,23 @@ const AbWorldRnD = ({ dataSection }) => {
 
                   {/* Description */}
                   <div
-                    className={`flex flex-col text-darkblue font-normal overflow-hidden transition-all leading-[1.7] lg:leading-[1.5] ease duration-500
+                    className={`flex flex-col overflow-hidden transition-all leading-[1.7] lg:leading-[1.5] ease duration-500
                       ${
                         isActive ? "pt-4 pb-4 lg:max-h-[1000px]" : "lg:max-h-0"
                       }`}
-                    dangerouslySetInnerHTML={{ __html: item.description }}
-                  />
+                  >
+                    <div
+                      dangerouslySetInnerHTML={{ __html: item.description }}
+                      className="flex flex-col text-darkblue font-normal overflow-hidden"
+                    />
+                    <Link
+                      href={item.url}
+                      target="_blank"
+                      className="text-tosca max-w-max font-raleway uppercase tracking-[2px] font-normal mt-3 hover:opacity-70 transition-all duration-200 ease-in-out relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-tosca after:transition-all after:duration-200 after:ease-in-out hover:after:w-full"
+                    >
+                      {locale === "en" ? "Read More" : "Baca Selengkapnya"}
+                    </Link>
+                  </div>
                 </div>
               );
             })}

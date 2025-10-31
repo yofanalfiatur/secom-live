@@ -1,53 +1,65 @@
 import CareerBanner from "@/components/Fragments/Career/CareerBanner";
 import CareerCard from "@/components/Fragments/Career/CareerCard";
 import CareerVacancies from "@/components/Fragments/Career/CareerVacancies";
-import { getPageData, getPosts } from "@/libs/api";
-import React from "react";
+import { generatePageMetadata } from "@/utils/metadata";
+import { getStructuredPageData, getSectionData } from "@/utils/page-data";
+import { getPosts } from "@/libs/api";
 
-export default async function Career(props) {
-  const params = await props.params;
-  const locale = params.locale;
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return generatePageMetadata("career", locale, "career_banner.image");
+}
 
-  // Ambil data halaman dari API
-  const response = await getPageData("career");
-  const pageData = response.data[locale];
+export default async function Career({ params }) {
+  const { locale } = await params;
 
-  // Mapping section agar mudah diakses berdasarkan nama component
-  const sections = pageData.sections.reduce((acc, section) => {
-    acc[section.component] = section.fields;
-    return acc;
-  }, {});
+  try {
+    // Fetch data secara paralel
+    const [pageData, vacanciesData] = await Promise.all([
+      getStructuredPageData("career", locale),
+      getPosts("vacancies"),
+    ]);
 
-  const responsePin = await getPosts("vacancies");
-  const vacanciesByLocale = responsePin.data?.[locale] || [];
+    const { sections } = pageData;
 
-  const listVacanciesData = vacanciesByLocale.map((item) => {
-    const textOnly = item.description.replace(/<[^>]+>/g, "");
-    const words = textOnly.split(/\s+/);
-    const shortDesc =
-      words.length > 30 ? words.slice(0, 30).join(" ") + "..." : textOnly;
+    // Process vacancies data
+    const vacanciesByLocale = vacanciesData.data?.[locale] || [];
+    const listVacanciesData = vacanciesByLocale.map((item) => {
+      const textOnly = item.description.replace(/<[^>]+>/g, "");
+      const words = textOnly.split(/\s+/);
+      const shortDesc =
+        words.length > 30 ? words.slice(0, 30).join(" ") + "..." : textOnly;
 
-    return {
-      title: item.title,
-      slug: item.slug,
-      location: item.location,
-      type: item.type,
-      shortDesc: shortDesc,
-    };
-  });
+      return {
+        title: item.title,
+        slug: item.slug,
+        location: item.location,
+        type: item.type,
+        shortDesc: shortDesc,
+      };
+    });
 
-  const bannerData = sections.career_banner || {};
-  const cardData = sections.career_benefit || {};
-  const vacanciesData = sections.career_vacancies || {};
+    // Process page sections
+    const bannerData = getSectionData(sections, "career_banner");
+    const cardData = getSectionData(sections, "career_benefit");
+    const vacanciesSectionData = getSectionData(sections, "career_vacancies");
 
-  return (
-    <>
-      <CareerBanner dataSection={bannerData} />
-      <CareerCard dataSection={cardData} />
-      <CareerVacancies
-        dataSection={vacanciesData}
-        listVacancies={listVacanciesData}
-      />
-    </>
-  );
+    return (
+      <>
+        <CareerBanner dataSection={bannerData} />
+        <CareerCard dataSection={cardData} />
+        <CareerVacancies
+          dataSection={vacanciesSectionData}
+          listVacancies={listVacanciesData}
+        />
+      </>
+    );
+  } catch (error) {
+    console.error("Error loading career page:", error);
+    return (
+      <div className="p-8 text-center">
+        <p>Error loading career page content</p>
+      </div>
+    );
+  }
 }

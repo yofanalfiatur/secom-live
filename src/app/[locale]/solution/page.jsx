@@ -2,38 +2,51 @@ import BannerBasic from "@/components/Fragments/Global/BannerBasic";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 import SolProduct from "@/components/Fragments/Solutions/SolProduct";
 import SolServices from "@/components/Fragments/Solutions/SolServices";
-import { getPageData, getPosts } from "@/libs/api";
-import React from "react";
+import { generatePageMetadata } from "@/utils/metadata";
+import { getStructuredPageData, getSectionData } from "@/utils/page-data";
+import { getPosts } from "@/libs/api";
 
-export default async function SolutionsLP(props) {
-  const { locale } = await props.params;
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return generatePageMetadata("solution", locale, "solution_banner.image");
+}
 
-  // Ambil data halaman dari API
-  const response = await getPageData("solution");
-  const pageData = response.data[locale];
+export default async function SolutionsLP({ params, searchParams }) {
+  const { locale } = await params;
+  const sector = searchParams?.sector || null;
 
-  // Mapping section agar mudah diakses berdasarkan nama component
-  const sections = pageData.sections.reduce((acc, section) => {
-    acc[section.component] = section.fields;
-    return acc;
-  }, {});
+  try {
+    // Fetch data secara paralel
+    const [pageData, servicesData] = await Promise.all([
+      getStructuredPageData("solution", locale),
+      getPosts("services"),
+    ]);
 
-  // ambil data dari posts Representative
-  const responseService = await getPosts("services");
-  // temp
-  const listService = responseService.data || [];
+    const { sections } = pageData;
 
-  // Ambil tiap data section sesuai komponennya
-  const bannerData = sections.solution_banner || {};
-  const servicesData = sections.solution_service || {};
-  const productsData = sections.solution_list_product || {};
+    // Process data
+    const listService = servicesData.data || [];
+    const bannerData = getSectionData(sections, "solution_banner");
+    const servicesSectionData = getSectionData(sections, "solution_service");
+    const productsData = getSectionData(sections, "solution_list_product");
 
-  return (
-    <>
-      <HeaderList locale={locale} />
-      <BannerBasic dataSection={bannerData} />
-      <SolServices dataSection={servicesData} listService={listService} />
-      <SolProduct dataSection={productsData} listProducts="ProductDetails" />
-    </>
-  );
+    return (
+      <>
+        <HeaderList locale={locale} />
+        <BannerBasic dataSection={bannerData} />
+        <SolServices
+          dataSection={servicesSectionData}
+          listService={listService}
+        />
+        <SolProduct dataSection={productsData} defaultSector={sector} />
+      </>
+    );
+  } catch (error) {
+    console.error("Error loading solutions page:", error);
+    return (
+      <div className="p-8 text-center">
+        <p>Error loading solutions page content</p>
+      </div>
+    );
+  }
 }

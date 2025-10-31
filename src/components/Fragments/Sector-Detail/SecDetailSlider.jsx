@@ -26,7 +26,7 @@ const SecDetailSlider = ({ dataSection }) => {
   return (
     <section className="relative pb-20 lg:pb-0 bg-navyblue sd-slider">
       <div className="container !p-0 mx-auto flex flex-col lg:flex-row items-center">
-        <div className="w-full lg:w-7/12 flex flex-col justify-center min-h-[unset] lg:min-h-[160px] border-white/50 border-b-[1px] lg:border-r-[1px]">
+        <div className="w-full lg:w-7/12 flex flex-col justify-center min-h-[unset] lg:min-h-[160px] border-white/50 border-b-[1px] lg:border-r-[1px] lg:pr-4">
           <h2 className="text-white text-[30px] lg:text-[50px] leading-[1.3] lg:leading-[1.2] font-normal mt-8 mb-4 lg:mt-auto lg:mb-auto px-4 lg:px-0 font-raleway">
             {dataSection.title}
           </h2>

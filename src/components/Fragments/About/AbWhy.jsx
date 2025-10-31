@@ -16,7 +16,7 @@ const AboutWhy = ({ dataSection }) => {
           <p className="text-sm font-normal lg:text-lg text-center text-darkblue lg:w-[50%] pt-3 pb-3 leading-[1.7] lg:leading-[1.5]">
             {dataSection.description}
           </p>
-          <div className="w-full ab-why__wrap-slider">
+          <div className="w-full ab-why__wrap-slider my-6">
             <Splide
               options={{
                 type: "loop",
@@ -49,9 +49,7 @@ const AboutWhy = ({ dataSection }) => {
                       isDesktop ? "w-1/4" : "w-full"
                     }`}
                   >
-                    <div
-                      className={`ab-why__item flex flex-col items-center p-6`}
-                    >
+                    <div className={`ab-why__item flex flex-col items-center`}>
                       <Image
                         src={process.env.NEXT_PUBLIC_STORAGE_URL + item.logo}
                         alt={item.title}

@@ -126,9 +126,10 @@ const AmHowWorks = ({ dataSection }) => {
                     <p className="text-[#ffffff99] uppercase text-sm lg:text-lg tracking-[2px] font-raleway mb-3 lg:mb-4">
                       {dataSection.title}
                     </p>
-                    <p className="text-[25px] lg:text-[45px] font-raleway font-normal text-white lg:leading-[1.1]">
-                      {item.title}
-                    </p>
+                    <p
+                      className="text-[25px] lg:text-[45px] font-raleway font-normal text-white lg:leading-[1.1]"
+                      dangerouslySetInnerHTML={{ __html: item.title }}
+                    />
                     <p className="leading-[1.7] lg:leading-[1.5] lg:text-lg text-white opacity-80 mt-3">
                       {item.description}
                     </p>

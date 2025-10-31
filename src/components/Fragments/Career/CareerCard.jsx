@@ -27,14 +27,7 @@ const CareerCard = ({ dataSection }) => {
       )}
       {item.text && item.text !== "" && (
         <div className="flex flex-col border-[1px] aspect-[420/281] w-full h-full border-[#00000033] transition-all duration-200 ease hover:border-transparent relative p-1 group cr-card__title-icon">
-          <div className="flex flex-col justify-between bg-white h-full relative z-[1] px-6 pt-8 pb-6">
-            <Image
-              src={staticIcon}
-              alt="image icon"
-              width={100}
-              height={100}
-              className="w-[45px] h-[45px] object-contain mb-2 self-end"
-            />
+          <div className="flex flex-col justify-end bg-white h-full relative z-[1] px-6 pt-8 pb-6">
             <p className="text-darkblue text-xl lg:text-[25px] font-medium font-raleway mb-2">
               {item.text}
             </p>
@@ -108,14 +101,7 @@ const CareerCard = ({ dataSection }) => {
                       )}
                       {item.text && item.text !== "" && (
                         <div className="flex flex-col w-full h-full">
-                          <div className="flex flex-col justify-between bg-white h-full relative z-[1] px-6 pt-8 pb-6 border-[1px] border-[#00000033]">
-                            <Image
-                              src={staticIcon}
-                              alt="image icon"
-                              width={100}
-                              height={100}
-                              className="w-[45px] h-[45px] object-contain mb-2 self-end"
-                            />
+                          <div className="flex flex-col justify-end bg-white h-full relative z-[1] px-6 pt-8 pb-6 border-[1px] border-[#00000033]">
                             <p className="text-darkblue text-xl lg:text-[25px] font-medium font-raleway mb-2">
                               {item.text}
                             </p>

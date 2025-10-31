@@ -8,7 +8,6 @@ import { Link } from "@/i18n/navigation";
 const AboutLocation = ({ dataSection }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const locale = useLocale();
-  // Fungsi untuk membersihkan nomor telepon
   const cleanPhoneNumber = (phoneNumber) => {
     return phoneNumber.replace(/[^0-9+]/g, "");
   };
@@ -37,7 +36,7 @@ const AboutLocation = ({ dataSection }) => {
                     : "bg-white text-tosca hover:bg-tosca hover:text-white"
                 }`}
               >
-                {item.name}
+                <p dangerouslySetInnerHTML={{ __html: item.name }} />
               </button>
             ))}
           </div>
@@ -81,11 +80,14 @@ const AboutLocation = ({ dataSection }) => {
               </div>
 
               {/* Embed + Address */}
-              <div className="w-full lg:w-2/3 flex flex-col">
-                <div
-                  dangerouslySetInnerHTML={{ __html: item.embed_gmaps }}
-                  className="flex flex-col aspect-[285/147] lg:aspect-[720/300] w-full h-auto"
-                />
+              <div className="w-full lg:w-2/3 flex flex-col ab-loc__embed">
+                <div className="flex flex-col items-center justify-center aspect-[285/147] lg:aspect-[720/300] overflow-hidden">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: item.embed_gmaps }}
+                    className="flex flex-col aspect-[600/1800] w-full h-auto"
+                  />
+                </div>
+
                 <div className="grid grid-cols-12 items-center bg-tosca pl-4 lg:pl-5 pr-4 lg:pr-8">
                   <div className="col-span-12 lg:col-span-8 gap-2 flex flex-col mt-3 mb-4">
                     <p className="text-white text-sm leading-[1.7] mb-2 lg:mb-0">

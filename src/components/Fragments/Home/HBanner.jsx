@@ -73,6 +73,9 @@ const HomeBanner = ({ dataSection }) => {
                         width={2000}
                         height={1000}
                         alt={`Banner ${index + 1}`}
+                        loading="eager"
+                        fetchPriority="high"
+                        priority
                         className="object-cover w-full h-full"
                       />
                     </picture>
@@ -146,6 +149,15 @@ const HomeBanner = ({ dataSection }) => {
                         <p className="text-sm lg:text-lg text-white leading-[1.7] lg:leading-[1.5]">
                           {item.description}
                         </p>
+                        {item.button_link && (
+                          <ButtonPrimary
+                            href={item.button_link}
+                            target="_self"
+                            className="mt-2 flex lg:hidden max-w-max"
+                          >
+                            {locale === "en" ? "LEARN MORE" : "SELENGKAPNYA"}
+                          </ButtonPrimary>
+                        )}
                       </div>
                     </SplideSlide>
                   ))}

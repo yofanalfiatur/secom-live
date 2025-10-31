@@ -15,7 +15,7 @@ const AmFAQ = ({ dataSection }) => {
         <h2 className="text-[25px] lg:text-[40px] font-normal lg:font-medium font-raleway w-full text-center text-darkblue">
           {dataSection.title}
         </h2>
-        <p className="text-sm leading-[1.7] lg:leading-[1.5] text-darkblue lg:text-lg w-full lg:w-6/12 text-center mt-3  mb-9 lg:mb-8">
+        <p className="text-sm leading-[1.7] lg:leading-[1.5] text-darkblue lg:text-lg w-full lg:w-9/12 text-center mt-3  mb-9 lg:mb-8">
           {dataSection.desc}
         </p>
 
