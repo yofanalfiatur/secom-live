@@ -152,12 +152,15 @@ const BannerClipText = ({ dataSection }) => {
       );
 
       i = j - 1;
-    } else if (part.startsWith("<br")) {
+    } else if (part.match(/<br\s*\/?>/i)) {
+      // Handle <br> tag dengan benar
       rendered.push(<br key={`br-${i}`} />);
     } else {
-      rendered.push(
-        <span key={`text-${i}`} dangerouslySetInnerHTML={{ __html: part }} />
-      );
+      // Handle teks biasa, bersihkan dari tag HTML
+      const cleanText = part.replace(/<\/?[^>]+(>|$)/g, "");
+      if (cleanText.trim() !== "") {
+        rendered.push(<span key={`text-${i}`}>{cleanText}</span>);
+      }
     }
   }
 
