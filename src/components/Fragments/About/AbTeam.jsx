@@ -74,7 +74,7 @@ const AboutTeam = ({ dataSection }) => {
       <div className="container mx-auto">
         <div className="flex flex-row items-center mt-8 lg:mt-16 mb-6 lg:mb-8 gap-4 lg:gap-10">
           <p className="text-darkblue text-[25px] lg:text-[40px] font-raleway font-medium">
-            {locale === "en" ? "Our Leadership" : "Our Leadership"}
+            {dataSection.subtitle}
           </p>
           <div className="flex-1 h-[1px] bg-[#13223333]"></div>
         </div>
