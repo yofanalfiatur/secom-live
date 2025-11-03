@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import ButtonSecondary from "@/components/Elements/ButtonSecondary";
 import { Link } from "@/i18n/navigation";
 
 const FooterTop = ({
@@ -36,25 +35,18 @@ const FooterTop = ({
   const cleanHref = (href) => {
     if (!href) return href;
 
-    // Hapus locale prefix yang berulang
     let cleanedHref = href;
 
-    // Deteksi dan hapus duplikasi locale (contoh: /en/en/ -> /en/)
     cleanedHref = cleanedHref.replace(/(\/en\/)+/g, "/en/");
     cleanedHref = cleanedHref.replace(/(\/id\/)+/g, "/id/");
 
-    // Jika href sudah mengandung locale, kita hanya perlu pathnya saja
-    // karena next-intl akan menangani localization
     const currentLocale = pathname.startsWith("/en/") ? "en" : "id";
     const localePrefix = `/${currentLocale}/`;
 
     if (cleanedHref.startsWith(localePrefix)) {
-      // Hapus locale prefix untuk menghindari duplikasi
-      return cleanedHref.slice(localePrefix.length - 1); // keep the leading slash
+      return cleanedHref.slice(localePrefix.length - 1);
     }
 
-    // Jika href adalah absolute path tanpa locale, biarkan seperti itu
-    // next-intl akan menambahkan locale secara otomatis
     return cleanedHref;
   };
 
@@ -79,24 +71,38 @@ const FooterTop = ({
   const currentPrefooter = getCurrentPrefooter();
 
   useEffect(() => {
-    // Simple client-side detection
+    // Reset customCta setiap kali pathname berubah
+    setCustomCta(null);
+
     const hasHideFooterTop =
       document.querySelector(".hide__footer__top") !== null;
     setShouldHide(hasHideFooterTop);
 
-    // Cari specific CTA data
-    const ctaData = getSpecificCtaData();
-    if (ctaData) {
-      setCustomCta(ctaData);
-    }
-  }, [pathname]);
-
-  // Effect tambahan untuk handle dynamic content
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
+    // Gunakan setTimeout untuk memastikan DOM sudah sepenuhnya ter-render
+    const timer = setTimeout(() => {
       const ctaData = getSpecificCtaData();
       if (ctaData) {
         setCustomCta(ctaData);
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  // Effect untuk handle dynamic content (tetap dipertahankan)
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const ctaData = getSpecificCtaData();
+      // Hanya update jika ada perubahan
+      if (
+        ctaData &&
+        (!customCta ||
+          ctaData.href !== customCta.href ||
+          ctaData.text !== customCta.text)
+      ) {
+        setCustomCta(ctaData);
+      } else if (!ctaData && customCta) {
+        setCustomCta(null);
       }
     });
 
@@ -108,7 +114,7 @@ const FooterTop = ({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [customCta]); // Tambahkan customCta sebagai dependency
 
   if (shouldHide) return null;
   if (!currentPrefooter) return null;
