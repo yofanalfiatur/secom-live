@@ -22,7 +22,6 @@ export default async function LocaleLayout({ children, params }) {
     <html lang={locale}>
       <head>
         {/* Google Tag Manager (head) - Sementara disembunyikan */}
-        {/*
         <Script id="gtm-script" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -32,11 +31,10 @@ export default async function LocaleLayout({ children, params }) {
             })(window,document,'script','dataLayer','GTM-MZZM55X');
           `}
         </Script>
-        */}
       </head>
       <body>
         {/* Google Tag Manager (noscript) - Sementara disembunyikan */}
-        {/*
+
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MZZM55X"
@@ -45,7 +43,6 @@ export default async function LocaleLayout({ children, params }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        */}
 
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ProgressBar />
