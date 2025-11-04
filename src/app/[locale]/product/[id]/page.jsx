@@ -193,11 +193,7 @@ export default async function ProductDetail({ params }) {
 
     return (
       <>
-        {rawData.slug === "residential-solutions" ? (
-          ""
-        ) : (
-          <HeaderList locale={locale} />
-        )}
+        {typeProduct === "business" ? <HeaderList locale={locale} /> : ""}
 
         {fieldType === "default" ? (
           <>
