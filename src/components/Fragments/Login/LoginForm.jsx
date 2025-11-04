@@ -98,7 +98,7 @@ const LoginForm = () => {
         <input
           type="hidden"
           name="loginFolder"
-          value="https://secom.co.id/alarm/login"
+          value="https://secom.co.id/login"
         />
 
         <div className="h-full flex flex-col">
