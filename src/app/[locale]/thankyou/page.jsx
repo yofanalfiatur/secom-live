@@ -91,7 +91,6 @@ export default async function ThankYou(props) {
             </div>
           </div>
         </section>
-        <FloatButton />
       </>
     );
   } catch (error) {

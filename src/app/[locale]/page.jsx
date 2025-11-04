@@ -28,7 +28,6 @@ export default async function HomePage({ params }) {
         <HomeValue dataSection={valueData} />
         <HomeSegment dataSection={segmentData} />
         <HomeAbout dataSection={aboutData} />
-        <FloatButton />
       </>
     );
   } catch (error) {

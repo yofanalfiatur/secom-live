@@ -91,7 +91,6 @@ export default async function Contact({ params }) {
             </div>
           </div>
         </section>
-        <FloatButton />
       </>
     );
   } catch (error) {

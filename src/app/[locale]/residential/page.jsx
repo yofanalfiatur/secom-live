@@ -59,7 +59,6 @@ export default async function ResidentialPage({ params }) {
         <ResQuote dataSection={quoteData} />
         {/* <ResPromotion /> */}
         {/* <PromotionDeals /> */}
-        <FloatButton />
       </>
     );
   } catch (error) {

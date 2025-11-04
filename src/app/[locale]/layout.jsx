@@ -6,6 +6,7 @@ import Header from "@/components/Layouts/Header";
 import Footer from "@/components/Layouts/Footer";
 import ProgressBar from "@/components/Layouts/ProgressBar";
 import Script from "next/script";
+import FloatButton from "@/components/Elements/FloatButton";
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
@@ -47,7 +48,10 @@ export default async function LocaleLayout({ children, params }) {
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ProgressBar />
           <Header params={params} />
-          <main>{children}</main>
+          <main>
+            {children}
+            <FloatButton />
+          </main>
           <Footer params={params} />
         </NextIntlClientProvider>
       </body>

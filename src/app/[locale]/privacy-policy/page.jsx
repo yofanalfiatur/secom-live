@@ -33,7 +33,6 @@ export default async function PrivacyPolicy({ params }) {
             />
           </div>
         </section>
-        <FloatButton />
       </>
     );
   } catch (error) {

@@ -238,7 +238,6 @@ export default async function ProductDetail({ params }) {
               packagesSection={packagesSection}
             />
             <AmFAQ dataSection={faqData} />
-            <FloatButton />
           </>
         )}
       </>
