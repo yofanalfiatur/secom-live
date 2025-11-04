@@ -36,14 +36,14 @@ const HomeBanner = ({ dataSection }) => {
   return (
     <>
       <section className="overflow-hidden relative h-banner">
-        <div className="w-full after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[1] after:bg-[linear-gradient(180deg,rgba(0,82,156,0)_50%,#00529C_75%)] after:lg:bg-[linear-gradient(180deg,rgba(0,82,156,0)_50.06%,#00529C_100%)] h-banner__bg">
+        <div className="w-full after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[1] after:bg-[linear-gradient(180deg,rgba(0,82,156,0)_50%,#00529C_75%)] after:lg:bg-[linear-gradient(180deg,rgba(0,82,156,0)_50.06%,#00529C_100%)] h-[550px] lg:h-[calc(100vh-94px)] h-banner__bg">
           <Splide
             ref={mainSplideRef}
             options={{
               type: "loop",
               perPage: 1,
-              autoplay: false,
-              interval: 4000,
+              autoplay: true,
+              interval: 5000,
               pauseOnHover: true,
               arrows: false,
               pagination: false,
@@ -93,8 +93,8 @@ const HomeBanner = ({ dataSection }) => {
                 options={{
                   type: "loop",
                   perPage: 1,
-                  autoplay: false,
-                  interval: 4000,
+                  autoplay: true,
+                  interval: 5000,
                   pauseOnHover: true,
                   arrows: false,
                   pagination: false,
@@ -132,8 +132,8 @@ const HomeBanner = ({ dataSection }) => {
                 options={{
                   type: "loop",
                   perPage: 1,
-                  autoplay: false,
-                  interval: 4000,
+                  autoplay: true,
+                  interval: 5000,
                   pauseOnHover: true,
                   arrows: false,
                   pagination: true,
