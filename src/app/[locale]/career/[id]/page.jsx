@@ -53,6 +53,17 @@ export default async function CareerDetailPage({ params }) {
     const careerDetail = vacanciesByLocale?.[0];
     if (!careerDetail) return notFound();
 
+    // Function to format job type
+    const formatJobType = (type) => {
+      const typeMap = {
+        fulltime: "Full Time",
+        parttime: "Part Time",
+        freelance: "Freelance",
+      };
+
+      return typeMap[type.toLowerCase()] || type;
+    };
+
     return (
       <section className="flex flex-col pt-8 lg:pt-18 pb-12 lg:pb-19 bg-[#E6F3FF] cr-detail">
         <div className="container mx-auto relative flex flex-col lg:flex-row">
@@ -103,7 +114,7 @@ export default async function CareerDetailPage({ params }) {
                     </svg>
                   </div>
                   <p className="font-medium text-[13px] lg:text-lg text-darkblue">
-                    {careerDetail.type}
+                    {formatJobType(careerDetail.type)}
                   </p>
                 </div>
               )}

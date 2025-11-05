@@ -26,6 +26,17 @@ const CareerVacancies = (props) => {
     startIndex + ITEMS_PER_PAGE
   );
 
+  // Function to format job type
+  const formatJobType = (type) => {
+    const typeMap = {
+      fulltime: "Full Time",
+      parttime: "Part Time",
+      freelance: "Freelance",
+    };
+
+    return typeMap[type.toLowerCase()] || type;
+  };
+
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -67,7 +78,7 @@ const CareerVacancies = (props) => {
                         {item.location}
                       </p>
                       <p className="text-darkblue text-xs leading-[1] bg-[#e6e6e6] flex flex-col items-center justify-center py-[7px] px-4 font-semibold lg:font-normal lg:rounded-[5px]">
-                        {item.type}
+                        {formatJobType(item.type)}
                       </p>
                     </div>
                     <p className="text-darkblue text-[20px] lg:text-[25px] font-raleway font-medium">

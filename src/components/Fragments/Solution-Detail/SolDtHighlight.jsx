@@ -74,14 +74,14 @@ const SolDtHighlight = (props) => {
               }}
             ></div>
           </div>
-          <div className="w-full lg:w-5/12 order-[1] lg:order-[unset] flex flex-col justify-center items-center lg:items-start px-4 lg:px-0 pt-6 pb-6 bg-navyblue">
+          <div className="w-full lg:w-[39%] order-[1] lg:order-[unset] flex flex-col justify-center items-center lg:items-start px-4 lg:px-0 pt-6 pb-6 bg-navyblue">
             <p className="text-white font-raleway font-normal text-[20px] lg:text-[30px] text-center lg:text-start leading-[1.5]">
               {locale === "en"
-                ? "Check our products in our catalogue"
-                : "Periksa produk kami di katalog kami"}
+                ? "Discover the Right Solution for You."
+                : "Temukan Solusi yang Tepat untuk Anda."}
             </p>
           </div>
-          <div className="w-full lg:w-3/12 flex flex-col justify-center items-center lg:items-end lg:pr-6  bg-navyblue">
+          <div className="w-full lg:w-[27%] flex flex-col justify-center items-center lg:items-end lg:pr-6  bg-navyblue">
             <Link
               href={process.env.NEXT_PUBLIC_STORAGE_URL + catalogue.file}
               target="_blank"
@@ -119,8 +119,8 @@ const SolDtHighlight = (props) => {
                   className="group-hover:stroke-navyblue transition-all ease duration-200"
                 />
               </svg>
-              <p className="text-white transition-all ease duration-200 group-hover:text-navyblue text-sm lg:text-xl tracking-[3px] font-raleway">
-                {locale === "en" ? "DOWNLOAD PDF" : "UNDUH PDF"}
+              <p className="text-white transition-all ease duration-200 group-hover:text-navyblue text-sm lg:text-xl tracking-[3px] font-raleway uppercase">
+                {locale === "en" ? "Download Catalogue" : "Unduh Katalog"}
               </p>
             </Link>
           </div>
