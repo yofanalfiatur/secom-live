@@ -44,8 +44,8 @@ const CareerDetail = ({ careerDetail }) => {
       <div className="flex flex-col gap-4">
         {!isEmptyContent(careerDetail.responsibilities) && (
           <AccordionItem
-            index={1}
-            isOpen={activeIndex === 1}
+            index={0}
+            isOpen={activeIndex === 0}
             onToggle={toggleAccordion}
             question={
               locale === "en" ? "Responsibilities" : "Tugas dan Tanggung Jawab"
@@ -56,8 +56,8 @@ const CareerDetail = ({ careerDetail }) => {
 
         {!isEmptyContent(careerDetail.requirements) && (
           <AccordionItem
-            index={0}
-            isOpen={activeIndex === 0}
+            index={1}
+            isOpen={activeIndex === 1}
             onToggle={toggleAccordion}
             question={locale === "en" ? "Requirements" : "Kualifikasi"}
             answer={careerDetail.requirements}
