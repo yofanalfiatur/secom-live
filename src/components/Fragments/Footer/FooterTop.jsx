@@ -132,9 +132,12 @@ const FooterTop = ({
       <section className="relative z-10 flex flex-col border-b-1 border-[#ffffff66] w-full footer__top">
         <div className="relative z-[1] container w-full mx-auto">
           <div className="w-[90%] lg:w-3/4 border-r-1 py-3 lg:pt-19 lg:pb-19 border-[#ffffff66] flex flex-col">
-            <h2 className="text-white text-[25px] lg:text-[60px] pr-4 lg:pl-0 py-3">
-              {currentPrefooter.title || prefooterData.title}
-            </h2>
+            <div
+              className="text-white text-[25px] lg:text-[60px] pr-4 lg:pl-0 py-3"
+              dangerouslySetInnerHTML={{
+                __html: currentPrefooter.title || prefooterData.title,
+              }}
+            />
           </div>
           <div className="w-[10%] lg:w-1/4"></div>
         </div>

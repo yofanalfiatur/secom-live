@@ -124,8 +124,8 @@ const AboutTeam = ({ dataSection }) => {
                     {/* Plus Icon */}
                     <div className="absolute z-10 top-[10px] right-[10px] w-[40px] h-[40px] bg-navyblue flex items-center justify-center p-[10px]">
                       <div className="flex flex-col items-center justify-center relative w-full h-full">
-                        <div className="w-full h-[4px] bg-tosca"></div>
-                        <div className="w-[4px] h-full bg-tosca absolute top-1/2 left-1/2 transform -translate-1/2"></div>
+                        <div className="w-full h-[4px] bg-white"></div>
+                        <div className="w-[4px] h-full bg-white absolute top-1/2 left-1/2 transform -translate-1/2"></div>
                       </div>
                     </div>
                   </div>

@@ -25,10 +25,10 @@ const BlpCard = ({ dataSection }) => {
                   index === 0 ? "bg-navyblue" : "bg-tosca"
                 }`}
               >
-                <p className="text-white leading-[1.3] lg:leading-[1.2] text-sm lg:text-[30px] mb-1 lg:mb-2">
+                <p className="text-white leading-[1.3] lg:leading-[1.2] text-base lg:text-[30px] mb-1 lg:mb-2">
                   {item.title}
                 </p>
-                <p className="text-white leading-[1.3] lg:leading-[1.2] text-[10px] lg:text-lg">
+                <p className="text-white leading-[1.3] lg:leading-[1.2] text-[10px] lg:text-lg text-center">
                   {item.description}
                 </p>
               </div>

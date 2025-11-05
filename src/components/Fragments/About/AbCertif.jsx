@@ -1,6 +1,7 @@
 "use client";
 
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/react-splide/css";
 import { useRef, useEffect, useState } from "react";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
@@ -31,6 +32,14 @@ const AboutCertificate = (props) => {
     };
   }, [activeIndex]);
 
+  // Fungsi untuk menangani klik item
+  const handleItemClick = (index, item) => {
+    // Hanya buka popup jika ada deskripsi
+    if (item.description && item.description.trim() !== "") {
+      setActiveIndex(index);
+    }
+  };
+
   return (
     <>
       <section className="flex flex-col pt-11 pb-20 lg:pt-18 lg:pb-21 relative overflow-hidden ab-certif">
@@ -39,7 +48,7 @@ const AboutCertificate = (props) => {
             <Splide
               options={{
                 type: "loop",
-                autoplay: true,
+                autoplay: false,
                 interval: 3000,
                 perMove: 1,
                 pauseOnHover: true,
@@ -51,33 +60,51 @@ const AboutCertificate = (props) => {
                     perPage: 1,
                   },
                 },
+                autoScroll: {
+                  speed: 0.7,
+                  pauseOnHover: true,
+                  pauseOnFocus: false,
+                  autoStart: true,
+                },
                 gap: "1.5rem",
               }}
+              extensions={{ AutoScroll }}
               className="w-full relative ab-certif__slider"
               hasTrack={false}
             >
               <SplideTrack className="!overflow-visible ab-certif__track">
-                {dataSection.awards.map((item, index) => (
-                  <SplideSlide
-                    key={index}
-                    className="ab-certif__slide"
-                    onClick={() => setActiveIndex(index)}
-                  >
-                    <div className="ab-certif__item h-full flex flex-col items-center p-4 bg-white !shadow-[0px_4px_15px_0px_#0000001A] cursor-pointer">
-                      <Image
-                        src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
-                        width={204}
-                        height={188}
-                        alt={`Certificate ${index + 1}`}
-                        quality={100}
-                        className="max-h-[138px] w-full lg:max-h-[188px] object-contain h-full  ab-certif__img"
-                      />
-                      <p className="text-sm lg:text-xl mt-2 lg:mt-4 mb-2 lg:mb-4 font-medium text-darkblue text-center ab-certif__caption">
-                        {item.name}
-                      </p>
-                    </div>
-                  </SplideSlide>
-                ))}
+                {dataSection.awards.map((item, index) => {
+                  const hasDescription =
+                    item.description && item.description.trim() !== "";
+
+                  return (
+                    <SplideSlide
+                      key={index}
+                      className="ab-certif__slide"
+                      onClick={() => handleItemClick(index, item)}
+                    >
+                      <div
+                        className={`ab-certif__item h-full flex flex-col items-center p-4 bg-white !shadow-[0px_4px_15px_0px_#0000001A] ${
+                          hasDescription
+                            ? "cursor-pointer hover:shadow-lg transition-shadow"
+                            : "cursor-default"
+                        }`}
+                      >
+                        <Image
+                          src={process.env.NEXT_PUBLIC_STORAGE_URL + item.image}
+                          width={204}
+                          height={188}
+                          alt={`Certificate ${index + 1}`}
+                          quality={100}
+                          className="max-h-[138px] w-full lg:max-h-[188px] object-contain h-full ab-certif__img"
+                        />
+                        <p className="text-sm lg:text-xl mt-2 lg:mt-4 mb-2 lg:mb-4 font-medium text-darkblue text-center ab-certif__caption">
+                          {item.name}
+                        </p>
+                      </div>
+                    </SplideSlide>
+                  );
+                })}
               </SplideTrack>
 
               {/* Custom Arrow Buttons */}
@@ -132,10 +159,15 @@ const AboutCertificate = (props) => {
         {/* Popup Certif */}
         <div className="flex flex-col">
           {dataSection.awards.map((item, index) => {
+            const hasDescription =
+              item.description && item.description.trim() !== "";
             const isActive = activeIndex === index;
+
+            if (!hasDescription) return null;
+
             return (
               <div
-                className={`flex flex-col justify-start  lg:justify-center fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-certif__item__popup transition-all duration-500 overflow-auto ${
+                className={`flex flex-col justify-start lg:justify-center fixed z-[999] top-0 w-full h-full bg-[#132233e6] ab-certif__item__popup transition-all duration-500 overflow-auto ${
                   isActive
                     ? "opacity-100 left-0 visible"
                     : "opacity-0 left-[120%] invisible"

@@ -39,7 +39,7 @@ const HomeAbout = ({ dataSection }) => {
 
   return (
     <>
-      <section className="flex flex-col pt-43 lg:pt-62 pb-5 lg:pb-30 relative h-about">
+      <section className="flex flex-col pt-[475px] lg:pt-62 pb-5 lg:pb-30 relative h-about">
         <BackgroundDots
           dotSize={isDesktop ? 2.5 : 2}
           dotsX={isDesktop ? 45 : 20}
