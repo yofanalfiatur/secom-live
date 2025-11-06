@@ -1224,6 +1224,10 @@ main {
   font-size: calc(var(--text-3xl) + 0.6rem);
   line-height: 1.3;
 }
+.d-news__detail {
+  display: flex;
+  flex-direction: column;
+}
 .d-news__detail h1,
 .d-news__detail h2,
 .d-news__detail h3,
@@ -1238,6 +1242,9 @@ main {
 .d-news__detail ul,
 .d-news__detail ol {
   font-size: 16px;
+}
+.d-news__detail p {
+  margin: 5px 0;
 }
 .d-news__detail h2 {
   font-size: var(--text-4xl);
@@ -1438,4 +1445,8 @@ main {
 .cr-detail__desc strong,
 .cr-detail__desc b {
   font-weight: 600;
+}
+
+.fg-pw .login__wrap-form::after {
+  height: 200px;
 }

@@ -1,6 +1,6 @@
 "use client";
 import RadialGrid from "@/components/Elements/RadialGrid";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import FloatButton from "@/components/Elements/FloatButton";
 import { useLocale } from "next-intl";
@@ -9,50 +9,13 @@ import { Link } from "@/i18n/navigation";
 
 const ForgetPassword = () => {
   const locale = useLocale();
-
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    const iframe = iframeRef.current;
-
-    const handleIframeLoad = () => {
-      try {
-        setTimeout(() => {
-          const iframeDoc =
-            iframe.contentDocument || iframe.contentWindow.document;
-          const divForgotLogin = iframeDoc.querySelector(".divForgotLogin");
-
-          if (divForgotLogin) {
-            // Apply white background styling
-            divForgotLogin.style.backgroundColor = "#ffffff";
-            divForgotLogin.style.background = "#ffffff";
-            divForgotLogin.style.padding = "20px";
-
-            console.log("Successfully styled .divForgotLogin");
-          }
-        }, 1000);
-      } catch (error) {
-        console.warn("Cannot access iframe content (CORS):", error);
-      }
-    };
-
-    if (iframe) {
-      iframe.addEventListener("load", handleIframeLoad);
-
-      // Cleanup
-      return () => {
-        iframe.removeEventListener("load", handleIframeLoad);
-      };
-    }
-  }, []);
-
   return (
     <>
       <motion.section
         animate={{ y: "0%", opacity: 1 }}
         initial={{ y: "-100%", opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative overflow-hidden flex flex-col items-center justify-center hide__footer__top"
+        className="relative overflow-hidden flex flex-col items-center justify-center fg-pw hide__footer__top"
       >
         <RadialGrid />
         <div className="container mx-auto flex flex-col items-center justify-center relative z-10 ">
@@ -68,12 +31,11 @@ const ForgetPassword = () => {
                 : "Smart Security Login Helper"}
             </motion.h1>
 
-            <div className="w-full mt-4 login__wrap-form">
+            <div className="w-full mt-4 relative flex flex-col after:content-[''] after:bg-white after:absolute after:top-0 after:left-0 after:w-full login__wrap-form">
               {/* <ForgetPasswordForm /> */}
               <iframe
-                ref={iframeRef}
                 src="https://www.alarm.com/getlogininfo_asp_frame.aspx"
-                className="w-full h-[600px] border-0 rounded-lg overflow-hidden"
+                className="w-full h-[600px] border-0 rounded-lg overflow-hidden relative z-[1]"
                 title="Forget Password Form"
                 loading="lazy"
               ></iframe>
