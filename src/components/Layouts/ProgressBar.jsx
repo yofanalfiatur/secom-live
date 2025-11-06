@@ -42,27 +42,80 @@ export default function ProgressBar() {
 
         // Add small delay for better UX
         setTimeout(() => {
-          if (NProgress.status !== null && NProgress.status < 0.9) {
-            NProgress.set(0.9);
+          if (NProgress.status !== null && NProgress.status < 0.8) {
+            NProgress.set(0.8);
           }
         }, 100);
       }
+    };
+
+    // Handle language switcher clicks
+    const handleLanguageSwitcherClick = (event) => {
+      const target = event.currentTarget;
+
+      // Check if the clicked element is a language option without .active class
+      const isLangOption = target.closest(".lang-option");
+      const isActiveLang = target.closest(".lang-option.active");
+
+      if (isLangOption && !isActiveLang) {
+        // Start progress bar for language change
+        NProgress.start();
+
+        // Add small delay for better UX
+        setTimeout(() => {
+          if (NProgress.status !== null && NProgress.status < 0.7) {
+            NProgress.set(0.7);
+          }
+        }, 100);
+      }
+      // If it's an active language option, do nothing (no progress bar)
     };
 
     // Add click listeners to all links
     const setupLinkListeners = () => {
       const links = document.querySelectorAll('a[href^="/"]');
       links.forEach((link) => {
+        link.removeEventListener("click", handleAnchorClick);
         link.addEventListener("click", handleAnchorClick);
       });
     };
 
+    // Add click listeners to language switcher
+    const setupLanguageSwitcherListeners = () => {
+      // Method 1: Listen to lang-list container (event delegation)
+      const langLists = document.querySelectorAll("ul.lang-list");
+      langLists.forEach((langList) => {
+        langList.removeEventListener("click", handleLanguageSwitcherClick);
+        langList.addEventListener("click", handleLanguageSwitcherClick);
+      });
+
+      // Method 2: Also listen to individual lang-option elements
+      const langOptions = document.querySelectorAll("li.lang-option");
+      langOptions.forEach((option) => {
+        option.removeEventListener("click", handleLanguageSwitcherClick);
+        option.addEventListener("click", handleLanguageSwitcherClick);
+      });
+
+      // Method 3: Listen to lang-link buttons directly
+      const langLinks = document.querySelectorAll(".lang-link");
+      langLinks.forEach((link) => {
+        link.removeEventListener("click", handleLanguageSwitcherClick);
+        link.addEventListener("click", handleLanguageSwitcherClick);
+      });
+    };
+
+    // Setup all listeners
+    const setupAllListeners = () => {
+      setupLinkListeners();
+      setupLanguageSwitcherListeners();
+    };
+
     // Setup initial listeners
-    setupLinkListeners();
+    setupAllListeners();
 
     // Watch for new links added to DOM
     const observer = new MutationObserver(() => {
-      setupLinkListeners();
+      setupAllListeners();
     });
 
     observer.observe(document.body, {
@@ -87,10 +140,28 @@ export default function ProgressBar() {
 
     return () => {
       observer.disconnect();
+
+      // Cleanup all event listeners
       const links = document.querySelectorAll('a[href^="/"]');
       links.forEach((link) => {
         link.removeEventListener("click", handleAnchorClick);
       });
+
+      const langLists = document.querySelectorAll("ul.lang-list");
+      langLists.forEach((langList) => {
+        langList.removeEventListener("click", handleLanguageSwitcherClick);
+      });
+
+      const langOptions = document.querySelectorAll("li.lang-option");
+      langOptions.forEach((option) => {
+        option.removeEventListener("click", handleLanguageSwitcherClick);
+      });
+
+      const langLinks = document.querySelectorAll(".lang-link");
+      langLinks.forEach((link) => {
+        link.removeEventListener("click", handleLanguageSwitcherClick);
+      });
+
       clearTimeout(fallbackTimer);
       completeProgress();
     };
