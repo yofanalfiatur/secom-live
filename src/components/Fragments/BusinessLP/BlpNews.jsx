@@ -51,7 +51,7 @@ const BlpNews = (props) => {
                   </p>
                 </div>
                 <Link
-                  href={`/news/${dataFirstPost.slug}`}
+                  href={`/${dataFirstPost.slug}`}
                   className="blp-news__link group"
                 >
                   <p className="text-white font-normal text-[30px] lg:text-[40px] leading-[1.3] lg:leading-[1.2] mt-2 mb-3 lg:mb-4 transition-all duration-300 ease group-hover:text-tosca">
@@ -62,7 +62,7 @@ const BlpNews = (props) => {
                   {dataFirstPost.excerpt}
                 </p>
                 <Link
-                  href={`/news/${dataFirstPost.slug}`}
+                  href={`/${dataFirstPost.slug}`}
                   className="flex flex-row items-center gap-3 mt-5 lg:mt-6 relative max-w-max transition-all duration-300 ease hover:gap-6 after:content-[''] after:absolute after:w-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full "
                 >
                   <p className="text-white text-sm lg:text-lg tracking-[3px] uppercase">
@@ -124,10 +124,7 @@ const BlpNews = (props) => {
                       {formatDate(item.published_at, locale)}
                     </p>
                   </div>
-                  <Link
-                    href={`/news/${item.slug}`}
-                    className="blp-news__link group"
-                  >
+                  <Link href={`/${item.slug}`} className="blp-news__link group">
                     <p className="text-white font-normal text-[20px] lg:text-[30px] leading-[1.3] lg:leading-[1.2] mt-2 lg:mt-5 transition-all duration-300 ease group-hover:text-tosca">
                       {item.title}
                     </p>

@@ -123,7 +123,7 @@ export default async function NewsDetailPage({ params }) {
                       <p>{item.category}</p> | <p>{item.pusblishedDate}</p>
                     </div>
                     <Link
-                      href={`/news/${item.slug}`}
+                      href={`/${item.slug}`}
                       className="text-[25px] lg:text-[30px] font-medium font-raleway leading-snug text-darkblue transition-all duration-300 ease hover:text-navyblue"
                     >
                       {item.title}
