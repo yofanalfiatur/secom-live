@@ -49,7 +49,7 @@ export default function ProgressBar() {
       }
     };
 
-    // Handle language switcher clicks
+    // Handle language switcher clicks (desktop)
     const handleLanguageSwitcherClick = (event) => {
       const target = event.currentTarget;
 
@@ -71,6 +71,30 @@ export default function ProgressBar() {
       // If it's an active language option, do nothing (no progress bar)
     };
 
+    // Handle mobile language switcher clicks
+    const handleMobileLanguageSwitcherClick = (event) => {
+      const target = event.currentTarget;
+
+      // Check if the clicked element is a mobile language button without .active-md class
+      const isMobileLangButton = target.closest(".header__menu__link");
+      const isActiveMobileLang = target.closest(
+        ".header__menu__link.active-md"
+      );
+
+      if (isMobileLangButton && !isActiveMobileLang) {
+        // Start progress bar for mobile language change
+        NProgress.start();
+
+        // Add small delay for better UX
+        setTimeout(() => {
+          if (NProgress.status !== null && NProgress.status < 0.7) {
+            NProgress.set(0.7);
+          }
+        }, 100);
+      }
+      // If it's an active mobile language button, do nothing (no progress bar)
+    };
+
     // Add click listeners to all links
     const setupLinkListeners = () => {
       const links = document.querySelectorAll('a[href^="/"]');
@@ -80,7 +104,7 @@ export default function ProgressBar() {
       });
     };
 
-    // Add click listeners to language switcher
+    // Add click listeners to language switcher (desktop)
     const setupLanguageSwitcherListeners = () => {
       // Method 1: Listen to lang-list container (event delegation)
       const langLists = document.querySelectorAll("ul.lang-list");
@@ -104,10 +128,34 @@ export default function ProgressBar() {
       });
     };
 
+    // Add click listeners to mobile language switcher
+    const setupMobileLanguageSwitcherListeners = () => {
+      // Method 1: Listen to header__lang-md container (event delegation)
+      const mobileLangContainers =
+        document.querySelectorAll(".header__lang-md");
+      mobileLangContainers.forEach((container) => {
+        container.removeEventListener(
+          "click",
+          handleMobileLanguageSwitcherClick
+        );
+        container.addEventListener("click", handleMobileLanguageSwitcherClick);
+      });
+
+      // Method 2: Listen to individual mobile language buttons
+      const mobileLangButtons = document.querySelectorAll(
+        ".header__menu__link"
+      );
+      mobileLangButtons.forEach((button) => {
+        button.removeEventListener("click", handleMobileLanguageSwitcherClick);
+        button.addEventListener("click", handleMobileLanguageSwitcherClick);
+      });
+    };
+
     // Setup all listeners
     const setupAllListeners = () => {
       setupLinkListeners();
       setupLanguageSwitcherListeners();
+      setupMobileLanguageSwitcherListeners();
     };
 
     // Setup initial listeners
@@ -160,6 +208,22 @@ export default function ProgressBar() {
       const langLinks = document.querySelectorAll(".lang-link");
       langLinks.forEach((link) => {
         link.removeEventListener("click", handleLanguageSwitcherClick);
+      });
+
+      const mobileLangContainers =
+        document.querySelectorAll(".header__lang-md");
+      mobileLangContainers.forEach((container) => {
+        container.removeEventListener(
+          "click",
+          handleMobileLanguageSwitcherClick
+        );
+      });
+
+      const mobileLangButtons = document.querySelectorAll(
+        ".header__menu__link"
+      );
+      mobileLangButtons.forEach((button) => {
+        button.removeEventListener("click", handleMobileLanguageSwitcherClick);
       });
 
       clearTimeout(fallbackTimer);
