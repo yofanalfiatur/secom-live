@@ -39,7 +39,7 @@ const SecDetailCard = (props) => {
       </div>
 
       <div className="container mt-18 mx-auto flex flex-col lg:flex-row lg:bg-navyblue relative z-1">
-        <div className="w-full lg:w-[35%]">
+        <div className="w-full lg:w-[24%]">
           <Image
             src={process.env.NEXT_PUBLIC_STORAGE_URL + dataSection.ctaImage}
             width={800}
@@ -49,13 +49,13 @@ const SecDetailCard = (props) => {
             className={`lg:[clip-path:polygon(0_0,89%_0,100%_100%,0%_100%)] w-full h-full object-cover aspect-[285/121] lg:aspect-[431/220]`}
           />
         </div>
-        <div className="w-full lg:w-[41%] flex flex-col justify-center bg-navyblue px-5 lg:px-0 pt-3 lg:pt-0 pb-3 lg:pb-0">
+        <div className="w-full lg:w-[51%] flex flex-col justify-center bg-navyblue px-5 lg:px-0 pt-3 lg:pt-0 pb-3 lg:pb-0">
           <h3
             className="text-white font-raleway font-normal text-[20px] lg:text-[30px] lg:pl-10 leading-[1.7] lg:leading-[1.5] lg:max-w-full "
             dangerouslySetInnerHTML={{ __html: dataSection.ctaTitle }}
           />
         </div>
-        <div className="w-full lg:w-[24%] flex flex-col justify-center lg:items-end lg:pr-7 bg-navyblue px-5 lg:px-0 pb-6 lg:pb-0">
+        <div className="w-full lg:w-[25%] flex flex-col justify-center lg:items-end lg:pr-7 bg-navyblue px-5 lg:px-0 pb-6 lg:pb-0">
           <ButtonPrimary
             href={`/solution?sector=${dataSection.ctaUrl}`}
             target="_self"

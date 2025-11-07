@@ -2,7 +2,6 @@ import AboutTrusted from "@/components/Fragments/About/AbTrusted";
 import BlpBanner from "@/components/Fragments/BusinessLP/BlpBanner";
 import BlpCard from "@/components/Fragments/BusinessLP/BlpCard";
 import BlpNews from "@/components/Fragments/BusinessLP/BlpNews";
-import BlpWhy from "@/components/Fragments/BusinessLP/BlpWhy";
 import ResSurvey from "@/components/Fragments/Residential/R-Survey";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 import { generatePageMetadata } from "@/utils/metadata";
@@ -12,7 +11,7 @@ import {
   getArrayData,
 } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
-import AboutWork from "@/components/Fragments/About/AbWork";
+import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -42,15 +41,14 @@ export default async function BusinessPage({ params }) {
     const cardData = getArrayData(sections, "business_two_card", "cards");
     const logoTrustedData = getSectionData(sections, "business_trusted_by");
 
-    // Mapping whyData untuk AboutWork component
     const mappingWhyData = {
       title: whyData?.title_section || "",
       desc: whyData?.description_section || "",
-      slides:
+      items:
         whyData?.list_items?.map((item) => ({
           title: item?.text || "",
-          logo: item?.logo || "",
-          description: item?.description || "",
+          image: item?.logo || "",
+          desc: item?.description || "",
         })) || [],
     };
 
@@ -96,8 +94,11 @@ export default async function BusinessPage({ params }) {
         <HeaderList locale={locale} />
         <BlpBanner dataSection={bannerData} />
         <ResSurvey dataSection={surveyData} dataDiscover="/product/alarm" />
-        {/* <BlpWhy dataSection={whyData} /> */}
-        <AboutWork dataSection={mappingWhyData} classParent="mt-10 lg:mt-20" />
+        <SecDetailSlider
+          dataSection={mappingWhyData}
+          classParent="mt-10 lg:mt-20"
+          numbering={true}
+        />
         <BlpCard dataSection={cardData} />
 
         {mappedPosts.length > 0 && (

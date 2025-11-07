@@ -75,7 +75,7 @@ export default async function SectorDetailPage({ params }) {
           dataSection={overviewData}
           className="lg:!pt-17 !pb-10 lg:!pb-17"
         />
-        <SecDetailSlider dataSection={sliderData} />
+        <SecDetailSlider dataSection={sliderData} numbering={false} />
         <SecDetailCard dataSection={cardSection} />
       </>
     );

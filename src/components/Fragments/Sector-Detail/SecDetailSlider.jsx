@@ -7,7 +7,7 @@ import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-const SecDetailSlider = ({ dataSection }) => {
+const SecDetailSlider = ({ dataSection, classParent, numbering }) => {
   // Refs untuk sync
   const imgSplideRef = useRef(null);
   const descSplideRef = useRef(null);
@@ -24,9 +24,11 @@ const SecDetailSlider = ({ dataSection }) => {
   }, []);
 
   return (
-    <section className="relative pb-20 lg:pb-0 bg-navyblue sd-slider">
+    <section
+      className={`relative pb-20 lg:pb-0 bg-navyblue sd-slider ${classParent}`}
+    >
       <div className="container !p-0 mx-auto flex flex-col lg:flex-row items-center">
-        <div className="w-full lg:w-7/12 flex flex-col justify-center min-h-[unset] lg:min-h-[160px] border-white/50 border-b-[1px] lg:border-r-[1px] lg:pr-4">
+        <div className="w-full lg:w-7/12 flex flex-col justify-center min-h-[unset] lg:min-h-[160px] border-white/50 border-b-[1px] lg:border-b-[0px] lg:border-r-[1px] lg:pr-4">
           <h2
             className="text-white text-[30px] lg:text-[50px] leading-[1.3] lg:leading-[1.2] font-normal mt-8 mb-4 lg:mt-auto lg:mb-auto px-4 lg:px-0 font-raleway"
             dangerouslySetInnerHTML={{ __html: dataSection.title }}
@@ -129,6 +131,7 @@ const SecDetailSlider = ({ dataSection }) => {
                     className="h-max flex flex-col sd-slider__slide-desc"
                   >
                     <h3 className="text-white font-raleway font-normal text-[20px] lg:text-[30px] leading-[1.2] lg:leading-[1.3] mb-2 lg:mb-3 ">
+                      {numbering === true ? index + 1 + ". " : null}
                       {item.title}
                     </h3>
                     <p className="text-white leading-[1.7] lg:leading-[1.5] text-sm lg:text-lg h-max sd-slider__item-desc">

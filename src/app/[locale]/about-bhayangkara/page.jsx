@@ -51,7 +51,7 @@ export default async function AboutBhayangkaraPage({ params }) {
         <AboutBanner dataSection={bannerData} />
         <AboutStory dataSection={storyData} />
         <AboutWhy dataSection={whyData} />
-        <SecDetailSlider dataSection={workData} />
+        <SecDetailSlider dataSection={workData} numbering={true} />
         <AboutCertificate dataSection={certifData} />
         <AboutTeam dataSection={teamData} />
         <AboutTrusted

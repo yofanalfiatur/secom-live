@@ -45,6 +45,12 @@ const AboutTeam = ({ dataSection }) => {
   return (
     <section className="flex flex-col relative overflow-hidden ab-team">
       {/* Intro Section */}
+      <div className="container mx-auto flex flex-col items-center relative z-[2] md:hidden">
+        <h2 className="text-navyblue text-center w-full lg:w-[62%] text-[25px] md:text-2xl font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-4">
+          {dataSection.title}
+        </h2>
+      </div>
+
       <div
         className={`flex flex-col h-full w-full relative bg-cover bg-center bg-no-repeat ab-team__intro aspect-[20/11]`}
         style={{
@@ -53,7 +59,7 @@ const AboutTeam = ({ dataSection }) => {
           })`,
         }}
       >
-        <div className="container mx-auto flex flex-col items-center relative z-[2]">
+        <div className="container mx-auto hidden md:flex flex-col items-center relative z-[2]">
           <h2 className="text-white text-center w-full lg:w-[62%] text-sm sm:text-[18px] md:text-2xl lg:text-[50px] font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-2 lg:mb-8 text-shadow-lg/20">
             {dataSection.title}
           </h2>
