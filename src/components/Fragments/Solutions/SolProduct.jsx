@@ -111,12 +111,16 @@ const SolProduct = ({ dataSection, defaultSector }) => {
                 value={selectedSector}
                 className="border-[1px] rounded-[5px] border-white text-sm lg:text-lg text-white py-3 lg:py-4 px-4 w-full appearance-none cursor-pointer sol-filter-product"
               >
-                <option value="">
+                <option value="" className="text-navyblue">
                   {locale === "en" ? "All Industries" : "Semua Industri"}
                 </option>
 
                 {Sectors?.map((sector) => (
-                  <option key={sector.slug} value={sector.slug}>
+                  <option
+                    key={sector.slug}
+                    value={sector.slug}
+                    className="text-navyblue"
+                  >
                     {sector.translations?.[locale]?.title ??
                       sector.translations?.en?.title}
                   </option>
