@@ -27,7 +27,7 @@ export default async function ServiceDetailPage({ params }) {
     const bannerData = {
       title: serviceData.banner_title,
       image: serviceData.banner_image,
-      imageMd: serviceData.banner_image,
+      imageMd: serviceData.banner_image_mobile,
     };
 
     const overviewData = {
