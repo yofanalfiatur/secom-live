@@ -29,11 +29,13 @@ const AmReason = ({ dataSection }) => {
       const bg = bgSplideRef.current.splide;
       if (bg) {
         bg.on("move", (newIndex) => {
-          setCurrent(newIndex);
+          // Untuk loop, kita perlu menyesuaikan index yang sebenarnya
+          const realIndex = newIndex % total;
+          setCurrent(realIndex);
         });
       }
     }
-  }, []);
+  }, [total]);
 
   // Kalau state current berubah → update Splide
   useEffect(() => {
@@ -112,6 +114,7 @@ const AmReason = ({ dataSection }) => {
       const atTopBoundary = atFirst && tryingToScrollUp;
       const atBottomBoundary = atLast && tryingToScrollDown;
 
+      // Untuk loop, hapus boundary restrictions
       if (aligned && (atTopBoundary || atBottomBoundary)) {
         isInSection.current = false;
         scrollAccumulator.current = 0;
@@ -137,8 +140,8 @@ const AmReason = ({ dataSection }) => {
       if (aligned && !atTopBoundary && !atBottomBoundary) {
         isInSection.current = true;
 
-        const canNavigateDown = delta > 0 && !atLast;
-        const canNavigateUp = delta < 0 && !atFirst;
+        const canNavigateDown = delta > 0;
+        const canNavigateUp = delta < 0;
 
         if (canNavigateDown || canNavigateUp) {
           e.preventDefault();
@@ -151,9 +154,9 @@ const AmReason = ({ dataSection }) => {
             scrollAccumulator.current = 0;
 
             if (canNavigateDown) {
-              setCurrent((c) => Math.min(c + 1, total - 1));
+              setCurrent((c) => (c + 1) % total); // Loop ke awal
             } else if (canNavigateUp) {
-              setCurrent((c) => Math.max(c - 1, 0));
+              setCurrent((c) => (c - 1 + total) % total); // Loop ke akhir
             }
           }
         }
@@ -204,22 +207,25 @@ const AmReason = ({ dataSection }) => {
         <Splide
           ref={bgSplideRef}
           options={{
-            type: "slide",
+            type: "loop", // Diubah dari "slide" menjadi "loop"
             perPage: 1,
             arrows: false,
             pagination: false,
             wheel: false,
-            direction: isDesktop ? "ttb" : "ltr", // Desktop: vertical, Mobile: horizontal
-            height: isDesktop ? "80vh" : "auto", // Auto height untuk mobile
+            direction: isDesktop ? "ttb" : "ltr",
+            height: isDesktop ? "80vh" : "auto",
+            // Opsi khusus untuk loop
+            rewind: true,
+            speed: 400,
             // Tambah opsi khusus mobile untuk swipe
             ...(isDesktop
               ? {}
               : {
-                  drag: true, // Enable drag/swipe di mobile
-                  swipe: true, // Enable swipe gesture
-                  touchMove: true, // Enable touch move
-                  flickPower: 600, // Sensitivitas flick
-                  flickMaxPages: 1, // Max pages per flick
+                  drag: true,
+                  swipe: true,
+                  touchMove: true,
+                  flickPower: 600,
+                  flickMaxPages: 1,
                 }),
           }}
           className="w-full h-full"
@@ -253,7 +259,8 @@ const AmReason = ({ dataSection }) => {
             <AnimatePresence initial={false} mode="popLayout">
               {dataSection.items.map((item, index) => {
                 const position = (index - current + total) % total;
-                if (position > 1) return null;
+                // Untuk loop, kita perlu menampilkan lebih banyak card
+                if (position > 2) return null;
 
                 return (
                   <motion.div
@@ -261,7 +268,7 @@ const AmReason = ({ dataSection }) => {
                     className="absolute w-full h-full"
                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
                     animate={{
-                      opacity: 1,
+                      opacity: position < 2 ? 1 : 0,
                       scale: 1 - position * 0.05,
                       y: -position * 30,
                       zIndex: total - position,
@@ -273,10 +280,10 @@ const AmReason = ({ dataSection }) => {
                     dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={(e, info) => {
                       if (!isDesktop) {
-                        if (info.offset.x < -50 && current < total - 1) {
-                          setCurrent((c) => Math.min(c + 1, total - 1));
-                        } else if (info.offset.x > 50 && current > 0) {
-                          setCurrent((c) => Math.max(c - 1, 0));
+                        if (info.offset.x < -50) {
+                          setCurrent((c) => (c + 1) % total); // Loop ke depan
+                        } else if (info.offset.x > 50) {
+                          setCurrent((c) => (c - 1 + total) % total); // Loop ke belakang
                         }
                       }
                     }}
