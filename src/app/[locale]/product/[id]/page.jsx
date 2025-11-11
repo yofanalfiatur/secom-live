@@ -138,8 +138,15 @@ export default async function ProductDetail({ params }) {
       title: productData.feature_title_section,
       desc: productData.feature_description_section,
       items: productData.feature_table,
-      type: null,
-      competitor: locale === "en" ? "Other Company" : "Perusahaan Lain",
+      type: typeProduct === "business" ? null : "SECOM Smart Security",
+      competitor:
+        typeProduct === "business"
+          ? locale === "en"
+            ? "Other Company"
+            : "Perusahaan Lain"
+          : locale === "en"
+          ? "CCTV Only"
+          : "Hanya CCTV",
     };
 
     const packagesSection = {
@@ -224,16 +231,8 @@ export default async function ProductDetail({ params }) {
               dataProducts={productDevices}
             />
             <AmApps dataSection={appsData} />
-            <AmTrusted
-              translationKey="AlarmTrusted"
-              dataSection={featuresData}
-            />
+            <AmTrusted dataSection={featuresData} />
             <AmPackage
-              translationKey="AlarmPackage"
-              differences="AlarmDifferences"
-              listPackages="BusinessPackages"
-              packagesBuy="BusinessPackagesBuy"
-              packagesRent="BusinessPackagesRent"
               packagesData={packagesData}
               packagesSection={packagesSection}
             />

@@ -45,6 +45,7 @@ export default async function AboutBhayangkaraPage({ params }) {
     const certifData = sections.about_bhayangkara_award || {};
     const teamData = sections.about_bhayangkara_teams || {};
     const logoTrustedData = sections.about_bhayangkara_trusted_by || [];
+    const statusTrustedByData = logoTrustedData.active || {};
 
     return (
       <>
@@ -54,10 +55,12 @@ export default async function AboutBhayangkaraPage({ params }) {
         <SecDetailSlider dataSection={workData} numbering={true} />
         <AboutCertificate dataSection={certifData} />
         <AboutTeam dataSection={teamData} classWrapper="mb-15 lg:mb-30" />
-        {/* <AboutTrusted
-          dataSection={logoTrustedData}
-          classWrapper="mt-8 lg:mt-15"
-        /> */}
+        {statusTrustedByData === true && (
+          <AboutTrusted
+            dataSection={logoTrustedData}
+            classWrapper="mt-8 lg:mt-15"
+          />
+        )}
       </>
     );
   } catch (error) {
