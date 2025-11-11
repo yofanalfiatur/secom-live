@@ -5,7 +5,7 @@ import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
-const AboutTeam = ({ dataSection }) => {
+const AboutTeam = ({ dataSection, classWrapper }) => {
   const locale = useLocale();
   const [activeIndex, setActiveIndex] = useState(null);
   const isDesktop = useIsDesktop(); // Asumsi hook ini mengembalikan true untuk desktop
@@ -43,7 +43,9 @@ const AboutTeam = ({ dataSection }) => {
   }, [activeIndex, isDesktop]);
 
   return (
-    <section className="flex flex-col relative overflow-hidden ab-team">
+    <section
+      className={`flex flex-col relative overflow-hidden ${classWrapper} ab-team`}
+    >
       {/* Intro Section */}
       <div className="container mx-auto flex flex-col items-center relative z-[2] md:hidden">
         <h2 className="text-navyblue text-center w-full lg:w-[62%] text-[25px] md:text-2xl font-raleway font-normal pt-5 lg:pt-20 leading-[1.4] lg:leading-[1.2] mb-4">

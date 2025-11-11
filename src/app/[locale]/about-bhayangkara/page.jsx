@@ -53,11 +53,11 @@ export default async function AboutBhayangkaraPage({ params }) {
         <AboutWhy dataSection={whyData} />
         <SecDetailSlider dataSection={workData} numbering={true} />
         <AboutCertificate dataSection={certifData} />
-        <AboutTeam dataSection={teamData} />
-        <AboutTrusted
+        <AboutTeam dataSection={teamData} classWrapper="mb-15 lg:mb-30" />
+        {/* <AboutTrusted
           dataSection={logoTrustedData}
           classWrapper="mt-8 lg:mt-15"
-        />
+        /> */}
       </>
     );
   } catch (error) {
