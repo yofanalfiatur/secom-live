@@ -169,7 +169,7 @@ export default function ContactForm({ product }) {
       const submission = await apiPost("/submissions", formData);
 
       if (submission.status === "success") {
-        router.push("/thankyou");
+        router.push(locale === "en" ? "/en/thankyou" : "/thankyou");
       }
     } catch (e) {
       console.error(e);
