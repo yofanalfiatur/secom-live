@@ -31,8 +31,9 @@ const BlpNews = (props) => {
           <div className="w-full lg:w-[calc(67%+2rem)] flex">
             <Image
               src={process.env.NEXT_PUBLIC_STORAGE_URL + dataFirstPost.image}
-              width={1000}
-              height={516}
+              width={1920}
+              height={1080}
+              quality={100}
               alt={dataFirstPost.title}
               className="object-cover w-full h-full aspect-[320/166] lg:aspect-[994/516]"
             />

@@ -87,10 +87,11 @@ export default async function NewsDetailPage({ params }) {
               {imageUrl && (
                 <Image
                   src={imageUrl}
-                  width={1000}
-                  height={558}
+                  width={1600}
+                  height={1000}
+                  quality={100}
                   alt={title}
-                  className="w-full lg:h-[588px] md:h-[380px] object-cover mb-5 h-news__featured"
+                  className="w-full h-auto object-cover mb-5 h-news__featured"
                 />
               )}
 

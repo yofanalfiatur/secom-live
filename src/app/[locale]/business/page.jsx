@@ -29,7 +29,7 @@ export default async function BusinessPage({ params }) {
     // Fetch data secara paralel
     const [pageData, postsData] = await Promise.all([
       getStructuredPageData("business", locale),
-      getPosts("articles"),
+      getPosts("articles?tags=20"),
     ]);
 
     const { sections } = pageData;
