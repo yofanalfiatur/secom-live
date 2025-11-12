@@ -7,6 +7,9 @@ import { ChevronDown } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { apiPost } from "@/libs/api";
 
+// Import komponen reCAPTCHA
+import ReCAPTCHA from "react-google-recaptcha";
+
 export default function ContactForm({ product }) {
   const t = useTranslations();
   const FormValue = t.raw("FormValue");
@@ -21,23 +24,27 @@ export default function ContactForm({ product }) {
     phone: "",
     location: "",
     company: "",
-    product_service: "", // Ganti dari product_id ke product_service
+    product_service: "",
     source: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState(""); // State untuk menyimpan token reCAPTCHA
 
   const locationOptions = FormValue.locationType;
   const howDidYouKnowOptions = FormValue.howDidYouKnow;
 
   const searchParams = useSearchParams();
 
+  // reCAPTCHA site key
+  const RECAPTCHA_SITE_KEY = "6LcHFQksAAAAANHrj8G931DnTSEHiAo_bLtYLtz-";
+
   // Auto-set location dan product dari query param
   useEffect(() => {
-    const locationParam = searchParams.get("location"); // ex: business / residential
-    const productParam = searchParams.get("product"); // ex: product-slug
+    const locationParam = searchParams.get("location");
+    const productParam = searchParams.get("product");
 
     if (locationParam) {
       setFormData((prev) => ({
@@ -47,7 +54,6 @@ export default function ContactForm({ product }) {
     }
 
     if (productParam) {
-      // Cari product berdasarkan SLUG (bukan ID)
       const selectedProduct = product.find(
         (item) => item.slug === productParam
       );
@@ -55,7 +61,7 @@ export default function ContactForm({ product }) {
       if (selectedProduct) {
         setFormData((prev) => ({
           ...prev,
-          product_service: selectedProduct.slug, // Simpan slug sebagai product_service
+          product_service: selectedProduct.slug,
         }));
       }
     }
@@ -75,9 +81,12 @@ export default function ContactForm({ product }) {
       newErrors.phone = "Please enter a valid phone number !";
     }
     if (!formData.location) newErrors.location = "Location is required !";
-    // if (!formData.product) newErrors.product = "Product is required !";
-
     if (!formData.message.trim()) newErrors.message = "Message is required !";
+
+    // Validasi reCAPTCHA
+    if (!recaptchaToken) {
+      newErrors.recaptcha = "Please complete the reCAPTCHA verification !";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -99,7 +108,7 @@ export default function ContactForm({ product }) {
       setFormData((prev) => ({
         ...prev,
         [name]: value,
-        company: "", // Clear company field
+        company: "",
       }));
     }
 
@@ -111,21 +120,61 @@ export default function ContactForm({ product }) {
     }
   };
 
+  // Handler untuk reCAPTCHA
+  const handleRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+    // Hapus error reCAPTCHA jika ada
+    if (errors.recaptcha) {
+      setErrors((prev) => ({
+        ...prev,
+        recaptcha: "",
+      }));
+    }
+  };
+
+  // Handler untuk reCAPTCHA error
+  const handleRecaptchaError = () => {
+    setErrors((prev) => ({
+      ...prev,
+      recaptcha: "Failed to load reCAPTCHA. Please refresh the page.",
+    }));
+  };
+
+  // Handler untuk reCAPTCHA expire
+  const handleRecaptchaExpired = () => {
+    setRecaptchaToken("");
+    setErrors((prev) => ({
+      ...prev,
+      recaptcha: "reCAPTCHA expired. Please verify again.",
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    // console.log(formData);
 
     try {
       setIsLoading(true);
-      const submission = await apiPost("/submissions", formData);
-      // console.log(submission);
+
+      const verificationRecaptcha = await apiPost("/verify-recaptcha", {
+        token: recaptchaToken,
+      });
+
+      if (verificationRecaptcha.status === false) {
+        handleRecaptchaError();
+        setRecaptchaToken("");
+        return;
+      }
+
+      const submission = await apiPost("/submissions", submissionData);
 
       if (submission.status === "success") {
         router.push(locale === "en" ? "en/thankyou" : "/thankyou");
       }
     } catch (e) {
       console.error(e);
+      // Jika error karena reCAPTCHA, reset token
+      setRecaptchaToken("");
     } finally {
       setIsLoading(false);
     }
@@ -505,6 +554,32 @@ export default function ContactForm({ product }) {
             )}
           </motion.div>
 
+          {/* reCAPTCHA Field */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="relative overflow-hidden flex flex-col mb-3 lg:mb-4"
+          >
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                sitekey={RECAPTCHA_SITE_KEY}
+                onChange={handleRecaptchaChange}
+                onError={handleRecaptchaError}
+                onExpired={handleRecaptchaExpired}
+              />
+            </div>
+            {errors.recaptcha && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-white text-xs mt-2 text-center bg-[#ff4444b9] px-2 py-1"
+              >
+                {errors.recaptcha}
+              </motion.p>
+            )}
+          </motion.div>
+
           {/* Submit Error */}
           {errors.submit && (
             <motion.p
@@ -520,7 +595,7 @@ export default function ContactForm({ product }) {
           <motion.button
             type="submit"
             disabled={isLoading}
-            className="cursor-pointer w-full py-3 lg:py-4 mt-1 lg:mt-4 rounded-[5px] tracking-[5px] font-raleway text-white text-sm lg:text-xl transition-all duration-200 bg-tosca hover:bg-teal-600 active:bg-teal-700 uppercase"
+            className="cursor-pointer w-full py-3 lg:py-4 mt-1 lg:mt-4 rounded-[5px] tracking-[5px] font-raleway text-white text-sm lg:text-xl transition-all duration-200 bg-tosca hover:bg-teal-600 active:bg-teal-700 uppercase disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <motion.div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

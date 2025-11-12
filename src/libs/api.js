@@ -73,9 +73,8 @@ export async function apiPost(endpoint, body = {}, options = {}) {
 
   if (!res.ok) {
     console.error(`API Error: ${res.status} ${res.statusText}`);
-    throw new Error(`Failed to POST: ${endpoint}`);
+    // throw new Error(`Failed to POST: ${endpoint}`);
   }
 
   return res.json();
 }
-
