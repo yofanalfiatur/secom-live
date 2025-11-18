@@ -8,7 +8,7 @@ import CardProductV2 from "@/components/Elements/CardProductV2";
 import { useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/libs/api";
 
-const SolProduct = ({ dataSection, defaultSector }) => {
+const SolProduct = ({ dataSection, defaultSector, urlProduct }) => {
   // const { dataSection } = dataSection;
   const isDesktop = useIsDesktop();
   const locale = useLocale();
@@ -148,7 +148,12 @@ const SolProduct = ({ dataSection, defaultSector }) => {
           <div className="w-full flex flex-col am-products__grid">
             <ul className="flex flex-row flex-wrap justify-center gap-4">
               {Products?.map((item) => (
-                <CardProductV2 key={item.slug} item={item} variant="desktop" />
+                <CardProductV2
+                  key={item.slug}
+                  item={item}
+                  variant="desktop"
+                  urlProduct={urlProduct}
+                />
               ))}
             </ul>
           </div>

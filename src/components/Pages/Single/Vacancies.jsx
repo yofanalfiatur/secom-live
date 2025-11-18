@@ -5,51 +5,51 @@ import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/libs/api";
 import CareerDetail from "@/components/Fragments/CareerDetail/CareerDetail";
 
-export async function generateMetadata({ params }) {
-  const { id, locale } = await params;
+// export async function generateMetadata({ params }) {
+//   const { id, locale } = await params;
 
-  try {
-    const response = await getPostBySlug("vacancies", id);
-    if (!response || !response.data) return notFound();
+//   try {
+//     const response = await getPostBySlug("vacancies", id);
+//     if (!response || !response.data) return notFound();
 
-    const vacanciesByLocale = response.data[locale] || response.data.id;
-    const careerDetail = vacanciesByLocale?.[0];
-    if (!careerDetail) return notFound();
+//     const vacanciesByLocale = response.data[locale] || response.data.id;
+//     const careerDetail = vacanciesByLocale?.[0];
+//     if (!careerDetail) return notFound();
 
-    return {
-      title: `${careerDetail.title} - SECOM`,
-      description: "",
-      keywords: "",
-      openGraph: {
-        title: `${careerDetail.title} - SECOM`,
-        description: "",
-        type: "article",
-        locale,
-      },
-      twitter: {
-        card: "summary",
-        title: `${careerDetail.title} - SECOM`,
-        description: "",
-      },
-    };
-  } catch (error) {
-    console.error("Error generating career detail metadata:", error);
-    return {
-      title: "Career Opportunity - SECOM",
-      description: "",
-      keywords: "",
-    };
-  }
-}
+//     return {
+//       title: `${careerDetail.title} - SECOM`,
+//       description: "",
+//       keywords: "",
+//       openGraph: {
+//         title: `${careerDetail.title} - SECOM`,
+//         description: "",
+//         type: "article",
+//         locale,
+//       },
+//       twitter: {
+//         card: "summary",
+//         title: `${careerDetail.title} - SECOM`,
+//         description: "",
+//       },
+//     };
+//   } catch (error) {
+//     console.error("Error generating career detail metadata:", error);
+//     return {
+//       title: "Career Opportunity - SECOM",
+//       description: "",
+//       keywords: "",
+//     };
+//   }
+// }
 
 export default async function CareerDetailPage({ params }) {
-  const { id, locale } = await params;
+  const { detail, locale } = await params;
 
   try {
-    const response = await getPostBySlug("vacancies", id);
+    const response = await getPostBySlug("vacancies", detail);
     if (!response || !response.data) return notFound();
 
-    const vacanciesByLocale = response.data[locale] || response.data.id;
+    const vacanciesByLocale = response.data[locale] || [];
     const careerDetail = vacanciesByLocale?.[0];
     if (!careerDetail) return notFound();
 

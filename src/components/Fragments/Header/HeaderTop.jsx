@@ -4,6 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { apiFetch } from "@/libs/api";
 
 const HeaderTop = () => {
   const t = useTranslations();
@@ -20,44 +21,87 @@ const HeaderTop = () => {
 
   // Function to get locale display name using LocalSwitcher
   const getLocaleDisplayName = (localeCode) => {
-    // Return locale code in uppercase (ID or EN)
     return localeCode.toUpperCase();
   };
 
-  // Function to get locale flag
-  const getLocaleFlag = (localeCode) => {
-    if (localeCode === "id") return "/img/flag-id.svg";
-    if (localeCode === "en") return "/img/flag-en.svg";
-    return "/img/flag-en.svg";
+  // Function to check if current path is homepage
+  const isHomepage = () => {
+    return (
+      pathname === `/${currentLocale}` ||
+      pathname === "/" ||
+      pathname === `/${currentLocale}/` ||
+      (currentLocale === "id" && pathname === "/") ||
+      (currentLocale === "en" && pathname === "/en")
+    );
   };
 
   // Function to handle language change
-  const handleLanguageChange = (newLocale) => {
+  const handleLanguageChange = async (newLocale) => {
     if (newLocale === currentLocale) return;
 
+    // console.log("Changing language to:", newLocale);
+
     try {
-      // Remove current locale from pathname
-      let newPath = pathname;
-      if (currentLocale !== "id") {
-        // id is default, so no prefix
-        newPath = pathname.replace(`/${currentLocale}`, "");
+      let identifierSlug = "";
+      let resourceData = null;
+
+      // Jika bukan homepage, ambil identifierSlug
+      if (!isHomepage()) {
+        // Parse pathname untuk dapat locale dan segments
+        const segments = pathname
+          .split("/")
+          .filter((segment) => segment !== "");
+        const pathWithoutLocale =
+          segments[0] === "en" ? segments.slice(1) : segments;
+
+        if (currentLocale === "en") {
+          identifierSlug = pathname.replace(`/${currentLocale}/`, "");
+        } else {
+          identifierSlug = pathname.replace(`/`, "");
+        }
+
+        // Fetch resource data berdasarkan slug hanya jika bukan homepage
+        let urlResource = null;
+        let parentURL = null;
+
+        if (pathWithoutLocale[1] === undefined) {
+          urlResource = `/resource?url=${pathWithoutLocale[0]}`;
+        } else {
+          urlResource = `/resource?url=${pathWithoutLocale[0]}&single_page=${pathWithoutLocale[1]}`;
+        }
+
+        try {
+          const response = await apiFetch(urlResource);
+          resourceData = response?.data.url[newLocale];
+          parentURL = response?.data?.parent_url[newLocale];
+        } catch (error) {
+          console.error("❌ Failed to fetch resource:", error);
+        }
+
+        if (pathWithoutLocale[1] && resourceData) {
+          router.push(`/${newLocale}/${parentURL}/${resourceData}`);
+          // console.log(
+          //   "Navigating to:",
+          //   `/${newLocale}/${parentURL}/${resourceData}`
+          // );
+          return;
+        }
       }
 
-      // Add new locale prefix if not default (id)
-      if (newLocale !== "id") {
-        newPath = `/${newLocale}${newPath}`;
+      // if homepage or resource data not found, redirect ke homepage
+      if (isHomepage() || !resourceData) {
+        if (newLocale === "id") {
+          router.push("/");
+        } else {
+          router.push(`/${newLocale}`);
+        }
+      } else {
+        // Navigate to new path dengan slug yang sesuai
+        router.push(`/${newLocale}/${resourceData}`);
       }
-
-      // Ensure path starts with /
-      if (!newPath.startsWith("/")) {
-        newPath = `/${newPath}`;
-      }
-
-      // Navigate to new path
-      router.push(newPath);
     } catch (error) {
       console.error("Error changing language:", error);
-      // Fallback: simple redirect
+      // Fallback: simple redirect ke homepage
       if (newLocale === "id") {
         router.push("/");
       } else {
@@ -70,12 +114,6 @@ const HeaderTop = () => {
   const isLanguageActive = (localeCode) => {
     return currentLocale === localeCode;
   };
-
-  // Debug logging
-  // useEffect(() => {
-  //   console.log("Current locale:", currentLocale);
-  //   console.log("Current pathname:", pathname);
-  // }, [currentLocale, pathname]);
 
   return (
     <>
@@ -99,12 +137,6 @@ const HeaderTop = () => {
                   disabled={isLanguageActive(localeCode)}
                   title={`Switch to ${getLocaleDisplayName(localeCode)}`}
                 >
-                  {/* <Image
-                    src={getLocaleFlag(localeCode)}
-                    alt={getLocaleDisplayName(localeCode)}
-                    width={20}
-                    height={14}
-                  /> */}
                   <span className="font-raleway text-[14px] text-darkblue">
                     {getLocaleDisplayName(localeCode)}
                   </span>

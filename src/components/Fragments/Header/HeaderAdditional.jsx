@@ -1,15 +1,21 @@
 "use client";
 import useIsDesktop from "@/components/Hooks/useIsDesktop";
 import { Link } from "@/i18n/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const HeaderAdditional = (props) => {
-  const { menuServices, menuProducts, menuSectors } = props;
+  const {
+    menuServices,
+    menuProducts,
+    menuSectors,
+    linkSectorOverview,
+    linkSolutionOverview,
+  } = props;
   const locale = useLocale();
   const isDesktop = useIsDesktop();
-  const pathname = usePathname(); // Tambahkan ini
+  const pathname = usePathname();
 
   // scroll state
   const [isScrolled, setIsScrolled] = useState(false);
@@ -216,14 +222,14 @@ const HeaderAdditional = (props) => {
           <div className="container mx-auto mt-9 lg:mt-0 mb-20 lg:mb-0 pt-0 lg:pt-9 header-add__content h-max lg:h-[300px] grid grid-cols-12 lg:gap-y-4">
             <div className="col-span-12 lg:col-span-2 flex flex-col max-h-max">
               <Link
-                href={`/sector`}
+                href={`/${linkSectorOverview}`}
                 className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative ${
-                  isActiveLink("/sector") ? "active-add" : ""
+                  isActiveLink(`/${linkSectorOverview}`) ? "active-add" : ""
                 }`}
               >
                 <p
                   className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease pr-[1.7rem] ${
-                    isActiveLink("/sector") ? " !text-tosca" : ""
+                    isActiveLink(`/${linkSectorOverview}`) ? " !text-tosca" : ""
                   }`}
                 >
                   {locale === "en" ? "Sector Overview" : "Sektor Kami"}
@@ -243,7 +249,9 @@ const HeaderAdditional = (props) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className={`transition-all duration-300 ease group-hover:stroke-tosca ${
-                      isActiveLink("/sector") ? "!stroke-tosca" : ""
+                      isActiveLink(`/${linkSectorOverview}`)
+                        ? "!stroke-tosca"
+                        : ""
                     }`}
                   />
                 </svg>
@@ -407,14 +415,16 @@ const HeaderAdditional = (props) => {
           <div className="container mx-auto mt-9 lg:mt-0 mb-20 lg:mb-0 pt-0 lg:pt-9 header-add__content h-max lg:h-[300px] grid grid-cols-12 lg:gap-y-4">
             <div className="col-span-12 lg:col-span-2 flex flex-col max-h-max">
               <Link
-                href={`/solution`}
+                href={`/${linkSolutionOverview}`}
                 className={`flex flex-row max-w-max items-center mb-4 lg:mb-4 group transition-all duration-300 ease relative ${
-                  isActiveLink("/solution") ? "active-add" : ""
+                  isActiveLink(`/${linkSolutionOverview}`) ? "active-add" : ""
                 }`}
               >
                 <p
                   className={`text-darkblue font-medium text-base group-hover:text-tosca transition-all duration-300 ease pr-[1.7rem] ${
-                    isActiveLink("/solution") ? " !text-tosca" : ""
+                    isActiveLink(`/${linkSolutionOverview}`)
+                      ? " !text-tosca"
+                      : ""
                   }`}
                 >
                   {locale === "en" ? "Solutions Overview" : "Solusi Kami"}
@@ -434,7 +444,9 @@ const HeaderAdditional = (props) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className={`transition-all duration-300 ease group-hover:stroke-tosca ${
-                      isActiveLink("/solution") ? "!stroke-tosca" : ""
+                      isActiveLink(`/${linkSolutionOverview}`)
+                        ? "!stroke-tosca"
+                        : ""
                     }`}
                   />
                 </svg>

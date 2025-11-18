@@ -1,16 +1,9 @@
 import ContactForm from "@/components/Fragments/Contact/ContactForm";
 import Image from "next/image";
-import FloatButton from "@/components/Elements/FloatButton";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData, getSectionData } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata("contact-us", locale, "contact_us.image_desktop");
-}
-
-export default async function Contact({ params }) {
+export default async function ContactPage({ params }) {
   const { locale } = await params;
 
   try {

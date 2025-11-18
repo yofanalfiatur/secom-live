@@ -5,17 +5,7 @@ import AboutTeam from "@/components/Fragments/About/AbTeam";
 import AboutTrusted from "@/components/Fragments/About/AbTrusted";
 import AboutWhy from "@/components/Fragments/About/AbWhy";
 import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData } from "@/utils/page-data";
-
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata(
-    "about-us-bhayangkara",
-    locale,
-    "about_bhayangkara_banner.image"
-  );
-}
 
 export default async function AboutBhayangkaraPage({ params }) {
   const { locale } = await params;

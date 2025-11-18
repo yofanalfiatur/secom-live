@@ -4,20 +4,10 @@ import AbWorldBanner from "@/components/Fragments/AbWorld/AbWorldBanner";
 import AbWorldMap from "@/components/Fragments/AbWorld/AbWorldMap";
 import AbWorldRnD from "@/components/Fragments/AbWorld/AbWorldRnD";
 import AbWorldStory from "@/components/Fragments/AbWorld/AbWorldStory";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData, getSectionData } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata(
-    "about-secom-world",
-    locale,
-    "about_world_banner.image"
-  );
-}
-
-export default async function AboutWorld({ params }) {
+export default async function AboutWorldPage({ params }) {
   const { locale } = await params;
 
   try {

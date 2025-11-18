@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-const ResSurvey = ({ dataSection, dataDiscover }) => {
+const ResSurvey = ({ dataSection }) => {
   const locale = useLocale();
 
   // --- MAP DATA from API ---
@@ -27,7 +27,7 @@ const ResSurvey = ({ dataSection, dataDiscover }) => {
       desc: r.description,
       btn: {
         text: locale === "en" ? "Discover Now" : "Temukan Solusinya",
-        href: dataDiscover,
+        href: r.link,
         target: "_self",
       },
     })) || [];

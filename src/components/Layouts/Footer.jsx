@@ -9,6 +9,8 @@ export default async function Footer(props) {
   const params = await props.params;
   const locale = params.locale;
 
+  const footerMenu = props.footerMenu;
+
   const responseListWebsite = await getPosts("representatives");
   const listWebsite = responseListWebsite?.data || [];
 
@@ -27,9 +29,11 @@ export default async function Footer(props) {
     title: responseGeneral?.data.footer?.title?.[locale] || "",
     description: responseGeneral?.data.footer?.description?.[locale] || "",
     button_text: responseGeneral?.data.footer?.button_text?.[locale] || "",
-    button_link: responseGeneral?.data.footer?.button_link || "",
+    button_link:
+      locale === "en"
+        ? responseGeneral?.data.footer?.button_link_en
+        : responseGeneral?.data.footer?.button_link_id,
   };
-
   const responseBusiness = await getPageData("business");
   const businessData = responseBusiness.data[locale] || [];
   const sectionsBusiness = businessData.sections.reduce((acc, section) => {
@@ -60,7 +64,7 @@ export default async function Footer(props) {
 
   const t = await getTranslations();
   const FooterContent = t.raw("FooterContent");
-  const FooterMenu = t.raw("FooterMenu");
+  // const FooterMenu = t.raw("FooterMenu");
 
   return (
     <footer className="max-w-screen items-center justify-center flex flex-col bg-[#00529c] footer overflow-hidden relative z-0">
@@ -77,7 +81,7 @@ export default async function Footer(props) {
       />
       <FooterMiddle
         FooterContent={FooterContent}
-        FooterMenu={FooterMenu}
+        FooterMenu={footerMenu}
         FooterSocMed={listSocmed}
         GeneralData={generalData}
         LogoData={footerLogo}

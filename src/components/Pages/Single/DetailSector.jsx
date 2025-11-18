@@ -3,23 +3,16 @@ import OverviewGlobal from "@/components/Fragments/Global/OverviewGlobal";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 import SecDetailCard from "@/components/Fragments/Sector-Detail/SecDetailCard";
 import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
-import { generateDynamicMetadata } from "@/utils/metadata";
 import { getStructuredPostData } from "@/utils/page-data";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }) {
-  const { id, locale } = await params;
-
-  return generateDynamicMetadata("sectors", id, locale, "banner_image");
-}
-
 export default async function SectorDetailPage({ params }) {
-  const { id, locale } = await params;
+  const { detail, locale, urlProduct, urlSolution } = await params;
 
   try {
     const { data: sectorData, rawData } = await getStructuredPostData(
       "sectors",
-      id,
+      detail,
       locale
     );
 
@@ -45,7 +38,7 @@ export default async function SectorDetailPage({ params }) {
         title: item.title,
         description: item.description,
         image: item.image,
-        url: `/product/${item.slug}`,
+        url: `/${urlProduct}/${item.slug}`,
         is_highlighted: item.is_highlighted,
       })) || [];
 
@@ -76,7 +69,7 @@ export default async function SectorDetailPage({ params }) {
           className="lg:!pt-17 !pb-10 lg:!pb-17"
         />
         <SecDetailSlider dataSection={sliderData} numbering={false} />
-        <SecDetailCard dataSection={cardSection} />
+        <SecDetailCard dataSection={cardSection} urlSolution={urlSolution} />
       </>
     );
   } catch (error) {

@@ -16,9 +16,10 @@ const FooterTop = ({
 
   // Fungsi untuk mendapatkan prefooter yang sesuai berdasarkan pathname
   const getCurrentPrefooter = () => {
-    const businessPattern = /^\/(en\/)?(business|sector)(\/|$)/;
-    const residentialPattern = /^\/(en\/)?residential(\/|$)/;
-    const aboutPattern = /^\/(en\/)?about(\/|$)/;
+    const businessPattern = /^\/(en\/)?(business|sector|bisnis|sektor)(\/|$)/;
+    const residentialPattern = /^\/(en\/)?(residential|residensial)(\/|$)/;
+    const aboutPattern =
+      /^\/(en\/)?(about-secom-indonesia|tentang-secom-indonesia)(\/|$)/;
 
     if (businessPattern.test(pathname)) {
       return prefooterBusiness || prefooterData;

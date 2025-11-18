@@ -2,16 +2,10 @@ import BannerBasic from "@/components/Fragments/Global/BannerBasic";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 import SolProduct from "@/components/Fragments/Solutions/SolProduct";
 import SolServices from "@/components/Fragments/Solutions/SolServices";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData, getSectionData } from "@/utils/page-data";
-import { getPosts } from "@/libs/api";
+import { apiFetch, getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata("solution", locale, "solution_banner.image");
-}
-
-export default async function SolutionsLP({ params, searchParams }) {
+export default async function SolutionsPage({ params, searchParams }) {
   const { locale } = await params;
   const sector = searchParams?.sector || null;
 
@@ -23,6 +17,17 @@ export default async function SolutionsLP({ params, searchParams }) {
     ]);
 
     const { sections } = pageData;
+
+    const responseBhayangkara = await apiFetch(
+      `/resource?url=about-us-bhayangkara`
+    );
+    const urlBhayangkara = responseBhayangkara?.data.url?.[locale];
+
+    const responseService = await apiFetch(`/resource?url=service`);
+    const urlService = responseService?.data.url?.[locale];
+
+    const responseProduct = await apiFetch(`/resource?url=product`);
+    const urlProduct = responseProduct?.data.url?.[locale];
 
     // Process data
     const listService = servicesData.data || [];
@@ -37,8 +42,14 @@ export default async function SolutionsLP({ params, searchParams }) {
         <SolServices
           dataSection={servicesSectionData}
           listService={listService}
+          urlBhayangkara={urlBhayangkara}
+          urlService={urlService}
         />
-        <SolProduct dataSection={productsData} defaultSector={sector} />
+        <SolProduct
+          dataSection={productsData}
+          defaultSector={sector}
+          urlProduct={urlProduct}
+        />
       </>
     );
   } catch (error) {

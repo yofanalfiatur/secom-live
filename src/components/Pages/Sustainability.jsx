@@ -1,32 +1,6 @@
 import FAQsFragment from "@/components/Fragments/FAQs/page";
 import { getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-
-  const title =
-    locale === "en"
-      ? "Sustainability Management - SECOM"
-      : "Sustainability Management - SECOM";
-
-  return {
-    title: title,
-    description: "",
-    keywords: "",
-    openGraph: {
-      title: title,
-      description: "",
-      type: "website",
-      locale,
-    },
-    twitter: {
-      card: "summary",
-      title: title,
-      description: "",
-    },
-  };
-}
-
 export default async function SustainabilityPage({ params }) {
   const { locale } = await params;
 

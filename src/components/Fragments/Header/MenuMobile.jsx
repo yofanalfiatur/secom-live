@@ -5,15 +5,19 @@ import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useState } from "react";
+import { apiFetch } from "@/libs/api";
 
 const MenuMobile = (props) => {
+  const mobileMenu = props.mobileMenu;
+  const contactLink = props.contactLink;
+
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const HeaderButton = t.raw("HeaderButton");
   const HTop = t.raw("HTop");
-  const MenuHeaderMd = t.raw("MenuHeaderMd");
+  // const MenuHeaderMd = t.raw("MenuHeaderMd");
 
   const { handleHamburgerClick } = props;
 
@@ -40,33 +44,84 @@ const MenuMobile = (props) => {
     return "/img/flag-en.svg";
   };
 
+  // Function to check if current path is homepage
+  const isHomepage = () => {
+    return (
+      pathname === `/${currentLocale}` ||
+      pathname === "/" ||
+      pathname === `/${currentLocale}/` ||
+      (currentLocale === "id" && pathname === "/") ||
+      (currentLocale === "en" && pathname === "/en")
+    );
+  };
+
   // Function to handle language change
-  const handleLanguageChange = (newLocale) => {
+  const handleLanguageChange = async (newLocale) => {
     if (newLocale === currentLocale) return;
 
+    // console.log("Changing language to:", newLocale);
+
     try {
-      // Remove current locale from pathname
-      let newPath = pathname;
-      if (currentLocale !== "id") {
-        // id is default, so no prefix
-        newPath = pathname.replace(`/${currentLocale}`, "");
+      let identifierSlug = "";
+      let resourceData = null;
+
+      // Jika bukan homepage, ambil identifierSlug
+      if (!isHomepage()) {
+        // Parse pathname untuk dapat locale dan segments
+        const segments = pathname
+          .split("/")
+          .filter((segment) => segment !== "");
+        const pathWithoutLocale =
+          segments[0] === "en" ? segments.slice(1) : segments;
+
+        if (currentLocale === "en") {
+          identifierSlug = pathname.replace(`/${currentLocale}/`, "");
+        } else {
+          identifierSlug = pathname.replace(`/`, "");
+        }
+
+        // Fetch resource data berdasarkan slug hanya jika bukan homepage
+        let urlResource = null;
+        let parentURL = null;
+
+        if (pathWithoutLocale[1] === undefined) {
+          urlResource = `/resource?url=${pathWithoutLocale[0]}`;
+        } else {
+          urlResource = `/resource?url=${pathWithoutLocale[0]}&single_page=${pathWithoutLocale[1]}`;
+        }
+
+        try {
+          const response = await apiFetch(urlResource);
+          resourceData = response?.data.url[newLocale];
+          parentURL = response?.data?.parent_url[newLocale];
+        } catch (error) {
+          console.error("❌ Failed to fetch resource:", error);
+        }
+
+        if (pathWithoutLocale[1] && resourceData) {
+          router.push(`/${newLocale}/${parentURL}/${resourceData}`);
+          // console.log(
+          //   "Navigating to:",
+          //   `/${newLocale}/${parentURL}/${resourceData}`
+          // );
+          return;
+        }
       }
 
-      // Add new locale prefix if not default (id)
-      if (newLocale !== "id") {
-        newPath = `/${newLocale}${newPath}`;
+      // if homepage or resource data not found, redirect ke homepage
+      if (isHomepage() || !resourceData) {
+        if (newLocale === "id") {
+          router.push("/");
+        } else {
+          router.push(`/${newLocale}`);
+        }
+      } else {
+        // Navigate to new path dengan slug yang sesuai
+        router.push(`/${newLocale}/${resourceData}`);
       }
-
-      // Ensure path starts with /
-      if (!newPath.startsWith("/")) {
-        newPath = `/${newPath}`;
-      }
-
-      // Navigate to new path
-      router.push(newPath);
     } catch (error) {
       console.error("Error changing language:", error);
-      // Fallback: simple redirect
+      // Fallback: simple redirect ke homepage
       if (newLocale === "id") {
         router.push("/");
       } else {
@@ -108,7 +163,7 @@ const MenuMobile = (props) => {
 
       {/* Menu Mobile */}
       <ul className="gap-x-6 flex flex-col lg:hidden header__menu-md">
-        {MenuHeaderMd.map(({ text, href, icon, subMenu }, index) => (
+        {mobileMenu.map(({ text, href, icon, subMenu }, index) => (
           <li
             className="flex flex-col justify-center header__menu-md__item group border-b-[1px] border-[#00000033] relative"
             key={index}
@@ -176,8 +231,8 @@ const MenuMobile = (props) => {
       </ul>
 
       <Link
-        href={HeaderButton.HeaderBtnHref}
-        target={HeaderButton.HeaderBtnTarget}
+        href={contactLink}
+        target="_self"
         className="flex flex-row bg-navyblue pl-4 py-3 items-center justify-center"
         onClick={handleHamburgerClick}
       >

@@ -22,7 +22,7 @@ const ResSolution = ({ dataSection }) => {
           <p className="text-white text-sm lg:text-lg font-raleway font-normal mb-6 leading-[1.5] w-full lg:w-[80%]">
             {dataSection.description_section}
           </p>
-          <ButtonSecondary href={`/solution`} target={"_self"}>
+          <ButtonSecondary href={dataSection.cta_section} target={"_self"}>
             {locale === "en" ? "LEARN MORE" : "SELENGKAPNYA"}
           </ButtonSecondary>
         </div>

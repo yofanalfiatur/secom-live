@@ -6,18 +6,8 @@ import AboutTeam from "@/components/Fragments/About/AbTeam";
 import AboutTrusted from "@/components/Fragments/About/AbTrusted";
 import AboutWhy from "@/components/Fragments/About/AbWhy";
 import React from "react";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData } from "@/utils/page-data";
 import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
-
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata(
-    "about-secom-indonesia",
-    locale,
-    "about_banner.image"
-  );
-}
 
 export default async function AboutPage({ params }) {
   const { locale } = await params;

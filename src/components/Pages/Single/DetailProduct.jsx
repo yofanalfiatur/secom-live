@@ -12,22 +12,16 @@ import BannerSecondary from "@/components/Fragments/Global/BannerSecondary";
 import HowWeWork from "@/components/Fragments/Global/HowWeWork";
 import OverviewGlobal from "@/components/Fragments/Global/OverviewGlobal";
 import SolDtHighlight from "@/components/Fragments/Solution-Detail/SolDtHighlight";
-import { generateDynamicMetadata } from "@/utils/metadata";
 import { getStructuredPostData } from "@/utils/page-data";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 
-export async function generateMetadata({ params }) {
-  const { id, locale } = await params;
-  return generateDynamicMetadata("products", id, locale, "image");
-}
-
 export default async function ProductDetail({ params }) {
-  const { id, locale } = await params;
+  const { detail, locale, urlContactUs } = await params;
 
   try {
     const { data: productData, rawData } = await getStructuredPostData(
       "products",
-      id,
+      detail,
       locale
     );
 
@@ -198,6 +192,8 @@ export default async function ProductDetail({ params }) {
       file: productData.catalogue,
     };
 
+    const slugContact = `/${urlContactUs}?product=${rawData.slug}`;
+    const slugContactLocation = `/${urlContactUs}?location=${typeProduct}`;
     return (
       <>
         {typeProduct === "business" ? <HeaderList locale={locale} /> : ""}
@@ -209,7 +205,7 @@ export default async function ProductDetail({ params }) {
             <OverviewGlobal
               dataSection={overviewData}
               buttonContact={true}
-              slugContact={rawData.slug}
+              slugContact={slugContact}
             />
             <HowWeWork dataSection={reasonData} />
             <SolDtHighlight dataSection={highlightData} catalogue={catalogue} />
@@ -221,7 +217,10 @@ export default async function ProductDetail({ params }) {
             <BannerSecondary dataSection={bannerFullData} />
             <OverviewGlobal dataSection={overviewFullData} />
             <HowWeWork dataSection={reasonData} />
-            <AmProtect dataSection={protectData} typeProduct={typeProduct} />
+            <AmProtect
+              dataSection={protectData}
+              slugContactLocation={slugContactLocation}
+            />
             <AmProducts
               dataSection={productSection}
               dataProducts={productDevices}

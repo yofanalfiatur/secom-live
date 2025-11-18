@@ -4,7 +4,6 @@ import BlpCard from "@/components/Fragments/BusinessLP/BlpCard";
 import BlpNews from "@/components/Fragments/BusinessLP/BlpNews";
 import ResSurvey from "@/components/Fragments/Residential/R-Survey";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
-import { generatePageMetadata } from "@/utils/metadata";
 import {
   getStructuredPageData,
   getSectionData,
@@ -12,15 +11,6 @@ import {
 } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
 import SecDetailSlider from "@/components/Fragments/Sector-Detail/SecDetailSlider";
-
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata(
-    "business",
-    locale,
-    "business_banner.slides.0.image"
-  );
-}
 
 export default async function BusinessPage({ params }) {
   const { locale } = await params;

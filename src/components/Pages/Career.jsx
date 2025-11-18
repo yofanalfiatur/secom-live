@@ -1,16 +1,10 @@
 import CareerBanner from "@/components/Fragments/Career/CareerBanner";
 import CareerCard from "@/components/Fragments/Career/CareerCard";
 import CareerVacancies from "@/components/Fragments/Career/CareerVacancies";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData, getSectionData } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata("career", locale, "career_banner.image");
-}
-
-export default async function Career({ params }) {
+export default async function CareerPage({ params }) {
   const { locale } = await params;
 
   try {

@@ -1,29 +1,6 @@
 import NewsLP from "@/components/Fragments/NewsLP/NewsLP";
 import { getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-
-  const title = locale === "en" ? "Articles - SECOM" : "Artikel - SECOM";
-
-  return {
-    title: title,
-    description: "",
-    keywords: "",
-    openGraph: {
-      title: title,
-      description: "",
-      type: "website",
-      locale,
-    },
-    twitter: {
-      card: "summary",
-      title: title,
-      description: "",
-    },
-  };
-}
-
 // Helper function to extract excerpt from content (max 20 words)
 const extractExcerpt = (content, maxWords = 20) => {
   if (!content) return "";
@@ -41,15 +18,13 @@ const extractExcerpt = (content, maxWords = 20) => {
   return words.slice(0, maxWords).join(" ") + "...";
 };
 
-export default async function NewsLanding(props) {
-  // Await both params and searchParams
-  const { locale } = await props.params;
-  const searchParams = await props.searchParams;
+export default async function NewsPage({ params, searchParams }) {
+  const { locale } = await params;
+  const resolvedSearchParams = await searchParams;
 
-  // Get page, category, and year from search params
-  const currentPage = parseInt(searchParams.page) || 1;
-  const selectedCategory = searchParams.category || "";
-  const selectedYear = searchParams.year || "";
+  const currentPage = parseInt(resolvedSearchParams.page) || 1;
+  const selectedCategory = resolvedSearchParams.category || "";
+  const selectedYear = resolvedSearchParams.year || "";
 
   // Build API parameters
   const apiParams = {

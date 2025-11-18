@@ -10,7 +10,7 @@ const BlpCard = ({ dataSection }) => {
         {dataSection.map((item, index) => (
           <div className="flex flex-col relative group" key={index}>
             <Link
-              href={index === 0 ? "/sector" : "/solution"}
+              href={item.url}
               className=" flex flex-col transition-all duration-300 ease relative z-10 h-full m-1"
             >
               <Image

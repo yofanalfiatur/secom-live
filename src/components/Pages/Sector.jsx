@@ -2,21 +2,11 @@ import BannerBasic from "@/components/Fragments/Global/BannerBasic";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 import ResTesti from "@/components/Fragments/Residential/R-Testimonial";
 import SectorList from "@/components/Fragments/Sector/StList";
-import { generatePageMetadata } from "@/utils/metadata";
 import { getStructuredPageData, getSectionData } from "@/utils/page-data";
 import { getPosts } from "@/libs/api";
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata(
-    "sector",
-    locale,
-    "sector_banner.background_image_desktop"
-  );
-}
-
-export default async function SectorLanding({ params }) {
-  const { locale } = await params;
+export default async function SectorPage({ params }) {
+  const { slug, locale } = await params;
 
   try {
     // Fetch data secara paralel
@@ -35,7 +25,6 @@ export default async function SectorLanding({ params }) {
       "sector_security_across_all_sectors"
     );
 
-    // Normalisasi field agar BannerBasic tidak error
     const normalizedBannerData = {
       ...bannerData,
       background_image_desktop:
@@ -49,8 +38,7 @@ export default async function SectorLanding({ params }) {
     // Process sectors data
     const sectorsDataRaw = sectorsData.data || [];
     const sectorsList = sectorsDataRaw.map((item) => {
-      const translation =
-        item.translations?.[locale] || item.translations?.id || {};
+      const translation = item.translations?.[locale] || {};
       return {
         id: item.id,
         title: translation.title || "",
@@ -58,7 +46,7 @@ export default async function SectorLanding({ params }) {
         image: translation.image
           ? `${process.env.NEXT_PUBLIC_STORAGE_URL}${translation.image}`
           : "",
-        link: `/sector/${translation.slug || item.slug}`,
+        link: `/${slug}/${item.url?.[locale] || []}`,
       };
     });
 

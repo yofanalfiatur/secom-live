@@ -8,21 +8,11 @@ import ResQuote from "@/components/Fragments/Residential/R-Quote";
 import ResSolution from "@/components/Fragments/Residential/R-Solution";
 import ResSurvey from "@/components/Fragments/Residential/R-Survey";
 import ResTesti from "@/components/Fragments/Residential/R-Testimonial";
-import { generatePageMetadata } from "@/utils/metadata";
 import {
   getStructuredPageData,
   getSectionData,
   getArrayData,
 } from "@/utils/page-data";
-
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return generatePageMetadata(
-    "residential",
-    locale,
-    "residential_banner.image"
-  );
-}
 
 export default async function ResidentialPage({ params }) {
   const { locale } = await params;

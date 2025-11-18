@@ -6,12 +6,12 @@ import RadialCardHover from "@/components/Elements/RadialCardHover";
 import RadialGridCard from "@/components/Elements/RadialGridCard";
 import { useLocale } from "next-intl";
 
-const CardProductV2 = ({ item, variant = "desktop" }) => {
+const CardProductV2 = ({ item, variant = "desktop", urlProduct }) => {
   if (variant === "desktop") {
     return (
       <li className="w-[32.5%] relative flex flex-col min-h-[500px] group">
         <Link
-          href={`/product/${item.slug}`}
+          href={`/${urlProduct}/${item.slug}`}
           target="_self"
           className="flex flex-col h-full bg-[#012146] pt-12 pb-6 px-8 m-1 relative z-[1] group card-product-desktop"
         >
@@ -49,7 +49,7 @@ const CardProductV2 = ({ item, variant = "desktop" }) => {
     <div className="relative flex flex-col group min-h-[350px] bg-[#012146] pt-7 pb-6 px-8 card-product-mobile">
       <RadialGridCard />
       <Link
-        href={`/product/${item.slug}`}
+        href={`/${urlProduct}/${item.slug}`}
         target="_self"
         className="flex flex-col h-full relative z-[1] group "
       >

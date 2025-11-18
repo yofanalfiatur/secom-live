@@ -8,12 +8,17 @@ import MenuDesktop from "../Fragments/Header/MenuDesktop";
 import MenuMobile from "../Fragments/Header/MenuMobile";
 import useIsDesktop from "../Hooks/useIsDesktop";
 
-const Header = () => {
+const Header = (props) => {
   const isDesktop = useIsDesktop();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isScrollDown, setIsScrollDown] = useState(false);
+
+  const leftMenu = props.leftMenu;
+  const rightMenu = props.rightMenu;
+  const mobileMenu = props.mobileMenu;
+  const contactLink = props.contactLink;
 
   const handleHamburgerClick = () => {
     setIsMenuOpen((prev) => !prev);
@@ -88,7 +93,11 @@ const Header = () => {
           {isDesktop ? (
             <div className="w-[90%] hidden lg:flex flex-col justify-end h-full header__wrap-right">
               <HeaderTop />
-              <MenuDesktop />
+              <MenuDesktop
+                leftMenu={leftMenu}
+                rightMenu={rightMenu}
+                contactLink={contactLink}
+              />
             </div>
           ) : (
             <div className="lg:hidden w-max h-auto pr-[2rem] header__btn-md">
@@ -116,7 +125,11 @@ const Header = () => {
               : "top-[-100%] invisible opacity-0"
           } lg:hidden flex-col pt-[60px] pb-[100px] fixed left-0 w-screen h-screen max-h-screen overflow-scroll z-[99] bg-white offcanvas transition-all duration-300 ease-in-out`}
         >
-          <MenuMobile handleHamburgerClick={handleHamburgerClick} />
+          <MenuMobile
+            handleHamburgerClick={handleHamburgerClick}
+            mobileMenu={mobileMenu}
+            contactLink={contactLink}
+          />
         </div>
       )}
     </>

@@ -3,23 +3,17 @@ import HowWeWork from "@/components/Fragments/Global/HowWeWork";
 import OverviewGlobal from "@/components/Fragments/Global/OverviewGlobal";
 import SolDtHighlight from "@/components/Fragments/Solution-Detail/SolDtHighlight";
 import { notFound } from "next/navigation";
-import { generateDynamicMetadata } from "@/utils/metadata";
 import { getStructuredPostData } from "@/utils/page-data";
 import BannerClipText from "@/components/Fragments/Global/BannerClipText";
 import HeaderList from "@/components/Fragments/Header/HeaderList";
 
-export async function generateMetadata({ params }) {
-  const { id, locale } = await params;
-  return generateDynamicMetadata("services", id, locale, "banner_image");
-}
-
 export default async function ServiceDetailPage({ params }) {
-  const { id, locale } = await params;
+  const { detail, locale, urlContactUs } = await params;
 
   try {
     const { data: serviceData } = await getStructuredPostData(
       "services",
-      id,
+      detail,
       locale
     );
 
@@ -53,6 +47,8 @@ export default async function ServiceDetailPage({ params }) {
       items: serviceData.faq_accordions,
     };
 
+    const slugContact = `/${urlContactUs}?product=${serviceData.slug}`;
+
     return (
       <>
         <HeaderList locale={locale} />
@@ -60,7 +56,7 @@ export default async function ServiceDetailPage({ params }) {
         <OverviewGlobal
           dataSection={overviewData}
           buttonContact={true}
-          slugContact={serviceData.slug}
+          slugContact={slugContact}
         />
         <HowWeWork dataSection={reasonData} />
         <SolDtHighlight dataSection={highlightData} />

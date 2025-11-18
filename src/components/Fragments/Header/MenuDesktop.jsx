@@ -5,13 +5,16 @@ import Image from "next/image";
 import { Link, usePathname } from "@/i18n/navigation";
 import LocaleLink from "@/components/Hooks/LocaleLink";
 
-const MenuDesktop = () => {
+const MenuDesktop = (props) => {
   const t = useTranslations();
   const pathname = usePathname();
   const MenuType = t.raw("MenuType");
   const MenuHeader = t.raw("MenuHeader");
   const HeaderButton = t.raw("HeaderButton");
 
+  const leftMenu = props.leftMenu;
+  const rightMenu = props.rightMenu;
+  const contactLink = props.contactLink;
   // Function to check if link is active
   const isActiveLink = (href) => {
     // Remove trailing slashes for consistent comparison
@@ -37,7 +40,7 @@ const MenuDesktop = () => {
     <>
       <nav className="pl-6 pr-8 flex flex-row justify-between items-center border-x-1 border-[#ffffff33] header__nav">
         <ul className=" flex flex-row gap-10 header__type">
-          {MenuType.map(({ icon, text, href, subMenu }, index) => {
+          {leftMenu.map(({ icon, text, href, subMenu }, index) => {
             const isActive = isActiveLink(href);
 
             return (
@@ -125,7 +128,7 @@ const MenuDesktop = () => {
         <div className="flex flex-row gap-4 items-center">
           {/* Hide temporary */}
           <ul className="gap-x-6 flex flex-row header__menu">
-            {MenuHeader.map(({ text, href, subMenu }, index) => {
+            {rightMenu.map(({ text, href, subMenu }, index) => {
               const isActive = isActiveLink(href);
 
               return (
@@ -212,8 +215,8 @@ const MenuDesktop = () => {
           </ul>
 
           <ButtonPrimary
-            href={HeaderButton.HeaderBtnHref}
-            target={HeaderButton.HeaderBtnTarget}
+            href={contactLink}
+            target="_self"
             className="!text-[12px] !px-6 !py-3.5 !bg-navyblue hover:!bg-tosca !min-w-[242px]"
           >
             {HeaderButton.HeaderBtnText}

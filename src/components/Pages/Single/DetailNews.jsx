@@ -1,20 +1,14 @@
 import { Link } from "@/i18n/navigation";
 import { getPostBySlug, getPosts } from "@/libs/api";
-import { generateNewsMetadata } from "@/utils/metadata";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }) {
-  const { id, locale } = await params;
-  return generateNewsMetadata(id, locale);
-}
-
 export default async function NewsDetailPage({ params }) {
-  const { id, locale } = await params;
+  const { slug, locale } = await params;
 
   try {
     // 🔹 Fetch by Slug
-    const response = await getPostBySlug("articles", id);
+    const response = await getPostBySlug("articles", slug);
     if (!response || !response.data) return notFound();
 
     const data = response.data;

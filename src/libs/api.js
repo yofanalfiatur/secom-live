@@ -1,22 +1,27 @@
 // src/libs/api.js
 export async function apiFetch(endpoint, options = {}) {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`;
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    cache: "no-store", // jangan cache data API
-    ...options,
-  });
+  try {
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`;
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+      ...options,
+    });
 
-  if (!res.ok) {
-    console.error(`❌ API Error: ${res.status} ${res.statusText}`);
-    throw new Error(`Failed to fetch: ${endpoint}`);
+    if (!res.ok) {
+      console.error(`❌ API Error: ${res.status} ${res.statusText}`);
+      return null;
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error(`❌ Network Error: ${error.message}`);
+    return null;
   }
-
-  return res.json();
 }
 
 /**

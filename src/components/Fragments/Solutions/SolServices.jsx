@@ -4,7 +4,7 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 
 const SolServices = (props) => {
-  const { dataSection, listService } = props;
+  const { dataSection, listService, urlBhayangkara, urlService } = props;
   const locale = useLocale();
 
   return (
@@ -22,7 +22,9 @@ const SolServices = (props) => {
             const content = item.translations[locale];
 
             const hrefLink =
-              index === 2 ? "/about-bhayangkara" : `/service/${item.slug}`;
+              index === 2
+                ? `/${urlBhayangkara}`
+                : `/${urlService}/${item.slug}`;
 
             return (
               <li
