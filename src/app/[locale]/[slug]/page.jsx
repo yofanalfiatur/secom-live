@@ -15,6 +15,23 @@ import SolutionsPage from "@/components/Pages/Solution";
 import SustainabilityPage from "@/components/Pages/Sustainability";
 import NewsDetailPage from "@/components/Pages/Single/DetailNews";
 
+// Cache for resource data to avoid duplicate API calls
+const resourceCache = new Map();
+
+async function fetchResourceData(slug) {
+  if (resourceCache.has(slug)) {
+    return resourceCache.get(slug);
+  }
+  try {
+    const response = await apiFetch(`/resource?url=${slug}`);
+    resourceCache.set(slug, response?.data || null);
+    return response?.data || null;
+  } catch (error) {
+    console.error("❌ Failed to fetch resource:", error);
+    return null;
+  }
+}
+
 // Definisikan metadata configuration untuk setiap page
 const pageMetadataConfig = {
   "about-secom-indonesia": {
@@ -77,15 +94,8 @@ const pageMetadataConfig = {
 export async function generateMetadata({ params }) {
   const { slug, locale } = await params;
 
-  // Fetch resource data untuk metadata
-  let resourceData = null;
-  try {
-    const response = await apiFetch(`/resource?url=${slug}`);
-    resourceData = response?.data;
-  } catch (error) {
-    console.error("❌ Failed to fetch resource for metadata:", error);
-    return {};
-  }
+  // Use cached resource data to avoid duplicate API call
+  const resourceData = await fetchResourceData(slug);
 
   // Jika ada resource data dan type page, generate metadata
   if (resourceData && resourceData.type === "page") {
@@ -108,16 +118,11 @@ export async function generateMetadata({ params }) {
 
 export default async function DynamicPage({ params, searchParams }) {
   const { slug, locale } = await params;
-  const resolvedSearchParams = await searchParams; // TAMBAHKAN INI
+  const resolvedSearchParams = await searchParams;
 
-  // Fetch resource data berdasarkan slug
-  let resourceData = null;
-  try {
-    const response = await apiFetch(`/resource?url=${slug}`);
-    resourceData = response?.data;
-  } catch (error) {
-    console.error("❌ Failed to fetch resource:", error);
-  }
+  // Use cached resource data (same as generateMetadata, no duplicate call)
+  const resourceData = await fetchResourceData(slug);
+
   // Handle jika data tidak ditemukan
   if (!resourceData) {
     return <NotFound />;

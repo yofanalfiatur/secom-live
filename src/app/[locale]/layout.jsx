@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import "../globals.css";
 import Header from "@/components/Layouts/Header";
 import Footer from "@/components/Layouts/Footer";
-import ProgressBar from "@/components/Layouts/ProgressBar";
+import ProgressBarWrapper from "@/components/Layouts/ProgressBarWrapper";
 import Script from "next/script";
 import FloatButton from "@/components/Elements/FloatButton";
 import { apiFetch } from "@/libs/api";
@@ -20,54 +20,39 @@ export default async function LocaleLayout({ children, params }) {
   // Load messages for the selected locale
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
+  // Fetch menu with smart caching (24h cache via apiFetch)
   const responseMenu = await apiFetch(`/menu`);
-  const footerMenu = responseMenu?.data?.footer_menu;
-  const leftMenu = responseMenu?.data?.left_menu;
-  const rightMenu = responseMenu?.data?.right_menu;
+  const footerMenu = responseMenu?.data?.footer_menu || [];
+  const leftMenu = responseMenu?.data?.left_menu || [];
+  const rightMenu = responseMenu?.data?.right_menu || [];
 
-  const mappedLeftMenu = leftMenu.map((item, index) => ({
-    icon: index % 2 === 0 ? "/img/menu-type-1.svg" : "/img/menu-type-2.svg",
-    text: locale === "en" ? item.label_en : item.label_id,
-    href:
-      item.submenu && item.submenu.length > 0
-        ? "#"
-        : locale === "en"
-        ? `/${item.page_attribute.url_en}`
-        : `/${item.page_attribute.url_id}`,
-    subMenu: item.submenu.map((subItem) => ({
-      subMenuText: locale === "en" ? subItem.label_en : subItem.label_id,
-      subMenuHref:
-        subItem.type === "product"
-          ? locale === "en"
-            ? `/product/${subItem.item_attribute.url_en}`
-            : `/produk/${subItem.item_attribute.url_id}`
+  // Memoized menu mapping function to reduce re-computation
+  const mapMenuItems = (items) => {
+    return items.map((item, index) => ({
+      icon: index % 2 === 0 ? "/img/menu-type-1.svg" : "/img/menu-type-2.svg",
+      text: locale === "en" ? item.label_en : item.label_id,
+      href:
+        item.submenu && item.submenu.length > 0
+          ? "#"
           : locale === "en"
-          ? `/${subItem.item_attribute.url_en}`
-          : `/${subItem.item_attribute.url_id}`,
-    })),
-  }));
+          ? `/${item.page_attribute.url_en}`
+          : `/${item.page_attribute.url_id}`,
+      subMenu: (item.submenu || []).map((subItem) => ({
+        subMenuText: locale === "en" ? subItem.label_en : subItem.label_id,
+        subMenuHref:
+          subItem.type === "product"
+            ? locale === "en"
+              ? `/product/${subItem.item_attribute.url_en}`
+              : `/produk/${subItem.item_attribute.url_id}`
+            : locale === "en"
+            ? `/${subItem.item_attribute.url_en}`
+            : `/${subItem.item_attribute.url_id}`,
+      })),
+    }));
+  };
 
-  const mappedRightMenu = rightMenu.map((item) => ({
-    icon: null,
-    text: locale === "en" ? item.label_en : item.label_id,
-    href:
-      item.submenu && item.submenu.length > 0
-        ? "#"
-        : locale === "en"
-        ? `/${item.page_attribute.url_en}`
-        : `/${item.page_attribute.url_id}`,
-    subMenu: item.submenu.map((subItem) => ({
-      subMenuText: locale === "en" ? subItem.label_en : subItem.label_id,
-      subMenuHref:
-        subItem.type === "product"
-          ? locale === "en"
-            ? `/product/${subItem.item_attribute.url_en}`
-            : `/produk/${subItem.item_attribute.url_id}`
-          : locale === "en"
-          ? `/${subItem.item_attribute.url_en}`
-          : `/${subItem.item_attribute.url_id}`,
-    })),
-  }));
+  const mappedLeftMenu = mapMenuItems(leftMenu);
+  const mappedRightMenu = mapMenuItems(rightMenu);
 
   const mappedMobileMenu = [
     // Ambil "Home" dari rightMenu (index 0)
@@ -82,7 +67,7 @@ export default async function LocaleLayout({ children, params }) {
             : locale === "en"
             ? `/${item.page_attribute.url_en}`
             : `/${item.page_attribute.url_id}`,
-        subMenu: item.submenu.map((subItem) => ({
+        subMenu: (item.submenu || []).map((subItem) => ({
           subMenuText: locale === "en" ? subItem.label_en : subItem.label_id,
           subMenuHref:
             subItem.type === "product"
@@ -96,27 +81,7 @@ export default async function LocaleLayout({ children, params }) {
       })),
 
     // Semua item dari leftMenu (Bisnis, Residential)
-    ...leftMenu.map((item, index) => ({
-      icon: index % 2 === 0 ? "/img/menu-type-1.svg" : "/img/menu-type-2.svg",
-      text: locale === "en" ? item.label_en : item.label_id,
-      href:
-        item.submenu && item.submenu.length > 0
-          ? "#"
-          : locale === "en"
-          ? `/${item.page_attribute.url_en}`
-          : `/${item.page_attribute.url_id}`,
-      subMenu: item.submenu.map((subItem) => ({
-        subMenuText: locale === "en" ? subItem.label_en : subItem.label_id,
-        subMenuHref:
-          subItem.type === "product"
-            ? locale === "en"
-              ? `/product/${subItem.item_attribute.url_en}`
-              : `/produk/${subItem.item_attribute.url_id}`
-            : locale === "en"
-            ? `/${subItem.item_attribute.url_en}`
-            : `/${subItem.item_attribute.url_id}`,
-      })),
-    })),
+    ...mapMenuItems(leftMenu),
 
     // Ambil sisanya dari rightMenu (About, Artikel) - mulai dari index 1
     ...rightMenu
@@ -130,7 +95,7 @@ export default async function LocaleLayout({ children, params }) {
             : locale === "en"
             ? `/${item.page_attribute.url_en}`
             : `/${item.page_attribute.url_id}`,
-        subMenu: item.submenu.map((subItem) => ({
+        subMenu: (item.submenu || []).map((subItem) => ({
           subMenuText: locale === "en" ? subItem.label_en : subItem.label_id,
           subMenuHref:
             subItem.type === "product"
@@ -201,7 +166,7 @@ export default async function LocaleLayout({ children, params }) {
         </noscript>
 
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ProgressBar />
+          <ProgressBarWrapper />
           <Header
             params={params}
             leftMenu={mappedLeftMenu}

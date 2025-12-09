@@ -2,13 +2,42 @@
 export async function apiFetch(endpoint, options = {}) {
   try {
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`;
+
+    // Intelligent caching strategy based on endpoint
+    let cacheTime = 3600; // default 1 hour
+
+    // Menu data: cache for 24 hours (rarely changes)
+    if (endpoint.includes("/menu")) {
+      cacheTime = 86400;
+    }
+    // Resource lookups: cache for 1 hour
+    if (endpoint.includes("/resource")) {
+      cacheTime = 3600;
+    }
+    // Static pages: cache for 24 hours
+    if (endpoint.includes("/page/")) {
+      cacheTime = 86400;
+    }
+    // Categories: cache for 24 hours
+    if (endpoint.includes("/categories")) {
+      cacheTime = 86400;
+    }
+    // Sectors, products, services: cache for 1 hour (may be updated)
+    if (
+      endpoint.includes("/sectors") ||
+      endpoint.includes("/products") ||
+      endpoint.includes("/services")
+    ) {
+      cacheTime = 3600;
+    }
+
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      cache: "no-store",
+      next: { revalidate: cacheTime }, // ✅ Smart caching instead of no-store
       ...options,
     });
 

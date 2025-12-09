@@ -39,6 +39,10 @@ const HeaderTop = () => {
   const handleLanguageChange = async (newLocale) => {
     if (newLocale === currentLocale) return;
 
+    // Dispatch custom event to trigger progress bar
+    const event = new CustomEvent("languagechange");
+    document.dispatchEvent(event);
+
     // console.log("Changing language to:", newLocale);
 
     try {
