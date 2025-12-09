@@ -13,11 +13,11 @@ const nextConfig = {
     "https://secom-fe.vercel.app/",
     "https://secom.madebystucel.com/",
   ],
-  experimental: {
-    turbo: false,
-    workerThreads: false,
-    cpus: 2,
-  },
+  // experimental: {
+  //   turbo: false,
+  //   workerThreads: false,
+  //   cpus: 2,
+  // },
 
   images: {
     remotePatterns: [
