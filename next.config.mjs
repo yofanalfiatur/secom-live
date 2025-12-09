@@ -19,12 +19,33 @@ const nextConfig = {
   },
 
   images: {
-    domains: [
-      "api.secom.co.id",
-      "api.secom.madebystucel.com",
-      "flagsapi.com",
-      "placehold.co",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.secom.co.id",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.secom.madebystucel.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "flagsapi.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
+      },
     ],
+    qualities: [75, 100],
   },
 };
 
