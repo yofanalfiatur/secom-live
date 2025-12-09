@@ -14,6 +14,7 @@ const nextConfig = {
     "https://secom.madebystucel.com/",
   ],
   experimental: {
+    turbo: false,
     workerThreads: false,
     cpus: 2,
   },
