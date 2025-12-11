@@ -88,37 +88,16 @@ export default function ProgressBar() {
           startProgress();
         }
       }
-
-      // Language switcher clicks (desktop & mobile)
-      const langElement =
-        e.target &&
-        e.target.closest &&
-        e.target.closest(".lang-option, .header__menu__link");
-      if (langElement) {
-        const isActive =
-          langElement.classList.contains("active") ||
-          langElement.classList.contains("active-md");
-        if (!isActive) {
-          startProgress();
-        }
-      }
-    };
-
-    // Listen for custom language change event (from programmatic router.push)
-    const onLanguageChange = () => {
-      startProgress();
     };
 
     // Attach listeners
     document.addEventListener("click", onDocumentClick, true);
-    document.addEventListener("languagechange", onLanguageChange);
 
     // Set fallback timeout to force completion (safeguard for slow pages)
     fallbackTimerRef.current = setTimeout(completeProgress, 4000);
 
     return () => {
       document.removeEventListener("click", onDocumentClick, true);
-      document.removeEventListener("languagechange", onLanguageChange);
       if (fallbackTimerRef.current) {
         clearTimeout(fallbackTimerRef.current);
       }
